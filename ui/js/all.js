@@ -6,6 +6,7 @@
 	}
 
 	include('intro.js');
+	include('phyloprofile.js');
 	include('tree.js');
 
 })();
