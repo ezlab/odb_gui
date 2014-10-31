@@ -1,0 +1,100 @@
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	margin:0px;
+	padding: 0px;
+}
+
+body {
+	font-size: 13px;
+	font-family: Verdana, Helvetica, sans-serif;
+}
+
+.s-body {
+	position: relative;
+	height: 100%;
+	min-width: 1200px;
+}
+
+.s-content {
+	position: absolute;
+	overflow: auto;
+	width: 820px;
+	right: 50%;
+	top: 80px;
+	bottom: 25px;
+	margin-right: -220px;
+}
+
+.s-sidebar {
+	position: absolute;
+	overflow: auto;
+	left: 50%;
+	right: 0;
+	top: 80px;
+	bottom: 25px;
+	margin-left: 220px;
+}
+
+.s-sidebar-wrap {
+	width: 380px;
+	min-height: 100%;
+	padding: 15px;
+	background: #f8f8f2;
+}
+
+.s-header {
+	height: 69px;
+	background: #9C0063;
+}
+
+.s-header-right-fill {
+	position: absolute;
+	top: 0;
+	height: 80px;
+	left: 50%;
+	right: 0;
+	background: url(../images/header-right-fill.gif) repeat-x;
+}
+
+.s-header-logo-2 {
+	position: absolute;
+	top: 2px;
+	height: 65px;
+	left: 50%;
+	width: 86px;
+	margin-left: 200px;
+	background: url(../images/sib-logo.png) no-repeat;
+}
+
+.s-header-wrap {
+	position: relative;
+	width: 1200px;
+	height: 80px;
+	margin: 0 auto;
+	background: url(../images/cegg-logo.jpg) 15px 0 no-repeat;
+}
+
+.s-footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #eeeee6;
+}
+
+.s-footer-wrap {
+	width: 1200px;
+	height: 25px;
+	margin: 0 auto;
+}
+
+
