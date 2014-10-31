@@ -20,14 +20,67 @@
 
 		<div class="s-header">
 			<div class="s-header-right-fill"></div>
-			<div class="s-header-wrap"></div>
-			<a href="http://www.isb-sib.ch/" target="_new" class="s-header-logo-2"></a>
+			<div class="s-header-wrap">
+				<a href="http://www.isb-sib.ch/" target="_new" class="s-header-logo-2"></a>
+				<div class="s-header-menu-1">
+					<a href="http://cegg.unige.ch" title="Home" class="header_links">Home</a>
+					<a href="http://orthodb.org/data" title="Supplementary Data" class="header_links">Data</a>
+					<a href="http://orthodb.org/toolsandservices" title="Tools and Services" class="header_links">Services</a>
+					<a href="http://orthodb.org/useful_links" title="Links &amp; Collaborators" class="header_links">Links</a>
+				</div>
+				<div class="s-header-menu-2">
+					<a href="#">Help</a>
+					<a href="#">History</a>
+				</div>
+			</div>
 		</div>
 
 		<div class="s-sidebar">
 			<div class="s-sidebar-wrap">
-				<div style="height:200px"></div>
+				<div class="s-sidebar-label">Search by text:</div>
+				<input id="input-search-text" type="text" />
+
+				<div class="s-sidebar-label">.. or select phylogenetic profile:</div>
+				<select id="input-phylo-profile">
+					<option value="Select a Phyloprofile">Select a Phyloprofile</option>
+					<option value="'=1' '=1'">Single-Copy in all species</option>
+					<option value="'=1' '?'">Single-Copy, one loss or duplication</option>
+					<option value="'=1' '=0'">Single-Copy, but one loss</option>
+					<option value="'=1' '>1'">Single-Copy, but one &gt;1</option>
+					<option value="'=1' '>2'">Single-Copy, but one &gt;2</option>
+					<option value="'=1' '>3'">Single-Copy, but one &gt;3</option>
+					<option value="'=1' '90'">Single-Copy in &gt;90% of species</option>
+					<option value="'=1' '80'">Single-Copy in &gt;80% of species</option>
+					<option value="'=1' '70'">Single-Copy in &gt;70% of species</option>
+					<option value="'>1' '>1'">Multi-Copy in all species</option>
+					<option value="'>1' '?'">Multi-Copy, one loss or single-copy</option>
+					<option value="'>1' '=0'">Multi-Copy, but one loss</option>
+					<option value="'>1' '=1'">Multi-Copy, but one single-copy</option>
+					<option value="'>1' '90'">Multi-Copy in &gt;90% of species</option>
+					<option value="'>1' '80'">Multi-Copy in &gt;80% of species</option>
+					<option value="'>1' '70'">Multi-Copy in &gt;70% of species</option>
+					<option value="'>0' '>0'">Present in all species</option>
+					<option value="'>0' '=0'">Present, but one loss</option>
+					<option value="'>0' '90'">Present in &gt;90% of species</option>
+					<option value="'>0' '80'">Present in &gt;80% of species</option>
+					<option value="'>0' '70'">Present in &gt;70% of species</option>
+				</select>
+
+				<!--<div>&nbsp;</div>-->
+				<div class="s-sidebar-label">Search at:</div>
+				<select id="input-search-level">
+					<option value="metazoa">Metazoa (173)</option>
+				</select>
+
+				<div class="s-sidebar-clear-all">Clear all</div>
+				<div class="s-sidebar-label">Selected species:</div>
 				<div id="selection">Select items from the tree below</div>
+
+				<button>Submit</button>
+
+				<div class="s-sidebar-label">Search species by latin name:</div>
+				<input id="input-tree-lookup" type="text" />
+
 				<div id="tree">Loading...</div>
 			</div>
 		</div>
@@ -39,7 +92,16 @@
 
 		<div class="s-footer">
 			<div class="s-footer-wrap">
-
+				<div class="s-footer-left">
+					<a href="#">Disclaimer</a> /
+					<a href="#">Funding</a>
+				</div>
+				<div class="s-footer-right">
+					&copy; 2007 - 2014 EM Zdobnov Group -
+					<a href="http://gedev.unige.ch/English/Zdobnov/index.php">UniGe</a> /
+					<a href="http://www.isb-sib.ch/groups/geneva/cegg-zdobnov.html">SIB</a> /
+					<a href="http://www3.imperial.ac.uk/people/e.zdobnov">ICL</a>
+				</div>
 			</div>
 		</div>
 
