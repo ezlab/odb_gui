@@ -11,4 +11,9 @@ $(function(){
 
 	$.get('ui/pages/intro.html').then(ok, err);
 
+	window.fillKeywords = function(){
+		alert('Not implemented');
+	};
+
 });
+

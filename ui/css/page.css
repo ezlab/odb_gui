@@ -1,23 +1,4 @@
 
-*, *:before, *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-html, body {
-	height: 100%;
-	margin:0px;
-	padding: 0px;
-}
-
-body {
-	font-size: 13px;
-	font-family: Verdana, Helvetica, sans-serif;
-}
-
 .s-body {
 	position: relative;
 	height: 100%;
@@ -33,6 +14,9 @@ body {
 	bottom: 25px;
 	margin-right: -220px;
 }
+
+
+/*  sidebar --------------- */
 
 .s-sidebar {
 	position: absolute;
@@ -51,6 +35,8 @@ body {
 	background: #f8f8f2;
 }
 
+/*  header  --------------- */
+
 .s-header {
 	height: 69px;
 	background: #9C0063;
@@ -65,16 +51,6 @@ body {
 	background: url(../images/header-right-fill.gif) repeat-x;
 }
 
-.s-header-logo-2 {
-	position: absolute;
-	top: 2px;
-	height: 65px;
-	left: 50%;
-	width: 86px;
-	margin-left: 200px;
-	background: url(../images/sib-logo.png) no-repeat;
-}
-
 .s-header-wrap {
 	position: relative;
 	width: 1200px;
@@ -82,6 +58,45 @@ body {
 	margin: 0 auto;
 	background: url(../images/cegg-logo.jpg) 15px 0 no-repeat;
 }
+
+.s-header-logo-2 {
+	position: absolute;
+	top: 1px;
+	height: 65px;
+	left: 798px;
+	width: 86px;
+	margin: 0!important;
+	background: url(../images/sib-logo.png) no-repeat;
+}
+
+.s-header-menu-1 {
+	position: absolute;
+	left: 350px;
+	bottom: 0px;
+	line-height: 25px;
+	font-size: 11px;
+}
+
+.s-header-menu-2 {
+	position: absolute;
+	right: 15px;
+	bottom: 0px;
+	line-height: 25px;
+	font-size: 11px;
+}
+
+.s-header a {
+	margin: 0 7px;
+	text-decoration: none;
+}
+
+.s-header a:hover {
+	color: #f09;
+	text-decoration: underline;
+}
+
+
+/*  footer  --------------- */
 
 .s-footer {
 	position: absolute;
@@ -95,6 +110,26 @@ body {
 	width: 1200px;
 	height: 25px;
 	margin: 0 auto;
+	line-height: 24px;
+	font-size: 11px;
 }
 
+.s-footer-left {
+	float: left;
+}
+
+.s-footer-right {
+	float: right;
+	width: 380px;
+	text-align: center;
+}
+
+.s-footer a {
+	text-decoration: none;
+}
+
+.s-footer a:hover {
+	color: #f09;
+	text-decoration: underline;
+}
 
