@@ -31,9 +31,45 @@
 .s-sidebar-wrap {
 	width: 380px;
 	min-height: 100%;
-	padding: 15px;
+	padding: 30px 15px 15px;
 	background: #f8f8f2;
 }
+
+.s-sidebar-wrap input,
+.s-sidebar-wrap select {
+	font: inherit;
+	width: 250px;
+	height: 25px;
+	padding: 0 5px;
+	border: 1px solid #666;
+	border-radius: 3px;
+	line-height: 23px;
+}
+
+.s-sidebar-label {
+	margin-top: 15px;
+	color: #654;
+	line-height: 1.4em;
+}
+
+.s-sidebar-clear-all {
+	float: right;
+	width: 150px;
+	margin-top: 15px;
+	color: #654;
+	line-height: 1.4em;
+	text-align: right;
+}
+
+.s-sidebar button {
+	padding: 10px 30px;
+	margin: 15px 0 20px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	background: #dadace;
+	font: inherit;
+}
+
 
 /*  header  --------------- */
 
