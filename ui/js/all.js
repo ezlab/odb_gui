@@ -8,6 +8,7 @@
 	include('application.js');
 	include('intro.js');
 	include('phyloprofile.js');
+	include('search-level.js');
 	include('selection-box.js');
 	include('full-tree.js');
 
