@@ -1,26 +1,26 @@
 
-#selection {
+#selection-box {
 	overflow: auto;
 	width: 100%;
-	height: 100px;
+	min-height: 30px;
+	max-height: 200px;
 	margin: 5px 0;
-	padding: 5px;
 	border: 1px solid #666;
 	border-radius: 3px;
 	background: #fff;
 }
 
-#tree {
+#full-tree {
 	width: 100%;
 	margin-top: 20px;
 }
 
-#tree ul.fancytree-container {
+ul.fancytree-container {
 	border: none;
 	background: transparent;
 }
 
-#tree ul.fancytree-container:focus {
+ul.fancytree-container:focus {
 	outline: none;
 }
 

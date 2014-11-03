@@ -8,14 +8,14 @@ $(function(){
 
 	// see list of options at
 	// http://www.wwwendt.de/tech/fancytree/doc/jsdoc/global.html#FancytreeOptions
-	var tree = {
+	var options = {
 		source: source,
 		icons: false,
 		checkbox: true,
 		selectMode: 3
 	};
 
-	tree.postProcess = function(event, data){
+	options.postProcess = function(event, data){
 
 		var response = data.response;
 
@@ -29,11 +29,11 @@ $(function(){
 		}
 	};
 
-	tree.defaultKey = function(node){
+	options.defaultKey = function(node){
 		return node.data.id;
 	};
 
-	tree.renderTitle = function(event, data) {
+	options.renderTitle = function(event, data) {
 
 		var node = data.node,
 			item = node.data;
@@ -57,20 +57,22 @@ $(function(){
 	};
 
 
-	tree.select = function(event, data){
+	options.select = function(event, data){
 
-		var i, s = '', a = data.tree.getSelectedNodes();
+		var i, selection = [], nodes = data.tree.getSelectedNodes(true);
 
-		for (i=0; i<a.length; i++){
-			if (!a[i].parent.selected || a[i].data.top){
-				s += '<div>' + a[i].key + '</div>';
-			}
+		for (i=0; i<nodes.length; i++){
+			selection.push(nodes[i].key);
 		}
 
-		$('#selection').html(s);
+		app.setSelection(selection);
 	};
 
 
-	$("#tree").html('');
-	$("#tree").fancytree(tree);
+	// creating the tree component
+	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
+
+	app.getNode = function(key){
+		return tree.getNodeByKey(key);
+	};
 });
