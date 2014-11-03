@@ -41,47 +41,21 @@
 				<input id="input-search-text" type="text" />
 
 				<div class="s-sidebar-label">.. or select phylogenetic profile:</div>
-				<select id="input-phylo-profile">
-					<option value="Select a Phyloprofile">Select a Phyloprofile</option>
-					<option value="'=1' '=1'">Single-Copy in all species</option>
-					<option value="'=1' '?'">Single-Copy, one loss or duplication</option>
-					<option value="'=1' '=0'">Single-Copy, but one loss</option>
-					<option value="'=1' '>1'">Single-Copy, but one &gt;1</option>
-					<option value="'=1' '>2'">Single-Copy, but one &gt;2</option>
-					<option value="'=1' '>3'">Single-Copy, but one &gt;3</option>
-					<option value="'=1' '90'">Single-Copy in &gt;90% of species</option>
-					<option value="'=1' '80'">Single-Copy in &gt;80% of species</option>
-					<option value="'=1' '70'">Single-Copy in &gt;70% of species</option>
-					<option value="'>1' '>1'">Multi-Copy in all species</option>
-					<option value="'>1' '?'">Multi-Copy, one loss or single-copy</option>
-					<option value="'>1' '=0'">Multi-Copy, but one loss</option>
-					<option value="'>1' '=1'">Multi-Copy, but one single-copy</option>
-					<option value="'>1' '90'">Multi-Copy in &gt;90% of species</option>
-					<option value="'>1' '80'">Multi-Copy in &gt;80% of species</option>
-					<option value="'>1' '70'">Multi-Copy in &gt;70% of species</option>
-					<option value="'>0' '>0'">Present in all species</option>
-					<option value="'>0' '=0'">Present, but one loss</option>
-					<option value="'>0' '90'">Present in &gt;90% of species</option>
-					<option value="'>0' '80'">Present in &gt;80% of species</option>
-					<option value="'>0' '70'">Present in &gt;70% of species</option>
-				</select>
+				<select id="input-phylo-profile"></select>
 
-				<!--<div>&nbsp;</div>-->
 				<div class="s-sidebar-label">Search at:</div>
-				<select id="input-search-level">
-					<option value="metazoa">Metazoa (173)</option>
-				</select>
+				<select id="input-search-level"></select>
 
 				<div class="s-sidebar-clear-all">Clear all</div>
 				<div class="s-sidebar-label">Selected species:</div>
-				<div id="selection">Select items from the tree below</div>
+				<div id="selection-box"></div>
 
 				<button>Submit</button>
 
 				<div class="s-sidebar-label">Search species by latin name:</div>
 				<input id="input-tree-lookup" type="text" />
 
-				<div id="tree">Loading...</div>
+				<div id="full-tree"></div>
 			</div>
 		</div>
 
