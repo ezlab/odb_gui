@@ -41,6 +41,10 @@ $(function(){
 
 	app.parseURL = function(){
 
+		if (location.search.length < 2){
+			return app.loadPage('ui/pages/intro.html');
+		}
+
 		var params = {};
 
 		location.search.replace(/(\w+)=([^&]*)/g, function(match, name, value){
@@ -62,6 +66,32 @@ $(function(){
 		if (params.level){
 			app.setLevel((params.level || ''));
 		}
+
+		if (params.page){
+			app.loadPage('ui/pages/' + params.page + '.html');
+		}
+		else {
+			app.loadData(params);
+		}
+	};
+
+	app.loadPage = function(url){
+
+		var box = $("#content");
+
+		function ok(content){
+			box.html(content);
+		}
+
+		function err(xhr, status){
+			box.html(status);
+		}
+
+		$.get(url).then(ok, err);
+	};
+
+	app.loadData = function(params){
+		app.loadPage('ui/pages/data.html');
 	};
 });
 

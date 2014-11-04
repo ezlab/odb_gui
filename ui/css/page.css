@@ -5,14 +5,25 @@
 	min-width: 1200px;
 }
 
+.s-topbox {
+	position: absolute;
+	overflow: hidden;
+	width: 820px;
+	right: 50%;
+	top: 80px;
+	height: 80px;
+	margin-right: -220px;
+}
+
 .s-content {
 	position: absolute;
 	overflow: auto;
 	width: 820px;
 	right: 50%;
-	top: 80px;
+	top: 160px;
 	bottom: 25px;
 	margin-right: -220px;
+	padding: 0 15px;
 }
 
 
