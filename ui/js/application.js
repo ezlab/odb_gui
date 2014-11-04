@@ -24,5 +24,13 @@ $(function(){
 		selection = array;
 	};
 
+	app.getState = function(){
+		return {
+			keywords: keywords,
+			profile: profile,
+			level: level,
+			selection: selection
+		};
+	};
 });
 

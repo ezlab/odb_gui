@@ -52,10 +52,18 @@ $(function(){
 				select.append($('<option></option>').attr('value', results[i].key).html(results[i].title));
 			}
 
-			select.val(results[results.length-1].key);
+			var level = results[results.length-1].key;
+
+			select.val(level);
+
+			app.call('setLevel', lock, level);
 		}
 	}
 
+
+	app.method('setLevel', lock, function(level){
+		select.val(level);
+	});
 
 	app.method('setSelection', lock, function(keys){
 		calcLevels(keys);
