@@ -40,7 +40,7 @@
 				<div class="s-sidebar-label">Search by text:</div>
 				<input id="input-search-text" type="text" />
 
-				<div class="s-sidebar-label">.. or select phylogenetic profile:</div>
+				<div class="s-sidebar-label">Select phylogenetic profile:</div>
 				<select id="input-phylo-profile"></select>
 
 				<div class="s-sidebar-label">Search at:</div>
@@ -50,13 +50,17 @@
 				<div class="s-sidebar-label">Selected species:</div>
 				<div id="selection-box"></div>
 
-				<button>Submit</button>
+				<button id="submit-button">Submit</button>
 
 				<div class="s-sidebar-label">Search species by latin name:</div>
 				<input id="input-tree-lookup" type="text" />
 
 				<div id="full-tree"></div>
 			</div>
+		</div>
+
+		<div id="topbox" class="s-topbox">
+			<img src="http://cegg.unige.ch/files/images/orthodb-logo.png" height="78" width="214">
 		</div>
 
 		<div id="content" class="s-content">
@@ -67,8 +71,8 @@
 		<div class="s-footer">
 			<div class="s-footer-wrap">
 				<div class="s-footer-left">
-					<a href="#">Disclaimer</a> /
-					<a href="#">Funding</a>
+					<a href="?page=disclaimer">Disclaimer</a> /
+					<a href="?page=funding">Funding</a>
 				</div>
 				<div class="s-footer-right">
 					&copy; 2007 - 2014 EM Zdobnov Group -

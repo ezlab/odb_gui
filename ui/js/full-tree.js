@@ -1,6 +1,8 @@
 
 $(function(){
 
+	var lock = {};
+
 	var source = {
 		url: "data/tree.json",
 		cache: true
@@ -21,6 +23,7 @@ $(function(){
 
 		if (response.status == 'ok'){
 			data.result = response.data;
+			app.init();
 		}
 		else {
 			data.result = {
@@ -33,10 +36,10 @@ $(function(){
 		return node.data.id;
 	};
 
-	options.renderTitle = function(event, data) {
 
-		var node = data.node,
-			item = node.data;
+	function renderTitle(node){
+
+		var item = node.data;
 
 		if (node.statusNodeType){
 			// skip status node
@@ -54,6 +57,12 @@ $(function(){
 		else {
 			node.title = '<span class="tree-title-latin">' + item.latin + '</span>';
 		}
+
+		return node;
+	}
+
+	options.renderTitle = function(event, data) {
+		renderTitle(data.node);
 	};
 
 
@@ -65,7 +74,7 @@ $(function(){
 			selection.push(nodes[i].key);
 		}
 
-		app.setSelection(selection);
+		app.call('setSelection', lock, selection);
 	};
 
 
@@ -73,6 +82,15 @@ $(function(){
 	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
 
 	app.getNode = function(key){
-		return tree.getNodeByKey(key);
+		return renderTitle(tree.getNodeByKey(key));
 	};
+
+	app.method('setSelection', lock, function(keys){
+		$.each(keys, function(index, key){
+			var node = tree.getNodeByKey(key);
+			node.setSelected();
+			node.setActive();
+		});
+	});
+
 });

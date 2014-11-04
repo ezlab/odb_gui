@@ -1,6 +1,8 @@
 
 $(function(){
 
+	var lock = {};
+
 	var select = $('#input-search-level');
 
 	function calcLevels(keys){
@@ -46,22 +48,29 @@ $(function(){
 		select.empty();
 
 		if (results) {
+
+			var key, title;
+
 			for(i=0; i<results.length; i++){
-				select.append($('<option></option>').attr('value', results[i].key).html(results[i].title));
+				key = results[i].key;
+				title = app.getNode(key).title;
+				select.append($('<option></option>').attr('value', key).html(title));
 			}
 
-			select.val(results[results.length-1].key);
+			select.val(key);
+
+			app.call('setLevel', lock, key);
 		}
 	}
 
 
-	var setSelection = app.setSelection;
+	app.method('setLevel', lock, function(level){
+		select.val(level);
+	});
 
-	app.setSelection = function(keys){
-
-		setSelection(keys);
-
+	app.method('setSelection', lock, function(keys){
 		calcLevels(keys);
-	};
+	});
+
 });
 

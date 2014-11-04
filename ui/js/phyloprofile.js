@@ -1,8 +1,10 @@
 
 $(function(){
 
+	var lock = {};
+
 	var options = {
-		"Select a Phyloprofile": "Select a Phyloprofile",
+		"": "Select a Phyloprofile",
 		"'=1' '=1'": "Single-Copy in all species",
 		"'=1' '?'": "Single-Copy, one loss or duplication",
 		"'=1' '=0'": "Single-Copy, but one loss",
@@ -30,6 +32,14 @@ $(function(){
 
 	$.each(options, function(key, value) {
 		 select.append($("<option></option>").attr("value", key).text(value));
+	});
+
+	app.method('setProfile', lock, function(profile){
+		select.val(profile);
+	});
+
+	select.change(function(){
+		app.call('setProfile', lock, select.val());
 	});
 });
 
