@@ -36,10 +36,10 @@ $(function(){
 		return node.data.id;
 	};
 
-	options.renderTitle = function(event, data) {
 
-		var node = data.node,
-			item = node.data;
+	function renderTitle(node){
+
+		var item = node.data;
 
 		if (node.statusNodeType){
 			// skip status node
@@ -57,6 +57,12 @@ $(function(){
 		else {
 			node.title = '<span class="tree-title-latin">' + item.latin + '</span>';
 		}
+
+		return node;
+	}
+
+	options.renderTitle = function(event, data) {
+		renderTitle(data.node);
 	};
 
 
@@ -76,7 +82,7 @@ $(function(){
 	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
 
 	app.getNode = function(key){
-		return tree.getNodeByKey(key);
+		return renderTitle(tree.getNodeByKey(key));
 	};
 
 	app.method('setSelection', lock, function(keys){

@@ -48,15 +48,18 @@ $(function(){
 		select.empty();
 
 		if (results) {
+
+			var key, title;
+
 			for(i=0; i<results.length; i++){
-				select.append($('<option></option>').attr('value', results[i].key).html(results[i].title));
+				key = results[i].key;
+				title = app.getNode(key).title;
+				select.append($('<option></option>').attr('value', key).html(title));
 			}
 
-			var level = results[results.length-1].key;
+			select.val(key);
 
-			select.val(level);
-
-			app.call('setLevel', lock, level);
+			app.call('setLevel', lock, key);
 		}
 	}
 
