@@ -1,6 +1,8 @@
 
 $(function(){
 
+	var lock = {};
+
 	var select = $('#input-search-level');
 
 	function calcLevels(keys){
@@ -55,13 +57,9 @@ $(function(){
 	}
 
 
-	var setSelection = app.setSelection;
-
-	app.setSelection = function(keys){
-
-		setSelection(keys);
-
+	app.method('setSelection', lock, function(keys){
 		calcLevels(keys);
-	};
+	});
+
 });
 

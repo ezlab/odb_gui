@@ -6,6 +6,7 @@
 	}
 
 	include('application.js');
+	include('lock.js');
 	include('intro.js');
 	include('phyloprofile.js');
 	include('search-level.js');

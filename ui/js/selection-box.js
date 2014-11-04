@@ -1,6 +1,8 @@
 
 $(function(){
 
+	var lock = {};
+
 	var options = {
 		source: []
 	};
@@ -54,13 +56,8 @@ $(function(){
 	}
 
 
-	var setSelection = app.setSelection;
-
-	app.setSelection = function(keys){
-
-		setSelection(keys);
-
+	app.method('setSelection', lock, function(keys){
 		tree.reload(makeSelectionTree(keys));
-	};
+	});
 });
 
