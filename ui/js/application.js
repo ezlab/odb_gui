@@ -32,5 +32,36 @@ $(function(){
 			selection: selection
 		};
 	};
+
+	app.init = function(){
+		window.setTimeout(function(){
+			app.parseURL();
+		}, 0);
+	};
+
+	app.parseURL = function(){
+
+		var params = {};
+
+		location.search.replace(/(\w+)=([^&]*)/g, function(match, name, value){
+			params[name] = decodeURIComponent(value);
+		});
+
+		if (params.keywords){
+			app.setKeywords(params.keywords || '');
+		}
+
+		if (params.phyloprofile){
+			app.setProfile(params.phyloprofile || '');
+		}
+
+		if (params.species){
+			app.setSelection((params.species || '').split(','));
+		}
+
+		if (params.level){
+			app.setLevel((params.level || ''));
+		}
+	};
 });
 

@@ -4,7 +4,7 @@ $(function(){
 	var lock = {};
 
 	var options = {
-		"Select a Phyloprofile": "Select a Phyloprofile",
+		"": "Select a Phyloprofile",
 		"'=1' '=1'": "Single-Copy in all species",
 		"'=1' '?'": "Single-Copy, one loss or duplication",
 		"'=1' '=0'": "Single-Copy, but one loss",

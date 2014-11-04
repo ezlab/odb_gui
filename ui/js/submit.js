@@ -5,14 +5,23 @@ $(function(){
 
 	button.click(function(){
 
-		var state = app.getState();
+		var cmp = [],
+			state = app.getState();
 
-		var url = '?' + $.param({
+		var params = {
 			keywords: state.keywords,
 			level: state.level,
 			species: String(state.selection),
-			phytoprofile: state.profile,
+			phyloprofile: state.profile,
+		};
+
+		$.each(params, function(name, value){
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
 		});
+
+		var url = '?' + cmp.join('&');
 
 		window.location.href = url;
 

@@ -1,6 +1,8 @@
 
 $(function(){
 
+	var lock = {};
+
 	var source = {
 		url: "data/tree.json",
 		cache: true
@@ -21,6 +23,7 @@ $(function(){
 
 		if (response.status == 'ok'){
 			data.result = response.data;
+			app.init();
 		}
 		else {
 			data.result = {
@@ -65,7 +68,7 @@ $(function(){
 			selection.push(nodes[i].key);
 		}
 
-		app.setSelection(selection);
+		app.call('setSelection', lock, selection);
 	};
 
 
@@ -75,4 +78,13 @@ $(function(){
 	app.getNode = function(key){
 		return tree.getNodeByKey(key);
 	};
+
+	app.method('setSelection', lock, function(keys){
+		$.each(keys, function(index, key){
+			var node = tree.getNodeByKey(key);
+			node.setSelected();
+			node.setActive();
+		});
+	});
+
 });
