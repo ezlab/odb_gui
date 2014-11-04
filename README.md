@@ -3,7 +3,7 @@ odb_gui
 
 odb frontend code
 
-demo:   http://ezlab.github.io/odb_gui/index.html
+demo:   http://ezlab.github.io/odb_gui
 
 planning:   https://github.com/ezlab/odb_gui/milestones
 
