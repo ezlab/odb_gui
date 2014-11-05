@@ -1,30 +1,38 @@
 
 $(function(){
 
-	var button = $('#submit-button');
+	var button = $('#submit-button'),
+		lock = {},
+		params = {};
+
+	app.method('setKeywords', lock, function(keywords){
+		params.keywords = keywords;
+	});
+
+	app.method('setProfile', lock, function(profile){
+		params.phyloprofile = profile;
+	});
+
+	app.method('setLevel', lock, function(level){
+		params.level = level;
+	});
+
+	app.method('setSelection', lock, function(keys){
+		params.species = String(keys);
+	});
+
 
 	button.click(function(){
 
-		var cmp = [],
-			state = app.getState();
-
-		var params = {
-			keywords: state.keywords,
-			level: state.level,
-			species: String(state.selection),
-			phyloprofile: state.profile,
-		};
+		var cmp = [];
 
 		$.each(params, function(name, value){
-			if (value) {
-				cmp.push(name + '=' + encodeURIComponent(String(value)));
-			}
+			cmp.push(name + '=' + encodeURIComponent(String(value)));
 		});
 
 		var url = '?' + cmp.join('&');
 
-		window.location.href = url;
-
+		app.navigate(url);
 	});
 
 });
