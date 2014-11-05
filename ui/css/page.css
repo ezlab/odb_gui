@@ -180,3 +180,65 @@
 	text-decoration: underline;
 }
 
+
+/*  errors  --------------- */
+
+.s-error {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #999;
+	background: rgba(99, 99, 96, 0.8);
+}
+
+.s-error-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 500px;
+	margin-left: -400px;
+	margin-top: -250px;
+	border: 1px solid #666;
+	border-radius: 4px;
+	box-shadow: 0 2px 15px 5px rgba(0,0,0,0.3);
+	background: #fff;
+}
+
+.s-error-wrap>* {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.s-error-title {
+	top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 4em;
+    color: #903;
+    background: #fed;
+}
+
+.s-error-message {
+    overflow: auto!important;
+    top: 130px;
+    bottom: 150px;
+    font-size: 13px;
+}
+
+.s-error-details {
+    bottom: 100px;
+    font-size: 11px;
+}
+
+.s-error-actions {
+	bottom: 0px;
+	line-height: 80px;
+}
+
