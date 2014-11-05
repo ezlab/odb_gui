@@ -34,12 +34,12 @@ $(function(){
 		 select.append($("<option></option>").attr("value", key).text(value));
 	});
 
-	app.method('setProfile', lock, function(profile){
+	app.method('phyloprofile', lock, function(profile){
 		select.val(profile);
 	});
 
 	select.change(function(){
-		app.call('setProfile', lock, select.val());
+		app.call('phyloprofile', lock, select.val());
 	});
 });
 

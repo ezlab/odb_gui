@@ -74,7 +74,7 @@ $(function(){
 			selection.push(nodes[i].key);
 		}
 
-		app.call('setSelection', lock, selection);
+		app.call('species', lock, selection);
 	};
 
 
@@ -85,11 +85,29 @@ $(function(){
 		return renderTitle(tree.getNodeByKey(key));
 	};
 
-	app.method('setSelection', lock, function(keys){
+	app.method('species', lock, function(keys){
+
+		var nodes = tree.getSelectedNodes(true),
+			selection = {};
+
+		$.each(keys, function(index, key){
+			selection[key] = true;
+		});
+
+		var nodes = tree.getSelectedNodes(true);
+
+		$.each(nodes, function(index, node){
+			if (!selection[node.key]){
+				node.setSelected(false);
+			}
+		});
+
 		$.each(keys, function(index, key){
 			var node = tree.getNodeByKey(key);
-			node.setSelected();
-			node.setActive();
+			if (!node.selected){
+				node.setSelected();
+				node.setActive();
+			}
 		});
 	});
 

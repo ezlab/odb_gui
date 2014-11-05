@@ -84,5 +84,21 @@
 		</div>
 
 	</div>
+
+	<div id="error" class="s-error">
+		<div class="s-error-wrap">
+			<div id="error-title" class="s-error-title">Application error</div>
+			<pre id="error-message" class="s-error-message"></pre>
+			<div id="error-details" class="s-error-details">
+				<script>
+					document.write('URL: ' + location.href + '<br>');
+					document.write('Browser: ' + navigator.userAgent + '<br>');
+				</script>
+			</div>
+			<div class="s-error-actions">
+				<a class="s-button" href="javascript:app.restart()">Restart</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

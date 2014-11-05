@@ -1,5 +1,5 @@
 
-$(function(){
+(function(){
 
 	/*
 		these functions allow to break loops when updating some value triggers change event,
@@ -57,5 +57,5 @@ $(function(){
 		}
 	};
 
-});
+})();
 
