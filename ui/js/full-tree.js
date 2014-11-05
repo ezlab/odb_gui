@@ -74,7 +74,7 @@ $(function(){
 			selection.push(nodes[i].key);
 		}
 
-		app.call('setSelection', lock, selection);
+		app.call('species', lock, selection);
 	};
 
 
@@ -85,7 +85,7 @@ $(function(){
 		return renderTitle(tree.getNodeByKey(key));
 	};
 
-	app.method('setSelection', lock, function(keys){
+	app.method('species', lock, function(keys){
 		$.each(keys, function(index, key){
 			var node = tree.getNodeByKey(key);
 			node.setSelected();

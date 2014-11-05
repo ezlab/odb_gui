@@ -20,19 +20,19 @@
 		});
 
 		if (params.keywords){
-			app.setKeywords(params.keywords || '');
+			app.keywords(params.keywords || '');
 		}
 
 		if (params.phyloprofile){
-			app.setProfile(params.phyloprofile || '');
+			app.phyloprofile(params.phyloprofile || '');
 		}
 
 		if (params.species){
-			app.setSelection((params.species || '').split(','));
+			app.species((params.species || '').split(','));
 		}
 
 		if (params.level){
-			app.setLevel((params.level || ''));
+			app.level((params.level || ''));
 		}
 
 		if (params.page){

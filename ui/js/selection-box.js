@@ -56,7 +56,7 @@ $(function(){
 	}
 
 
-	app.method('setSelection', lock, function(keys){
+	app.method('species', lock, function(keys){
 		tree.reload(makeSelectionTree(keys));
 	});
 });

@@ -5,19 +5,19 @@ $(function(){
 		lock = {},
 		params = {};
 
-	app.method('setKeywords', lock, function(keywords){
+	app.method('keywords', lock, function(keywords){
 		params.keywords = keywords;
 	});
 
-	app.method('setProfile', lock, function(profile){
+	app.method('phyloprofile', lock, function(profile){
 		params.phyloprofile = profile;
 	});
 
-	app.method('setLevel', lock, function(level){
+	app.method('level', lock, function(level){
 		params.level = level;
 	});
 
-	app.method('setSelection', lock, function(keys){
+	app.method('species', lock, function(keys){
 		params.species = String(keys);
 	});
 

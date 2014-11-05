@@ -8,19 +8,19 @@ var app = {};
 		level = '',
 		selection = [];
 
-	app.setKeywords = function(text){
+	app.keywords = function(text){
 		keywords = text;
 	};
 
-	app.setProfile = function(text){
+	app.phyloprofile = function(text){
 		profile = text;
 	};
 
-	app.setLevel = function(text){
+	app.level = function(text){
 		level = text;
 	};
 
-	app.setSelection = function(array){
+	app.species = function(array){
 		selection = array;
 	};
 

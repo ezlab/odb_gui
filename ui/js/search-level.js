@@ -59,16 +59,16 @@ $(function(){
 
 			select.val(key);
 
-			app.call('setLevel', lock, key);
+			app.call('level', lock, key);
 		}
 	}
 
 
-	app.method('setLevel', lock, function(level){
+	app.method('level', lock, function(level){
 		select.val(level);
 	});
 
-	app.method('setSelection', lock, function(keys){
+	app.method('species', lock, function(keys){
 		calcLevels(keys);
 	});
 
