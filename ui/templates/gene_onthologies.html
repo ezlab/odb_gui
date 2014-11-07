@@ -5,4 +5,9 @@
 
 	<h3>{{name}}</h3>
 
+	<ul>
+	{{#each items}}
+		<li>{{plural count "gene" "genes"}} with {{>link}}: {{description}}</li>
+	{{/each}}
+	</ul>
 {{/each}}

@@ -2,7 +2,7 @@
 $(function(){
 
 	var templates = ['group', 'summary'],
-		partials = ['gene_onthologies'];
+		partials = ['link', 'gene_onthologies', 'interpro_domains', 'gene_architecture', 'phyletic_profile', 'evolutionary_rate'];
 
 	function path(name){
 		return 'ui/templates/' + name + '.html';
@@ -22,6 +22,18 @@ $(function(){
 		return $.get(url).then(takeFirstArgument);
 	}
 
+	Handlebars.registerHelper('plural', function (value, singular, plural, options) {
+		return String(value) + ' ' + (value == 1 ? singular : plural);
+	});
+
+	Handlebars.registerHelper('is', function (value, test, options) {
+		if (value == test) {
+			return options.fn(this);
+		}
+		else {
+			return options.inverse(this);
+		}
+	});
 
 	function compileTemplate(name, source){
 		tpl[name] = Handlebars.compile(source);
