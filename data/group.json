@@ -1,0 +1,13 @@
+{
+    "status":"ok",
+    "data": {
+		"id": "EOG8KM0G3",
+		"gene_count": 180,
+		"species_count": 90,
+		"gene_onthologies": [{
+			"name": "Biological Process"
+		},{
+			"name": "Cellular Component"
+		}]
+    }
+}

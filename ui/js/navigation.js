@@ -47,10 +47,6 @@
 		$("#content").load(url);
 	};
 
-	app.loadData = function(params){
-		app.loadPage('ui/pages/data.html');
-	};
-
 
 	app.navigate = function(url){
 		window.location.href = url;

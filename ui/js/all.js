@@ -15,5 +15,6 @@
 	include('selection-box.js');
 	include('full-tree.js');
 	include('submit.js');
+	include('results.js');
 
 })();
