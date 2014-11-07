@@ -1,0 +1,25 @@
+
+{{#with gene_architecture}}
+
+	<h2>Gene Architecture</h2>
+
+	<table>
+		<tr>
+			<td></td>
+			<td>Median</td>
+			<td>Stdev</td>
+		</tr>
+		<tr>
+			<td>Protein Lengths</td>
+			<td>{{protein_length.median}}</td>
+			<td>{{protein_length.stdev}}</td>
+		</tr>
+		<tr>
+			<td>Exon Counts</td>
+			<td>{{exon_counts.median}}</td>
+			<td>{{exon_counts.stdev}}</td>
+		</tr>
+	</table>
+
+{{/with}}
+
