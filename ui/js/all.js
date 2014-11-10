@@ -7,6 +7,7 @@
 
 	include('application.js');
 	include('errors.js');
+	include('templates.js');
 	include('lock.js');
 	include('navigation.js');
 	include('keywords-input.js');
