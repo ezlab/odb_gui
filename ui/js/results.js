@@ -46,7 +46,14 @@ $(function(){
 	}
 
 
-	function processSearchResults(response){
+	function processSearchResults(params, response){
+
+		$('#summary').html(app.templates.summary({
+			search: params.keywords || params.phyloprofile,
+			level: app.getNode(params.level).data.name,
+			count: response.count
+		}));
+
 		totalCount = response.count;
 		searchResults = response.data;
 		sendGroupRequest(0);
@@ -54,7 +61,7 @@ $(function(){
 
 
 	function sendSearchRequest(params){
-		load('search', params).then(processSearchResults);
+		when(params, load('search', params)).then(processSearchResults);
 	}
 
 

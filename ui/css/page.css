@@ -26,6 +26,18 @@
 	padding: 0 15px;
 }
 
+/*  summary ---------- */
+
+.s-summary {
+	position: absolute;
+	overflow: auto;
+	right: 0px;
+	bottom: 0px;
+	padding: 20px 40px;
+	max-height: 80px;
+	max-width: 600px;
+}
+
 
 /*  sidebar --------------- */
 
