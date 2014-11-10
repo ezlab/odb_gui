@@ -7,6 +7,7 @@
 
 	var templates = [
 		'group',
+		'orthologs',
 		'summary'
 	];
 

@@ -41,8 +41,14 @@ $(function(){
 	}
 
 
+	function processOrthologs(response){
+		$('#content .orthologs').html(app.templates.orthologs(response));
+	}
+
+
 	function sendGroupRequest(i){
-		load('group', {id:searchResults[i]}).then(processGroupData);
+		var group = load('group', {id:searchResults[i]}).then(processGroupData);
+		when(load('orthologs'), group).then(processOrthologs);
 	}
 
 
