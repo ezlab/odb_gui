@@ -34,18 +34,27 @@
 	};
 
 
+	app.error = function(message, title){
+
+		err(title);
+		err(message);
+		err('');
+
+		showErrors();
+	};
+
 	window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 
-		err('script: ' + url + ' (' + lineNumber + (column ? ',' + column : '') + ')');
+		err('<b>Script error</b>: ' + url + ' (' + lineNumber + (column ? ',' + column : '') + ')');
 		err(errorMsg);
 		err('');
 
 		showErrors();
-	}
+	};
 
 	$(document).ajaxError(function(event, xhr, settings, error){
 
-		err('Network error. Cannot load ' + settings.url);
+		err('<b>Network error</b>: cannot load ' + settings.url);
 		err(xhr.statusText + ' (' + xhr.status + ')');
 		err('');
 

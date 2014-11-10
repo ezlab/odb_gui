@@ -1,61 +1,38 @@
 
 $(function(){
 
-	var templates = ['group', 'summary'],
-		partials = ['link', 'gene_onthologies', 'interpro_domains', 'gene_architecture', 'phyletic_profile', 'evolutionary_rate'];
-
 	function path(name){
-		return 'ui/templates/' + name + '.html';
+		return 'data/' + name + '.json';
 	}
 
 	var totalCount = 0,
 		searchResults = [],
 		groups = {},
-		tpl = {},
-		ready;
+		when = $.when;
 
-	function takeFirstArgument(value){
-		return value;
-	}
 
-	function load(url){
-		return $.get(url).then(takeFirstArgument);
-	}
+	function verifyResponse(response, status, xhr){
 
-	Handlebars.registerHelper('plural', function (value, singular, plural, options) {
-		return String(value) + ' ' + (value == 1 ? singular : plural);
-	});
+		if (response.status != 'ok'){
 
-	Handlebars.registerHelper('is', function (value, test, options) {
-		if (value == test) {
-			return options.fn(this);
+			var message = response.message || 'Unknown error',
+				status = response.status || 'Status field is missing',
+				title = '<b>Server error</b>: ' + this.url;
+
+			app.error(message + ' (' + status + ')', title);
+			throw new Error('Server error');
 		}
-		else {
-			return options.inverse(this);
-		}
-	});
 
-	function compileTemplate(name, source){
-		tpl[name] = Handlebars.compile(source);
+		return response;
 	}
 
-	function registerPartial(name, source){
-		Handlebars.registerPartial(name, source);
+	function load(name, params){
+		return $.getJSON(path(name), params).then(verifyResponse);
 	}
-
-	$.each(partials, function(index, name){
-		ready = $.when(name, load(path(name)), ready).then(registerPartial);
-	});
-
-	$.each(templates, function(index, name){
-		ready = $.when(name, load(path(name)), ready).then(compileTemplate);
-	});
-
 
 	function renderGroup(data, id){
-		$('#content').html(tpl.group(data));
+		$('#content').html(app.templates.group(data));
 	}
-
 
 	function processGroupData(response){
 			var group = response.data, id = group.id;
@@ -64,12 +41,25 @@ $(function(){
 	}
 
 
-	function sendGroupRequest(i){
-		$.getJSON('data/group.json', {id:searchResults[i]}).then(processGroupData);
+	function processOrthologs(response){
+		$('#content .orthologs').html(app.templates.orthologs(response));
 	}
 
 
-	function processSearchResults(response){
+	function sendGroupRequest(i){
+		var group = load('group', {id:searchResults[i]}).then(processGroupData);
+		when(load('orthologs'), group).then(processOrthologs);
+	}
+
+
+	function processSearchResults(params, response){
+
+		$('#summary').html(app.templates.summary({
+			search: params.keywords || params.phyloprofile,
+			level: app.getNode(params.level).data.name,
+			count: response.count
+		}));
+
 		totalCount = response.count;
 		searchResults = response.data;
 		sendGroupRequest(0);
@@ -77,12 +67,12 @@ $(function(){
 
 
 	function sendSearchRequest(params){
-		$.getJSON('data/search.json', params).then(processSearchResults);
+		when(params, load('search', params)).then(processSearchResults);
 	}
 
 
 	app.loadData = function(params){
-		$.when(params, ready).then(sendSearchRequest);
+		when(params, app.ready).then(sendSearchRequest);
 	};
 
 });
