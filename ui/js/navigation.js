@@ -19,27 +19,23 @@
 			params[name] = decodeURIComponent(value);
 		});
 
-		if (params.keywords){
+		if (params.keywords ||
+			params.phyloprofile ||
+			params.species ||
+			params.level){
+
 			app.keywords(params.keywords || '');
-		}
-
-		if (params.phyloprofile){
 			app.phyloprofile(params.phyloprofile || '');
-		}
-
-		if (params.species){
 			app.species((params.species || '').split(','));
-		}
-
-		if (params.level){
 			app.level((params.level || ''));
-		}
 
-		if (params.page){
+			app.loadData(params);
+		}
+		else if (params.page){
 			app.loadPage('ui/pages/' + params.page + '.html');
 		}
 		else {
-			app.loadData(params);
+			throw new Error('Unknown URL parameters');
 		}
 	};
 
