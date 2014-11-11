@@ -3,7 +3,7 @@
 
 {{#each data}}
 	<ul>
-		<li>Group: {{id}}</li>
-		<li>InterPro domains: {{interpro}}</li>
+		<li>Group: {{public_id}}</li>
+		<li>InterPro domains: {{#each interpro}}{{>link}}{{/each}}</li>
 	</ul>
 {{/each}}

@@ -1,41 +1,37 @@
 {
     "status":"ok",
     "data": {
-		"id": "EOG8KM0G3",
+		"id": "123456",
+		"public_id": "EOG8KM0G3",
 		"gene_count": 180,
 		"species_count": 90,
 
-		"gene_onthologies": [{
-			"name": "Biological Process",
-			"items": [
-				{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
-				{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
-				{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"},
-				{"count": 2, "id": "GO:0015744", "type": "amigo", "description": "succinate transport"},
-				{"count": 2, "id": "GO:1901475", "type": "amigo", "description": "pyruvate transmembrane transport"},
-				{"count": 2, "id": "GO:0008340", "type": "amigo", "description": "determination of adult lifespan"},
-				{"count": 2, "id": "GO:0071422", "type": "amigo", "description": "succinate transmembrane transport"},
-				{"count": 2, "id": "GO:0006848", "type": "amigo", "description": "pyruvate transport"},
-				{"count": 1, "id": "GO:0000077", "type": "amigo", "description": "DNA damage checkpoint"},
-				{"count": 1, "id": "GO:0010889", "type": "amigo", "description": "regulation of sequestering of triglyceride"}
-			]
-		},{
-			"name": "Cellular Component",
-			"items": [
-				{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
-				{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
-				{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"},
-				{"count": 2, "id": "GO:0015744", "type": "amigo", "description": "succinate transport"},
-				{"count": 2, "id": "GO:1901475", "type": "amigo", "description": "pyruvate transmembrane transport"}
-			]
-		},{
-			"name": "Molecular Function",
-			"items": [
-				{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
-				{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
-				{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"}
-			]
-		}],
+		"biological_process": [
+			{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
+			{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
+			{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"},
+			{"count": 2, "id": "GO:0015744", "type": "amigo", "description": "succinate transport"},
+			{"count": 2, "id": "GO:1901475", "type": "amigo", "description": "pyruvate transmembrane transport"},
+			{"count": 2, "id": "GO:0008340", "type": "amigo", "description": "determination of adult lifespan"},
+			{"count": 2, "id": "GO:0071422", "type": "amigo", "description": "succinate transmembrane transport"},
+			{"count": 2, "id": "GO:0006848", "type": "amigo", "description": "pyruvate transport"},
+			{"count": 1, "id": "GO:0000077", "type": "amigo", "description": "DNA damage checkpoint"},
+			{"count": 1, "id": "GO:0010889", "type": "amigo", "description": "regulation of sequestering of triglyceride"}
+		],
+
+		"cellular_component": [
+			{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
+			{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
+			{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"},
+			{"count": 2, "id": "GO:0015744", "type": "amigo", "description": "succinate transport"},
+			{"count": 2, "id": "GO:1901475", "type": "amigo", "description": "pyruvate transmembrane transport"}
+		],
+
+		"molecular_function": [
+			{"count": 62, "id": "GO:0006814", "type": "amigo", "description": "sodium ion transport"},
+			{"count": 60, "id": "GO:0055085", "type": "amigo", "description": "transmembrane transport"},
+			{"count": 2, "id": "GO:0015746", "type": "amigo", "description": "citrate transport"}
+		],
 
 		"interpro_domains": [
 			{"count": 150, "id": "IPR001898", "type": "interpro", "description": "Sodium/sulphate symporter"},

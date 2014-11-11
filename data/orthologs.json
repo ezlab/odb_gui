@@ -3,39 +3,43 @@
     "count": 99,
     "data": [{
 		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
-		"copy": 1,
-		"gene_id": {"id": "1", "type": "ncbi"},
-		"uniprot": {"id": "W4YIS4", "type": "uniprot"},
-		"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
-		"aas": "666",
-		"exons": "13",
-		"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		"genes": [{
+			"gene_id": {"id": "1", "type": "ncbi"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		}]
 	},{
 		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
-		"copy": 1,
-		"gene_id": {"id": "1", "type": "ncbi"},
-		"uniprot": {"id": "W4YIS4", "type": "uniprot"},
-		"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
-		"aas": "666",
-		"exons": "13",
-		"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		"genes": [{
+			"gene_id": {"id": "1", "type": "ncbi"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		}]
 	},{
 		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
-		"copy": 1,
-		"gene_id": {"id": "1", "type": "ncbi"},
-		"uniprot": {"id": "W4YIS4", "type": "uniprot"},
-		"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
-		"aas": "666",
-		"exons": "13",
-		"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		"genes": [{
+			"gene_id": {"id": "1", "type": "ncbi"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		}]
 	},{
 		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
-		"copy": 1,
-		"gene_id": {"id": "1", "type": "ncbi"},
-		"uniprot": {"id": "W4YIS4", "type": "uniprot"},
-		"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
-		"aas": "666",
-		"exons": "13",
-		"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		"genes": [{
+			"gene_id": {"id": "1", "type": "ncbi"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		}]
     }]
 }

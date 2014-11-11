@@ -1,13 +1,32 @@
 
 <h2>Gene Onthologies</h2>
 
-{{#each gene_onthologies}}
-
-	<h3>{{name}}</h3>
+{{#if biological_process}}
+	<h3>Biological Process</h3>
 
 	<ul>
-	{{#each items}}
+	{{#each biological_process}}
 		<li>{{plural count "gene" "genes"}} with {{>link}}: {{description}}</li>
 	{{/each}}
 	</ul>
-{{/each}}
+{{/if}}
+
+{{#if cellular_component}}
+	<h3>Cellular Component</h3>
+
+	<ul>
+	{{#each cellular_component}}
+		<li>{{plural count "gene" "genes"}} with {{>link}}: {{description}}</li>
+	{{/each}}
+	</ul>
+{{/if}}
+
+{{#if molecular_function}}
+	<h3>Molecular Function</h3>
+
+	<ul>
+	{{#each molecular_function}}
+		<li>{{plural count "gene" "genes"}} with {{>link}}: {{description}}</li>
+	{{/each}}
+	</ul>
+{{/if}}
