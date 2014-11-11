@@ -1,0 +1,20 @@
+{
+    "status":"ok",
+    "count": 99,
+    "data": [{
+		"id": "EOG82JQ93",
+		"interpro": "IPR001898,IPR001899"
+	},{
+		"id": "EOG86T4C5",
+		"interpro": "IPR001898,IPR001899"
+	},{
+		"id": "EOG8GXH12",
+		"interpro": "IPR001898,IPR001899"
+	},{
+		"id": "EOG8SN31M",
+		"interpro": "IPR001898,IPR001899"
+	},{
+		"id": "EOG8T1K53",
+		"interpro": "IPR001898,IPR001899"
+	}]
+}

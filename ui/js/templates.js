@@ -8,6 +8,7 @@
 	var templates = [
 		'group',
 		'orthologs',
+		'siblings',
 		'summary'
 	];
 
