@@ -45,10 +45,14 @@ $(function(){
 		$('#content .orthologs').html(app.templates.orthologs(response));
 	}
 
+	function processSiblings(response){
+		$('#content .siblings').html(app.templates.siblings(response));
+	}
 
 	function sendGroupRequest(i){
 		var group = load('group', {id:searchResults[i]}).then(processGroupData);
 		when(load('orthologs'), group).then(processOrthologs);
+		when(load('siblings'), group).then(processSiblings);
 	}
 
 
