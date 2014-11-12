@@ -1,13 +1,17 @@
 
-<h1>Group {{public_id}}</h1>
+{{#with data}}
 
-{{gene_count}} genes in {{species_count}} species
+	<h1>Group {{public_id}}</h1>
 
-{{> gene_onthologies }}
-{{> interpro_domains }}
-{{> gene_architecture }}
-{{> phyletic_profile }}
-{{> evolutionary_rate }}
+	{{gene_count}} genes in {{species_count}} species
 
-<div class="orthologs"></div>
-<div class="siblings"></div>
+	{{> gene_onthologies }}
+	{{> interpro_domains }}
+	{{> gene_architecture }}
+	{{> phyletic_profile }}
+	{{> evolutionary_rate }}
+
+	<div class="orthologs"></div>
+	<div class="siblings"></div>
+
+{{/with}}

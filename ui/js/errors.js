@@ -61,5 +61,20 @@
 		showErrors();
 	});
 
+	app.verifyResponse = function(response, status, xhr){
+
+		if (response.status != 'ok'){
+
+			var message = response.message || 'Unknown error',
+				status = response.status || 'Status field is missing',
+				title = '<b>Server error</b>: ' + this.url;
+
+			app.error(message + ' (' + status + ')', title);
+			throw new Error('Server error');
+		}
+
+		return response;
+	};
+
 })();
 
