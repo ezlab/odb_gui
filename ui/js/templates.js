@@ -6,6 +6,7 @@
 	}
 
 	var templates = [
+		'placeholder',
 		'group',
 		'orthologs',
 		'siblings',
