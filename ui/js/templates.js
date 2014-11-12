@@ -1,6 +1,10 @@
 
 (function(){
 
+	$.ajaxSetup({
+		dataType: 'text'
+	});
+
 	function path(name){
 		return 'ui/templates/' + name + '.html';
 	}
