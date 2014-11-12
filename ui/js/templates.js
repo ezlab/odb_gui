@@ -18,7 +18,6 @@
 	];
 
 	var partials = [
-		'link',
 		'gene_onthologies',
 		'interpro_domains',
 		'gene_architecture',
@@ -26,10 +25,16 @@
 		'evolutionary_rate'
 	];
 
+	var links = {};
+
 	var helpers = {
 
 		plural: function (value, singular, plural, options) {
 			return String(value) + ' ' + (value == 1 ? singular : plural);
+		},
+
+		link: function (){
+			return links[this.type] ? new Handlebars.SafeString(links[this.type](this)) : this.id;
 		},
 
 		is:	function (value, test, options) {
@@ -37,8 +42,21 @@
 		}
 	};
 
+	function arg1(value){
+		return value;
+	}
 
-	var ready = $.when(true);
+	function load(url){
+		return $.get(url).then(arg1);
+	}
+
+	function registerLink(line, name, source){
+		links[name] = Handlebars.compile(source);
+	}
+
+	var ready = load(path('link')).then(function(src){
+		src.replace(/^\s*(\w+)\s*:\s*(.+)\s*$/gm, registerLink);
+	});
 
 	app.templates = {};
 
@@ -48,12 +66,6 @@
 
 	function registerPartial(name, source){
 		Handlebars.registerPartial(name, source);
-	}
-
-	function load(url){
-		return $.get(url).then(function(value){
-			return value;
-		});
 	}
 
 	$.each(helpers, function(name, value){

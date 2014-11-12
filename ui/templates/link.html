@@ -1,7 +1,8 @@
-{{#is type "text"}}{{id}}{{/is}}
-{{#is type "generic"}}<a href="{{param}}" target="_new">{{id}}</a>{{/is}}
-{{#is type "amigo"}}<a href="http://amigo.geneontology.org/cgi-bin/amigo/term_details?term={{id}}" target="amigo" title="Lookup {{id}} @ AmiGO">{{id}}</a>{{/is}}
-{{#is type "interpro"}}<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" target="interpro" title="Lookup {{id}} @ InterPro">{{id}}</a>{{/is}}
-{{#is type "taxonomy"}}<a href="http://uniprot.org/taxonomy/?query={{param}}&sort=score" target="taxonomy" title="Seacrh UniProt for {{param}}">{{id}}</a>{{/is}}
-{{#is type "ncbi"}}<a href="http://www.ncbi.nlm.nih.gov/protein/{{id}}" target="taxonomy" title="Seacrh NCBI">{{id}}</a>{{/is}}
-{{#is type "uniprot"}}<a href="http://www.uniprot.org/uniprot/?query={{id}}" target="taxonomy" title="Seacrh UniProt">{{id}}</a>{{/is}}
+
+generic:	<a href="{{param}}" target="_new">{{id}}</a>
+
+amigo:		<a href="http://amigo.geneontology.org/cgi-bin/amigo/term_details?term={{id}}" title="Lookup {{id}} @ AmiGO" target="{{type}}">{{id}}</a>
+interpro:	<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" title="Lookup {{id}} @ InterPro" target="{{type}}">{{id}}</a>
+uniprot:	<a href="http://www.uniprot.org/uniprot/?query={{id}}" title="Seacrh UniProt" target="{{type}}">{{id}}</a>
+taxonomy:	<a href="http://www.uniprot.org/taxonomy/?query={{param}}&sort=score" title="Seacrh UniProt for {{param}}" target="{{type}}">{{id}}</a>
+ncbi:		<a href="http://www.ncbi.nlm.nih.gov/protein/{{id}}" title="Seacrh NCBI" target="{{type}}">{{id}}</a>

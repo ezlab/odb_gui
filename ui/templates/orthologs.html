@@ -2,16 +2,16 @@
 <h2>Orthologs by organism</h2>
 
 {{#each data}}
-	<h3>Organism: {{#with organism}}{{>link}}{{/with}}</h3>
+	<h3>Organism: {{#with organism}}{{link}}{{/with}}</h3>
 
 	{{#each genes}}
 	<ul>
-		<li>Gene ID: {{#with gene_id}}{{>link}}{{/with}}</li>
-		<li>UniProt: {{#with uniprot}}{{>link}}{{/with}}</li>
+		<li>Gene ID: {{#with gene_id}}{{link}}{{/with}}</li>
+		<li>UniProt: {{#with uniprot}}{{link}}{{/with}}</li>
 		<li>Description: {{description}}</li>
 		<li>AAs: {{aas}}</li>
 		<li>Exons: {{exons}}</li>
-		<li>InterPro: {{#each interpro}}{{>link}}{{/each}}</li>
+		<li>InterPro: {{#each interpro}}{{link}} {{/each}}</li>
 	</ul>
 	{{/each}}
 {{/each}}
