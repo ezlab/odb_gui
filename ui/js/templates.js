@@ -31,6 +31,10 @@
 
 	var helpers = {
 
+		clade: function (key) {
+			return app.getNode(key).data.name;
+		},
+
 		plural: function (value, singular, plural, options) {
 			return String(value) + ' ' + (value == 1 ? singular : plural);
 		},
