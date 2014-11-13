@@ -1,6 +1,4 @@
-{{#if data.clade}}
-	<span class="tree-title-folder">{{data.name}}</span>
-{{else}}
-	<span class="tree-title-latin">{{data.name}}</span>
-	{{#if data.alias}} ({{data.alias}}){{/if}}
-{{/if}}
+{{#with data}}
+	<span class="selection-name{{#if clade}} selection-folder{{/if}}">{{name}}</span>
+	{{#if alias}}<span class="selection-alias">{{alias}}</span>{{/if}}
+{{/with}}

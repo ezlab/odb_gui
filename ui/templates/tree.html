@@ -1,11 +1,7 @@
-{{#if parent.parent}}
-	{{#if children}}
-		<span class="tree-title-folder">{{data.name}}: {{data.count}}</span>
-		{{#if data.examples}}<span class="tree-title-example">e.g. {{data.examples}}</span>{{/if}}
-	{{else}}
-		<span class="tree-title-latin">{{data.name}}</span>
-		{{#if data.alias}} ({{data.alias}}){{/if}}
-	{{/if}}
-{{else}}
-	<span class="tree-title-top">{{data.name}}:{{data.count}}</span>
-{{/if}}
+{{#with data}}
+	<span class="tree-name{{#if ../children}} tree-folder{{/if}}{{#unless ../parent.parent}} tree-top{{/unless}}">
+		{{name}}{{#if count}}<span class="tree-count">{{count}}</span>{{/if}}
+	</span>
+	{{#if alias}}<span class="tree-alias">{{alias}}</span>{{/if}}
+	{{#if examples}}<span class="tree-examples">{{examples}}</span>{{/if}}
+{{/with}}

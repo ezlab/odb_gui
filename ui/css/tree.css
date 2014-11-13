@@ -24,17 +24,7 @@ ul.fancytree-container:focus {
 	outline: none;
 }
 
-.tree-title-top {
-	display: inline-block;
-	border: 1px solid #333;
-	border-radius: 5px;
-	padding: 1px 5px;
-	vertical-align: middle;
-	font-weight: bold;
-	font-size: 110%;
-}
-
-.tree-title-folder {
+.tree-folder {
 	display: inline-block;
 	border: 1px solid #999;
 	border-radius: 3px;
@@ -44,13 +34,49 @@ ul.fancytree-container:focus {
 	font-size: 90%;
 }
 
-.tree-title-example {
+.tree-top {
+	display: inline-block;
+	border: 1px solid #333;
+	border-radius: 5px;
+	padding: 1px 5px;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+.tree-count:before {
+	content: ": (";
+}
+
+.tree-count:after {
+	content: ")";
+}
+
+.tree-examples {
 	display: inline-block;
 	font-style: italic;
 	vertical-align: middle;
 }
 
-.tree-title-latin {
+.tree-examples:before {
+	content: "e.g. ";
+}
+
+.selection-alias,
+.tree-alias {
 	font-style: italic;
 }
 
+.selection-alias:before,
+.tree-alias:before {
+	content: "(";
+}
+
+.selection-alias:after,
+.tree-alias:after {
+	content: ")";
+}
+
+.selection-folder {
+	font-weight: bold;
+}
