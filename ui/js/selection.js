@@ -32,8 +32,8 @@ $(function(){
 					key: key,
 					expanded: true,
 					name: src.data.name,
-					latin: src.data.latin,
-					english: src.data.english
+					alias: src.data.alias,
+					clade: !!src.children
 				};
 
 				nodes[key] = node;

@@ -1,6 +1,6 @@
-{{#if data.name}}
+{{#if data.clade}}
 	<span class="tree-title-folder">{{data.name}}</span>
 {{else}}
-	<span class="tree-title-latin">{{data.latin}}</span>
-	{{#if data.english}} ({{data.english}}){{/if}}
+	<span class="tree-title-latin">{{data.name}}</span>
+	{{#if data.alias}} ({{data.alias}}){{/if}}
 {{/if}}
