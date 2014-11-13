@@ -1,0 +1,6 @@
+{{#if data.name}}
+	<span class="tree-title-folder">{{data.name}}</span>
+{{else}}
+	<span class="tree-title-latin">{{data.latin}}</span>
+	{{#if data.english}} ({{data.english}}){{/if}}
+{{/if}}

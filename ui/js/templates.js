@@ -10,6 +10,8 @@
 	}
 
 	var templates = [
+		'tree',
+		'selection',
 		'placeholder',
 		'group',
 		'orthologs',

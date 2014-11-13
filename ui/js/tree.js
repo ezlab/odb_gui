@@ -36,35 +36,11 @@ $(function(){
 		return node.data.id;
 	};
 
-
-	function renderTitle(node){
-
-		var item = node.data;
-
-		if (node.statusNodeType){
-			// skip status node
-		}
-		else if (!node.parent.parent){
-			node.title = '<span class="tree-title-top">' + item.name + ': ' + item.count + '</span>';
-		}
-		else if (node.children){
-			node.title = '<span class="tree-title-folder">' + item.name + ': ' + item.count + '</span> ' +
-						 '<span class="tree-title-example">' + (item.example ? 'e.g. ' : '') + item.example + '</span>';
-		}
-		else if (item.english) {
-			node.title = '<span class="tree-title-latin">' + item.latin + '</span> (' + item.english + ')';
-		}
-		else {
-			node.title = '<span class="tree-title-latin">' + item.latin + '</span>';
-		}
-
-		return node;
-	}
-
 	options.renderTitle = function(event, data) {
-		renderTitle(data.node);
+		if (!data.node.statusNodeType){
+			data.node.title = app.templates.tree(data.node);
+		}
 	};
-
 
 	options.select = function(event, data){
 
@@ -82,7 +58,7 @@ $(function(){
 	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
 
 	app.getNode = function(key){
-		return renderTitle(tree.getNodeByKey(key));
+		return tree.getNodeByKey(key);
 	};
 
 	app.method('species', lock, function(keys){
