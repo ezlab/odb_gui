@@ -10,11 +10,11 @@
 	include('templates.js');
 	include('lock.js');
 	include('navigation.js');
-	include('keywords-input.js');
+	include('keywords.js');
 	include('phyloprofile.js');
-	include('search-level.js');
-	include('selection-box.js');
-	include('full-tree.js');
+	include('level.js');
+	include('selection.js');
+	include('tree.js');
 	include('submit.js');
 	include('results.js');
 

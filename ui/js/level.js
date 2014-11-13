@@ -22,7 +22,7 @@ $(function(){
 
 				list.unshift({
 					key: src.key,
-					title: src.title
+					name: src.data.name
 				});
 
 				src = src.parent;
@@ -49,12 +49,12 @@ $(function(){
 
 		if (results) {
 
-			var key, title;
+			var key, name;
 
 			for(i=0; i<results.length; i++){
 				key = results[i].key;
-				title = app.getNode(key).title;
-				select.append($('<option></option>').attr('value', key).html(title));
+				name = results[i].name;
+				select.append($('<option></option>').attr('value', key).html(name));
 			}
 
 			select.val(key);

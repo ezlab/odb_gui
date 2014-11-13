@@ -7,6 +7,12 @@ $(function(){
 		source: []
 	};
 
+	options.renderTitle = function(event, data){
+		if (!data.node.statusNodeType){
+			data.node.title = app.templates.selection(data.node);
+		}
+	}
+
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
 
@@ -25,7 +31,9 @@ $(function(){
 				node = {
 					key: key,
 					expanded: true,
-					title: src.title
+					name: src.data.name,
+					alias: src.data.alias,
+					clade: !!src.children
 				};
 
 				nodes[key] = node;
