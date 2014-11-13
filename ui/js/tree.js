@@ -3,33 +3,15 @@ $(function(){
 
 	var lock = {};
 
-	var source = {
-		url: "data/tree.json",
-		cache: true
-	};
+	var treeData = $.getJSON("data/tree.json").then(app.verifyResponse);
 
 	// see list of options at
 	// http://www.wwwendt.de/tech/fancytree/doc/jsdoc/global.html#FancytreeOptions
 	var options = {
-		source: source,
+		source: [],
 		icons: false,
 		checkbox: true,
 		selectMode: 3
-	};
-
-	options.postProcess = function(event, data){
-
-		var response = data.response;
-
-		if (response.status == 'ok'){
-			data.result = response.data;
-			app.init();
-		}
-		else {
-			data.result = {
-				error: 'Server error'
-			};
-		}
 	};
 
 	options.defaultKey = function(node){
@@ -85,6 +67,12 @@ $(function(){
 				node.setActive();
 			}
 		});
+	});
+
+
+	$.when(treeData, app.ready).then(function(response){
+		tree.reload(response.data);
+		app.init();
 	});
 
 });
