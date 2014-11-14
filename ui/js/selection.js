@@ -64,8 +64,15 @@ $(function(){
 	}
 
 
+	function adjustBoxSize(){
+		var h = $('#selection-box>ul').height() + 6;
+		$('#selection-box').height(h);
+	}
+
+
 	app.method('species', lock, function(keys){
 		tree.reload(makeSelectionTree(keys));
+		setTimeout(adjustBoxSize, 100);
 	});
 });
 
