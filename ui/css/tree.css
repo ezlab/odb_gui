@@ -15,41 +15,31 @@
 	margin-top: 20px;
 }
 
-ul.fancytree-container {
-	border: none;
-	background: transparent;
-}
-
-ul.fancytree-container:focus {
-	outline: none;
-}
-
 .tree-folder {
 	display: inline-block;
-	border: 1px solid #999;
+	padding-left: 5px;
+	border: 1px solid #ddc;
 	border-radius: 3px;
-	padding: 0px 4px;
 	vertical-align: middle;
+	color: #330;
+	background: #ecece2;
 	font-weight: bold;
-	font-size: 90%;
+	font-size: 12px;
 }
 
-.tree-top {
+.tree-count {
 	display: inline-block;
-	border: 1px solid #333;
-	border-radius: 5px;
+	margin-left: 7px;
 	padding: 1px 5px;
-	vertical-align: middle;
-	font-weight: bold;
-	font-size: 110%;
+	border-radius: 3px;
+	background: #aa9;
+	color: #fff;
+	font-size: 11px;
+	font-weight: normal;
 }
 
-.tree-count:before {
-	content: ": (";
-}
-
-.tree-count:after {
-	content: ")";
+.tree-top .tree-count {
+	line-height: 17px;
 }
 
 .tree-examples {
@@ -79,4 +69,86 @@ ul.fancytree-container:focus {
 
 .selection-folder {
 	font-weight: bold;
+}
+
+/* fancytree skin */
+
+ul.fancytree-container {
+	border: none;
+	background: transparent;
+}
+
+ul.fancytree-container:focus {
+	outline: none;
+}
+
+span.fancytree-title {
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+span.fancytree-focused span.fancytree-title {
+  outline: none;
+}
+
+span.fancytree-selected span.fancytree-title,
+span.fancytree-active span.fancytree-title {
+  background-color: transparent;
+}
+
+span.fancytree-selected span.fancytree-title {
+  font-style: normal;
+}
+
+.fancytree-treefocus span.fancytree-selected span.fancytree-title,
+.fancytree-treefocus span.fancytree-active span.fancytree-title {
+  color: inherit;
+  background-color: transparent;
+}
+
+span.fancytree-checkbox {
+	background: none!important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    vertical-align: middle;
+    width: 14px;
+    height: 16px;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+span.fancytree-expander {
+    vertical-align: middle;
+}
+
+span.fancytree-title {
+    vertical-align: middle;
+}
+
+/*
+
+\f096 - square outline
+\f0c8 - square full
+
+\f046 - square outline checked
+\f14a - square full checked
+
+*/
+
+.fancytree-checkbox:before {
+    content: "\f096"; /* square outline */
+}
+
+.fancytree-partsel>.fancytree-checkbox:before {
+	content: "\f0c8"; /* square full */
+    color: #b36;
+}
+
+.fancytree-selected>.fancytree-checkbox:before {
+	content: "\f14a"; /* square full checked */
+    color: #a36;
 }
