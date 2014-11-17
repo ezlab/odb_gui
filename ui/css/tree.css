@@ -1,16 +1,19 @@
 
 #selection-box {
-	overflow: auto;
-	width: 100%;
-	min-height: 30px;
-	max-height: 200px;
 	margin: 5px 0;
 	border: 1px solid #666;
 	border-radius: 3px;
 	background: #fff;
+}
 
- 	transition-property: height;
-	transition-duration: 0.5s;
+#selection-box>ul {
+	min-height: 24px;
+	max-height: 300px;
+	width: 100%;
+}
+
+#selection-box .fancytree-node {
+	height: 20px;
 }
 
 #full-tree {

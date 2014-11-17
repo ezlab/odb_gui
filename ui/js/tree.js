@@ -32,7 +32,17 @@ $(function(){
 			selection.push(nodes[i].key);
 		}
 
+		var el = $("#full-tree"),
+			top1 = el.position().top;
+
 		app.call('species', lock, selection);
+
+		var top2 = el.position().top,
+			sidebar = $('.s-sidebar'),
+			scroll = sidebar.scrollTop();
+
+		// restore vertical position of the tree box
+		sidebar.scrollTop(scroll + top2 - top1);
 	};
 
 
