@@ -1,0 +1,115 @@
+@font-face {
+	font-family: 'icons';
+	src:url('fonts/icons.eot?n5dems');
+	src:url('fonts/icons.eot?#iefixn5dems') format('embedded-opentype'),
+		url('fonts/icons.woff?n5dems') format('woff'),
+		url('fonts/icons.ttf?n5dems') format('truetype'),
+		url('fonts/icons.svg?n5dems#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.i-crosshairs:before {
+	content: "\f05b";
+}
+.i-sign-out:before {
+	content: "\f08b";
+}
+.i-share-square-o:before {
+	content: "\f045";
+}
+.i-star:before {
+	content: "\f005";
+}
+.i-star-o:before {
+	content: "\f006";
+}
+.i-check:before {
+	content: "\f00c";
+}
+.i-times:before {
+	content: "\f00d";
+}
+.i-edit:before {
+	content: "\f044";
+}
+.i-check-square-o:before {
+	content: "\f046";
+}
+.i-plus-circle:before {
+	content: "\f055";
+}
+.i-minus-circle:before {
+	content: "\f056";
+}
+.i-times-circle:before {
+	content: "\f057";
+}
+.i-check-circle:before {
+	content: "\f058";
+}
+.i-times-circle-o:before {
+	content: "\f05c";
+}
+.i-check-circle-o:before {
+	content: "\f05d";
+}
+.i-ban:before {
+	content: "\f05e";
+}
+.i-asterisk:before {
+	content: "\f069";
+}
+.i-exclamation-circle:before {
+	content: "\f06a";
+}
+.i-square-o:before {
+	content: "\f096";
+}
+.i-certificate:before {
+	content: "\f0a3";
+}
+.i-square:before {
+	content: "\f0c8";
+}
+.i-plus-square:before {
+	content: "\f0fe";
+}
+.i-circle-o:before {
+	content: "\f10c";
+}
+.i-circle:before {
+	content: "\f111";
+}
+.i-bullseye:before {
+	content: "\f140";
+}
+.i-minus-square:before {
+	content: "\f146";
+}
+.i-minus-square-o:before {
+	content: "\f147";
+}
+.i-check-square:before {
+	content: "\f14a";
+}
+.i-dot-circle-o:before {
+	content: "\f192";
+}
+.i-circle-thin:before {
+	content: "\f1db";
+}
