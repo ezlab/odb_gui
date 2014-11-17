@@ -23,29 +23,32 @@
 
 .tree-folder {
 	display: inline-block;
-	padding-left: 5px;
-	border: 1px solid #ddc;
-	border-radius: 3px;
+	padding-left: 7px;
+	border-radius: 4px;
 	vertical-align: middle;
-	color: #330;
+	color: #554;
 	background: #ecece2;
 	font-weight: bold;
 	font-size: 12px;
+	box-shadow: inset 1px 1px #ddc, inset -1px -1px #ddc;
 }
 
 .tree-count {
 	display: inline-block;
-	margin-left: 7px;
-	padding: 1px 5px;
-	border-radius: 3px;
-	background: #aa9;
+	margin-left: 8px;
+	padding: 0 5px;
+	border-radius: 4px;
+	background: #bba;
 	color: #fff;
 	font-size: 11px;
 	font-weight: normal;
+	line-height: 18px;
+	text-shadow: 1px 1px 3px #665;
+	box-shadow: inset 1px 1px 0px #aa9;
 }
 
 .tree-top .tree-count {
-	line-height: 17px;
+	line-height: 22px;
 }
 
 .tree-examples {
@@ -144,6 +147,10 @@ span.fancytree-title {
 \f14a - square full checked
 
 */
+
+.fancytree-checkbox:hover  {
+    color: #c06;
+}
 
 .fancytree-checkbox:before {
     content: "\f096"; /* square outline */
