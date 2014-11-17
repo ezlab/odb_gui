@@ -4,7 +4,10 @@ $(function(){
 	var lock = {};
 
 	var options = {
-		source: []
+		source: [],
+		icons: false,
+		checkbox: true,
+		selectMode: 1
 	};
 
 	options.renderTitle = function(event, data){
@@ -15,6 +18,19 @@ $(function(){
 
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
+
+	var currentLevel;
+
+
+	function makeChildrenUnselectable(node){
+		$.each(node.children, function(i, node){
+			node.unselectable = true;
+			node.extraClasses = 's-unselectable';
+			if (node.children){
+				makeChildrenUnselectable(node);
+			}
+		});
+	}
 
 	function makeSelectionTree(keys){
 
@@ -30,7 +46,10 @@ $(function(){
 
 				node = {
 					key: key,
+					selected: key == currentLevel,
 					expanded: true,
+					unselectable: !src.children,
+					extraClasses: src.children ? '' : 's-unselectable',
 					name: src.data.name,
 					alias: src.data.alias,
 					clade: !!src.children
@@ -42,11 +61,13 @@ $(function(){
 
 					var parent = getNode(src.parent.key);
 
-					if (!parent.children){
-						parent.children = [];
+					if (parent.children){
+						parent.children.push(node);
+						makeChildrenUnselectable(parent);
 					}
-
-					parent.children.push(node);
+					else {
+						parent.children = [node];
+					}
 				}
 				else {
 					results.push(node);
@@ -63,6 +84,9 @@ $(function(){
 		return results;
 	}
 
+	app.method('level', lock, function(level){
+		currentLevel = level;
+	});
 
 	app.method('species', lock, function(keys){
 		tree.reload(makeSelectionTree(keys));

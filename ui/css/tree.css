@@ -13,7 +13,12 @@
 }
 
 #selection-box .fancytree-node {
-	height: 20px;
+	height: 17px;
+	line-height: 15px;
+}
+
+#selection-box .fancytree-expander {
+	display: none;
 }
 
 #full-tree {
@@ -78,6 +83,8 @@
 
 .selection-folder {
 	font-weight: bold;
+	font-size: 12px;
+	color: #332;
 }
 
 /* fancytree skin */
@@ -146,6 +153,13 @@ span.fancytree-title {
 \f046 - square outline checked
 \f14a - square full checked
 
+\f10c - circle outline
+\f192 - circle outline checked
+
+\f08b - square out
+\f00c - check
+\f069 - asterix
+
 */
 
 .fancytree-checkbox:hover  {
@@ -164,4 +178,25 @@ span.fancytree-title {
 .fancytree-selected>.fancytree-checkbox:before {
 	content: "\f14a"; /* square full checked */
     color: #a36;
+}
+
+#selection-box .fancytree-selected>.fancytree-checkbox:before {
+	content: "\f08b"; /* square out */
+}
+
+#selection-box .s-unselectable>.fancytree-checkbox {
+	width: 12px;
+	line-height: 12px;
+	color: #887;
+    cursor: default;
+}
+
+#selection-box .s-unselectable>.fancytree-checkbox:before {
+	content: "\f00c"; /* check */
+	font-size: 11px;
+}
+
+#selection-box .s-unselectable.fancytree-has-children>.fancytree-checkbox:before {
+	content: "\f069"; /* asterix */
+	font-size: 10px;
 }
