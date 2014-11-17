@@ -14,7 +14,14 @@ $(function(){
 		if (!data.node.statusNodeType){
 			data.node.title = app.templates.selection(data.node);
 		}
-	}
+	};
+
+	options.select = function(event, data){
+		if (data.node.selected){
+			app.call('level', lock, data.node.key);
+		}
+	};
+
 
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
@@ -85,7 +92,14 @@ $(function(){
 	}
 
 	app.method('level', lock, function(level){
+
 		currentLevel = level;
+
+		var node = tree.getNodeByKey(level);
+
+		if (node && !node.selected){
+			node.setSelected(true);
+		}
 	});
 
 	app.method('species', lock, function(keys){
