@@ -4,17 +4,40 @@ $(function(){
 	var lock = {};
 
 	var options = {
-		source: []
+		source: [],
+		icons: false,
+		checkbox: true,
+		selectMode: 1
 	};
 
 	options.renderTitle = function(event, data){
 		if (!data.node.statusNodeType){
 			data.node.title = app.templates.selection(data.node);
 		}
-	}
+	};
+
+	options.select = function(event, data){
+		if (data.node.selected){
+			app.call('level', lock, data.node.key);
+		}
+	};
+
 
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
+
+	var currentLevel;
+
+
+	function makeChildrenUnselectable(node){
+		$.each(node.children, function(i, node){
+			node.unselectable = true;
+			node.extraClasses = 's-unselectable';
+			if (node.children){
+				makeChildrenUnselectable(node);
+			}
+		});
+	}
 
 	function makeSelectionTree(keys){
 
@@ -30,7 +53,10 @@ $(function(){
 
 				node = {
 					key: key,
+					selected: key == currentLevel,
 					expanded: true,
+					unselectable: !src.children,
+					extraClasses: src.children ? '' : 's-unselectable',
 					name: src.data.name,
 					alias: src.data.alias,
 					clade: !!src.children
@@ -42,11 +68,13 @@ $(function(){
 
 					var parent = getNode(src.parent.key);
 
-					if (!parent.children){
-						parent.children = [];
+					if (parent.children){
+						parent.children.push(node);
+						makeChildrenUnselectable(parent);
 					}
-
-					parent.children.push(node);
+					else {
+						parent.children = [node];
+					}
 				}
 				else {
 					results.push(node);
@@ -63,16 +91,19 @@ $(function(){
 		return results;
 	}
 
+	app.method('level', lock, function(level){
 
-	function adjustBoxSize(){
-		var h = $('#selection-box>ul').height() + 6;
-		$('#selection-box').height(h);
-	}
+		currentLevel = level;
 
+		var node = tree.getNodeByKey(level);
+
+		if (node && !node.selected){
+			node.setSelected(true);
+		}
+	});
 
 	app.method('species', lock, function(keys){
 		tree.reload(makeSelectionTree(keys));
-		setTimeout(adjustBoxSize, 100);
 	});
 });
 

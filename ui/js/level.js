@@ -63,6 +63,9 @@ $(function(){
 		}
 	}
 
+	select.change(function(){
+		app.call('level', lock, select.val());
+	});
 
 	app.method('level', lock, function(level){
 		select.val(level);
