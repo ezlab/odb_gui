@@ -1,9 +1,10 @@
 
 <h2>Sibling Groups</h2>
 
+<ul class="s-group-siblings">
+	<li><span>Group</span><span>InterPro domains</span></li>
+
 {{#each data}}
-	<ul>
-		<li>Group: {{public_id}}</li>
-		<li>InterPro domains: {{#each interpro}}{{link}} {{/each}}</li>
-	</ul>
+	<li><span>{{public_id}}</span><span>{{#each interpro}}{{link}} {{/each}}</span></li>
 {{/each}}
+</ul>
