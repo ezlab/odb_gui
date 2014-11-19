@@ -17,3 +17,11 @@ body {
 	font-size: 13px;
 	font-family: Verdana, Helvetica, sans-serif;
 }
+
+a {
+	color: #04c;
+}
+
+a:visited {
+	color: #609;
+}

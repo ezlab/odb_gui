@@ -1,6 +1,13 @@
 
 <h2>Orthologs by organism</h2>
 
+<div class="s-group-ortho-headers">
+	<div class="s-group-ortho-header-interpro">InterPro</div>
+	<div class="s-group-ortho-header-exons">Exons</div>
+	<div class="s-group-ortho-header-aas">AAs</div>
+	<div class="s-group-ortho-header-left">Organism | Gene ID | UniProt | Description</div>
+</div>
+
 {{#each data}}
 	<div class="s-group-ortho">
 		<div class="s-group-ortho-organism">
@@ -13,15 +20,17 @@
 			<div class="s-group-ortho-interpro">
 				{{#each interpro}}{{link}} {{/each}}
 			</div>
-			<div class="s-group-ortho-ids">
-				{{#with gene_id}}{{link}}{{/with}}
-				({{#with uniprot}}{{link}}{{/with}})
+			<div class="s-group-ortho-exons">
+				{{exons}}
 			</div>
 			<div class="s-group-ortho-aas">
 				{{aas}}
 			</div>
-			<div class="s-group-ortho-exons">
-				{{exons}}
+			<div class="s-group-ortho-ids">
+				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}
+				{{#with gene_id}}{{link}}{{/with}}
+				({{#with uniprot}}{{link}}{{/with}})
+
 			</div>
 			<div class="s-group-ortho-description">
 				{{description}}
