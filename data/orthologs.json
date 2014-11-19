@@ -2,9 +2,23 @@
     "status":"ok",
     "count": 99,
     "data": [{
-		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
+		"organism": {"id": "CJACC", "type": "taxonomy", "param": "Callithrix jacchus"},
 		"genes": [{
-			"gene_id": {"id": "1", "type": "ncbi"},
+			"gene_id": {"id": "ENSGGOG00000024317", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein ABGA01329564; ABGA01329565; ABGA01329566; ABGA01329567; ABGA01329568; ABGA01329569; ABGA01329570; ENSPPYG00000003697; ENSPPYP00000004225; GO:0003676; H2NEQ2",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR006612", "type": "interpro"},{"id": "IPR025398", "type": "interpro"},{"id": "IPR012337", "type": "interpro"},{"id": "IPR008906", "type": "interpro"}]
+		},{
+			"gene_id": {"id": "ENSGGOG00000023767", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		},{
+			"gene_id": {"id": "ENSGGOG00000023767", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
 			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
 			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
 			"aas": "666",
@@ -12,9 +26,30 @@
 			"interpro": [{"id": "IPR001898", "type": "interpro"}]
 		}]
 	},{
-		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
+		"organism": {"id": "GGORI", "type": "taxonomy", "param": "Gorilla gorilla gorilla"},
 		"genes": [{
-			"gene_id": {"id": "1", "type": "ncbi"},
+			"gene_id": {"id": "ENSGGOG00000024317", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein ABGA01329564; ABGA01329565; ABGA01329566; ABGA01329567; ABGA01329568; ABGA01329569; ABGA01329570; ENSPPYG00000003697; ENSPPYP00000004225; GO:0003676; H2NEQ2",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		},{
+			"gene_id": {"id": "ENSGGOG00000023767", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		},{
+			"gene_id": {"id": "ENSGGOG00000023767", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
+			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"aas": "666",
+			"exons": "13",
+			"interpro": [{"id": "IPR001898", "type": "interpro"}]
+		},{
+			"gene_id": {"id": "ENSGGOG00000023767", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
 			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
 			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
 			"aas": "666",
@@ -22,19 +57,19 @@
 			"interpro": [{"id": "IPR001898", "type": "interpro"}]
 		}]
 	},{
-		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
+		"organism": {"id": "HSAPI", "type": "taxonomy", "param": "Homo sapiens"},
 		"genes": [{
-			"gene_id": {"id": "1", "type": "ncbi"},
+			"gene_id": {"id": "ENSGGOG00000024317", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
 			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
-			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
+			"description": "p52rIPK AAC39564.1; AAG01570.1; AAH21992.1; AAI17139.1; AAI17141.1; AF007393; AF081567; AK291843; AL049970; BAF84532.1; BC021992; BC117138; BC117140; CAB43226.1; CH471076; DAP4; EAW74993.1; ENSG00000137492; ENSP00000260045; GO:0003677; GO:0005634; GO:0006950; GO:0007165; GO:0008285; GO:0046872; NCBI:5612; NM_004705.2; NP_004696.2; P52K",
 			"aas": "666",
 			"exons": "13",
 			"interpro": [{"id": "IPR001898", "type": "interpro"}]
 		}]
 	},{
-		"organism": {"id": "HVULG", "type": "taxonomy", "param": "Hydra vulgaris"},
+		"organism": {"id": "MMULA", "type": "taxonomy", "param": "Macaca mulatta"},
 		"genes": [{
-			"gene_id": {"id": "1", "type": "ncbi"},
+			"gene_id": {"id": "ENSGGOG00000024317", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
 			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
 			"description": "Uncharacterized protein GO:0005215; GO:0006814; GO:0016020; GO:0055085; SPU_015678; SPU_015678-tr; Sp-Slc13a2_1; W4YIS4",
 			"aas": "666",

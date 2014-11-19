@@ -96,20 +96,28 @@
 }
 
 .s-group-ortho {
-	margin-bottom: 10px;
+	border-radius: 3px;
+}
+
+.s-group-ortho:nth-child(even){
+	background: #f8f8f2;
 }
 
 .s-group-ortho-organism>div {
 	display: inline-block;
+	font-weight: bold;
+	color: #443;
 }
 
 .s-group-ortho-organism>div:first-child {
-	width: 70px;
 	float: left;
+	width: 70px;
+	padding-left: 8px;
+	font-weight: normal;
 }
 
 .s-group-ortho-gene {
-	margin-left: 70px;
+	padding: 2px 0 6px 70px;
 }
 
 .s-group-ortho-gene:after {
@@ -118,30 +126,69 @@
 	clear: both;
 }
 
+.s-group-ortho-gene:nth-child(odd){
+	background: #fcfcf9;
+}
+
 .s-group-ortho-interpro {
 	float: right;
-	overflow: hidden;
 	width: 90px;
+	padding-bottom: 10px;
 	text-align: center;
 }
 
 .s-group-ortho-ids {
-	display: inline-block;
-	overflow: hidden;
-	width: 500px;
+	position: relative;
 }
 
 .s-group-ortho-aas {
+	float: right;
 	display: inline-block;
 	overflow: hidden;
 	width: 50px;
+	text-align: center;
 }
 
 .s-group-ortho-exons {
+	float: right;
 	display: inline-block;
 	overflow: hidden;
+	width: 50px;
+	text-align: center;
 }
 
-.s-group-ortho-description {
-	width: 600px;
+.s-group-ortho-index {
+	position: absolute;
+	top: 2px;
+	right: 100%;
+	margin-right: 5px;
+	padding: 2px 5px;
+	border-radius: 3px;
+	background: #eeeee2;
+	font-size: 11px;
+}
+
+.s-group-ortho-header-interpro {
+	float:	right;
+	width: 90px;
+	text-align: center;
+}
+
+.s-group-ortho-header-exons {
+	float:	right;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-header-aas {
+	float:	right;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-headers {
+	margin-bottom: 10px;
+	padding-left: 8px;
+	font-weight: bold;
+	color: #663;
 }

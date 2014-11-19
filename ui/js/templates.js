@@ -43,9 +43,18 @@
 			return links[this.type] ? new Handlebars.SafeString(links[this.type](this)) : this.id;
 		},
 
+		add: function (value1, value2){
+			return value1 + value2;
+		},
+
 		is:	function (value, test, options) {
 			return value == test ? options.fn(this) : options.inverse(this);
+		},
+
+		gt:	function (value, test, options) {
+			return value > test ? options.fn(this) : options.inverse(this);
 		}
+
 	};
 
 	function arg1(value){
