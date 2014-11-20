@@ -1,13 +1,22 @@
 
 (function(){
 
+	var initialized;
+
 	app.init = function(){
+
+		initialized = true;
+
 		window.setTimeout(function(){
 			app.parseURL();
 		}, 0);
 	};
 
 	app.parseURL = function(){
+
+		if (!initialized){
+			return;
+		}
 
 		if (location.search.length < 2){
 			return app.loadPage('ui/pages/intro.html');

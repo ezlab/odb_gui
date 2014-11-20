@@ -85,4 +85,37 @@ $(function(){
 		app.init();
 	});
 
+	var searchBox = $('#input-tree-lookup');
+
+	searchBox.change(function(){
+
+		var s = String(this.value);
+
+		s = s.replace(/[^\w*]+/g, ' ');
+		s = s.replace(/^\s+/, '');
+		s = s.replace(/\s+$/, '');
+		s = s.replace(/\*/g, '\\w*');
+
+		var re = new RegExp('\\b' + s + '\\b', 'i'),
+			count = 0;
+
+		function fn(node){
+
+			if (re.test(node.data.name) || re.test(node.data.alias)){
+				node.setSelected(true);
+				node.setActive(true);
+				++count;
+			}
+
+			if (count >= 20){
+				return false; // interupt search if more than 20 nodes found
+			}
+		}
+
+		tree.visit(fn);
+
+		if (count > 0){
+			this.value = ''; // clear search box if found something
+		}
+	});
 });
