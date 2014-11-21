@@ -30,7 +30,8 @@
 				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}
 				{{#with gene_id}}{{link}}{{/with}}
 				({{#with uniprot}}{{link}}{{/with}})
-
+				{{#with synonyms}}{{link}}{{/with}}
+				{{#with phenotypes}}{{link}}{{/with}}
 			</div>
 			<div class="s-group-ortho-description">
 				{{description}}

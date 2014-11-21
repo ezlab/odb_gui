@@ -192,3 +192,15 @@
 	font-weight: bold;
 	color: #663;
 }
+
+.s-link-synonyms {
+	padding: 0 4px;
+	background: url(../images/synonym-icon.png) center center no-repeat;
+	text-decoration: none;
+}
+
+.s-link-phenotypes {
+	padding: 0 4px;
+	background: url(../images/phenotype-icon.png) center center no-repeat;
+	text-decoration: none;
+}
