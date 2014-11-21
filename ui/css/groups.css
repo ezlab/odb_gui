@@ -137,8 +137,20 @@
 	text-align: center;
 }
 
+.s-group-ortho-search {
+	float:	right;
+	width: 20px;
+	text-align: right;
+	padding-top: 1px;
+}
+
 .s-group-ortho-ids {
 	position: relative;
+	float: left;
+}
+
+.s-group-ortho-description {
+	clear: left;
 }
 
 .s-group-ortho-aas {
@@ -170,7 +182,7 @@
 
 .s-group-ortho-header-interpro {
 	float:	right;
-	width: 90px;
+	width: 110px;
 	text-align: center;
 }
 
@@ -191,4 +203,30 @@
 	padding-left: 8px;
 	font-weight: bold;
 	color: #663;
+}
+
+.s-link-synonyms {
+	padding: 0 4px;
+	background: url(../images/synonym-icon.png) center center no-repeat;
+	text-decoration: none;
+}
+
+.s-link-phenotypes {
+	padding: 0 4px;
+	background: url(../images/phenotype-icon.png) center center no-repeat;
+	text-decoration: none;
+}
+
+.s-group-ortho-search>a {
+    font: normal normal normal 14px/1 icons;
+    font-size: 13px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    color: #998;
+}
+
+.s-group-ortho-search>a:before {
+	content: "\f002";
 }

@@ -104,5 +104,22 @@ $(function(){
 		}
 	});
 
+	app.search = function(keywords){
+
+		var cmp = [], params = {
+			keywords: keywords,
+			phyloprofile: searchParams.phyloprofile || '',
+			level: searchResults.level || searchParams.level,
+			species: String(searchParams.level)
+		}
+
+		$.each(params, function(name, value){
+			cmp.push(name + '=' + encodeURIComponent(String(value)));
+		});
+
+		var url = '?' + cmp.join('&');
+
+		app.navigate(url);
+	};
 });
 

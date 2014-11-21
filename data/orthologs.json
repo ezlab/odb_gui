@@ -61,6 +61,8 @@
 		"genes": [{
 			"gene_id": {"id": "ENSGGOG00000024317", "type": "ensembl", "param": "Gorilla gorilla gorilla"},
 			"uniprot": {"id": "W4YIS4", "type": "uniprot"},
+			"synonyms": {"id": "605286", "type": "omims", "description":"605286; CAPN10; NIDDM1"},
+			"phenotypes": {"id": "605286", "type": "omimp", "description":"Diabetes mellitus noninsulin-dependent 1 601283"},
 			"description": "p52rIPK AAC39564.1; AAG01570.1; AAH21992.1; AAI17139.1; AAI17141.1; AF007393; AF081567; AK291843; AL049970; BAF84532.1; BC021992; BC117138; BC117140; CAB43226.1; CH471076; DAP4; EAW74993.1; ENSG00000137492; ENSP00000260045; GO:0003677; GO:0005634; GO:0006950; GO:0007165; GO:0008285; GO:0046872; NCBI:5612; NM_004705.2; NP_004696.2; P52K",
 			"aas": "666",
 			"exons": "13",

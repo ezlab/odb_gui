@@ -20,6 +20,9 @@
 			<div class="s-group-ortho-interpro">
 				{{#each interpro}}{{link}} {{/each}}
 			</div>
+			<div class="s-group-ortho-search">
+				<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="javascript:app.search('{{#each interpro}}{{id}} {{/each}}')"></a>
+			</div>
 			<div class="s-group-ortho-exons">
 				{{exons}}
 			</div>
@@ -30,7 +33,8 @@
 				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}
 				{{#with gene_id}}{{link}}{{/with}}
 				({{#with uniprot}}{{link}}{{/with}})
-
+				{{#with synonyms}}{{link}}{{/with}}
+				{{#with phenotypes}}{{link}}{{/with}}
 			</div>
 			<div class="s-group-ortho-description">
 				{{description}}
