@@ -20,6 +20,9 @@
 			<div class="s-group-ortho-interpro">
 				{{#each interpro}}{{link}} {{/each}}
 			</div>
+			<div class="s-group-ortho-search">
+				<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="javascript:app.search('{{#each interpro}}{{id}} {{/each}}')"></a>
+			</div>
 			<div class="s-group-ortho-exons">
 				{{exons}}
 			</div>
