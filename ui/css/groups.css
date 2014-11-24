@@ -20,8 +20,10 @@
 	font-size: 16px;
 }
 
-.s-group-header-public-id {
+.s-group-header-public-id>a {
 	font-size: 24px;
+	text-decoration: none;
+	color: inherit;
 }
 
 .s-group-header-count {
@@ -205,16 +207,24 @@
 	color: #663;
 }
 
-.s-link-synonyms {
-	padding: 0 4px;
-	background: url(../images/synonym-icon.png) center center no-repeat;
+.s-link-synonyms>a,
+.s-link-phenotypes>a {
+	display: inline-block;
+	overflow: hidden;
+	width: 14px;
+	height: 14px;
+	color: transparent;
+	background: center center no-repeat;
 	text-decoration: none;
+	vertical-align: middle;
 }
 
-.s-link-phenotypes {
-	padding: 0 4px;
-	background: url(../images/phenotype-icon.png) center center no-repeat;
-	text-decoration: none;
+.s-link-synonyms>a {
+	background-image: url(../images/synonym-icon.png);
+}
+
+.s-link-phenotypes>a {
+	background-image: url(../images/phenotype-icon.png);
 }
 
 .s-group-ortho-search>a {

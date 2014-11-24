@@ -22,11 +22,17 @@ $(function(){
 		}
 	};
 
+	options.click = function(event, data){
+		if (data.targetType == 'title' && !data.node.unselectable){
+			data.node.toggleSelected();
+		}
+	};
+
 
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
 
-	var currentLevel;
+	var currentLevel, species = [];
 
 
 	function makeChildrenUnselectable(node){
@@ -70,14 +76,13 @@ $(function(){
 
 					if (parent.children){
 						parent.children.push(node);
-						parent.unselectable = true;
+						makeChildrenUnselectable(parent);
 					}
 					else {
 						parent.children = [node];
-					}
-
-					if (parent.unselectable) {
-						makeChildrenUnselectable(parent);
+						if (parent.unselectable) {
+							makeChildrenUnselectable(parent);
+						}
 					}
 				}
 				else {
@@ -107,7 +112,28 @@ $(function(){
 	});
 
 	app.method('species', lock, function(keys){
+		species = keys;
 		tree.reload(makeSelectionTree(keys));
 	});
+
+	app.removeSelection = function(key){
+
+		var i, node, items = species.concat();
+
+		for (i=0; i<items.length; i++){
+
+			node = tree.getNodeByKey(items[i]);
+
+			while (node) {
+				if (node.key == key){
+					items.splice(i--, 1);
+					break;
+				}
+				node = node.parent;
+			}
+		}
+
+		app.species(items);
+	};
 });
 
