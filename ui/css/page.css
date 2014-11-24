@@ -88,6 +88,15 @@
 	text-align: right;
 }
 
+.s-sidebar-clear-all>a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.s-sidebar-clear-all>a:hover{
+	text-decoration: underline;
+}
+
 .s-sidebar button {
 	padding: 10px 30px;
 	margin: 15px 0 20px;
