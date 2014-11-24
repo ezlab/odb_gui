@@ -7,6 +7,7 @@ $(function(){
 
 	var searchParams = {},
 		searchResults = [],
+		actualLevel = '',
 		totalCount = 0,
 		groupData = [],
 		groupsRendered = 0;
@@ -21,12 +22,12 @@ $(function(){
 
 		var params1 = {
 			id: searchResults[i],
-			level: searchParams.level
+			level: actualLevel
 		};
 
 		var params2 = {
 			id: searchResults[i],
-			level: searchParams.level,
+			level: actualLevel,
 			species: searchParams.species
 		};
 
@@ -74,6 +75,7 @@ $(function(){
 
 		searchParams = params;
 		searchResults = response.data;
+		actualLevel = response.level || params.level;
 		totalCount = response.count;
 		groupData = [];
 		groupsRendered = 0;
@@ -109,8 +111,8 @@ $(function(){
 		var cmp = [], params = {
 			keywords: keywords,
 			phyloprofile: searchParams.phyloprofile || '',
-			level: searchResults.level || searchParams.level,
-			species: String(searchParams.level)
+			level: actualLevel,
+			species: String(searchParams.species)
 		}
 
 		$.each(params, function(name, value){
