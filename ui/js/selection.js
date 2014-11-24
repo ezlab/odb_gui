@@ -70,14 +70,13 @@ $(function(){
 
 					if (parent.children){
 						parent.children.push(node);
-						parent.unselectable = true;
+						makeChildrenUnselectable(parent);
 					}
 					else {
 						parent.children = [node];
-					}
-
-					if (parent.unselectable) {
-						makeChildrenUnselectable(parent);
+						if (parent.unselectable) {
+							makeChildrenUnselectable(parent);
+						}
 					}
 				}
 				else {
