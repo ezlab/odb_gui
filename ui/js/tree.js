@@ -45,6 +45,16 @@ $(function(){
 		sidebar.scrollTop(scroll + top2 - top1);
 	};
 
+	options.click = function(event, data){
+		if (data.targetType == 'title'){
+			if (data.node.children){
+				data.node.toggleExpanded();
+			}
+			else {
+				data.node.toggleSelected();
+			}
+		}
+	};
 
 	// creating the tree component
 	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
