@@ -26,7 +26,7 @@ $(function(){
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
 
-	var currentLevel;
+	var currentLevel, species = [];
 
 
 	function makeChildrenUnselectable(node){
@@ -106,7 +106,28 @@ $(function(){
 	});
 
 	app.method('species', lock, function(keys){
+		species = keys;
 		tree.reload(makeSelectionTree(keys));
 	});
+
+	app.removeSelection = function(key){
+
+		var i, node, items = species.concat();
+
+		for (i=0; i<items.length; i++){
+
+			node = tree.getNodeByKey(items[i]);
+
+			while (node) {
+				if (node.key == key){
+					items.splice(i--, 1);
+					break;
+				}
+				node = node.parent;
+			}
+		}
+
+		app.species(items);
+	};
 });
 
