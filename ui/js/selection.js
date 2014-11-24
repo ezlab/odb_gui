@@ -22,6 +22,12 @@ $(function(){
 		}
 	};
 
+	options.click = function(event, data){
+		if (data.targetType == 'title' && !data.node.unselectable){
+			data.node.toggleSelected();
+		}
+	};
+
 
 	var tree = $('#selection-box').fancytree(options).fancytree('getTree');
 
