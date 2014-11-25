@@ -101,10 +101,11 @@ $(function(){
 
 		var s = String(this.value);
 
-		s = s.replace(/[^\w*]+/g, ' ');
+		s = s.replace(/[^\w*,]+/g, ' ');
 		s = s.replace(/^\s+/, '');
 		s = s.replace(/\s+$/, '');
 		s = s.replace(/\*/g, '\\w*');
+		s = s.replace(/\s*,\s*/g, '\\b|\\b');
 
 		var re = new RegExp('\\b' + s + '\\b', 'i'),
 			count = 0;

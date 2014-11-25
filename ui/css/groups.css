@@ -240,3 +240,59 @@
 .s-group-ortho-search>a:before {
 	content: "\f002";
 }
+
+.s-group-gene-architecture,
+.s-group-phyletic-profile {
+	margin-left: 40px;
+}
+
+.s-group-gene-architecture td {
+	min-width: 70px;
+	text-align: center;
+}
+
+.s-group-gene-architecture td:first-child {
+	text-align: left;
+}
+
+
+.s-group-evolutionary-rate,
+.s-group-evolutionary-rate-chart {
+	display: inline-block;
+	line-height: 17px;
+}
+
+.s-group-evolutionary-rate {
+	margin: 0 10px 0 40px;
+}
+
+
+.s-rainbow {
+	display: inline-block;
+	overflow: hidden;
+	width: 15px;
+	height: 15px;
+	margin-left: 1px;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.s-rainbow-mark:before {
+	content: "x";
+}
+
+.s-rainbow-0 {background: #2857FF}
+.s-rainbow-1 {background: #3D87FF}
+.s-rainbow-2 {background: #57B0FF}
+.s-rainbow-3 {background: #75D3FF}
+.s-rainbow-4 {background: #99EAFF}
+.s-rainbow-5 {background: #BCF9FF}
+.s-rainbow-6 {background: #FFFFFF}
+.s-rainbow-7 {background: #FFF1BC}
+.s-rainbow-8 {background: #FFD799}
+.s-rainbow-9 {background: #FFAC75}
+.s-rainbow-10 {background: #FF7857}
+.s-rainbow-11 {background: #FF3D3D}
+.s-rainbow-12 {background: #F72735}
+
