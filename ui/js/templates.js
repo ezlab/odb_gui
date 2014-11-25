@@ -57,6 +57,20 @@
 
 	};
 
+	helpers.rainbow = function(value){
+
+		var i, s = '', x, min, max, count = 13, step = 2*Math.log(2)/(count-1);
+
+		for(i=0; i<count; i++){
+			min = (i === 0) ? -Infinity : (i - count/2)*step;
+			max = (i == count-1) ? Infinity : (i + 1 - count/2)*step;
+			x = (Math.log(value) >= min && Math.log(value) < max) ? ' s-rainbow-mark' : '';
+			s += '<span class="s-rainbow s-rainbow-' + i + x + '"></span>';
+		}
+
+		return new Handlebars.SafeString(s);
+	};
+
 	function arg1(value){
 		return value;
 	}
