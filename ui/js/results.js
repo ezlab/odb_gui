@@ -99,6 +99,10 @@ $(function(){
 
 	$('#content').on('scroll', function(){
 
+		if (!$('#group0').length){
+			return;
+		}
+
 		var remainingHeight = this.scrollHeight - this.offsetHeight - this.scrollTop;
 
 		if (remainingHeight < 50 && groupsRendered < totalCount){
