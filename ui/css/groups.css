@@ -296,3 +296,13 @@
 .s-rainbow-11 {background: #FF3D3D}
 .s-rainbow-12 {background: #F72735}
 
+.s-deviation-l2:before,
+.s-deviation-g2:after {
+	content: "!!";
+}
+
+.s-deviation-l1:before,
+.s-deviation-g1:after {
+	content: "!";
+}
+

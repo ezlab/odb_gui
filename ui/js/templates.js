@@ -57,6 +57,18 @@
 
 	};
 
+	helpers.deviation = function(value, median, stdev){
+
+		var cls = 'm', delta = value - median;
+
+		if (delta > stdev) {cls = 'g1';}
+		if (delta > 2*stdev) {cls = 'g2';}
+		if (delta < -stdev) {cls = 'l1';}
+		if (delta < -2*stdev) {cls = 'l2';}
+
+		return new Handlebars.SafeString('<span class="s-deviation-' + cls + '">' + value + '</span>');
+	};
+
 	helpers.rainbow = function(value){
 
 		var i, s = '', x, min, max, count = 13, step = 2*Math.log(2)/(count-1);

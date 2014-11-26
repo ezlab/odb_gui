@@ -47,11 +47,17 @@ $(function(){
 		$(selector).html(template(data));
 	}
 
+	function addGroupIntoOrthologs(orthologs, group){
+		orthologs.group = group.data;
+		return orthologs;
+	}
 
 	function renderGroup(i, selector, data){
 
+		var orthologs = $.when(data.orthologs, data.group).then(addGroupIntoOrthologs);
+
 		var ready = $.when(selector, app.templates.group, data.group).then(render);
-		ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
+		ready = $.when(selector + ' .orthologs', app.templates.orthologs, orthologs, ready).then(render);
 		ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
 
 		if (++i < totalCount) { // preload next
