@@ -27,7 +27,7 @@
 				{{exons}}
 			</div>
 			<div class="s-group-ortho-aas">
-				{{aas}}
+				{{#with ../../group.gene_architecture.protein_length}}{{deviation ../aas median stdev}}{{/with}}
 			</div>
 			<div class="s-group-ortho-ids">
 				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}

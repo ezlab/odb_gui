@@ -7,7 +7,6 @@ $(function(){
 
 	var searchParams = {},
 		searchResults = [],
-		actualLevel = '',
 		totalCount = 0,
 		groupData = [],
 		groupsRendered = 0;
@@ -21,13 +20,11 @@ $(function(){
 	function requestGroupData(i){
 
 		var params1 = {
-			id: searchResults[i],
-			level: actualLevel
+			id: searchResults[i]
 		};
 
 		var params2 = {
 			id: searchResults[i],
-			level: actualLevel,
 			species: searchParams.species
 		};
 
@@ -47,11 +44,17 @@ $(function(){
 		$(selector).html(template(data));
 	}
 
+	function addGroupIntoOrthologs(orthologs, group){
+		orthologs.group = group.data;
+		return orthologs;
+	}
 
 	function renderGroup(i, selector, data){
 
+		var orthologs = $.when(data.orthologs, data.group).then(addGroupIntoOrthologs);
+
 		var ready = $.when(selector, app.templates.group, data.group).then(render);
-		ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
+		ready = $.when(selector + ' .orthologs', app.templates.orthologs, orthologs, ready).then(render);
 		ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
 
 		if (++i < totalCount) { // preload next
@@ -75,7 +78,6 @@ $(function(){
 
 		searchParams = params;
 		searchResults = response.data;
-		actualLevel = response.level || params.level;
 		totalCount = response.count;
 		groupData = [];
 		groupsRendered = 0;
@@ -115,7 +117,7 @@ $(function(){
 		var cmp = [], params = {
 			keywords: keywords,
 			phyloprofile: searchParams.phyloprofile || '',
-			level: actualLevel,
+			level: searchParams.level,
 			species: String(searchParams.species)
 		}
 
