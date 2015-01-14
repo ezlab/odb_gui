@@ -2,7 +2,7 @@
 (function(){
 
 	function include(file){
-		document.write('<script src="ui/js/' + file + '" type="text/javascript"><\/script>');
+		document.write('<script src="static/js/' + file + '" type="text/javascript"><\/script>');
 	}
 
 	include('application.js');

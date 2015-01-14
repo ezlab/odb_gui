@@ -19,7 +19,7 @@
 		}
 
 		if (location.search.length < 2){
-			return app.loadPage('ui/pages/intro.html');
+			return app.loadPage('static/pages/intro.html');
 		}
 
 		var params = {};
@@ -41,7 +41,7 @@
 			app.loadData(params);
 		}
 		else if (params.page){
-			app.loadPage('ui/pages/' + params.page + '.html');
+			app.loadPage('static/pages/' + params.page + '.html');
 		}
 		else {
 			throw new Error('Unknown URL parameters');
