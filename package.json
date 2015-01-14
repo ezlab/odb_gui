@@ -1,0 +1,12 @@
+{
+  "name": "odb-gui",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "4.x.x",
+    "express-http-proxy": "0.3.x"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.x.x"
+  }
+}
