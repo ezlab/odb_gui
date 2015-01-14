@@ -3,7 +3,7 @@ $(function(){
 
 	var lock = {};
 
-	var treeData = $.getJSON("data/tree.json").then(app.verifyResponse);
+	var treeData = $.getJSON("tree").then(app.verifyResponse);
 
 	// see list of options at
 	// http://www.wwwendt.de/tech/fancytree/doc/jsdoc/global.html#FancytreeOptions

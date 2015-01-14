@@ -19,7 +19,7 @@
 		}
 
 		if (location.search.length < 2){
-			return app.loadPage('ui/pages/intro.html');
+			return app.loadPage('static/pages/intro.html');
 		}
 
 		var params = {};
@@ -28,12 +28,12 @@
 			params[name] = decodeURIComponent(value);
 		});
 
-		if (params.keywords ||
+		if (params.query ||
 			params.phyloprofile ||
 			params.species ||
 			params.level){
 
-			app.keywords(params.keywords || '');
+			app.query(params.query || '');
 			app.phyloprofile(params.phyloprofile || '');
 			app.species((params.species || '').split(','));
 			app.level((params.level || ''));
@@ -41,7 +41,7 @@
 			app.loadData(params);
 		}
 		else if (params.page){
-			app.loadPage('ui/pages/' + params.page + '.html');
+			app.loadPage('static/pages/' + params.page + '.html');
 		}
 		else {
 			throw new Error('Unknown URL parameters');

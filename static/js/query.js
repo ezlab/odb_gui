@@ -5,12 +5,12 @@ $(function(){
 
 	var textbox = $('#input-search-text');
 
-	app.method('keywords', lock, function(keywords){
-		textbox.val(keywords);
+	app.method('query', lock, function(query){
+		textbox.val(query);
 	});
 
 	textbox.blur(function(){
-		app.call('keywords', lock, textbox.val());
+		app.call('query', lock, textbox.val());
 	});
 
 });

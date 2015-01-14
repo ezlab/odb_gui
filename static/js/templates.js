@@ -6,7 +6,7 @@
 	});
 
 	function path(name){
-		return 'ui/templates/' + name + '.html';
+		return 'static/templates/' + name + '.html';
 	}
 
 	var templates = [

@@ -3,13 +3,13 @@ var app = {};
 
 (function(){
 
-	var keywords = '',
+	var query = '',
 		profile = '',
 		level = '',
 		selection = [];
 
-	app.keywords = function(text){
-		keywords = text;
+	app.query = function(text){
+		query = text;
 	};
 
 	app.phyloprofile = function(text){

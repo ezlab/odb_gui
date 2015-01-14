@@ -2,7 +2,7 @@
 $(function(){
 
 	function path(name){
-		return 'data/' + name + '.json';
+		return name;
 	}
 
 	var searchParams = {},
@@ -78,7 +78,7 @@ $(function(){
 
 		searchParams = params;
 		searchResults = response.data;
-		totalCount = response.count;
+		totalCount = response.data.length;
 		groupData = [];
 		groupsRendered = 0;
 
@@ -112,10 +112,10 @@ $(function(){
 		}
 	});
 
-	app.search = function(keywords){
+	app.search = function(query){
 
 		var cmp = [], params = {
-			keywords: keywords,
+			query: query,
 			phyloprofile: searchParams.phyloprofile || '',
 			level: searchParams.level,
 			species: String(searchParams.species)

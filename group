@@ -1,0 +1,86 @@
+{
+  "data": {
+
+    "id": 649323, 
+    "name": "Insulin", 
+    "public_id": "EOG83JDK4", 
+
+    "level_name": "Metazoa", 
+    "level_taxid": 33208, 
+
+    "molecular_function": [], 
+    
+    "biological_process": [
+    	{"count": 63, "id": "GO:0045840", "type": "amigo", "description": "positive regulation of mitosis"}, 
+    	{"count": 63, "id": "GO:0043410", "type": "amigo", "description": "positive regulation of MAPK cascade"}, 
+    	{"count": 61, "id": "GO:0051897", "type": "amigo", "description": "positive regulation of protein kinase B signaling"}, 
+    	{"count": 61, "id": "GO:0045725", "type": "amigo", "description": "positive regulation of glycogen biosynthetic process"}
+    ], 
+    
+    "cellular_component": [
+    	{"count": 109, "id": "GO:0005615", "type": "amigo", "description": "extracellular space"}, 
+    	{"count": 62, "id": "GO:0005576", "type": "amigo", "description": "extracellular region"}
+    ], 
+    
+    "interpro_domains": [
+    	{"count": 231, "id": "IPR016179", "description": "Insulin-like", "type": "interpro", "name": "Insulin-like"}
+    ], 
+    
+    "functional_category": [
+    	{"description": "Signal transduction mechanisms", "id": "T", "type": "text", "name": "CELLULAR PROCESSES AND SIGNALING"}, 
+    	{"description": "Energy production and conversion", "id": "C", "type": "text", "name": "METABOLISM"}, 
+    	{"description": "Carbohydrate transport and metabolism", "id": "G", "type": "text", "name": "METABOLISM"}
+    ], 
+    
+    "gene_architecture": {
+    	"protein_median_length": 159, 
+    	"protein_stdev_length": 73, 
+    	"exon_median_counts": 3, 
+    	"exon_stdev_counts": 1.6
+    }, 
+    
+    "phyletic_profile": {
+    	"species_count": 173, 
+    	"gene_count": 254, 
+    	"single_copy": 47, 
+    	"multi_copy": 67, 
+    	"present_in": 114
+    }, 
+    
+    "evolutionary_rate": 1.1288,
+    
+    "siblings": [
+    	{"count": 3, "id": "EOG8V44PS", "type": "orthodb", "description": "IPR022352, IPR016179, IPR022353"}, 
+    	{"count": 3, "id": "EOG8KH490", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
+    	{"count": 3, "id": "EOG8S1VND", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
+    	{"count": 3, "id": "EOG80GF4M", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
+    	{"count": 3, "id": "EOG88PP17", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
+    	{"count": 3, "id": "EOG8P2RHK", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
+    	{"count": 3, "id": "EOG89PCF1", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
+    	{"count": 3, "id": "EOG8DNGK9", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
+    	{"count": 3, "id": "EOG8GQRMZ", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
+    	{"count": 3, "id": "EOG8SN34R", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
+    	{"count": 3, "id": "EOG8VX3J8", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
+    	{"count": 3, "id": "EOG8HX6J4", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
+    	{"count": 2, "id": "EOG8ZPG90", "type": "orthodb", "description": "IPR004825, IPR016179"}, 
+    	{"count": 2, "id": "EOG85B2WP", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
+    	{"count": 2, "id": "EOG8HB02D", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
+    	{"count": 2, "id": "EOG8KD82H", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
+    	{"count": 2, "id": "EOG8N05WZ", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
+    	{"count": 2, "id": "EOG8N5XD4", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
+    	{"count": 2, "id": "EOG8WDFSC", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
+    	{"count": 1, "id": "EOG8RBS59", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG8MKQ03", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG8H47GB", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG8THXD7", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG84QVGX", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG847H9T", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG812NRF", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG8WDFV8", "type": "orthodb", "description": "IPR016179"}, 
+    	{"count": 1, "id": "EOG8RBS2S", "type": "orthodb", "description": "IPR016179"}
+    ]
+  }, 
+ 
+  "status": "ok"
+}
+    	
