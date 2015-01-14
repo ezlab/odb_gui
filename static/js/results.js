@@ -78,7 +78,7 @@ $(function(){
 
 		searchParams = params;
 		searchResults = response.data;
-		totalCount = response.count;
+		totalCount = response.data.length;
 		groupData = [];
 		groupsRendered = 0;
 
