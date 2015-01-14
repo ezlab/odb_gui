@@ -2,7 +2,7 @@
 $(function(){
 
 	function path(name){
-		return 'data/' + name + '.json';
+		return name;
 	}
 
 	var searchParams = {},
