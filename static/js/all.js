@@ -10,7 +10,7 @@
 	include('templates.js');
 	include('lock.js');
 	include('navigation.js');
-	include('keywords.js');
+	include('query.js');
 	include('phyloprofile.js');
 	include('level.js');
 	include('selection.js');

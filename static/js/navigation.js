@@ -28,12 +28,12 @@
 			params[name] = decodeURIComponent(value);
 		});
 
-		if (params.keywords ||
+		if (params.query ||
 			params.phyloprofile ||
 			params.species ||
 			params.level){
 
-			app.keywords(params.keywords || '');
+			app.query(params.query || '');
 			app.phyloprofile(params.phyloprofile || '');
 			app.species((params.species || '').split(','));
 			app.level((params.level || ''));

@@ -5,8 +5,8 @@ $(function(){
 		lock = {},
 		params = {};
 
-	app.method('keywords', lock, function(keywords){
-		params.keywords = keywords;
+	app.method('query', lock, function(query){
+		params.query = query;
 	});
 
 	app.method('phyloprofile', lock, function(profile){

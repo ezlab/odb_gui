@@ -112,10 +112,10 @@ $(function(){
 		}
 	});
 
-	app.search = function(keywords){
+	app.search = function(query){
 
 		var cmp = [], params = {
-			keywords: keywords,
+			query: query,
 			phyloprofile: searchParams.phyloprofile || '',
 			level: searchParams.level,
 			species: String(searchParams.species)
