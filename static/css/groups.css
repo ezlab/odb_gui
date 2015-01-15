@@ -1,0 +1,308 @@
+
+.s-group {
+	min-height: 500px;
+	margin-bottom: 80px;
+}
+
+.s-group-header {
+	padding: 15px 30px;
+	margin: 10px 0 20px;
+	background: #eeeee6;
+	border-radius: 5px;
+	color: #220;
+}
+
+.s-group-header-menu {
+	float: right;
+}
+
+.s-group-header-label {
+	font-size: 16px;
+}
+
+.s-group-header-public-id>a {
+	font-size: 24px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.s-group-header-count {
+	float: right;
+}
+
+.s-group h2 {
+	position: relative;
+	width: 300px;
+	margin: 30px 0 15px;
+	padding: 5px 10px;
+	border: 1px solid #ddc;
+	border-left-width: 30px;
+	border-radius: 0 8px 0 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #a07;
+	background: #f8f8f2;
+	text-shadow: 1px 1px 3px #ddc;
+}
+
+.s-group h2:after {
+	content: "";
+	position: absolute;
+	width: 700px;
+	bottom: -1px;
+	left: 0;
+	border-bottom: 1px solid #ddc;
+}
+
+.s-group-box {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+
+.s-group-box h2:after {
+	width: 315px;
+}
+
+.s-group li {
+	list-style: none;
+	line-height: 1.45em;
+}
+
+.s-group-go h3 {
+	margin: 10px 50px 0 40px;
+	font-size: 12px;
+	color: #665;
+}
+
+.s-group-go ul+h3 {
+	border-top: 1px solid #eed;
+	padding-top: 8px;
+}
+
+.s-group-go ul {
+	overflow: auto;
+	max-height: 120px;
+	margin: -15px 0 0 180px;
+	font-size: 12px;
+	line-height: 17px;
+}
+
+.s-group-siblings>li:first-child {
+	font-weight: bold;
+}
+
+.s-group-siblings>li>span:first-child {
+	display: inline-block;
+	width: 150px;
+}
+
+.s-group-ortho {
+	border-radius: 3px;
+}
+
+.s-group-ortho:nth-child(even){
+	background: #f8f8f2;
+}
+
+.s-group-ortho-organism>div {
+	display: inline-block;
+	font-weight: bold;
+	color: #443;
+}
+
+.s-group-ortho-organism>div:first-child {
+	float: left;
+	width: 70px;
+	padding-left: 8px;
+	font-weight: normal;
+}
+
+.s-group-ortho-gene {
+	padding: 2px 0 6px 70px;
+}
+
+.s-group-ortho-gene:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.s-group-ortho-gene:nth-child(odd){
+	background: #fcfcf9;
+}
+
+.s-group-ortho-interpro {
+	float: right;
+	width: 90px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.s-group-ortho-search {
+	float:	right;
+	width: 20px;
+	text-align: right;
+	padding-top: 1px;
+}
+
+.s-group-ortho-ids {
+	position: relative;
+	float: left;
+}
+
+.s-group-ortho-description {
+	clear: left;
+}
+
+.s-group-ortho-aas {
+	float: right;
+	display: inline-block;
+	overflow: hidden;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-exons {
+	float: right;
+	display: inline-block;
+	overflow: hidden;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-index {
+	position: absolute;
+	top: 2px;
+	right: 100%;
+	margin-right: 5px;
+	padding: 2px 5px;
+	border-radius: 3px;
+	background: #eeeee2;
+	font-size: 11px;
+}
+
+.s-group-ortho-header-interpro {
+	float:	right;
+	width: 110px;
+	text-align: center;
+}
+
+.s-group-ortho-header-exons {
+	float:	right;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-header-aas {
+	float:	right;
+	width: 50px;
+	text-align: center;
+}
+
+.s-group-ortho-headers {
+	margin-bottom: 10px;
+	padding-left: 8px;
+	font-weight: bold;
+	color: #663;
+}
+
+.s-link-synonyms>a,
+.s-link-phenotypes>a {
+	display: inline-block;
+	overflow: hidden;
+	width: 14px;
+	height: 14px;
+	color: transparent;
+	background: center center no-repeat;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.s-link-synonyms>a {
+	background-image: url(../images/synonym-icon.png);
+}
+
+.s-link-phenotypes>a {
+	background-image: url(../images/phenotype-icon.png);
+}
+
+.s-group-ortho-search>a {
+    font: normal normal normal 14px/1 icons;
+    font-size: 13px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    color: #998;
+}
+
+.s-group-ortho-search>a:before {
+	content: "\f002";
+}
+
+.s-group-gene-architecture,
+.s-group-phyletic-profile {
+	margin-left: 40px;
+}
+
+.s-group-gene-architecture td {
+	min-width: 70px;
+	text-align: center;
+}
+
+.s-group-gene-architecture td:first-child {
+	text-align: left;
+}
+
+
+.s-group-evolutionary-rate,
+.s-group-evolutionary-rate-chart {
+	display: inline-block;
+	line-height: 17px;
+}
+
+.s-group-evolutionary-rate {
+	margin: 0 10px 0 40px;
+}
+
+
+.s-rainbow {
+	display: inline-block;
+	overflow: hidden;
+	width: 15px;
+	height: 15px;
+	margin-left: 1px;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.s-rainbow-mark:before {
+	content: "x";
+}
+
+.s-rainbow-0 {background: #2857FF}
+.s-rainbow-1 {background: #3D87FF}
+.s-rainbow-2 {background: #57B0FF}
+.s-rainbow-3 {background: #75D3FF}
+.s-rainbow-4 {background: #99EAFF}
+.s-rainbow-5 {background: #BCF9FF}
+.s-rainbow-6 {background: #FFFFFF}
+.s-rainbow-7 {background: #FFF1BC}
+.s-rainbow-8 {background: #FFD799}
+.s-rainbow-9 {background: #FFAC75}
+.s-rainbow-10 {background: #FF7857}
+.s-rainbow-11 {background: #FF3D3D}
+.s-rainbow-12 {background: #F72735}
+
+.s-deviation-l2:before,
+.s-deviation-g2:after {
+	content: "!!";
+}
+
+.s-deviation-l1:before,
+.s-deviation-g1:after {
+	content: "!";
+}
+

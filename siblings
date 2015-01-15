@@ -1,0 +1,20 @@
+{
+    "status":"ok",
+    "count": 99,
+    "data": [{
+		"public_id": "EOG82JQ93",
+		"interpro": [{"id": "IPR001898", "type": "interpro"},{"id": "IPR001899", "type": "interpro"}]
+	},{
+		"public_id": "EOG86T4C5",
+		"interpro": [{"id": "IPR001898", "type": "interpro"},{"id": "IPR001899", "type": "interpro"}]
+	},{
+		"public_id": "EOG8GXH12",
+		"interpro": [{"id": "IPR001898", "type": "interpro"},{"id": "IPR001899", "type": "interpro"}]
+	},{
+		"public_id": "EOG8SN31M",
+		"interpro": [{"id": "IPR001898", "type": "interpro"},{"id": "IPR001899", "type": "interpro"}]
+	},{
+		"public_id": "EOG8T1K53",
+		"interpro": [{"id": "IPR001898", "type": "interpro"},{"id": "IPR001899", "type": "interpro"}]
+	}]
+}

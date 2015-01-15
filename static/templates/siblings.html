@@ -1,0 +1,10 @@
+
+<h2>Sibling Groups</h2>
+
+<ul class="s-group-siblings">
+	<li><span>Group</span><span>InterPro domains</span></li>
+
+{{#each data}}
+	<li><span><a href="javascript:app.search('{{public_id}}')" title="{{public_id}}">{{public_id}}</a></span><span>{{#each interpro}}{{link}} {{/each}}</span></li>
+{{/each}}
+</ul>

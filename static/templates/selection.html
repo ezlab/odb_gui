@@ -1,0 +1,5 @@
+{{#with data}}
+	<span class="selection-name{{#if clade}} selection-folder{{/if}}">{{name}}</span>
+	{{#if alias}}<span class="selection-alias">{{alias}}</span>{{/if}}
+	<a class="s-icon selection-remove" href="javascript:app.removeSelection('{{../key}}')" title="Remove"></a>
+{{/with}}
