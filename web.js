@@ -21,8 +21,8 @@ app.use('/static', express.static('static'));
 
 app.use('/group', api('/group'));
 app.use('/search', api('/search'));
+app.use('/orthologs', api('/orthologs'));
 
-app.get('/orthologs', file('/orthologs'));
 app.get('/siblings', file('/siblings'));
 app.get('/tree', file('/tree'));
 app.get('/', file('/index.html'));
