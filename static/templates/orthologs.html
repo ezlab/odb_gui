@@ -12,7 +12,7 @@
 	<div class="s-group-ortho">
 		<div class="s-group-ortho-organism">
 			<div>{{#with organism}}{{link}}{{/with}}</div>
-			<div>{{organism.param}}</div>
+			<div>{{organism.name}}</div>
 		</div>
 
 		{{#each genes}}
@@ -27,7 +27,7 @@
 				{{exons}}
 			</div>
 			<div class="s-group-ortho-aas">
-				{{#with ../../group.gene_architecture.protein_length}}{{deviation ../aas median stdev}}{{/with}}
+				{{#with ../../group.gene_architecture}}{{deviation ../aas protein_median_length protein_stdev_length}}{{/with}}
 			</div>
 			<div class="s-group-ortho-ids">
 				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}

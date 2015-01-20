@@ -40,7 +40,7 @@
 		},
 
 		link: function (){
-			return links[this.type] ? new Handlebars.SafeString(links[this.type](this)) : this.id;
+			return new Handlebars.SafeString((links[this.type] || links.generic)(this));
 		},
 
 		add: function (value1, value2){
