@@ -133,24 +133,26 @@
 }
 
 .s-group-ortho-interpro {
+	position: relative;
 	float: right;
 	width: 90px;
+	min-height: 1em;
 	text-align: center;
+	z-index: 1;
 }
 
 .s-group-ortho-search {
+	position: relative;
 	float:	right;
 	width: 20px;
+	min-height: 1em;
 	text-align: right;
 	padding-top: 1px;
+	z-index: 1;
 }
 
 .s-group-ortho-ids {
 	position: relative;
-	float: left;
-}
-
-.s-group-ortho-description {
 	clear: left;
 }
 
@@ -172,7 +174,7 @@
 
 .s-group-ortho-index {
 	position: absolute;
-	top: 2px;
+	top: 0px;
 	right: 100%;
 	margin-right: 5px;
 	padding: 2px 5px;

@@ -8,10 +8,12 @@
 	}
 
 	app.restart = function(){
-		location.search = '';
-		window.setTimeout(function(){
+		if (location.search) {
+			location.search = '';
+		}
+		else {
 			location.reload();
-		}, 100);
+		}
 	};
 
 

@@ -217,6 +217,7 @@
 	bottom: 0;
 	background: #999;
 	background: rgba(99, 99, 96, 0.8);
+	z-index: 1000;
 }
 
 .s-error-wrap {

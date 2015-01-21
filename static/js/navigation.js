@@ -35,7 +35,7 @@
 
 			app.query(params.query || '');
 			app.phyloprofile(params.phyloprofile || '');
-			app.species((params.species || '').split(','));
+			app.species(params.species ? params.species.split(',') : []);
 			app.level((params.level || ''));
 
 			app.loadData(params);

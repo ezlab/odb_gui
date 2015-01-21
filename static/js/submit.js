@@ -1,8 +1,7 @@
 
 $(function(){
 
-	var button = $('#submit-button'),
-		lock = {},
+	var	lock = {},
 		params = {};
 
 	app.method('query', lock, function(query){
@@ -22,18 +21,29 @@ $(function(){
 	});
 
 
-	button.click(function(){
+	function submit(){
 
 		var cmp = [];
 
 		$.each(params, function(name, value){
-			cmp.push(name + '=' + encodeURIComponent(String(value)));
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
 		});
 
 		var url = '?' + cmp.join('&');
 
 		app.navigate(url);
-	});
+	}
 
+	var button = $('#submit-button'),
+		input = $('#input-search-text');
+
+	button.click(submit);
+	input.keypress(function(e){
+		if ((e.keyCode || e.which) == 13){
+			submit();
+		}
+	});
 });
 
