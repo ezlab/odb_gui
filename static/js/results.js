@@ -30,9 +30,12 @@ $(function(){
 
 		var data = {
 			group: load('group', params1),
-			orthologs: load('orthologs', params2),
-			siblings: load('siblings', params1)
+			orthologs: load('orthologs', params2)
 		}
+
+		data.siblings = data.group.then(function(group){
+			return {data: (group.data.siblings || []).slice(0, 5)};
+		});
 
 		groupData[i] = data;
 
@@ -90,7 +93,9 @@ $(function(){
 		$('#summary').html(app.templates.summary(summary));
 		$('#content').html('');
 
-		showNextGroup();
+		if (totalCount) {
+			showNextGroup();
+		}
 	}
 
 
@@ -116,13 +121,15 @@ $(function(){
 
 		var cmp = [], params = {
 			query: query,
-			phyloprofile: searchParams.phyloprofile || '',
+			phyloprofile: searchParams.phyloprofile,
 			level: searchParams.level,
-			species: String(searchParams.species)
+			species: searchParams.species
 		}
 
 		$.each(params, function(name, value){
-			cmp.push(name + '=' + encodeURIComponent(String(value)));
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
 		});
 
 		var url = '?' + cmp.join('&');

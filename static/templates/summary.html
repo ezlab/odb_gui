@@ -1,2 +1,6 @@
 
-Your search for "{{params.query}}" returned {{plural response.data.length "group" "groups"}} at {{clade params.level}}.
+{{#if response.data}}
+	Your search for "{{params.query}}" returned {{plural response.data.length "group" "groups"}} at {{clade response.level}}.
+{{else}}
+	No results found for "{{params.query}}" at {{clade response.level}}.
+{{/if}}

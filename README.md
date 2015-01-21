@@ -4,7 +4,7 @@ odb_gui
 odb frontend code
 
 demo (live test data via proxy)
-- http://odb-gui.herokuapp.com/?query=p450&phyloprofile=&level=33208&species=33208
+- http://odb-gui.herokuapp.com/?query=p450
 
 demo (static data samples)
 - front page: http://ezlab.github.io/odb_gui/
