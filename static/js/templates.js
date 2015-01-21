@@ -33,7 +33,8 @@
 	var helpers = {
 
 		clade: function (key) {
-			return app.getNode(key).data.name;
+			var node = app.getNode(String(key));
+			return node ? node.data.name : '';
 		},
 
 		plural: function (value, singular, plural, options) {

@@ -26,7 +26,9 @@ $(function(){
 		var cmp = [];
 
 		$.each(params, function(name, value){
-			cmp.push(name + '=' + encodeURIComponent(String(value)));
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
 		});
 
 		var url = '?' + cmp.join('&');

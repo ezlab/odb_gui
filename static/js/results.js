@@ -93,7 +93,9 @@ $(function(){
 		$('#summary').html(app.templates.summary(summary));
 		$('#content').html('');
 
-		showNextGroup();
+		if (totalCount) {
+			showNextGroup();
+		}
 	}
 
 
@@ -119,13 +121,15 @@ $(function(){
 
 		var cmp = [], params = {
 			query: query,
-			phyloprofile: searchParams.phyloprofile || '',
+			phyloprofile: searchParams.phyloprofile,
 			level: searchParams.level,
-			species: String(searchParams.species)
+			species: searchParams.species
 		}
 
 		$.each(params, function(name, value){
-			cmp.push(name + '=' + encodeURIComponent(String(value)));
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
 		});
 
 		var url = '?' + cmp.join('&');
