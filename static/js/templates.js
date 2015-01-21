@@ -22,6 +22,7 @@
 	var partials = [
 		'gene_onthologies',
 		'interpro_domains',
+		'functional_category',
 		'gene_architecture',
 		'phyletic_profile',
 		'evolutionary_rate'
