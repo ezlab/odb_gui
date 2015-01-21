@@ -30,9 +30,12 @@ $(function(){
 
 		var data = {
 			group: load('group', params1),
-			orthologs: load('orthologs', params2),
-			siblings: load('siblings', params1)
+			orthologs: load('orthologs', params2)
 		}
+
+		data.siblings = data.group.then(function(group){
+			return {data: (group.data.siblings || []).slice(0, 5)};
+		});
 
 		groupData[i] = data;
 
