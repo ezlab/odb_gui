@@ -29,12 +29,14 @@
 		});
 
 		if (params.query ||
-			params.phyloprofile ||
+			params.universal ||
+			params.singlecopy ||
 			params.species ||
 			params.level){
 
 			app.query(params.query || '');
-			app.phyloprofile(params.phyloprofile || '');
+			app.universal(params.universal || '');
+			app.singlecopy(params.singlecopy || '');
 			app.species(params.species ? params.species.split(',') : []);
 			app.level((params.level || ''));
 

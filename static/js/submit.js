@@ -8,8 +8,12 @@ $(function(){
 		params.query = query;
 	});
 
-	app.method('phyloprofile', lock, function(profile){
-		params.phyloprofile = profile;
+	app.method('universal', lock, function(value){
+		params.universal = value;
+	});
+
+	app.method('singlecopy', lock, function(value){
+		params.singlecopy = value;
 	});
 
 	app.method('level', lock, function(level){

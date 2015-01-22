@@ -1,45 +1,48 @@
 
 $(function(){
 
-	var lock = {};
+	var lock1 = {}, lock2 = {};
 
-	var options = {
-		"": "Select a Phyloprofile",
-		"'=1' '=1'": "Single-Copy in all species",
-		"'=1' '?'": "Single-Copy, one loss or duplication",
-		"'=1' '=0'": "Single-Copy, but one loss",
-		"'=1' '>1'": "Single-Copy, but one >1",
-		"'=1' '>2'": "Single-Copy, but one >2",
-		"'=1' '>3'": "Single-Copy, but one >3",
-		"'=1' '90'": "Single-Copy in >90% of species",
-		"'=1' '80'": "Single-Copy in >80% of species",
-		"'=1' '70'": "Single-Copy in >70% of species",
-		"'>1' '>1'": "Multi-Copy in all species",
-		"'>1' '?'": "Multi-Copy, one loss or single-copy",
-		"'>1' '=0'": "Multi-Copy, but one loss",
-		"'>1' '=1'": "Multi-Copy, but one single-copy",
-		"'>1' '90'": "Multi-Copy in >90% of species",
-		"'>1' '80'": "Multi-Copy in >80% of species",
-		"'>1' '70'": "Multi-Copy in >70% of species",
-		"'>0' '>0'": "Present in all species",
-		"'>0' '=0'": "Present, but one loss",
-		"'>0' '90'": "Present in >90% of species",
-		"'>0' '80'": "Present in >80% of species",
-		"'>0' '70'": "Present in >70% of species"
+	var options1 = {
+		'[Select]': '',
+		'Present in all species': 1,
+		'Present in >90% species': 0.9,
+		'Present in >80% species': 0.8
 	};
 
-	var select = $('#input-phylo-profile');
+	var options2 = {
+		'[Select]': '',
+		'Single-copy in all species': 1,
+		'Single-copy in >90% species': 0.9,
+		'Single-copy in >80% species': 0.8
+	};
 
-	$.each(options, function(key, value) {
-		 select.append($("<option></option>").attr("value", key).text(value));
+	var select1 = $('#input-universal'),
+		select2 = $('#input-single-copy');
+
+	$.each(options1, function(key, value) {
+		 select1.append($("<option></option>").attr("value", value).text(key));
 	});
 
-	app.method('phyloprofile', lock, function(profile){
-		select.val(profile);
+	$.each(options2, function(key, value) {
+		 select2.append($("<option></option>").attr("value", value).text(key));
 	});
 
-	select.change(function(){
-		app.call('phyloprofile', lock, select.val());
+	app.method('universal', lock1, function(value){
+		select1.val(value);
 	});
+
+	app.method('singlecopy', lock2, function(value){
+		select2.val(value);
+	});
+
+	select1.change(function(){
+		app.call('universal', lock1, select1.val());
+	});
+
+	select2.change(function(){
+		app.call('singlecopy', lock2, select2.val());
+	});
+
 });
 
