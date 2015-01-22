@@ -121,7 +121,8 @@ $(function(){
 
 		var cmp = [], params = {
 			query: query,
-			phyloprofile: searchParams.phyloprofile,
+			universal: searchParams.universal,
+			singlecopy: searchParams.singlecopy,
 			level: searchParams.level,
 			species: searchParams.species
 		}
