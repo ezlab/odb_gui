@@ -4,16 +4,21 @@ var app = {};
 (function(){
 
 	var query = '',
-		profile = '',
+		universal = '',
+		singlecopy = '',
 		level = '',
-		selection = [];
+		species = [];
 
 	app.query = function(text){
 		query = text;
 	};
 
-	app.phyloprofile = function(text){
-		profile = text;
+	app.universal = function(value){
+		universal = value;
+	};
+
+	app.singlecopy = function(value){
+		singlecopy = value;
 	};
 
 	app.level = function(text){
@@ -21,7 +26,7 @@ var app = {};
 	};
 
 	app.species = function(array){
-		selection = array;
+		species = array;
 	};
 
 })();
