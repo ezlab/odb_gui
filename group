@@ -47,38 +47,8 @@
     	"present_in": 114
     }, 
     
-    "evolutionary_rate": 1.1288,
+    "evolutionary_rate": 1.1288
     
-    "siblings": [
-    	{"count": 3, "id": "EOG8V44PS", "type": "orthodb", "description": "IPR022352, IPR016179, IPR022353"}, 
-    	{"count": 3, "id": "EOG8KH490", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
-    	{"count": 3, "id": "EOG8S1VND", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
-    	{"count": 3, "id": "EOG80GF4M", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
-    	{"count": 3, "id": "EOG88PP17", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
-    	{"count": 3, "id": "EOG8P2RHK", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
-    	{"count": 3, "id": "EOG89PCF1", "type": "orthodb", "description": "IPR022352, IPR022353, IPR016179"}, 
-    	{"count": 3, "id": "EOG8DNGK9", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
-    	{"count": 3, "id": "EOG8GQRMZ", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
-    	{"count": 3, "id": "EOG8SN34R", "type": "orthodb", "description": "IPR016179, IPR022352, IPR022353"}, 
-    	{"count": 3, "id": "EOG8VX3J8", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
-    	{"count": 3, "id": "EOG8HX6J4", "type": "orthodb", "description": "IPR016179, IPR022353, IPR022352"}, 
-    	{"count": 2, "id": "EOG8ZPG90", "type": "orthodb", "description": "IPR004825, IPR016179"}, 
-    	{"count": 2, "id": "EOG85B2WP", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
-    	{"count": 2, "id": "EOG8HB02D", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
-    	{"count": 2, "id": "EOG8KD82H", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
-    	{"count": 2, "id": "EOG8N05WZ", "type": "orthodb", "description": "IPR016179, IPR022353"}, 
-    	{"count": 2, "id": "EOG8N5XD4", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
-    	{"count": 2, "id": "EOG8WDFSC", "type": "orthodb", "description": "IPR022353, IPR016179"}, 
-    	{"count": 1, "id": "EOG8RBS59", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG8MKQ03", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG8H47GB", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG8THXD7", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG84QVGX", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG847H9T", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG812NRF", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG8WDFV8", "type": "orthodb", "description": "IPR016179"}, 
-    	{"count": 1, "id": "EOG8RBS2S", "type": "orthodb", "description": "IPR016179"}
-    ]
   }, 
  
   "status": "ok"
