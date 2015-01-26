@@ -19,23 +19,27 @@ $(function(){
 
 	function requestGroupData(i){
 
-		var params1 = {
-			id: searchResults[i]
+		var id = searchResults[i];
+
+		var group = {
+			id: id
 		};
 
-		var params2 = {
-			id: searchResults[i],
+		var orthologs = {
+			id: id,
 			species: searchParams.species
 		};
 
-		var data = {
-			group: load('group', params1),
-			orthologs: load('orthologs', params2)
+		var siblings = {
+			id: id,
+			limit: 5
 		}
 
-		data.siblings = data.group.then(function(group){
-			return {data: (group.data.siblings || []).slice(0, 5)};
-		});
+		var data = {
+			group: load('group', group),
+			orthologs: load('orthologs', orthologs),
+			siblings: load('siblings', siblings)
+		}
 
 		groupData[i] = data;
 
