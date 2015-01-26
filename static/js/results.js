@@ -79,9 +79,13 @@ $(function(){
 
 	function processSearchResults(params, response){
 
+		if (response.data && !response.count){
+			response.count = response.data.length;
+		}
+
 		searchParams = params;
 		searchResults = response.data;
-		totalCount = response.data.length;
+		totalCount = response.count;
 		groupData = [];
 		groupsRendered = 0;
 
@@ -100,6 +104,10 @@ $(function(){
 
 
 	app.loadData = function(params){
+
+		params.skip = 0;
+		params.limit = 100;
+
 		$.when(params, load('search', params), app.ready).then(processSearchResults);
 	};
 
