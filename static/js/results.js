@@ -133,6 +133,11 @@ $(function(){
 		}
 	});
 
+	app.backToTop = function(){
+		$('#content')[0].scrollTop = 0;
+	};
+
+
 	app.search = function(query){
 
 		var cmp = [], params = {

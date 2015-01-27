@@ -2,7 +2,7 @@
 {{#with data}}
 
 	<div class="s-group-header">
-		<div class="s-group-header-menu"><a href="fasta?id={{id}}" target="fasta">View Fasta</a> | <a href="tab?id={{id}}" target="tab">View Tab Delimited</a> | Back to Top</div>
+		<div class="s-group-header-menu"><a href="fasta?id={{id}}" target="fasta">View Fasta</a> | <a href="tab?id={{id}}" target="tab">View Tab Delimited</a> | <a href="javascript:app.backToTop()">Back to Top</a></div>
 		<div class="s-group-header-label">Group</div>
 		<div class="s-group-header-public-id"><a href="javascript:app.search('{{public_id}}')" title="{{public_id}}">{{public_id}}</a></div>
 		<div class="s-group-header-count">{{plural phyletic_profile.gene_count "gene" "genes"}} in {{phyletic_profile.species_count}} species</div>
