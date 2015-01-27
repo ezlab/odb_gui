@@ -19,27 +19,36 @@ $(function(){
 
 	function requestGroupData(i){
 
-		var id = searchResults[i];
+		var id = searchResults[i],
+			data = {};
 
-		var group = {
+		var group = load('group', {
 			id: id
-		};
+		});
 
-		var orthologs = {
+		var orthologs = load('orthologs', {
 			id: id,
 			species: searchParams.species
-		};
+		});
 
-		var siblings = {
+		var siblings = load('siblings', {
 			id: id,
 			limit: 5
-		}
+		});
 
-		var data = {
-			group: load('group', group),
-			orthologs: load('orthologs', orthologs),
-			siblings: load('siblings', siblings)
-		}
+		// add display index into group
+		data.group = group.then(function(response){
+			response.data.i = i;
+			return response;
+		});
+
+		// add group data into orthologs (for AAs !! formatting)
+		data.orthologs = $.when(orthologs, group).then(function(orthologs, group){
+			orthologs.group = group.data;
+			return orthologs;
+		});
+
+		data.siblings = siblings;
 
 		groupData[i] = data;
 
@@ -51,22 +60,13 @@ $(function(){
 		$(selector).html(template(data));
 	}
 
-	function addGroupIntoOrthologs(orthologs, group){
-		orthologs.group = group.data;
-		return orthologs;
-	}
-
 	function renderGroup(i, selector, data){
 
-		var orthologs = $.when(data.orthologs, data.group).then(addGroupIntoOrthologs);
-
 		var ready = $.when(selector, app.templates.group, data.group).then(render);
-		ready = $.when(selector + ' .orthologs', app.templates.orthologs, orthologs, ready).then(render);
+		ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
 		ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
 
-		if (++i < totalCount) { // preload next
-			$.when(i, ready).then(requestGroupData);
-		}
+		return ready;
 	}
 
 
@@ -77,7 +77,11 @@ $(function(){
 
 		$('#content').append(app.templates.placeholder({id:id}));
 
-		renderGroup(i, '#' + id, groupData[i] || requestGroupData(i));
+		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroupData(i));
+
+		if (++i < totalCount) { // preload next
+			$.when(i, ready).then(requestGroupData);
+		}
 	}
 
 
@@ -128,6 +132,11 @@ $(function(){
 			showNextGroup();
 		}
 	});
+
+	app.backToTop = function(){
+		$('#content')[0].scrollTop = 0;
+	};
+
 
 	app.search = function(query){
 
