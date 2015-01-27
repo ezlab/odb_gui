@@ -11,9 +11,9 @@ var api = function(path){
 	});
 };
 
-var file = function(path){
+var file = function(path, type){
 	return function(req, res){
-		res.sendFile(__dirname + path);
+		res.sendFile(__dirname + path, type ? {headers: {'Content-Type': type}} : {});
 	};
 }
 
@@ -24,6 +24,8 @@ app.use('/search', api('/search'));
 app.use('/orthologs', api('/orthologs'));
 app.use('/siblings', api('/siblings'));
 
+app.get('/fasta', file('/fasta', 'text/plain'));
+app.get('/tab', file('/tab', 'text/plain'));
 app.get('/tree', file('/tree'));
 app.get('/', file('/index.html'));
 
