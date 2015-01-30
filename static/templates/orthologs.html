@@ -1,5 +1,8 @@
 
-<h2>Orthologs by organism</h2>
+<div class="s-group-section">
+	<h2>Orthologs by organism</h2>
+</div>
+
 
 <div class="s-group-ortho-headers">
 	<div class="s-group-ortho-header-interpro">InterPro</div>
@@ -17,18 +20,6 @@
 
 		{{#each genes}}
 		<div class="s-group-ortho-gene">
-			<div class="s-group-ortho-interpro">
-				{{#each interpro}}{{link}} {{/each}}
-			</div>
-			<div class="s-group-ortho-search">
-				{{#if interpro}}<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="javascript:app.search('{{#each interpro}}{{id}} {{/each}}')"></a>{{/if}}
-			</div>
-			<div class="s-group-ortho-exons">
-				{{exons}}
-			</div>
-			<div class="s-group-ortho-aas">
-				{{#with ../../group.gene_architecture}}{{deviation ../aas protein_median_length protein_stdev_length}}{{/with}}
-			</div>
 			<div class="s-group-ortho-ids">
 				{{#gt ../genes.length 1}}<span class="s-group-ortho-index">{{add @index 1}}</span>{{/gt}}
 				{{#with gene_id}}{{link}}{{/with}}
@@ -36,6 +27,18 @@
 				{{#with synonyms}}<span class="s-link-synonyms">{{link}}</span>{{/with}}
 				{{#with phenotypes}}<span class="s-link-phenotypes">{{link}}</span>{{/with}}
 				{{description}}
+			</div>
+			<div class="s-group-ortho-aas">
+				{{#with ../../group.gene_architecture}}{{deviation ../aas protein_median_length protein_stdev_length}}{{/with}}
+			</div>
+			<div class="s-group-ortho-exons">
+				{{exons}}
+			</div>
+			<div class="s-group-ortho-search">
+				{{#if interpro}}<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="javascript:app.search('{{#each interpro}}{{id}} {{/each}}')"></a>{{/if}}
+			</div>
+			<div class="s-group-ortho-interpro">
+				{{#each interpro}}{{link}} {{/each}}
 			</div>
 		</div>
 		{{/each}}

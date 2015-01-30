@@ -1,5 +1,6 @@
 
 .s-group {
+	width: 100%;
 	min-height: 500px;
 	margin-bottom: 80px;
 }
@@ -31,61 +32,63 @@
 }
 
 .s-group h2 {
-	position: relative;
-	width: 300px;
-	margin: 30px 0 15px;
-	padding: 5px 10px;
-	border: 1px solid #ddc;
-	border-left-width: 30px;
-	border-radius: 0 8px 0 0;
-	font-size: 14px;
-	font-weight: bold;
+	position: absolute;
+	top: -27px;
+	left: 10px;
+	cwidth: 200px;
+	margin: 15px 0 5px;
+	padding: 2px 10px;
+	font-size: 10pt;
+	font-weight: normal;
 	color: #a07;
 	background: #f8f8f2;
 	text-shadow: 1px 1px 3px #ddc;
 }
 
-.s-group h2:after {
-	content: "";
-	position: absolute;
-	width: 700px;
-	bottom: -1px;
-	left: 0;
-	border-bottom: 1px solid #ddc;
+
+.s-group-section {
+	position: relative;
+	margin: 12px 0;
+	padding: 8px 0 0 27px;
+	border: 1px solid #eed;
+	border-top-left-radius: 5px;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
 }
 
 .s-group-box {
-	display: inline-block;
-	width: 49%;
-	vertical-align: top;
+	position: relative;
+	padding: 10px 0 0 200px;
 }
 
-.s-group-box h2:after {
-	width: 315px;
+.s-group-box+.s-line {
+	margin-top: 7px;
+	border-top: 1px solid #eed;
+}
+
+.s-group-box h3 {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	margin: 0;
+	font-weight: normal;
+	font-size: 9pt;
+	color: #665;
+}
+
+.s-group ul {
+	margin: 0;
+	padding: 0;
 }
 
 .s-group li {
 	list-style: none;
-	line-height: 1.45em;
+	line-height: 1.4em;
+	white-space: nowrap;
 }
 
-.s-group-go h3 {
-	margin: 10px 50px 0 40px;
-	font-size: 12px;
-	color: #665;
-}
-
-.s-group-go ul+h3 {
-	border-top: 1px solid #eed;
-	padding-top: 8px;
-}
-
-.s-group-go ul {
-	overflow: auto;
-	max-height: 120px;
-	margin: -15px 0 0 180px;
-	font-size: 12px;
-	line-height: 17px;
+.s-group-siblings>li {
+	white-space: nowrap;
 }
 
 .s-group-siblings>li:first-child {
@@ -97,11 +100,15 @@
 	width: 150px;
 }
 
+.orthologs {
+	margin-bottom: 25px;
+}
+
 .s-group-ortho {
 	border-radius: 3px;
 }
 
-.s-group-ortho:nth-child(even){
+.s-group-ortho:nth-child(odd){
 	background: #f8f8f2;
 }
 
@@ -119,57 +126,40 @@
 }
 
 .s-group-ortho-gene {
-	padding: 2px 0 6px 70px;
-}
-
-.s-group-ortho-gene:after {
-	content: "";
-	display: block;
-	clear: both;
+	padding: 2px 0 2px 30px;
+	white-space: nowrap;
 }
 
 .s-group-ortho-gene:nth-child(odd){
 	background: #fcfcf9;
 }
 
-.s-group-ortho-interpro {
-	position: relative;
-	float: right;
-	width: 90px;
-	min-height: 1em;
-	text-align: center;
-	z-index: 1;
-}
 
-.s-group-ortho-search {
+.s-group-ortho-gene>div {
+	display: inline-block;
 	position: relative;
-	float:	right;
-	width: 20px;
 	min-height: 1em;
-	text-align: right;
-	padding-top: 1px;
-	z-index: 1;
+	vertical-align: top;
 }
 
 .s-group-ortho-ids {
-	position: relative;
-	clear: left;
+	width: 500px;
 }
 
 .s-group-ortho-aas {
-	float: right;
-	display: inline-block;
-	overflow: hidden;
 	width: 50px;
 	text-align: center;
 }
 
 .s-group-ortho-exons {
-	float: right;
-	display: inline-block;
-	overflow: hidden;
 	width: 50px;
 	text-align: center;
+}
+
+.s-group-ortho-search {
+	width: 20px;
+	text-align: right;
+	padding-top: 1px;
 }
 
 .s-group-ortho-index {
@@ -203,8 +193,7 @@
 
 .s-group-ortho-headers {
 	margin-bottom: 10px;
-	padding-left: 8px;
-	font-weight: bold;
+	padding-left: 27px;
 	color: #663;
 }
 
@@ -242,10 +231,6 @@
 	content: "\f002";
 }
 
-.s-group-gene-architecture,
-.s-group-phyletic-profile {
-	margin-left: 40px;
-}
 
 .s-group-gene-architecture td {
 	min-width: 70px;
@@ -264,7 +249,7 @@
 }
 
 .s-group-evolutionary-rate {
-	margin: 0 10px 0 40px;
+	margin: 0 10px 0 0;
 }
 
 
