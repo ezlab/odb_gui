@@ -5,18 +5,22 @@
 		<div class="s-group-header-menu"><a href="fasta?id={{id}}" target="fasta">View Fasta</a> | <a href="tab?id={{id}}" target="tab">View Tab Delimited</a> | <a href="javascript:app.backToTop()">Back to Top</a></div>
 		<div class="s-group-header-label">Group</div>
 		<div class="s-group-header-public-id"><a href="javascript:app.search('{{public_id}}')" title="{{public_id}}">{{public_id}}</a></div>
-		<div class="s-group-header-count">{{plural phyletic_profile.gene_count "gene" "genes"}} in {{phyletic_profile.species_count}} species</div>
 		<div class="s-group-header-title">{{name}} &nbsp;</div>
 	</div>
 
-	{{> gene_onthologies }}
-	{{> interpro_domains }}
-	{{> functional_category }}
+	<div class="s-group-section">
+		<h2>Functional descriptions</h2>
+		{{> gene_onthologies }}
+		{{> interpro_domains }}
+		{{> functional_category }}
+	</div>
 
-	<div class="s-group-box">{{> gene_architecture }}</div>
-	<div class="s-group-box">{{> phyletic_profile }}</div>
-
-	{{> evolutionary_rate }}
+	<div class="s-group-section">
+		<h2>Evolutionary descriptions</h2>
+		{{> phyletic_profile }}
+		{{> evolutionary_rate }}
+		{{> gene_architecture }}
+	</div>
 
 	<div class="orthologs"></div>
 	<div class="siblings"></div>
