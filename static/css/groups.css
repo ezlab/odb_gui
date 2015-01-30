@@ -1,5 +1,6 @@
 
 .s-group {
+	width: 100%;
 	min-height: 500px;
 	margin-bottom: 80px;
 }
@@ -88,6 +89,10 @@
 	line-height: 17px;
 }
 
+.s-group-siblings>li {
+	white-space: nowrap;
+}
+
 .s-group-siblings>li:first-child {
 	font-weight: bold;
 }
@@ -119,57 +124,40 @@
 }
 
 .s-group-ortho-gene {
-	padding: 2px 0 6px 70px;
-}
-
-.s-group-ortho-gene:after {
-	content: "";
-	display: block;
-	clear: both;
+	padding: 2px 0 2px 30px;
+	white-space: nowrap;
 }
 
 .s-group-ortho-gene:nth-child(odd){
 	background: #fcfcf9;
 }
 
-.s-group-ortho-interpro {
-	position: relative;
-	float: right;
-	width: 90px;
-	min-height: 1em;
-	text-align: center;
-	z-index: 1;
-}
 
-.s-group-ortho-search {
+.s-group-ortho-gene>div {
+	display: inline-block;
 	position: relative;
-	float:	right;
-	width: 20px;
 	min-height: 1em;
-	text-align: right;
-	padding-top: 1px;
-	z-index: 1;
+	vertical-align: top;
 }
 
 .s-group-ortho-ids {
-	position: relative;
-	clear: left;
+	width: 500px;
 }
 
 .s-group-ortho-aas {
-	float: right;
-	display: inline-block;
-	overflow: hidden;
 	width: 50px;
 	text-align: center;
 }
 
 .s-group-ortho-exons {
-	float: right;
-	display: inline-block;
-	overflow: hidden;
 	width: 50px;
 	text-align: center;
+}
+
+.s-group-ortho-search {
+	width: 20px;
+	text-align: right;
+	padding-top: 1px;
 }
 
 .s-group-ortho-index {
