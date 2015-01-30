@@ -1,25 +1,21 @@
 
 {{#with gene_architecture}}
+	<div class="s-group-box s-line">
 
-	<h2>Gene Architecture</h2>
+		<h3>Gene Architecture</h3>
 
-	<table class="s-group-gene-architecture">
-		<tr>
-			<td></td>
-			<td>Median</td>
-			<td>Stdev</td>
-		</tr>
-		<tr>
-			<td>Protein Lengths</td>
-			<td>{{protein_median_length}}</td>
-			<td>{{protein_stdev_length}}</td>
-		</tr>
-		<tr>
-			<td>Exon Counts</td>
-			<td>{{exon_median_counts}}</td>
-			<td>{{exon_stdev_counts}}</td>
-		</tr>
-	</table>
-
+		<table class="s-group-gene-architecture">
+			<tr>
+				<td>Median Protein Lengths</td>
+				<td>{{protein_median_length}}</td>
+				<td>(std. {{protein_stdev_length}})</td>
+			</tr>
+			<tr>
+				<td>Median Exon Counts</td>
+				<td>{{exon_median_counts}}</td>
+				<td>(std. {{exon_stdev_counts}})</td>
+			</tr>
+		</table>
+	</div>
 {{/with}}
 

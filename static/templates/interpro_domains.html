@@ -1,8 +1,11 @@
 
-<h2>InterPro Domains</h2>
-
-<ul>
-{{#each interpro_domains}}
-	<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
-{{/each}}
-</ul>
+{{#if interpro_domains}}
+    <div class="s-group-box s-line">
+		<h3>InterPro Domains</h3>
+		<ul>
+		{{#each interpro_domains}}
+			<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
+		{{/each}}
+		</ul>
+	</div>
+{{/if}}

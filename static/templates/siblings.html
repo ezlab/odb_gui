@@ -1,13 +1,15 @@
 
 {{#if data}}
 
-	<h2>Sibling Groups</h2>
+	<div class="s-group-section">
+		<h2>Sibling Groups</h2>
 
-	<ul class="s-group-siblings">
-		<li><span>Group</span><span>InterPro domains</span></li>
+		<ul class="s-group-siblings">
+			<li><span>Group</span><span>InterPro domains</span></li>
 
-	{{#each data}}
-		<li><span><a href="javascript:app.search('{{id}}')" title="{{id}}">{{id}}</a></span><span>{{description}}</span></li>
-	{{/each}}
-	</ul>
+		{{#each data}}
+			<li><span><a href="javascript:app.search('{{id}}')" title="{{id}}">{{id}}</a></span><span>{{description}}</span></li>
+		{{/each}}
+		</ul>
+	</div>
 {{/if}}
