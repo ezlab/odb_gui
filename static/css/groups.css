@@ -105,27 +105,18 @@
 
 .s-group-ortho {
 	border-radius: 3px;
+	line-height: 1.6em;
 }
 
 .s-group-ortho:nth-child(odd){
 	background: #f8f8f2;
 }
 
-.s-group-ortho-organism>div {
-	display: inline-block;
+.s-group-ortho-organism {
 	font-weight: bold;
-	color: #443;
-}
-
-.s-group-ortho-organism>div:first-child {
-	float: left;
-	width: 70px;
-	padding-left: 8px;
-	font-weight: normal;
 }
 
 .s-group-ortho-gene {
-	padding: 2px 0 2px 30px;
 	white-space: nowrap;
 }
 
@@ -133,25 +124,54 @@
 	background: #fcfcf9;
 }
 
+.s-group-ortho-headers {
+	margin-bottom: 10px;
+	padding-left: 27px;
+	color: #663;
+}
 
-.s-group-ortho-gene>div {
+.s-group-ortho-headers>div {
 	display: inline-block;
-	position: relative;
-	min-height: 1em;
 	vertical-align: top;
 }
 
+.s-group-ortho-header-left {
+	width: 570px;
+}
+
+.s-group-ortho-header-aas {
+	width: 35px;
+}
+
+.s-group-ortho-header-exons {
+	width: 50px;
+}
+
+.s-group-ortho-gene>div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.s-group-ortho-index {
+	width: 25px;
+	text-align: center;
+	font-size: 11px;
+	color: #998;
+}
+
 .s-group-ortho-ids {
-	width: 500px;
+	overflow: hidden;
+	width: 563px;
+	text-overflow: ellipsis;
 }
 
 .s-group-ortho-aas {
-	width: 50px;
+	width: 45px;
 	text-align: center;
 }
 
 .s-group-ortho-exons {
-	width: 50px;
+	width: 20px;
 	text-align: center;
 }
 
@@ -159,41 +179,6 @@
 	width: 20px;
 	text-align: right;
 	padding-top: 1px;
-}
-
-.s-group-ortho-index {
-	position: absolute;
-	top: 0px;
-	right: 100%;
-	margin-right: 5px;
-	padding: 2px 5px;
-	border-radius: 3px;
-	background: #eeeee2;
-	font-size: 11px;
-}
-
-.s-group-ortho-header-interpro {
-	float:	right;
-	width: 110px;
-	text-align: center;
-}
-
-.s-group-ortho-header-exons {
-	float:	right;
-	width: 50px;
-	text-align: center;
-}
-
-.s-group-ortho-header-aas {
-	float:	right;
-	width: 50px;
-	text-align: center;
-}
-
-.s-group-ortho-headers {
-	margin-bottom: 10px;
-	padding-left: 27px;
-	color: #663;
 }
 
 .s-link-synonyms>a,
