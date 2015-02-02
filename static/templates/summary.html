@@ -1,6 +1,16 @@
 
-{{#if response.data}}
-	Your search for "{{params.query}}" returned {{plural response.count "group" "groups"}} at {{clade response.level}}.
-{{else}}
-	No results found for "{{params.query}}" at {{clade response.level}}.
-{{/if}}
+<div class="s-summary-text">
+Your search
+	{{#if params.query}}for "{{params.query}}"{{/if}}
+	{{#if response.level}}at {{clade response.level}} level{{/if}}
+returned
+	{{#if response.data}}{{plural response.count "group" "groups"}}{{else}}no results{{/if}}<br>
+	{{#if params.universal}}that are spanning {{phyloprofile params.universal}} species{{/if}}
+	{{#if params.singlecopy}}{{#if params.universal}}and {{/if}}single-copy in {{phyloprofile params.singlecopy}} species{{/if}}
+</div>
+<div class="s-summary-links">
+	{{#if response.data}}
+		<a href="#">Get All Fasta</a> (<input id="skip-multicopy" type="checkbox"><label for="skip-multicopy">skip all multicopy</label>) |
+		<a href="#">Get All as Tab delimited</a>
+	{{/if}}
+</div>

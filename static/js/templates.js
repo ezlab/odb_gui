@@ -59,6 +59,15 @@
 
 	};
 
+	helpers.phyloprofile = function(value){
+		switch(String(value)){
+			case '1': return 'all';
+			case '0.9': return '>90%';
+			case '0.8': return '>80%';
+		}
+		return value;
+	};
+
 	helpers.deviation = function(value, median, stdev){
 
 		var cls = 'm', delta = value - median;
