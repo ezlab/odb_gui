@@ -13,6 +13,7 @@
 	top: 80px;
 	height: 80px;
 	margin-right: -220px;
+	border-bottom: 1px solid #ddc;
 }
 
 .s-topbox img {
@@ -34,14 +35,23 @@
 
 .s-summary {
 	position: absolute;
-	overflow: auto;
+	overflow: hidden;
 	right: 0px;
 	bottom: 0px;
-	padding: 20px 40px;
-	max-height: 80px;
-	max-width: 600px;
+	padding: 10px 35px;
+	height: auto;
+	max-width: 640px;
+	text-align: right;
 }
 
+.s-summary-text {
+	min-height: 25px;
+	margin-bottom: 5px;
+}
+
+.s-summary-links>input {
+	vertical-align: middle;
+}
 
 /*  sidebar --------------- */
 
