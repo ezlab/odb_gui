@@ -6,7 +6,7 @@
 }
 
 .s-group-header {
-	padding: 15px 30px;
+	padding: 10px 30px;
 	margin: 10px 0 20px;
 	background: #eeeee6;
 	border-radius: 5px;
@@ -18,17 +18,16 @@
 }
 
 .s-group-header-label {
-	font-size: 16px;
+	font-size: 15px;
 }
 
-.s-group-header-public-id>a {
-	font-size: 24px;
-	text-decoration: none;
-	color: inherit;
-}
-
-.s-group-header-count {
-	float: right;
+.s-group-header-title {
+	overflow: hidden;
+	width: 100%;
+	margin-top: 5px;
+	font-size: 18px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .s-group h2 {
