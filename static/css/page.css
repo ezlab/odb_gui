@@ -79,7 +79,7 @@
 	height: 25px;
 	padding: 0 0 0 5px;
 	border: 1px solid #666;
-	border-radius: 3px;
+	border-radius: 2px;
 	line-height: 23px;
 }
 
@@ -87,6 +87,42 @@
 	margin-top: 15px;
 	color: #654;
 	line-height: 1.4em;
+}
+
+.s-sidebar-section {
+	position: relative;
+	padding: 12px 15px;
+	margin-top: 20px;
+	border: 1px solid #ccb;
+	border-radius: 4px;
+	background: inherit;
+}
+
+.s-sidebar-section-top {
+	padding-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: none;
+}
+
+.s-sidebar-section-bottom {
+	padding-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-top: none;
+}
+
+.s-sidebar-section>.s-sidebar-label:first-child {
+	position: absolute;
+	left: 10px;
+	top: -12px;
+	margin: 0;
+	padding: 1px 5px;
+	background: inherit;
+}
+
+select+select {
+	margin-top: 10px;
 }
 
 .s-sidebar-clear-all {
@@ -109,10 +145,11 @@
 
 .s-sidebar button {
 	padding: 10px 30px;
-	margin: 15px 0 20px;
+	margin: 15px 0 5px;
 	border: 1px solid #999;
 	border-radius: 5px;
 	background: #dadace;
+	background: linear-gradient(#eed, #ccb);
 	font: inherit;
 }
 

@@ -22,7 +22,7 @@
 			<div class="s-group-ortho-index">{{#gt ../genes.length 1}}{{add @index 1}}{{/gt}}</div>
 			<div class="s-group-ortho-ids">
 				{{#with gene_id}}{{link}}{{/with}}
-				({{#with uniprot}}{{link}}{{/with}})
+				{{#with uniprot}}({{link}}){{/with}}
 				{{#with synonyms}}<span class="s-link-synonyms">{{link}}</span>{{/with}}
 				{{#with phenotypes}}<span class="s-link-phenotypes">{{link}}</span>{{/with}}
 				{{description}}
