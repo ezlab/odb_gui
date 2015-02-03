@@ -23,9 +23,9 @@ app.use('/group', api('/group'));
 app.use('/search', api('/search'));
 app.use('/orthologs', api('/orthologs'));
 app.use('/siblings', api('/siblings'));
+app.use('/fasta', api('/fasta'));
+app.use('/tab', api('/tab'));
 
-app.get('/fasta', file('/fasta', 'text/plain'));
-app.get('/tab', file('/tab', 'text/plain'));
 app.get('/tree', file('/tree'));
 app.get('/', file('/index.html'));
 
