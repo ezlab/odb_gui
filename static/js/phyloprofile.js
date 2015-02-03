@@ -4,14 +4,14 @@ $(function(){
 	var lock1 = {}, lock2 = {};
 
 	var options1 = {
-		'[Select]': '',
+		'[No filtering]': '',
 		'Present in all species': 1,
 		'Present in >90% species': 0.9,
 		'Present in >80% species': 0.8
 	};
 
 	var options2 = {
-		'[Select]': '',
+		'[No filtering]': '',
 		'Single-copy in all species': 1,
 		'Single-copy in >90% species': 0.9,
 		'Single-copy in >80% species': 0.8

@@ -37,23 +37,28 @@
 
 		<div class="s-sidebar">
 			<div class="s-sidebar-wrap">
-				<div class="s-sidebar-label">Search by text:</div>
-				<input id="input-search-text" type="text" />
 
-				<div class="s-sidebar-label">Universality:</div>
-				<select id="input-universal"></select>
+				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Search by text:</div>
+					<input id="input-search-text" type="text" />
+				</div>
 
-				<div class="s-sidebar-label">Single-copy:</div>
-				<select id="input-single-copy"></select>
+				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Phyloprofile:</div>
+					<select id="input-universal"></select>
+					<select id="input-single-copy"></select>
+				</div>
 
-				<div class="s-sidebar-label">Search at:</div>
-				<select id="input-search-level"></select>
+				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Search at:</div>
+					<select id="input-search-level"></select>
 
-				<div class="s-sidebar-clear-all"><a href="javascript:app.species([])">Clear all</a></div>
-				<div class="s-sidebar-label">Selected species:</div>
-				<div id="selection-box"></div>
+					<div class="s-sidebar-clear-all"><a href="javascript:app.species([])">Clear all</a></div>
+					<div class="s-sidebar-label">Selected species:</div>
+					<div id="selection-box"></div>
 
-				<button id="submit-button">Submit</button>
+					<button id="submit-button">Submit</button>
+				</div>
 
 				<div class="s-sidebar-label">Search species by name:</div>
 				<input id="input-tree-lookup" type="text" />
