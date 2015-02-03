@@ -49,6 +49,10 @@
 			return value1 + value2;
 		},
 
+		round: function(value, precision){
+			return Number(value).toFixed(precision);
+		},
+
 		is:	function (value, test, options) {
 			return value == test ? options.fn(this) : options.inverse(this);
 		},
