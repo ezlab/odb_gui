@@ -193,12 +193,12 @@
 	vertical-align: middle;
 }
 
-.s-link-synonyms>a {
-	background-image: url(../images/synonym-icon.png);
+.s-link-synonyms>a:before {
+	content: url(../images/synonym-icon.png);
 }
 
-.s-link-phenotypes>a {
-	background-image: url(../images/phenotype-icon.png);
+.s-link-phenotypes>a:before {
+	content: url(../images/phenotype-icon.png);
 }
 
 .s-group-ortho-search>a {
