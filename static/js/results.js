@@ -159,5 +159,13 @@ $(function(){
 
 		app.navigate(url);
 	};
+
+	$('#summary').on('change', '#skip-multicopy', function(){
+		var param = '&skipmulticopy=1',
+			skip = $('#skip-multicopy').prop('checked'),
+			url = $('#all-fasta').attr('href').replace(param, '');
+
+		$('#all-fasta').attr('href', skip ? url + param : url);
+	});
 });
 
