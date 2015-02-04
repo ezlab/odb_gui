@@ -39,6 +39,7 @@ $(function(){
 		// add display index into group
 		data.group = group.then(function(response){
 			response.data.i = i;
+			response.data.params = searchParams;
 			return response;
 		});
 
