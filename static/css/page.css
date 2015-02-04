@@ -99,17 +99,8 @@
 }
 
 .s-sidebar-section-top {
-	padding-bottom: 0;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-	border-bottom: none;
-}
-
-.s-sidebar-section-bottom {
-	padding-top: 0;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	border-top: none;
+	padding: 0px 15px;
+	border-top: 1px solid #ccb;
 }
 
 .s-sidebar-section>.s-sidebar-label:first-child {
@@ -145,7 +136,7 @@ select+select {
 
 .s-sidebar button {
 	padding: 10px 30px;
-	margin: 15px 0 5px;
+	margin: 20px;
 	border: 1px solid #999;
 	border-radius: 5px;
 	background: #dadace;
