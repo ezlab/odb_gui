@@ -231,11 +231,11 @@
 .s-group-evolutionary-rate,
 .s-group-evolutionary-rate-chart {
 	display: inline-block;
-	line-height: 17px;
+	vertical-align: top;
 }
 
 .s-group-evolutionary-rate {
-	margin: 0 10px 0 0;
+	margin-right: 10px;
 }
 
 
