@@ -15,7 +15,7 @@ $(function(){
 	};
 
 	options.defaultKey = function(node){
-		return node.data.id;
+		return String(node.data.id);
 	};
 
 	options.renderTitle = function(event, data) {
@@ -60,7 +60,7 @@ $(function(){
 	var tree = $("#full-tree").fancytree(options).fancytree("getTree");
 
 	app.getNode = function(key){
-		return tree.getNodeByKey(key);
+		return tree.getNodeByKey(String(key));
 	};
 
 	app.method('species', lock, function(keys){
@@ -81,7 +81,7 @@ $(function(){
 		});
 
 		$.each(keys, function(index, key){
-			var node = tree.getNodeByKey(key);
+			var node = tree.getNodeByKey(String(key));
 			if (!node.selected){
 				node.setSelected();
 				node.setActive();

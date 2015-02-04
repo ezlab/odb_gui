@@ -6,7 +6,7 @@ var express = require('express'),
 var api = function(path){
 	return proxy('ceggdev.ezlab.org', {
 		forwardPath: function(req, res){
-			return '/eztest' + path + String(req.url).replace(/^\/\?/, '?');
+			return '/eztest' + path + String(req.url).replace(/^\//, '');
 		}
 	});
 };
@@ -25,8 +25,8 @@ app.use('/orthologs', api('/orthologs'));
 app.use('/siblings', api('/siblings'));
 app.use('/fasta', api('/fasta'));
 app.use('/tab', api('/tab'));
+app.use('/tree', api('/tree'));
 
-app.get('/tree', file('/tree'));
 app.get('/', file('/index.html'));
 
 app.listen(process.env.PORT || 80);

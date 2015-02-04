@@ -88,10 +88,12 @@
 
 .s-group-siblings>li {
 	white-space: nowrap;
+	font-size: 90%;
+	line-height: 1.6em;
 }
 
 .s-group-siblings>li:first-child {
-	font-weight: bold;
+	color: #665;
 }
 
 .s-group-siblings>li>span:first-child {
