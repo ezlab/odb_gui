@@ -7,7 +7,7 @@
 
 .s-group-header {
 	padding: 10px 30px;
-	margin: 10px 0 20px;
+	margin: 10px 0 25px;
 	background: #eeeee6;
 	border-radius: 5px;
 	color: #220;
@@ -47,7 +47,7 @@
 
 .s-group-section {
 	position: relative;
-	margin: 12px 0;
+	margin: 20px 0 15px;
 	padding: 8px 0 0 27px;
 	border: 1px solid #eed;
 	border-top-left-radius: 5px;
@@ -88,8 +88,8 @@
 
 .s-group-siblings>li {
 	white-space: nowrap;
-	font-size: 90%;
-	line-height: 1.6em;
+	font-size: 85%;
+	line-height: 1.8em;
 }
 
 .s-group-siblings>li:first-child {
@@ -231,11 +231,11 @@
 .s-group-evolutionary-rate,
 .s-group-evolutionary-rate-chart {
 	display: inline-block;
-	line-height: 17px;
+	vertical-align: top;
 }
 
 .s-group-evolutionary-rate {
-	margin: 0 10px 0 0;
+	margin-right: 10px;
 }
 
 

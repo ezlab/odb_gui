@@ -39,6 +39,7 @@ $(function(){
 		// add display index into group
 		data.group = group.then(function(response){
 			response.data.i = i;
+			response.data.params = searchParams;
 			return response;
 		});
 
@@ -158,5 +159,13 @@ $(function(){
 
 		app.navigate(url);
 	};
+
+	$('#summary').on('change', '#skip-multicopy', function(){
+		var param = '&skipmulticopy=1',
+			skip = $('#skip-multicopy').prop('checked'),
+			url = $('#all-fasta').attr('href').replace(param, '');
+
+		$('#all-fasta').attr('href', skip ? url + param : url);
+	});
 });
 
