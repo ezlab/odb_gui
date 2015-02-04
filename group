@@ -1,0 +1,56 @@
+{
+  "data": {
+
+    "id": 649323, 
+    "name": "Insulin", 
+    "public_id": "EOG83JDK4", 
+
+    "level_name": "Metazoa", 
+    "level_taxid": 33208, 
+
+    "molecular_function": [], 
+    
+    "biological_process": [
+    	{"count": 63, "id": "GO:0045840", "type": "amigo", "description": "positive regulation of mitosis"}, 
+    	{"count": 63, "id": "GO:0043410", "type": "amigo", "description": "positive regulation of MAPK cascade"}, 
+    	{"count": 61, "id": "GO:0051897", "type": "amigo", "description": "positive regulation of protein kinase B signaling"}, 
+    	{"count": 61, "id": "GO:0045725", "type": "amigo", "description": "positive regulation of glycogen biosynthetic process"}
+    ], 
+    
+    "cellular_component": [
+    	{"count": 109, "id": "GO:0005615", "type": "amigo", "description": "extracellular space"}, 
+    	{"count": 62, "id": "GO:0005576", "type": "amigo", "description": "extracellular region"}
+    ], 
+    
+    "interpro_domains": [
+    	{"count": 231, "id": "IPR016179", "description": "Insulin-like", "type": "interpro", "name": "Insulin-like"}
+    ], 
+    
+    "functional_category": [
+    	{"description": "Signal transduction mechanisms", "id": "T", "type": "text", "name": "CELLULAR PROCESSES AND SIGNALING"}, 
+    	{"description": "Energy production and conversion", "id": "C", "type": "text", "name": "METABOLISM"}, 
+    	{"description": "Carbohydrate transport and metabolism", "id": "G", "type": "text", "name": "METABOLISM"}
+    ], 
+    
+    "gene_architecture": {
+    	"protein_median_length": 333, 
+    	"protein_stdev_length": 45, 
+    	"exon_median_counts": 3, 
+    	"exon_stdev_counts": 1.6
+    }, 
+    
+    "phyletic_profile": {
+    	"species_count": 173, 
+    	"gene_count": 254, 
+    	"single_copy": 47, 
+    	"multi_copy": 67, 
+    	"present_in": 114
+    }, 
+    
+    "evolutionary_rate": 1.1288
+    
+  }, 
+ 
+  "status": "ok"
+}
+    	
