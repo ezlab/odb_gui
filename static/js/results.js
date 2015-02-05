@@ -38,7 +38,7 @@ $(function(){
 
 		// add display index into group
 		data.group = group.then(function(response){
-			response.data.i = i;
+			response.data.index = i;
 			response.data.params = searchParams;
 			return response;
 		});
@@ -46,10 +46,22 @@ $(function(){
 		// add group data into orthologs (for AAs !! formatting)
 		data.orthologs = $.when(orthologs, group).then(function(orthologs, group){
 			orthologs.group = group.data;
+			orthologs.show_switch = (searchParams.species != searchParams.level);
+			orthologs.show_selected = true;
 			return orthologs;
 		});
 
-		data.siblings = siblings;
+		data.siblings = siblings.then(function(response){
+
+			response.index = i;
+
+			if (response.data.length == 5){
+				response.show_switch = true;
+				response.show_all = true;
+			}
+
+			return response;
+		});
 
 		groupData[i] = data;
 
@@ -167,5 +179,63 @@ $(function(){
 
 		$('#all-fasta').attr('href', skip ? url + param : url);
 	});
+
+	$('#content').on('change', '.s-group-ortho-switch>input', function(){
+
+		var i = parseInt(this.id.replace(/\D+/, '')),
+			selector = '#group' + i + ' .orthologs';
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (this.checked) {
+			params.species = searchParams.species;
+		}
+
+		var orthologs = load('orthologs', params),
+			group = groupData[i].group;
+
+		var data = $.when(orthologs, group).then(function(orthologs, group){
+			orthologs.group = group.data;
+			orthologs.show_switch = true;
+			orthologs.show_selected = !!params.species;
+			return orthologs;
+		});
+
+		$.when(selector, app.templates.orthologs, data).then(render);
+	});
+
+	app.showAllSiblings = function(all, i){
+
+		var selector = '#group' + i + ' .siblings';
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (!all){
+			params.limit = 5;
+		}
+
+		var data = load('siblings', params).then(function(response){
+
+			response.index = i;
+
+			if (response.data.length == 5){
+				response.show_switch = true;
+				response.show_all = true;
+			}
+
+			if (response.data.length > 5){
+				response.show_switch = true;
+				response.show_all = false;
+			}
+
+			return response;
+		});
+
+		$.when(selector, app.templates.siblings, data).then(render);
+	};
 });
 

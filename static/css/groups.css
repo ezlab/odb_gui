@@ -183,6 +183,19 @@
 	padding-top: 1px;
 }
 
+.s-group-ortho-switch {
+	position: absolute;
+	top: -10px;
+	left: 585px;
+	padding: 0 5px;
+	color: #665;
+	background: #fff;
+}
+
+.s-group-ortho-switch>input{
+	vertical-align: middle;
+}
+
 .s-link-synonyms>a,
 .s-link-phenotypes>a {
 	display: inline-block;
