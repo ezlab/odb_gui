@@ -38,7 +38,7 @@ $(function(){
 
 		// add display index into group
 		data.group = group.then(function(response){
-			response.data.i = i;
+			response.data.index = i;
 			response.data.params = searchParams;
 			return response;
 		});
@@ -46,6 +46,8 @@ $(function(){
 		// add group data into orthologs (for AAs !! formatting)
 		data.orthologs = $.when(orthologs, group).then(function(orthologs, group){
 			orthologs.group = group.data;
+			orthologs.show_switch = (searchParams.species != searchParams.level);
+			orthologs.show_selected = true;
 			return orthologs;
 		});
 
@@ -166,6 +168,32 @@ $(function(){
 			url = $('#all-fasta').attr('href').replace(param, '');
 
 		$('#all-fasta').attr('href', skip ? url + param : url);
+	});
+
+	$('#content').on('change', '.s-group-ortho-switch>input', function(){
+
+		var i = parseInt(this.id.replace(/\D+/, '')),
+			selector = '#group' + i + ' .orthologs';
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (this.checked) {
+			params.species = searchParams.species;
+		}
+
+		var orthologs = load('orthologs', params),
+			group = groupData[i].group;
+
+		var data = $.when(orthologs, group).then(function(orthologs, group){
+			orthologs.group = group.data;
+			orthologs.show_switch = true;
+			orthologs.show_selected = !!params.species;
+			return orthologs;
+		});
+
+		$.when(selector, app.templates.orthologs, data).then(render);
 	});
 });
 
