@@ -51,7 +51,17 @@ $(function(){
 			return orthologs;
 		});
 
-		data.siblings = siblings;
+		data.siblings = siblings.then(function(response){
+
+			response.index = i;
+
+			if (response.data.length == 5){
+				response.show_switch = true;
+				response.show_all = true;
+			}
+
+			return response;
+		});
 
 		groupData[i] = data;
 
@@ -195,5 +205,37 @@ $(function(){
 
 		$.when(selector, app.templates.orthologs, data).then(render);
 	});
+
+	app.showAllSiblings = function(all, i){
+
+		var selector = '#group' + i + ' .siblings';
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (!all){
+			params.limit = 5;
+		}
+
+		var data = load('siblings', params).then(function(response){
+
+			response.index = i;
+
+			if (response.data.length == 5){
+				response.show_switch = true;
+				response.show_all = true;
+			}
+
+			if (response.data.length > 5){
+				response.show_switch = true;
+				response.show_all = false;
+			}
+
+			return response;
+		});
+
+		$.when(selector, app.templates.siblings, data).then(render);
+	};
 });
 
