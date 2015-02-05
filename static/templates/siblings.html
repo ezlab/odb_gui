@@ -10,6 +10,10 @@
 		{{#each data}}
 			<li><span><a href="javascript:app.search('{{id}}')" title="{{id}}">{{id}}</a></span><span>{{description}}</span></li>
 		{{/each}}
+
+		{{#if show_switch}}
+			<li><span>{{#if show_all}}...{{/if}}</span><span><a href="javascript:app.showAllSiblings({{show_all}}, {{index}})">Show {{#if show_all}}all siblings{{else}}top 5 only{{/if}}</a></span></li>
+		{{/if}}
 		</ul>
 	</div>
 {{/if}}

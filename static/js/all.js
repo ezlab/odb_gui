@@ -9,6 +9,7 @@
 	include('errors.js');
 	include('templates.js');
 	include('lock.js');
+	include('cookies.js');
 	include('navigation.js');
 	include('query.js');
 	include('phyloprofile.js');
