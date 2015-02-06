@@ -30,8 +30,7 @@
 					<a href="http://orthodb.org/useful_links" title="Links &amp; Collaborators" class="header_links">Links</a>
 				</div>
 				<div class="s-header-menu-2">
-					<a href="#">Help</a>
-					<a href="#">History</a>
+					<a href="?page=help">Help</a>
 				</div>
 			</div>
 		</div>
@@ -101,12 +100,7 @@
 		<div class="s-error-wrap">
 			<div id="error-title" class="s-error-title">Application error</div>
 			<pre id="error-message" class="s-error-message"></pre>
-			<div id="error-details" class="s-error-details">
-				<script>
-					document.write('URL: ' + location.href + '<br>');
-					document.write('Browser: ' + navigator.userAgent + '<br>');
-				</script>
-			</div>
+			<div id="error-details" class="s-error-details"></div>
 			<div class="s-error-actions">
 				<a class="s-button" href="javascript:app.restart()">Restart</a>
 			</div>
