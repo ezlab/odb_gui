@@ -33,6 +33,14 @@
 		if (msg){
 			msg.innerHTML = errors.join('<br>');
 		}
+
+		var details = document.getElementById('error-details');
+
+		if (details){
+			details.innerHTML =
+				'URL: ' + location.href + '<br>' +
+				'Browser: ' + navigator.userAgent + '<br>';
+		}
 	};
 
 
