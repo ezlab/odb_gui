@@ -17,23 +17,62 @@ $(function(){
 	}
 
 
-	function requestGroupData(i){
+	function requestOrthologs(i, selectedSpeciesOnly, group){
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (selectedSpeciesOnly) {
+			params.species = searchParams.species;
+		}
+
+		var orthologs = load('orthologs', params);
+
+		// add group data into orthologs (for AAs !! formatting)
+		return $.when(orthologs, group).then(function(orthologs, group){
+			orthologs.group = group.data;
+			orthologs.show_switch = (searchParams.species != searchParams.level);
+			orthologs.show_selected = selectedSpeciesOnly;
+			return orthologs;
+		});
+	}
+
+	function requestSiblings(i, all){
+
+		var params = {
+			id: searchResults[i]
+		};
+
+		if (!all){
+			params.limit = 5;
+		}
+
+		return load('siblings', params).then(function(response){
+
+			response.index = i;
+
+			if (response.data.length == 5){
+				response.show_switch = true;
+				response.show_all = true;
+			}
+
+			if (response.data.length > 5){
+				response.show_switch = true;
+				response.show_all = false;
+			}
+
+			return response;
+		});
+	}
+
+	function requestGroup(i){
 
 		var id = searchResults[i],
 			data = {};
 
 		var group = load('group', {
 			id: id
-		});
-
-		var orthologs = load('orthologs', {
-			id: id,
-			species: searchParams.species
-		});
-
-		var siblings = load('siblings', {
-			id: id,
-			limit: 5
 		});
 
 		// add display index into group
@@ -43,25 +82,8 @@ $(function(){
 			return response;
 		});
 
-		// add group data into orthologs (for AAs !! formatting)
-		data.orthologs = $.when(orthologs, group).then(function(orthologs, group){
-			orthologs.group = group.data;
-			orthologs.show_switch = (searchParams.species != searchParams.level);
-			orthologs.show_selected = true;
-			return orthologs;
-		});
-
-		data.siblings = siblings.then(function(response){
-
-			response.index = i;
-
-			if (response.data.length == 5){
-				response.show_switch = true;
-				response.show_all = true;
-			}
-
-			return response;
-		});
+		data.orthologs = requestOrthologs(i, true, group);
+		data.siblings = requestSiblings(i, false);
 
 		groupData[i] = data;
 
@@ -101,10 +123,10 @@ $(function(){
 
 		$('#content').append(app.templates.placeholder({id:id}));
 
-		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroupData(i));
+		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroup(i));
 
 		if (++i < totalCount) { // preload next
-			$.when(i, ready).then(requestGroupData);
+			$.when(i, ready).then(requestGroup);
 		}
 	}
 
@@ -194,59 +216,20 @@ $(function(){
 	$('#content').on('change', '.s-group-ortho-switch>input', function(){
 
 		var i = parseInt(this.id.replace(/\D+/, '')),
-			selector = '#group' + i + ' .orthologs';
+			selector = '#group' + i + ' .orthologs',
+			template = app.templates.orthologs,
+			data = requestOrthologs(i, this.checked, groupData[i].group);
 
-		var params = {
-			id: searchResults[i]
-		};
-
-		if (this.checked) {
-			params.species = searchParams.species;
-		}
-
-		var orthologs = load('orthologs', params),
-			group = groupData[i].group;
-
-		var data = $.when(orthologs, group).then(function(orthologs, group){
-			orthologs.group = group.data;
-			orthologs.show_switch = true;
-			orthologs.show_selected = !!params.species;
-			return orthologs;
-		});
-
-		$.when(selector, app.templates.orthologs, data).then(render);
+		$.when(selector, template, data).then(render);
 	});
 
 	app.showAllSiblings = function(all, i){
 
-		var selector = '#group' + i + ' .siblings';
+		var selector = '#group' + i + ' .siblings',
+			template = app.templates.siblings,
+			data = requestSiblings(i, all);
 
-		var params = {
-			id: searchResults[i]
-		};
-
-		if (!all){
-			params.limit = 5;
-		}
-
-		var data = load('siblings', params).then(function(response){
-
-			response.index = i;
-
-			if (response.data.length == 5){
-				response.show_switch = true;
-				response.show_all = true;
-			}
-
-			if (response.data.length > 5){
-				response.show_switch = true;
-				response.show_all = false;
-			}
-
-			return response;
-		});
-
-		$.when(selector, app.templates.siblings, data).then(render);
+		$.when(selector, template, data).then(render);
 	};
 });
 
