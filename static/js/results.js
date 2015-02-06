@@ -70,7 +70,18 @@ $(function(){
 
 
 	function render(selector, template, data){
-		$(selector).html(template(data));
+
+		var html = template(data),
+			keywords = (searchParams.query || '').replace(/\W+/g,'|').replace(/^\|/, '').replace(/\|$/, ''),
+			expr = new RegExp('\\b(' + keywords + ')\\b(?![^<]*>)', 'gi');
+
+		if (keywords) {
+			html = html.replace(expr, function(full, value, right){
+				return '<span class="s-keyword">' + value + '</span>';
+			});
+		}
+
+		$(selector).html(html);
 	}
 
 	function renderGroup(i, selector, data){
