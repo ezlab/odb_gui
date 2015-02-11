@@ -1,13 +1,13 @@
 
 .s-group {
 	width: 100%;
-	min-height: 500px;
-	margin-bottom: 80px;
+	xmin-height: 500px;
+	xmargin-bottom: 80px;
 }
 
 .s-group-header {
 	padding: 10px 30px;
-	margin: 10px 0 25px;
+	margin: 10px 0;
 	background: #eeeee6;
 	border-radius: 5px;
 	color: #220;

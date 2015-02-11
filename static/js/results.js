@@ -82,8 +82,8 @@ $(function(){
 			return response;
 		});
 
-		data.orthologs = requestOrthologs(i, true, group);
-		data.siblings = requestSiblings(i, false);
+		//data.orthologs = requestOrthologs(i, true, group);
+		//data.siblings = requestSiblings(i, false);
 
 		groupData[i] = data;
 
@@ -108,9 +108,9 @@ $(function(){
 
 	function renderGroup(i, selector, data){
 
-		var ready = $.when(selector, app.templates.group, data.group).then(render);
-		ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
-		ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
+		var ready = $.when(selector, app.templates.group_header, data.group).then(render);
+		//ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
+		//ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
 
 		return ready;
 	}
@@ -126,7 +126,7 @@ $(function(){
 		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroup(i));
 
 		if (++i < totalCount) { // preload next
-			$.when(i, ready).then(requestGroup);
+			$.when(i, ready).then(requestGroup).then(checkScroll);
 		}
 	}
 
@@ -164,6 +164,23 @@ $(function(){
 
 		$.when(params, load('search', params), app.ready).then(processSearchResults);
 	};
+
+
+	function checkScroll(){
+
+		if (!$('#group0').length){
+			return;
+		}
+
+		var content = $('#content')[0];
+
+		var remainingHeight = content.scrollHeight - content.offsetHeight - content.scrollTop;
+
+		if (remainingHeight < 50 && groupsRendered < totalCount){
+			showNextGroup();
+		}
+
+	}
 
 
 	$('#content').on('scroll', function(){
