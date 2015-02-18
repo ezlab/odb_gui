@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icons';
-	src:url('fonts/icons.eot?-1oaue6');
-	src:url('fonts/icons.eot?#iefix-1oaue6') format('embedded-opentype'),
-		url('fonts/icons.woff?-1oaue6') format('woff'),
-		url('fonts/icons.ttf?-1oaue6') format('truetype'),
-		url('fonts/icons.svg?-1oaue6#icons') format('svg');
+	src:url('fonts/icons.eot?e21n57');
+	src:url('fonts/icons.eot?#iefixe21n57') format('embedded-opentype'),
+		url('fonts/icons.woff?e21n57') format('woff'),
+		url('fonts/icons.ttf?e21n57') format('truetype'),
+		url('fonts/icons.svg?e21n57#icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,105 +23,171 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.i-angle-double-left:before {
+	content: "\f100";
+}
+
+.i-angle-double-right:before {
+	content: "\f101";
+}
+
+.i-angle-double-up:before {
+	content: "\f102";
+}
+
+.i-angle-double-down:before {
+	content: "\f103";
+}
+
+.i-angle-left:before {
+	content: "\f104";
+}
+
+.i-angle-right:before {
+	content: "\f105";
+}
+
+.i-angle-up:before {
+	content: "\f106";
+}
+
+.i-angle-down:before {
+	content: "\f107";
+}
+
 .i-play:before {
 	content: "\f04b";
 }
+
 .i-external-link:before {
 	content: "\f08e";
 }
+
 .i-sign-in:before {
 	content: "\f090";
 }
+
 .i-search:before {
 	content: "\f002";
 }
+
 .i-crosshairs:before {
 	content: "\f05b";
 }
+
 .i-sign-out:before {
 	content: "\f08b";
 }
+
 .i-share-square-o:before {
 	content: "\f045";
 }
+
 .i-star:before {
 	content: "\f005";
 }
+
 .i-star-o:before {
 	content: "\f006";
 }
+
 .i-check:before {
 	content: "\f00c";
 }
+
 .i-times:before {
 	content: "\f00d";
 }
+
 .i-edit:before {
 	content: "\f044";
 }
+
 .i-check-square-o:before {
 	content: "\f046";
 }
+
 .i-plus-circle:before {
 	content: "\f055";
 }
+
 .i-minus-circle:before {
 	content: "\f056";
 }
+
 .i-times-circle:before {
 	content: "\f057";
 }
+
 .i-check-circle:before {
 	content: "\f058";
 }
+
 .i-times-circle-o:before {
 	content: "\f05c";
 }
+
 .i-check-circle-o:before {
 	content: "\f05d";
 }
+
 .i-ban:before {
 	content: "\f05e";
 }
+
 .i-asterisk:before {
 	content: "\f069";
 }
+
 .i-exclamation-circle:before {
 	content: "\f06a";
 }
+
 .i-square-o:before {
 	content: "\f096";
 }
+
 .i-certificate:before {
 	content: "\f0a3";
 }
+
 .i-square:before {
 	content: "\f0c8";
 }
+
 .i-plus-square:before {
 	content: "\f0fe";
 }
+
 .i-circle-o:before {
 	content: "\f10c";
 }
+
 .i-circle:before {
 	content: "\f111";
 }
+
 .i-bullseye:before {
 	content: "\f140";
 }
+
 .i-minus-square:before {
 	content: "\f146";
 }
+
 .i-minus-square-o:before {
 	content: "\f147";
 }
+
 .i-check-square:before {
 	content: "\f14a";
 }
+
 .i-dot-circle-o:before {
 	content: "\f192";
 }
+
 .i-circle-thin:before {
 	content: "\f1db";
 }
+
