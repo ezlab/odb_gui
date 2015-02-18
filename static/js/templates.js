@@ -14,7 +14,6 @@
 		'selection',
 		'placeholder',
 		'group',
-		'group_header',
 		'orthologs',
 		'siblings',
 		'summary'
