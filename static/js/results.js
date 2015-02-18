@@ -1,93 +1,87 @@
 
 $(function(){
 
-	function path(name){
-		return name;
-	}
-
-	var searchParams = {},
-		searchResults = [],
+	var searchLimit = 100,
+		searchParams = {},
 		totalCount = 0,
+		groupsRendered = 0,
+		searchData = [],
 		groupData = [],
-		groupsRendered = 0;
+		orthologsData = [],
+		siblingsData = [];
 
 
 	function load(name, params){
-		return $.getJSON(path(name), params).then(app.verifyResponse);
+		return $.getJSON(name, params).then(app.verifyResponse);
 	}
 
 
-	function requestOrthologs(i, selectedSpeciesOnly, group){
+	function loadID(i){
 
-		var params = {
-			id: searchResults[i]
-		};
+		var params = searchParams,
+			limit = searchLimit,
+			offset = i % limit,
+			page = Math.floor(i/limit),
+			data = searchData[page];
 
-		if (selectedSpeciesOnly) {
-			params.species = searchParams.species;
+		if (!data){
+			params.skip = page * limit;
+			data = load('search', params);
+			searchData[page] = data;
 		}
 
-		var orthologs = load('orthologs', params);
-
-		// add group data into orthologs (for AAs !! formatting)
-		return $.when(orthologs, group).then(function(orthologs, group){
-			orthologs.group = group.data;
-			orthologs.show_switch = (searchParams.species != searchParams.level);
-			orthologs.show_selected = selectedSpeciesOnly;
-			return orthologs;
+		return data.then(function(response){
+			return response.data[offset];
 		});
 	}
 
-	function requestSiblings(i, all){
 
-		var params = {
-			id: searchResults[i]
-		};
+	function loadOrthologs(i, selectedSpeciesOnly, group){
 
-		if (!all){
-			params.limit = 5;
+		var orthologs = orthologsData[i];
+
+		if (!orthologs){
+
+			orthologs = loadID(i).then(function(id){
+
+				var params = {
+					id: id
+				};
+
+				if (selectedSpeciesOnly){
+					params.species = searchParams.species;
+				}
+
+				return load('orthologs', params);
+			});
+
+			orthologsData[i] = orthologs;
 		}
 
-		return load('siblings', params).then(function(response){
-
-			response.index = i;
-
-			if (response.data.length == 5){
-				response.show_switch = true;
-				response.show_all = true;
-			}
-
-			if (response.data.length > 5){
-				response.show_switch = true;
-				response.show_all = false;
-			}
-
-			return response;
-		});
+		return orthologs;
 	}
 
-	function requestGroup(i){
 
-		var id = searchResults[i],
-			data = {};
+	function loadGroup(i, expanded){
 
-		var group = load('group', {
-			id: id
-		});
+		var group = groupData[i];
+
+		if (!group){
+
+			group = loadID(i).then(function(id){
+				return load('group', {id: id});
+			});
+
+			groupData[i] = group;
+		}
 
 		// add display index into group
-		data.group = group.then(function(response){
+		return group.then(function(response){
 			response.data.index = i;
+			response.data.expanded = !!expanded;
 			response.data.params = searchParams;
 			return response;
 		});
-
-		//data.orthologs = requestOrthologs(i, true, group);
-		//data.siblings = requestSiblings(i, false);
-
-		groupData[i] = data;
-
-		return data;
 	}
 
 
@@ -106,147 +100,90 @@ $(function(){
 		$(selector).html(html);
 	}
 
-	function renderGroup(i, selector, data){
 
-		var ready = $.when(selector, app.templates.group_header, data.group).then(render);
-		//ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
-		//ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
+	function renderSiblings(i){
 
-		return ready;
+	}
+
+	function renderOrthologs(i){
+
 	}
 
 
-	function showNextGroup(){
+	function renderGroup(i, expanded){
 
-		var i = groupsRendered++,
-			id = 'group' + i;
+		var selector = '#group' + i,
+			template = app.templates.group,
+			data = loadGroup(i, expanded);
 
-		$('#content').append(app.templates.placeholder({id:id}));
-
-		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroup(i));
-
-		if (++i < totalCount) { // preload next
-			$.when(i, ready).then(requestGroup).then(checkScroll);
-		}
+		$.when(selector, template, data).then(render).then(function(){
+			if(expanded){
+				renderOrthologs(i);
+				renderSiblings(i);
+			}
+		});
 	}
 
 
-	function processSearchResults(params, response){
 
-		if (response.data && !response.count){
-			response.count = response.data.length;
-		}
+	function renderSummary(response){
 
-		searchParams = params;
-		searchResults = response.data;
 		totalCount = response.count;
-		groupData = [];
-		groupsRendered = 0;
 
 		var summary = {
-			params: params,
+			params: searchParams,
 			response: response
 		};
 
 		$('#summary').html(app.templates.summary(summary));
 		$('#content').html('');
-
-		if (totalCount) {
-			showNextGroup();
-		}
 	}
 
 
 	app.loadData = function(params){
 
-		params.skip = 0;
-		params.limit = 100;
+		searchParams = params;
+		totalCount = 0;
+		groupsRendered = 0;
+		searchData = [];
+		groupData = [];
+		orthologsData = [];
+		siblingsData = [];
 
-		$.when(params, load('search', params), app.ready).then(processSearchResults);
+		$('#summary').html('');
+		$('#content').html('Searching..');
+
+		params.skip = 0;
+		params.limit = searchLimit;
+
+		searchData[0] = load('search', params);
+
+		$.when(searchData[0], app.ready).then(renderSummary).then(checkScroll);
 	};
 
 
 	function checkScroll(){
 
-		if (!$('#group0').length){
-			return;
-		}
-
 		var content = $('#content')[0];
 
-		var remainingHeight = content.scrollHeight - content.offsetHeight - content.scrollTop;
+		while (groupsRendered < totalCount && content.scrollHeight - content.offsetHeight - content.scrollTop < 50){
 
-		if (remainingHeight < 50 && groupsRendered < totalCount){
-			showNextGroup();
+			var i = groupsRendered++,
+				data = {id: 'group' + i};
+
+			$('#content').append(app.templates.placeholder(data));
+
+			renderGroup(i, totalCount == 1);
 		}
-
 	}
 
 
 	$('#content').on('scroll', function(){
 
-		if (!$('#group0').length){
-			return;
-		}
-
-		var remainingHeight = this.scrollHeight - this.offsetHeight - this.scrollTop;
-
-		if (remainingHeight < 50 && groupsRendered < totalCount){
-			showNextGroup();
+		if ($('#group0').length){
+			checkScroll();
 		}
 	});
 
-	app.backToTop = function(){
-		$('#content')[0].scrollTop = 0;
-	};
-
-
-	app.search = function(query){
-
-		var cmp = [], params = {
-			query: query,
-			universal: searchParams.universal,
-			singlecopy: searchParams.singlecopy,
-			level: searchParams.level,
-			species: searchParams.species
-		}
-
-		$.each(params, function(name, value){
-			if (value) {
-				cmp.push(name + '=' + encodeURIComponent(String(value)));
-			}
-		});
-
-		var url = '?' + cmp.join('&');
-
-		app.navigate(url);
-	};
-
-	$('#summary').on('change', '#skip-multicopy', function(){
-		var param = '&skipmulticopy=1',
-			skip = $('#skip-multicopy').prop('checked'),
-			url = $('#all-fasta').attr('href').replace(param, '');
-
-		$('#all-fasta').attr('href', skip ? url + param : url);
-	});
-
-	$('#content').on('change', '.s-group-ortho-switch>input', function(){
-
-		var i = parseInt(this.id.replace(/\D+/, '')),
-			selector = '#group' + i + ' .orthologs',
-			template = app.templates.orthologs,
-			data = requestOrthologs(i, this.checked, groupData[i].group);
-
-		$.when(selector, template, data).then(render);
-	});
-
-	app.showAllSiblings = function(all, i){
-
-		var selector = '#group' + i + ' .siblings',
-			template = app.templates.siblings,
-			data = requestSiblings(i, all);
-
-		$.when(selector, template, data).then(render);
-	};
 });
 

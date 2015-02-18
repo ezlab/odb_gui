@@ -1,8 +1,7 @@
 
 .s-group {
 	width: 100%;
-	xmin-height: 500px;
-	xmargin-bottom: 80px;
+	min-height: 65px;
 }
 
 .s-group-header {
@@ -11,6 +10,10 @@
 	background: #eeeee6;
 	border-radius: 5px;
 	color: #220;
+}
+
+.s-group-header-loading {
+	background: #eeeee6 url(../vendors/fancytree/skin-lion/loading.gif) 30px 10px no-repeat;
 }
 
 .s-group-header-menu {
