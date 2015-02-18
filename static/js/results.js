@@ -229,5 +229,31 @@ $(function(){
 	app.showSiblings = function(i, showAll){
 		renderSiblings(i, showAll);
 	};
+
+	app.showGroup = function(i, expand){
+		renderGroup(i, expand);
+	};
+
+	app.search = function(query){
+
+		var cmp = [], params = {
+			query: query,
+			universal: searchParams.universal,
+			singlecopy: searchParams.singlecopy,
+			level: searchParams.level,
+			species: searchParams.species
+		}
+
+		$.each(params, function(name, value){
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
+		});
+
+		var url = '?' + cmp.join('&');
+
+		app.navigate(url);
+	};
+
 });
 
