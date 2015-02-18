@@ -6,9 +6,7 @@ $(function(){
 		totalCount = 0,
 		groupsRendered = 0,
 		searchData = [],
-		groupData = [],
-		orthologsData = [],
-		siblingsData = [];
+		groupData = [];
 
 
 	function load(name, params){
@@ -36,32 +34,6 @@ $(function(){
 	}
 
 
-	function loadOrthologs(i, selectedSpeciesOnly, group){
-
-		var orthologs = orthologsData[i];
-
-		if (!orthologs){
-
-			orthologs = loadID(i).then(function(id){
-
-				var params = {
-					id: id
-				};
-
-				if (selectedSpeciesOnly){
-					params.species = searchParams.species;
-				}
-
-				return load('orthologs', params);
-			});
-
-			orthologsData[i] = orthologs;
-		}
-
-		return orthologs;
-	}
-
-
 	function loadGroup(i, expanded){
 
 		var group = groupData[i];
@@ -85,6 +57,60 @@ $(function(){
 	}
 
 
+	function loadOrthologs(i, showAll){
+
+		var orthologs = loadID(i).then(function(id){
+
+			var params = {
+				id: id
+			};
+
+			if (!showAll){
+				params.species = searchParams.species;
+			}
+
+			return load('orthologs', params);
+		});
+
+		var group = loadGroup(i, true);
+
+		// add group data into orthologs (for AAs !! formatting)
+		return $.when(orthologs, group).then(function(orthologs, group){
+			orthologs.group = group.data;
+			orthologs.show_switch = (searchParams.species != searchParams.level);
+			orthologs.show_selected = !showAll;
+			return orthologs;
+		});
+	}
+
+
+	function loadSiblings(i, showAll){
+
+		var siblings = loadID(i).then(function(id){
+
+			var params = {
+				id: id
+			};
+
+			if (!showAll){
+				params.limit = 5;
+			}
+
+			return load('siblings', params);
+		});
+
+		// add index and all/top5 state
+		return siblings.then(function(response){
+
+			response.index = i;
+			response.show_switch = (response.data.length >= 5);
+			response.show_all = !showAll;
+
+			return response;
+		});
+	}
+
+
 	function render(selector, template, data){
 
 		var html = template(data),
@@ -101,12 +127,23 @@ $(function(){
 	}
 
 
-	function renderSiblings(i){
+	function renderOrthologs(i, showAll){
 
+		var selector = '#group' + i + ' .orthologs',
+			template = app.templates.orthologs,
+			data = loadOrthologs(i, showAll);
+
+		$.when(selector, template, data).then(render);
 	}
 
-	function renderOrthologs(i){
 
+	function renderSiblings(i, showAll){
+
+		var selector = '#group' + i + ' .siblings',
+			template = app.templates.siblings,
+			data = loadSiblings(i, showAll);
+
+		$.when(selector, template, data).then(render);
 	}
 
 
@@ -123,7 +160,6 @@ $(function(){
 			}
 		});
 	}
-
 
 
 	function renderSummary(response){
@@ -147,8 +183,6 @@ $(function(){
 		groupsRendered = 0;
 		searchData = [];
 		groupData = [];
-		orthologsData = [];
-		siblingsData = [];
 
 		$('#summary').html('');
 		$('#content').html('Searching..');
@@ -184,6 +218,42 @@ $(function(){
 			checkScroll();
 		}
 	});
+
+
+	$('#content').on('change', '.s-group-ortho-switch>input', function(){
+		var i = parseInt(this.id.replace(/\D+/, '')), showAll = !this.checked;
+		renderOrthologs(i, showAll);
+	});
+
+
+	app.showSiblings = function(i, showAll){
+		renderSiblings(i, showAll);
+	};
+
+	app.showGroup = function(i, expand){
+		renderGroup(i, expand);
+	};
+
+	app.search = function(query){
+
+		var cmp = [], params = {
+			query: query,
+			universal: searchParams.universal,
+			singlecopy: searchParams.singlecopy,
+			level: searchParams.level,
+			species: searchParams.species
+		}
+
+		$.each(params, function(name, value){
+			if (value) {
+				cmp.push(name + '=' + encodeURIComponent(String(value)));
+			}
+		});
+
+		var url = '?' + cmp.join('&');
+
+		app.navigate(url);
+	};
 
 });
 
