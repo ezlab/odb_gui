@@ -1,93 +1,113 @@
 
 $(function(){
 
-	function path(name){
-		return name;
-	}
-
-	var searchParams = {},
-		searchResults = [],
+	var searchLimit = 100,
+		searchParams = {},
 		totalCount = 0,
-		groupData = [],
-		groupsRendered = 0;
+		groupsRendered = 0,
+		searchData = [],
+		groupData = [];
 
 
 	function load(name, params){
-		return $.getJSON(path(name), params).then(app.verifyResponse);
+		return $.getJSON(name, params).then(app.verifyResponse);
 	}
 
 
-	function requestOrthologs(i, selectedSpeciesOnly, group){
+	function loadID(i){
 
-		var params = {
-			id: searchResults[i]
-		};
+		var params = searchParams,
+			limit = searchLimit,
+			offset = i % limit,
+			page = Math.floor(i/limit),
+			data = searchData[page];
 
-		if (selectedSpeciesOnly) {
-			params.species = searchParams.species;
+		if (!data){
+			params.skip = page * limit;
+			data = load('search', params);
+			searchData[page] = data;
 		}
 
-		var orthologs = load('orthologs', params);
+		return data.then(function(response){
+			return response.data[offset];
+		});
+	}
+
+
+	function loadGroup(i, expanded){
+
+		var group = groupData[i];
+
+		if (!group){
+
+			group = loadID(i).then(function(id){
+				return load('group', {id: id});
+			});
+
+			groupData[i] = group;
+		}
+
+		// add display index into group
+		return group.then(function(response){
+			response.data.index = i;
+			response.data.expanded = !!expanded;
+			response.data.params = searchParams;
+			return response;
+		});
+	}
+
+
+	function loadOrthologs(i, showAll){
+
+		var orthologs = loadID(i).then(function(id){
+
+			var params = {
+				id: id
+			};
+
+			if (!showAll){
+				params.species = searchParams.species;
+			}
+
+			return load('orthologs', params);
+		});
+
+		var group = loadGroup(i, true);
 
 		// add group data into orthologs (for AAs !! formatting)
 		return $.when(orthologs, group).then(function(orthologs, group){
 			orthologs.group = group.data;
 			orthologs.show_switch = (searchParams.species != searchParams.level);
-			orthologs.show_selected = selectedSpeciesOnly;
+			orthologs.show_selected = !showAll;
 			return orthologs;
 		});
 	}
 
-	function requestSiblings(i, all){
 
-		var params = {
-			id: searchResults[i]
-		};
+	function loadSiblings(i, showAll){
 
-		if (!all){
-			params.limit = 5;
-		}
+		var siblings = loadID(i).then(function(id){
 
-		return load('siblings', params).then(function(response){
+			var params = {
+				id: id
+			};
+
+			if (!showAll){
+				params.limit = 5;
+			}
+
+			return load('siblings', params);
+		});
+
+		// add index and all/top5 state
+		return siblings.then(function(response){
 
 			response.index = i;
-
-			if (response.data.length == 5){
-				response.show_switch = true;
-				response.show_all = true;
-			}
-
-			if (response.data.length > 5){
-				response.show_switch = true;
-				response.show_all = false;
-			}
+			response.show_switch = (response.data.length >= 5);
+			response.show_all = !showAll;
 
 			return response;
 		});
-	}
-
-	function requestGroup(i){
-
-		var id = searchResults[i],
-			data = {};
-
-		var group = load('group', {
-			id: id
-		});
-
-		// add display index into group
-		data.group = group.then(function(response){
-			response.data.index = i;
-			response.data.params = searchParams;
-			return response;
-		});
-
-		data.orthologs = requestOrthologs(i, true, group);
-		data.siblings = requestSiblings(i, false);
-
-		groupData[i] = data;
-
-		return data;
 	}
 
 
@@ -106,83 +126,113 @@ $(function(){
 		$(selector).html(html);
 	}
 
-	function renderGroup(i, selector, data){
 
-		var ready = $.when(selector, app.templates.group, data.group).then(render);
-		ready = $.when(selector + ' .orthologs', app.templates.orthologs, data.orthologs, ready).then(render);
-		ready = $.when(selector + ' .siblings', app.templates.siblings, data.siblings, ready).then(render);
+	function renderOrthologs(i, showAll){
 
-		return ready;
+		var selector = '#group' + i + ' .orthologs',
+			template = app.templates.orthologs,
+			data = loadOrthologs(i, showAll);
+
+		$.when(selector, template, data).then(render);
 	}
 
 
-	function showNextGroup(){
+	function renderSiblings(i, showAll){
 
-		var i = groupsRendered++,
-			id = 'group' + i;
+		var selector = '#group' + i + ' .siblings',
+			template = app.templates.siblings,
+			data = loadSiblings(i, showAll);
 
-		$('#content').append(app.templates.placeholder({id:id}));
-
-		var ready = renderGroup(i, '#' + id, groupData[i] || requestGroup(i));
-
-		if (++i < totalCount) { // preload next
-			$.when(i, ready).then(requestGroup);
-		}
+		$.when(selector, template, data).then(render);
 	}
 
 
-	function processSearchResults(params, response){
+	function renderGroup(i, expanded){
 
-		if (response.data && !response.count){
-			response.count = response.data.length;
-		}
+		var selector = '#group' + i,
+			template = app.templates.group,
+			data = loadGroup(i, expanded);
 
-		searchParams = params;
-		searchResults = response.data;
+		$.when(selector, template, data).then(render).then(function(){
+			if(expanded){
+				renderOrthologs(i);
+				renderSiblings(i);
+			}
+		});
+	}
+
+
+	function renderSummary(response){
+
 		totalCount = response.count;
-		groupData = [];
-		groupsRendered = 0;
 
 		var summary = {
-			params: params,
+			params: searchParams,
 			response: response
 		};
 
 		$('#summary').html(app.templates.summary(summary));
 		$('#content').html('');
-
-		if (totalCount) {
-			showNextGroup();
-		}
 	}
 
 
 	app.loadData = function(params){
 
-		params.skip = 0;
-		params.limit = 100;
+		searchParams = params;
+		totalCount = 0;
+		groupsRendered = 0;
+		searchData = [];
+		groupData = [];
 
-		$.when(params, load('search', params), app.ready).then(processSearchResults);
+		$('#summary').html('');
+		$('#content').html('Searching..');
+
+		params.skip = 0;
+		params.limit = searchLimit;
+
+		searchData[0] = load('search', params);
+
+		$.when(searchData[0], app.ready).then(renderSummary).then(checkScroll);
 	};
+
+
+	function checkScroll(){
+
+		var content = $('#content')[0];
+
+		while (groupsRendered < totalCount && content.scrollHeight - content.offsetHeight - content.scrollTop < 50){
+
+			var i = groupsRendered++,
+				data = {id: 'group' + i};
+
+			$('#content').append(app.templates.placeholder(data));
+
+			renderGroup(i, totalCount == 1);
+		}
+	}
 
 
 	$('#content').on('scroll', function(){
 
-		if (!$('#group0').length){
-			return;
-		}
-
-		var remainingHeight = this.scrollHeight - this.offsetHeight - this.scrollTop;
-
-		if (remainingHeight < 50 && groupsRendered < totalCount){
-			showNextGroup();
+		if ($('#group0').length){
+			checkScroll();
 		}
 	});
 
-	app.backToTop = function(){
-		$('#content')[0].scrollTop = 0;
+
+	$('#content').on('change', '.s-group-ortho-switch>input', function(){
+		var i = parseInt(this.id.replace(/\D+/, '')), showAll = !this.checked;
+		renderOrthologs(i, showAll);
+	});
+
+
+	app.showSiblings = function(i, showAll){
+		renderSiblings(i, showAll);
 	};
 
+	app.showGroup = function(i, expand){
+		renderGroup(i, expand);
+	};
 
 	app.search = function(query){
 
@@ -205,31 +255,5 @@ $(function(){
 		app.navigate(url);
 	};
 
-	$('#summary').on('change', '#skip-multicopy', function(){
-		var param = '&skipmulticopy=1',
-			skip = $('#skip-multicopy').prop('checked'),
-			url = $('#all-fasta').attr('href').replace(param, '');
-
-		$('#all-fasta').attr('href', skip ? url + param : url);
-	});
-
-	$('#content').on('change', '.s-group-ortho-switch>input', function(){
-
-		var i = parseInt(this.id.replace(/\D+/, '')),
-			selector = '#group' + i + ' .orthologs',
-			template = app.templates.orthologs,
-			data = requestOrthologs(i, this.checked, groupData[i].group);
-
-		$.when(selector, template, data).then(render);
-	});
-
-	app.showAllSiblings = function(all, i){
-
-		var selector = '#group' + i + ' .siblings',
-			template = app.templates.siblings,
-			data = requestSiblings(i, all);
-
-		$.when(selector, template, data).then(render);
-	};
 });
 
