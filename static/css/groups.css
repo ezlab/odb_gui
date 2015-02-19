@@ -134,7 +134,9 @@
 }
 
 .orthologs {
-	margin-bottom: 25px;
+	display: inline-block;
+	margin: -15px 0 5px;
+	min-width: 100%;
 }
 
 .s-group-ortho {
