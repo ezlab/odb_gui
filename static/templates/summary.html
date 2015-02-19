@@ -5,7 +5,7 @@ Your search
 	{{#if response.level}}at {{clade response.level}} level{{/if}}
 returned
 	{{#if response.data}}{{plural response.count "group" "groups"}}{{else}}no results{{/if}}<br>
-	{{#if params.universal}}that are spanning {{phyloprofile params.universal}} species{{/if}}
+	{{#if params.universal}}that span {{phyloprofile params.universal}} species{{/if}}
 	{{#if params.singlecopy}}{{#if params.universal}}and {{/if}}single-copy in {{phyloprofile params.singlecopy}} species{{/if}}
 </div>
 <div class="s-summary-links">
