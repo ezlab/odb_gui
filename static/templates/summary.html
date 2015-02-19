@@ -1,7 +1,7 @@
 
 <div class="s-summary-text">
 Your search
-	{{#if params.query}}for "{{params.query}}"{{/if}}
+	{{#if params.query}}for <b>{{params.query}}</b>{{/if}}
 	{{#if response.level}}at {{clade response.level}} level{{/if}}
 returned
 	{{#if response.data}}{{plural response.count "group" "groups"}}{{else}}no results{{/if}}<br>
