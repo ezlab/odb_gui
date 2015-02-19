@@ -63,13 +63,18 @@
 	top: 80px;
 	bottom: 25px;
 	margin-left: 220px;
+	background: #f8f8f2;
 }
 
 .s-sidebar-wrap {
 	width: 380px;
-	min-height: 100%;
-	padding: 30px 15px 15px;
-	background: #f8f8f2;
+	padding: 30px 15px 0;
+	background: inherit;
+}
+
+.s-sidebar-wrap-2 {
+	width: auto;
+	padding: 0 15px 15px;
 }
 
 .s-sidebar-wrap input,

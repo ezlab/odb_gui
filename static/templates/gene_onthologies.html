@@ -1,4 +1,15 @@
 
+{{#if molecular_function}}
+    <div class="s-group-box">
+		<h3>GO Molecular Function</h3>
+		<ul>
+		{{#each molecular_function}}
+			<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
+		{{/each}}
+		</ul>
+	</div>
+{{/if}}
+
 {{#if biological_process}}
     <div class="s-group-box">
 		<h3>GO Biological Process</h3>
@@ -15,17 +26,6 @@
 		<h3>GO Cellular Component</h3>
 		<ul>
 		{{#each cellular_component}}
-			<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
-		{{/each}}
-		</ul>
-	</div>
-{{/if}}
-
-{{#if molecular_function}}
-    <div class="s-group-box">
-		<h3>GO Molecular Function</h3>
-		<ul>
-		{{#each molecular_function}}
 			<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
 		{{/each}}
 		</ul>

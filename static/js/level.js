@@ -61,6 +61,9 @@ $(function(){
 
 			app.call('level', lock, key);
 		}
+		else {
+			app.call('level', lock, '');
+		}
 	}
 
 	select.change(function(){
