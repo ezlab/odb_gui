@@ -49,7 +49,22 @@ $(function(){
 
 		var i, results = [], nodes = {};
 
-		function getNode(key){
+		function addAllSelectedChild(parent, src){
+
+			var node = {
+				key: '@' + parent.key,
+				expanded: true,
+				unselectable: true,
+				extraClasses: 's-unselectable',
+				name: 'All ' + src.data.count + ' selected',
+				allSelected: !!src.data.examples.length,
+				clade: false
+			}
+
+			parent.children = [node];
+		}
+
+		function getNode(key, isParent){
 
 			var node = nodes[key];
 
@@ -68,11 +83,15 @@ $(function(){
 					clade: !!src.children
 				};
 
+				if (src.children && !isParent){
+					addAllSelectedChild(node, src);
+				}
+
 				nodes[key] = node;
 
 				if (src.parent.parent) {
 
-					var parent = getNode(src.parent.key);
+					var parent = getNode(src.parent.key, true);
 
 					if (parent.children){
 						parent.children.push(node);
@@ -116,7 +135,8 @@ $(function(){
 		tree.reload(makeSelectionTree(keys));
 	});
 
-	app.removeSelection = function(key){
+
+	function removeSelection(key){
 
 		var i, node, items = species.concat();
 
@@ -132,6 +152,37 @@ $(function(){
 				node = node.parent;
 			}
 		}
+
+		return items;
+	}
+
+
+	app.removeSelection = function(key){
+		app.species(removeSelection(key.replace('@', '')));
+	};
+
+
+	function addExamples(items, node){
+
+		if(node.children && node.children.length){
+			$.each(node.children, function(i, node){
+				addExamples(items, node);
+			});
+		}
+		else if (node.data.examples && node.data.examples.length){
+			items.push(node.key);
+		}
+	}
+
+
+	app.useExamples = function(key){
+
+		key = key.replace('@', '');
+
+		var items = removeSelection(key),
+			node = app.getNode(key);
+
+		addExamples(items, node);
 
 		app.species(items);
 	};
