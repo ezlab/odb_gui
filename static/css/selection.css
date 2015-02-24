@@ -65,8 +65,6 @@
 }
 
 .selection-remove {
-	visibility: hidden;
-	padding-left: 5px;
 	color: #ccb;
 	text-decoration: none;
 }
