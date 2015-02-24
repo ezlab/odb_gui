@@ -78,3 +78,9 @@
 .fancytree-title:hover>.selection-remove{
 	visibility: visible;
 }
+
+.selection-examples-cmd {
+	font-size: 11px;
+	line-height: 1.3em;
+	vertical-align: top;
+}
