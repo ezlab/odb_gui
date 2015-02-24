@@ -104,8 +104,9 @@
 }
 
 .s-sidebar-section-top {
-	padding: 0px 15px;
-	border-top: 1px solid #ccb;
+	padding: 5px 15px;
+	border-width: 1px 0 0 0;
+	border-radius: 0;
 }
 
 .s-sidebar-section>.s-sidebar-label:first-child {
