@@ -226,6 +226,12 @@ $(function(){
 	});
 
 
+	$('#content').on('click', '.s-group-collapsed', function(){
+		var i = parseInt(this.parentNode.id.replace(/\D+/, ''));
+		renderGroup(i, true);
+	});
+
+
 	app.showSiblings = function(i, showAll){
 		renderSiblings(i, showAll);
 	};

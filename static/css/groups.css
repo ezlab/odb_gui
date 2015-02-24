@@ -4,6 +4,10 @@
 	min-height: 65px;
 }
 
+.s-group-collapsed {
+	cursor: pointer;
+}
+
 .s-group-header {
 	position: relative;
 	padding: 10px 60px 10px 30px;
