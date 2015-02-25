@@ -11,8 +11,10 @@
 	include('lock.js');
 	include('cookies.js');
 	include('navigation.js');
+	include('tabs.js');
 	include('query.js');
 	include('phyloprofile.js');
+	include('sequence.js');
 	include('level.js');
 	include('selection.js');
 	include('tree.js');

@@ -3,11 +3,17 @@ var app = {};
 
 (function(){
 
-	var query = '',
+	var mode = '',
+		query = '',
 		universal = '',
 		singlecopy = '',
+		sequence = '',
 		level = '',
 		species = [];
+
+	app.mode = function(text){
+		mode = text;
+	};
 
 	app.query = function(text){
 		query = text;
@@ -19,6 +25,10 @@ var app = {};
 
 	app.singlecopy = function(value){
 		singlecopy = value;
+	};
+
+	app.sequence = function(text){
+		sequence = text;
 	};
 
 	app.level = function(text){

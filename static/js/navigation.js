@@ -32,14 +32,17 @@
 		if (params.query ||
 			params.universal ||
 			params.singlecopy ||
+			params.seq ||
 			params.species ||
 			params.level){
 
+			app.mode(params.seq ? 'seq' : '');
 			app.query(params.query || '');
 			app.universal(params.universal || '');
 			app.singlecopy(params.singlecopy || '');
 			app.species(params.species ? params.species.split(',') : []);
 			app.level((params.level || ''));
+			app.sequence(params.seq || '');
 
 			app.loadData(params);
 		}

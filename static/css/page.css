@@ -66,9 +66,35 @@
 	background: #f8f8f2;
 }
 
+.s-sidebar-tabs {
+	background: #ccb;
+	height: 40px;
+	padding: 0 5px;
+}
+
+.s-sidebar-tab {
+	display: inline-block;
+	height: 35px;
+	padding: 0 15px;
+	margin: 5px 0px;
+	line-height: 35px;
+	border-radius: 3px 3px 0 0;
+	color: #665;
+	background: #ddc;
+	text-decoration: none;
+}
+
+.s-sidebar-tab-selected {
+	background: #f8f8f2;
+}
+
+.s-hidden {
+	display: none;
+}
+
 .s-sidebar-wrap {
 	width: 380px;
-	padding: 30px 15px 0;
+	padding: 5px 15px 0;
 	background: inherit;
 }
 
@@ -77,13 +103,20 @@
 	padding: 0 15px 15px;
 }
 
+.s-sidebar-sequence {
+	width: 320px;
+	height: 128px;
+	border: 1px solid #999;
+	border-radius: 3px;
+}
+
 .s-sidebar-wrap input,
 .s-sidebar-wrap select {
 	font: inherit;
 	width: 250px;
 	height: 25px;
 	padding: 0 0 0 5px;
-	border: 1px solid #666;
+	border: 1px solid #999;
 	border-radius: 2px;
 	line-height: 23px;
 }
