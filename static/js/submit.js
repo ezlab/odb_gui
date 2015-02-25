@@ -2,7 +2,12 @@
 $(function(){
 
 	var	lock = {},
+		mode = '',
 		params = {};
+
+	app.method('mode', lock, function(value){
+		mode = value;
+	});
 
 	app.method('query', lock, function(query){
 		params.query = query;
@@ -14,6 +19,10 @@ $(function(){
 
 	app.method('singlecopy', lock, function(value){
 		params.singlecopy = value;
+	});
+
+	app.method('sequence', lock, function(sequence){
+		params.seq = sequence;
 	});
 
 	app.method('level', lock, function(level){
@@ -28,6 +37,15 @@ $(function(){
 	function submit(){
 
 		var cmp = [];
+
+		if (mode) {
+			params.query = '';
+			params.universal = '';
+			params.singlecopy = '';
+		}
+		else {
+			params.seq = '';
+		}
 
 		$.each(params, function(name, value){
 			if (value) {

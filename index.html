@@ -36,8 +36,12 @@
 		</div>
 
 		<div class="s-sidebar">
-			<div class="s-sidebar-wrap">
+			<div class="s-sidebar-tabs">
+				<a id="tab-0" class="s-sidebar-tab s-sidebar-tab-selected" href="javascript:app.selectTab(0)">Build your query</a>
+				<a id="tab-1" class="s-sidebar-tab" href="javascript:app.selectTab(1)">Search by sequence</a>
+			</div>
 
+			<div id="wrap-0" class="s-sidebar-wrap">
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Search by text:</div>
 					<input id="input-search-text" type="text" />
@@ -48,7 +52,16 @@
 					<select id="input-universal"></select>
 					<select id="input-single-copy"></select>
 				</div>
+			</div>
 
+			<div id="wrap-1" class="s-sidebar-wrap s-hidden">
+				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Copy a protein sequence (<1000 a.a.):</div>
+					<textarea id="input-sequence" class="s-sidebar-sequence"></textarea>
+				</div>
+			</div>
+
+			<div class="s-sidebar-wrap">
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Search at:</div>
 					<select id="input-search-level"></select>
