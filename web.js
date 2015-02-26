@@ -21,6 +21,7 @@ app.use('/static', express.static('static'));
 
 app.use('/group', api('/group'));
 app.use('/search', api('/search'));
+app.use('/blast', api('/search'));
 app.use('/orthologs', api('/orthologs'));
 app.use('/siblings', api('/siblings'));
 app.use('/fasta', api('/fasta'));
