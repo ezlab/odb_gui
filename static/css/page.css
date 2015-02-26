@@ -56,7 +56,8 @@
 	position: absolute;
 	overflow: auto;
 	left: 65%;
-	right: 0;
+	right: 0!important;
+	width: auto!important;
 	top: 80px;
 	bottom: 25px;
 	background: #f8f8f2;
@@ -339,3 +340,8 @@ select+select {
 	line-height: 80px;
 }
 
+
+/* jq ui */
+
+.ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.ui-resizable-w { cursor: w-resize; width: 10px; left: 0; top: 0; height: 100%; }
