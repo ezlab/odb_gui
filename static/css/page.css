@@ -2,17 +2,15 @@
 .s-body {
 	position: relative;
 	height: 100%;
-	min-width: 1200px;
 }
 
 .s-topbox {
 	position: absolute;
 	overflow: hidden;
-	width: 820px;
-	right: 50%;
+	left: 0;
 	top: 80px;
 	height: 80px;
-	margin-right: -220px;
+	width: 65%;
 	border-bottom: 1px solid #ddc;
 }
 
@@ -23,11 +21,10 @@
 .s-content {
 	position: absolute;
 	overflow: auto;
-	width: 820px;
-	right: 50%;
+	left: 0;
+	width: 65%;
 	top: 160px;
 	bottom: 25px;
-	margin-right: -220px;
 	padding: 0 15px;
 }
 
@@ -58,11 +55,10 @@
 .s-sidebar {
 	position: absolute;
 	overflow: auto;
-	left: 50%;
+	left: 65%;
 	right: 0;
 	top: 80px;
 	bottom: 25px;
-	margin-left: 220px;
 	background: #f8f8f2;
 }
 
@@ -70,6 +66,7 @@
 	background: #ccb;
 	height: 40px;
 	padding: 0 5px;
+	white-space: nowrap;
 }
 
 .s-sidebar-tab {
@@ -195,16 +192,14 @@ select+select {
 	position: absolute;
 	top: 0;
 	height: 80px;
-	left: 50%;
+	left: 300px;
 	right: 0;
 	background: url(../images/header-right-fill.gif) repeat-x;
 }
 
 .s-header-wrap {
 	position: relative;
-	width: 1200px;
 	height: 80px;
-	margin: 0 auto;
 	background: url(../images/cegg-logo.jpg) 15px 0 no-repeat;
 }
 
@@ -256,15 +251,14 @@ select+select {
 }
 
 .s-footer-wrap {
-	width: 1200px;
 	height: 25px;
-	margin: 0 auto;
 	line-height: 24px;
 	font-size: 11px;
 }
 
 .s-footer-left {
 	float: left;
+	margin-left: 15px;
 }
 
 .s-footer-right {
