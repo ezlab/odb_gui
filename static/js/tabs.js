@@ -28,5 +28,14 @@ $(function(){
 	app.selectTab = function(i){
 		app.mode(i ? 'seq' : '');
 	};
+
+	$('.s-sidebar').resizable({
+		handles: 'w',
+		resize: function() {
+            var remaining = $(this).parent().width() - $(this).outerWidth();
+			$('#topbox').width(remaining - 30);
+			$('#content').width(remaining - 30);
+        }
+	});
 });
 
