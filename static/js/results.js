@@ -24,7 +24,7 @@ $(function(){
 
 		if (!data){
 			params.skip = page * limit;
-			data = load('search', params);
+			data = load(params.seq ? 'blast' : 'search', params);
 			searchData[page] = data;
 		}
 
@@ -190,7 +190,7 @@ $(function(){
 		params.skip = 0;
 		params.limit = searchLimit;
 
-		searchData[0] = load('search', params);
+		searchData[0] = load(params.seq ? 'blast' : 'search', params);
 
 		$.when(searchData[0], app.ready).then(renderSummary).then(checkScroll);
 	};
