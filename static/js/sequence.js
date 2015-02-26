@@ -10,7 +10,10 @@ $(function(){
 	});
 
 	textbox.blur(function(){
-		app.call('sequence', lock, textbox.val());
+
+		var sequence = String(textbox.val()).replace(/\W+/g, '');
+
+		app.call('sequence', lock, sequence);
 	});
 
 });
