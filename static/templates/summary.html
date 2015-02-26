@@ -10,7 +10,12 @@ returned
 </div>
 <div class="s-summary-links">
 	{{#if response.data}}
-		<a id="all-fasta" href="fasta?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="fasta">Get All Fasta</a> <!--(<input id="skip-multicopy" type="checkbox"><label for="skip-multicopy">skip all multicopy</label>)--> |
-		<a id="all-tab" href="tab?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="tab">Get All as Tab delimited</a>
+		{{#if params.seq}}
+			<a id="all-fasta" href="fasta?level={{params.level}}&species={{params.species}}&seq={{params.seq}}" target="fasta">Get All Fasta</a> |
+			<a id="all-tab" href="tab?level={{params.level}}&species={{params.species}}&seq={{params.seq}}" target="tab">Get All as Tab delimited</a>
+		{{else}}
+			<a id="all-fasta" href="fasta?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="fasta">Get All Fasta</a> |
+			<a id="all-tab" href="tab?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="tab">Get All as Tab delimited</a>
+		{{/if}}
 	{{/if}}
 </div>
