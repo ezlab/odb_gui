@@ -55,6 +55,8 @@
 	};
 
 	app.loadPage = function(url){
+		$('#summary').html('');
+		$("#content").html('Loading..');
 		$("#content").load(url);
 	};
 
@@ -77,5 +79,12 @@
 		});
 	}
 
+	app.href = function(event, anchor){
+
+		if (event.preventDefault && !event.ctrlKey && !event.shiftKey){
+			event.preventDefault();
+			app.navigate(anchor.href);
+		}
+	};
 })();
 

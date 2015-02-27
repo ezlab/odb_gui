@@ -12,7 +12,7 @@
 
 
 <div class="s-group-ortho-headers">
-	<div class="s-group-ortho-header-left">Organism | Gene ID | UniProt | Description</div>
+	<div class="s-group-ortho-header-left">Organism | Protein ID | UniProt | Description</div>
 	<div class="s-group-ortho-header-aas">AAs</div>
 	<div class="s-group-ortho-header-exons">Exons</div>
 	<div class="s-group-ortho-header-interpro">InterPro</div>
@@ -41,7 +41,7 @@
 				{{exons}}
 			</div>
 			<div class="s-group-ortho-search">
-				{{#if interpro}}<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="javascript:app.search('{{#each interpro}}{{id}} {{/each}}')"></a>{{/if}}
+				{{#if interpro}}<a title="Search OrthoDB for proteins with {{#each interpro}}{{id}} {{/each}}" href="?level={{../../../params.level}}&species={{../../../params.species}}&query={{#each interpro}}{{id}} {{/each}}" onclick="app.href(event, this)"></a>{{/if}}
 			</div>
 			<div class="s-group-ortho-interpro">
 				{{#each interpro}}{{link}} {{/each}}

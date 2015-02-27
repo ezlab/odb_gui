@@ -8,7 +8,7 @@
 			<li><span>Group</span><span>InterPro domains</span></li>
 
 		{{#each data}}
-			<li><span><a href="javascript:app.search('{{id}}')" title="{{id}}">{{id}}</a></span><span>{{description}}</span></li>
+			<li><span><a href="?level={{../params.level}}&species={{../params.species}}&query={{id}}" title="{{id}}" onclick="app.href(event, this)">{{id}}</a></span><span>{{description}}</span></li>
 		{{/each}}
 
 		{{#if show_switch}}
