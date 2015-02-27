@@ -55,6 +55,8 @@
 	};
 
 	app.loadPage = function(url){
+		$('#summary').html('');
+		$("#content").html('Loading..');
 		$("#content").load(url);
 	};
 
