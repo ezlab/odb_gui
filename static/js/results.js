@@ -77,6 +77,7 @@ $(function(){
 		// add group data into orthologs (for AAs !! formatting)
 		return $.when(orthologs, group).then(function(orthologs, group){
 			orthologs.group = group.data;
+			orthologs.params = searchParams;
 			orthologs.show_switch = (searchParams.species != searchParams.level);
 			orthologs.show_selected = !showAll;
 			return orthologs;
@@ -103,6 +104,7 @@ $(function(){
 		return siblings.then(function(response){
 
 			response.index = i;
+			response.params = searchParams;
 			response.show_switch = (response.data.length >= 5);
 			response.show_all = !showAll;
 
@@ -238,27 +240,6 @@ $(function(){
 
 	app.showGroup = function(i, expand){
 		renderGroup(i, expand);
-	};
-
-	app.search = function(query){
-
-		var cmp = [], params = {
-			query: query,
-			universal: searchParams.universal,
-			singlecopy: searchParams.singlecopy,
-			level: searchParams.level,
-			species: searchParams.species
-		}
-
-		$.each(params, function(name, value){
-			if (value) {
-				cmp.push(name + '=' + encodeURIComponent(String(value)));
-			}
-		});
-
-		var url = '?' + cmp.join('&');
-
-		app.navigate(url);
 	};
 
 });

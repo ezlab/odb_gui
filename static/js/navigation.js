@@ -77,5 +77,12 @@
 		});
 	}
 
+	app.href = function(event, anchor){
+
+		if (event.preventDefault && !event.ctrlKey && !event.shiftKey){
+			event.preventDefault();
+			app.navigate(anchor.href);
+		}
+	};
 })();
 
