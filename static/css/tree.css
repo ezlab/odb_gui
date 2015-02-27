@@ -160,3 +160,45 @@ span.fancytree-title {
 	content: "\f14a"; /* square full checked */
     color: #a36;
 }
+
+/* autocomplete */
+
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+	background: #fff;
+	border: 1px solid #999;
+	box-shadow: 3px 3px 3px rgba(99, 99, 99, 0.2);
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+.ui-menu {
+	list-style: none;
+	padding: 5px 10px;
+	margin: 0;
+	display: block;
+	outline: none;
+}
+
+.ui-menu-item {
+	display: block;
+	white-space: nowrap;
+	line-height: 1.5em;
+}
+
+.ui-menu-item>a {
+	color: #443;
+}
+
+.ui-state-focus {
+	background: #eed;
+}
+
+.ui-helper-hidden-accessible {
+	display: none;
+}

@@ -97,7 +97,11 @@ $(function(){
 
 	var searchBox = $('#input-tree-lookup');
 
-	searchBox.change(function(){
+	searchBox.keypress(function(e){
+
+		if ((e.keyCode || e.which) != 13){
+			return;
+		}
 
 		var s = String(this.value);
 
@@ -128,5 +132,56 @@ $(function(){
 		if (count > 0){
 			this.value = ''; // clear search box if found something
 		}
+	});
+
+
+	searchBox.on('autocompleteclose', function(){
+
+		var s = String(this.value);
+
+		if (!lookup[s]){
+			return;
+		}
+
+		var node = tree.getNodeByKey(lookup[s]);
+
+		if (node && !node.selected){
+			node.setSelected();
+			node.setActive();
+		}
+
+		this.value = '';
+	});
+
+	var lookup = {};
+
+	function autocomplete(request, response){
+
+		var re = new RegExp('\\b' + $.ui.autocomplete.escapeRegex(request.term), 'i'),
+			items = [];
+
+		lookup = {};
+
+		tree.visit(function(node){
+
+			if (re.test(node.data.name) || re.test(node.data.alias)){
+
+				var item = node.data.name + (node.data.alias ? ' (' + node.data.alias + ')' : '');
+
+				items.push(item);
+				lookup[item] = node.key;
+			}
+
+			if (items.length >= 20){
+				return false;
+			}
+		});
+
+		response(items);
+	}
+
+	searchBox.autocomplete({
+		appendTo: '.s-sidebar-section-top',
+		source: autocomplete
 	});
 });
