@@ -169,6 +169,7 @@ $(function(){
 		totalCount = response.count;
 
 		var summary = {
+			url: String(location.href).replace(/\?.*/, ''),
 			params: searchParams,
 			response: response
 		};
