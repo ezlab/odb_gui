@@ -45,12 +45,14 @@
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Search by text:</div>
 					<input id="input-search-text" type="text" />
+					<a href="?page=help#keyword-search" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 				</div>
 
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Phyloprofile:</div>
 					<select id="input-universal"></select>
 					<select id="input-single-copy"></select>
+					<a href="?page=help#phyloprofile-filters" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 				</div>
 			</div>
 
@@ -58,6 +60,7 @@
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Copy a protein sequence (<1000 a.a.):</div>
 					<textarea id="input-sequence" class="s-sidebar-sequence"></textarea>
+					<a href="?page=help#sequence-search" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 				</div>
 			</div>
 
@@ -65,6 +68,7 @@
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Search at:</div>
 					<select id="input-search-level"></select>
+					<a href="?page=help#search-level" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 
 					<div class="s-sidebar-clear-all"><a href="javascript:app.species([])">Clear all</a></div>
 					<div class="s-sidebar-label">Species to display:</div>
@@ -79,6 +83,7 @@
 					<div class="s-sidebar-label">Select species:</div>
 					<div class="s-sidebar-label">Search species by name:</div>
 					<input id="input-tree-lookup" type="text" />
+					<a href="?page=help#species-tree" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 				</div>
 
 				<div id="full-tree"></div>

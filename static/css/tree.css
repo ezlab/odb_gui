@@ -1,15 +1,4 @@
 
-@font-face {
-	font-family: 'icons';
-	src:url('../fonts/icons.eot?n5dems');
-	src:url('../fonts/icons.eot?#iefixn5dems') format('embedded-opentype'),
-		url('../fonts/icons.woff?n5dems') format('woff'),
-		url('../fonts/icons.ttf?n5dems') format('truetype'),
-		url('../fonts/icons.svg?n5dems#icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 #full-tree {
 	margin-top: 20px;
 }
