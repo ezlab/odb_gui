@@ -41,7 +41,7 @@
 			app.universal(params.universal || '');
 			app.singlecopy(params.singlecopy || '');
 			app.species(params.species ? params.species.split(',') : []);
-			app.level((params.level || ''));
+			app.level(params.level || '');
 			app.sequence(params.seq || '');
 
 			app.loadData(params);
@@ -52,6 +52,8 @@
 		else {
 			throw new Error('Unknown URL parameters');
 		}
+
+		document.title = app.templates.title(params);
 	};
 
 	app.loadPage = function(url){
