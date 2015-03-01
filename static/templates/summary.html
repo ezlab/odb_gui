@@ -11,7 +11,7 @@ returned
 <div class="s-summary-links">
 	{{#if response.data}}
 
-		Bookmark <a href="javascript:var q=(window.getSelection && String(window.getSelection())) || prompt('Search OrthoDB{{#if response.level}} at {{clade response.level}} level{{/if}}'); if (q) {location='http://odb-gui.herokuapp.com/?level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}&query='+ q}" title="Drag &amp; drop this link (bookmarklet) to the browser toolbar for easy OrthoDB search">OrthoDB{{#if response.level}}@{{clade response.level}}{{/if}}</a> |
+		Bookmark <a href="javascript:var q=(window.getSelection && String(window.getSelection())) || prompt('Search OrthoDB{{#if response.level}} at {{clade response.level}} level{{/if}}'); if (q) {location='http://odb-gui.herokuapp.com/?level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}&query='+ q}" title="Drag &amp; drop this link (bookmarklet) to the browser toolbar for easy OrthoDB search" onclick="app.help(event, 'bookmarklet')">OrthoDB{{#if response.level}}@{{clade response.level}}{{/if}}</a> |
 
 		{{#if params.seq}}
 			<a id="all-fasta" href="fasta?level={{params.level}}&species={{params.species}}&seq={{params.seq}}" target="fasta" title="Download all groups in FASTA format">Get All Fasta</a> |

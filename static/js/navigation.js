@@ -86,5 +86,14 @@
 			app.navigate(anchor.href);
 		}
 	};
+
+	app.help = function(event, topic){
+
+		if (event.preventDefault && !event.ctrlKey && !event.shiftKey){
+			event.preventDefault();
+			app.navigate('?page=help#' + topic);
+		}
+	};
+
 })();
 
