@@ -33,11 +33,11 @@
 .s-summary {
 	position: absolute;
 	overflow: hidden;
+	left: 200px;
 	right: 0px;
 	bottom: 0px;
 	padding: 10px 35px;
 	height: auto;
-	max-width: 640px;
 	text-align: right;
 }
 
@@ -340,6 +340,47 @@ select+select {
 	line-height: 80px;
 }
 
+/*  help  --------------- */
+
+.s-help {
+	width: 16px;
+	height: 16px;
+	color: #998;
+	background: #eeeee6;
+	background: linear-gradient(#fff, #eed);
+	border: 1px solid #ddc;
+	border-radius: 7px;
+	font-size: 11px;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.2em;
+	cursor: pointer;
+}
+
+.s-help:visited {
+    color: #998;
+}
+
+.s-help:hover {
+    color: #a36;
+    border-color: #a36;
+}
+
+.s-help:before {
+	content: "?";
+}
+
+.s-help-top-right {
+	position: absolute;
+	right: 15px;
+	top: -9px;
+}
+
+.s-sidebar-section-top>.s-help-top-right {
+	left: 320px;
+	right: auto;
+}
 
 /* jq ui */
 

@@ -16,7 +16,8 @@
 		'group',
 		'orthologs',
 		'siblings',
-		'summary'
+		'summary',
+		'title'
 	];
 
 	var partials = [
