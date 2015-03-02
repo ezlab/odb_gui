@@ -5,6 +5,20 @@
 	<meta name="viewport" content="width=1200">
 	<title>Ortholog Search | cegg.unige.ch Computational Evolutionary Genomics Group</title>
 
+	<!-- sitelinks search box | https://developers.google.com/structured-data/slsb-overview -->
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "WebSite",
+	  "url": "http://orthodb.com/",
+	  "potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://orthodb.com/?query={search_term_string}",
+		"query-input": "required name=search_term_string"
+	  }
+	}
+	</script>
+
 	<link href="static/vendors/fancytree/skin-lion/ui.fancytree.css" rel="stylesheet">
 	<link href="static/css/all.css" rel="stylesheet">
 
