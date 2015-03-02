@@ -20,5 +20,7 @@ returned
 			<a id="all-fasta" href="fasta?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="fasta" title="Download all groups in FASTA format">Get All Fasta</a> |
 			<a id="all-tab" href="tab?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="tab" title="Download all groups as tab-delimited text file">Get All as Tab delimited</a>
 		{{/if}}
+
+		<a href="?page=help#summary-links" class="s-help s-help-inline" title="help" onclick="app.href(event, this)"></a>
 	{{/if}}
 </div>
