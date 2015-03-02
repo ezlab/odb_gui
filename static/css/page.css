@@ -382,6 +382,16 @@ select+select {
 	right: auto;
 }
 
+.s-help-right-float {
+	float: right;
+	margin: 0 15px;
+}
+
+.s-help-inline {
+	display: inline-block;
+}
+
+
 /* jq ui */
 
 .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
