@@ -20,5 +20,6 @@
 	include('tree.js');
 	include('submit.js');
 	include('results.js');
+	include('overlay.js');
 
 })();
