@@ -7,7 +7,7 @@ $(function(){
 		return;
 	}
 
-	$.cookie('visited', true);
+	$.cookie('visited', true, { expires: 90 });
 
 	var overlay = $('#overlay');
 
