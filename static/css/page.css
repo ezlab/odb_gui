@@ -391,6 +391,17 @@ select+select {
 	display: inline-block;
 }
 
+/*  overlay ------------- */
+
+.s-overlay {
+	position: absolute;
+	left: 65%;
+	right: 0;
+	top: 75px;
+	bottom: 0;
+	margin-left: -410px;
+	background: url(../images/overlay.png) no-repeat;
+}
 
 /* jq ui */
 
