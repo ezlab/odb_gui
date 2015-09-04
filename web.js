@@ -4,9 +4,9 @@ var express = require('express'),
 	app = express();
 
 var api = function(path){
-	return proxy('ceggdev.ezlab.org', {
+	return proxy('orthodb.org', {
 		forwardPath: function(req, res){
-			return '/eztest' + path + String(req.url).replace(/^\//, '');
+			return path + String(req.url).replace(/^\//, '');
 		}
 	});
 };
