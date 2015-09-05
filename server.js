@@ -14,6 +14,13 @@ app.use(express.static('static'));
 app.post('/upload', multipartMiddleware, function(req, res) {
   flow.post(req, function(status, filename, original_filename, identifier) {
     console.log('POST', status, original_filename, identifier);
+
+    if (status=='done' || status=='partly_done'){
+    	status = 200;
+    } else {
+    	status = 400;
+    }
+
     res.sendStatus(status);
   });
 });
