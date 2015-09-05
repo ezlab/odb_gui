@@ -14,7 +14,7 @@ app.use(express.static('static'));
 app.post('/upload', multipartMiddleware, function(req, res) {
   flow.post(req, function(status, filename, original_filename, identifier) {
     console.log('POST', status, original_filename, identifier);
-    res.status(status).send();
+    res.sendStatus(status);
   });
 });
 
@@ -30,7 +30,7 @@ app.get('/upload', function(req, res) {
       status = 204;
     }
 
-    res.status(status).send();
+    res.sendStatus(status);
   });
 });
 
