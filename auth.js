@@ -41,13 +41,26 @@ auth.logout = function(req, res){
 
 auth.callback = function(req, res){
 
-	application.handleIdSiteCallback(req.url, function(err, data) {
+	application.handleIdSiteCallback(req.url, function(err, result) {
 
-		var account = data.account,
+		var account = result.account,
+			status = result.status,
 			cookies = new Cookies(req, res);
 
-		cookies.set('account', account.href, {httpOnly: true});
-		res.redirect('/');
+		if (err){
+			res.status(500).end(err.toString());
+		}
+		else if (status == 'AUTHENTICATED'){
+			cookies.set('account', account.href, {httpOnly: true});
+			res.redirect('/');
+		}
+		else if (status == 'LOGOUT'){
+			cookies.set('account');
+			res.redirect('/');
+		}
+		else {
+			res.status(500).end('Authentication error: ' + status);
+		}
 	});
 
 };
