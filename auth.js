@@ -47,7 +47,7 @@ auth.callback = function(req, res){
 			cookies = new Cookies(req, res);
 
 		cookies.set('account', account.href, {httpOnly: true});
-		res.redirect('/user');
+		res.redirect('/');
 	});
 
 };
