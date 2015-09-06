@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "4.x.x",
+    "cookie-parser": "1.x.x",
+    "cookies": "x.x.x",
+    "stormpath": "x.x.x"
+  }
+}
