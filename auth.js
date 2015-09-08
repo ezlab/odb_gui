@@ -24,7 +24,7 @@ function redirect(res, url){
 auth.login = function(req, res){
 
 	var callbackUri = req.protocol + '://' + req.hostname + '/stormpath',
-		url = application.createIdSiteUrl({callbackUri: callbackUri});
+		url = application.createIdSiteUrl({callbackUri: callbackUri, state: req.query.next});
 
 	redirect(res, url);
 };
@@ -33,7 +33,7 @@ auth.login = function(req, res){
 auth.logout = function(req, res){
 
 	var callbackUri = req.protocol + '://' + req.hostname + '/stormpath',
-		url = application.createIdSiteUrl({callbackUri: callbackUri, logout: true});
+		url = application.createIdSiteUrl({callbackUri: callbackUri, logout: true, state: req.query.next});
 
 	redirect(res, url);
 };
@@ -45,6 +45,7 @@ auth.callback = function(req, res){
 
 		var account = result.account,
 			status = result.status,
+			next = result.state || '/',
 			cookies = new Cookies(req, res);
 
 		if (err){
@@ -52,11 +53,11 @@ auth.callback = function(req, res){
 		}
 		else if (status == 'AUTHENTICATED'){
 			cookies.set('account', account.href, {httpOnly: true});
-			res.redirect('/');
+			res.redirect(next);
 		}
 		else if (status == 'LOGOUT'){
 			cookies.set('account');
-			res.redirect('/');
+			res.redirect(next);
 		}
 		else {
 			res.status(500).end('Authentication error: ' + status);

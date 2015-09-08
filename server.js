@@ -17,7 +17,7 @@ app.get('/stormpath', auth.callback);
 
 
 app.get('/user', function(req, res){
-	req.user ? res.send(req.user.fullName) : res.sendStatus(401);
+	req.user ? res.send(req.user.fullName) : res.redirect('/login?next=%2Fuser');
 });
 
 
