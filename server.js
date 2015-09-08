@@ -17,17 +17,26 @@ var file = function(path, type){
 	};
 }
 
-app.use('/static', express.static('static'));
+var v8 = express.Router();
 
-app.use('/group', api('/group'));
-app.use('/search', api('/search'));
-app.use('/blast', api('/search'));
-app.use('/orthologs', api('/orthologs'));
-app.use('/siblings', api('/siblings'));
-app.use('/fasta', api('/fasta'));
-app.use('/tab', api('/tab'));
-app.use('/tree', api('/tree'));
+v8.use('/static', express.static('static'));
 
-app.get('/', file('/index.html'));
+v8.use('/group', api('/group'));
+v8.use('/search', api('/search'));
+v8.use('/blast', api('/search'));
+v8.use('/orthologs', api('/orthologs'));
+v8.use('/siblings', api('/siblings'));
+v8.use('/fasta', api('/fasta'));
+v8.use('/tab', api('/tab'));
+v8.use('/tree', api('/tree'));
+
+v8.get('/', file('/index.html'));
+
+
+app.use('/v8', v8);
+
+app.get('/', function(req, res){
+	res.redirect('/v8' + req.url);
+});
 
 app.listen(process.env.PORT || 80);
