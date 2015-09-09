@@ -39,9 +39,11 @@
 				<a href="http://www.isb-sib.ch/" target="_new" class="s-header-logo-2"></a>
 				<div class="s-header-menu-1">
 					<a href="http://cegg.unige.ch" title="Home" class="header_links">Home</a>
+<!--
 					<a href="http://orthodb.org/data" title="Supplementary Data" class="header_links">Data</a>
 					<a href="http://orthodb.org/toolsandservices" title="Tools and Services" class="header_links">Services</a>
 					<a href="http://orthodb.org/useful_links" title="Links &amp; Collaborators" class="header_links">Links</a>
+//-->
 				</div>
 				<div class="s-header-menu-2">
 					<a href="?page=help" onclick="app.href(event, this)">Help</a>
@@ -57,7 +59,7 @@
 
 			<div id="wrap-0" class="s-sidebar-wrap">
 				<div class="s-sidebar-section">
-					<div class="s-sidebar-label">Search by text:</div>
+					<div class="s-sidebar-label">Text search:</div>
 					<input id="input-search-text" type="text" />
 					<a href="?page=help#keyword-search" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 				</div>
@@ -153,7 +155,8 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-16460000-1', 'auto');
+		ga('create', 'UA-16460000-3', 'auto');
+		ga('send','pageview');
 	</script>
 
 </body>
