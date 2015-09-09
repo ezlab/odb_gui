@@ -1,10 +1,13 @@
 <div style="vertical-align:middle; padding:10px; color:#000000; text-decoration:none; color:#000000;">
-<font face="arial" size="4"><b><i>The Hierarchical Catalog of Orthologs</i></b></font>&nbsp;&nbsp;&nbsp;<font face="arial" size="6"><b><i>v8</i></b></font><p></p>
-<p>Orthology is the cornerstone of comparative genomics and gene function prediction. OrthoDB aims to identify groups of orthologous genes across many available genomes that presumably originated from a single gene of the last common ancestor (LCA) of the species selected. Applying this concept to the hierarchy of LCAs along species phylogeny results in multiple levels of orthology. The more closely related the species, the more finely-resolved orthologous relations.</p>
-<p>
-<br>
-<b>Examples of how you can query OrthoDB:</b>
+  <font face="arial" size="4"><b><i>The Hierarchical Catalog of Orthologs</i></b></font>&nbsp;&nbsp;&nbsp;<font face="arial" size="6"><b><i>v8</i></b></font><p></p>
+  <p>Orthology is the cornerstone of comparative genomics and gene function prediction. OrthoDB aims to classify protein-coding genes from the increasing number of
+     available sequenced genomes into groups of orthologs descended from a single gene of the last common ancestor (LCA) of each clade of species. Applying this
+     concept to the hierarchy of LCAs along the species phylogeny results in multiple levels of orthology: the more closely-related the species, the more finely-resolved the orthologous relations.</p>
 
+<!-- <p>OLD VERSION: Orthology is the cornerstone of comparative genomics and gene function prediction. OrthoDB aims to identify groups of orthologous genes across many available genomes that presumably originated from a single gene of the last common ancestor (LCA) of the species selected. Applying this concept to the hierarchy of LCAs along species phylogeny results in multiple levels of orthology. The more closely related the species, the more finely-resolved orthologous relations.</p>
+<p> -->
+<br>
+<b>Examples of how you can query OrthoDB</b><br>
 <a title="Cytochrome P450" href="?level=33208&species=33208&query=Cytochrome P450" onclick="app.href(event, this)">Cytochrome P450</a>,
 <a title="protease OR peptidase" href="?level=33208&species=33208&query=protease | peptidase" onclick="app.href(event, this)">protease | peptidase</a>,
 <a title="kinase NOT serine" href="?level=33208&species=33208&query=kinase -serine" onclick="app.href(event, this)">kinase -serine</a>,
@@ -14,33 +17,38 @@
 <a title="stress response" href="?level=33208&species=33208&query=stress response" onclick="app.href(event, this)">stress response</a>,
 <a title="breast cancer" href="?level=33208&species=33208&query=breast cancer" onclick="app.href(event, this)">breast cancer</a>,
 <a title="diabetes" href="?level=33208&species=33208&query=diabetes" onclick="app.href(event, this)">diabetes</a>.
-
 </p>
 
 <!-- <p>For detailed instructions on OrthoDB search functions, data sources, and further information, please see <a href="javascript: document.helpForm.submit();">Help</a>. Email support[at]orthodb.org for further help.</p> -->
-<br>
 <!--<p><b>Previous versions:</b> <a href="ftp://cegg.unige.ch/" target="_blank">here</a></p> -->
 
-<br>
-<p><b>For more details please see&nbsp;Help (upper right corner), and the upcoming publication:</b><br>
+<p><b>Please cite</b><br>
+  OrthoDB v8: update of the hierarchical catalog of orthologs and the underlying free software.<br>
+  EV Kriventseva,  F Tegenfeldt, TJ Petty, RM Waterhouse, FA Simao, IA Pozdnyakov, P Ioannidis, and EM Zdobnov
+  NAR, Jan 2015, PMID:23180791<br>
+<!--<p><b>OLD TEXT: For more details please see&nbsp;Help (upper right corner), and the upcoming publication:</b><br>
 "OrthoDB v8: update of the hierarchical catalog of orthologs and the underlying free software."<br>
-Evgenia V. Kriventseva*, Fredrik Tegenfeldt, Tom J. Petty, Robert M. Waterhouse, Felipe A. Simao, Igor A. Pozdnyakov, Panagiotis Ioannidis, and Evgeny M. Zdobnov*  (2014)<br>
+Evgenia V. Kriventseva*, Fredrik Tegenfeldt, Tom J. Petty, Robert M. Waterhouse, Felipe A. Simao, Igor A. Pozdnyakov, Panagiotis Ioannidis, and Evgeny M. Zdobnov*  (2014)<br> -->
 
 <br>
-</p><p><b>Email</b>: support[at]orthodb.org</p>
+</p>
+<p><b>Email</b>: support[at]orthodb.org</p>
 <br>
 
 
-<b><a target="_blank" href="http://www.orthodb.org/orthodb_data">Data downloads</a></b> Protein sequences and orthologous group annotations for major clades.<br>
+<b><a target="_blank" href="ftp://cegg.unige.ch/OrthoDB8"  onClick="ga('send', 'event', 'Download', 'orthodb_ftp_data');">Data downloads</a></b> Protein sequences and orthologous group annotations for major clades.<br>
+<!-- <b><a target="_blank" href="ftp://cegg.unige.ch/OrthoDB8">Data downloads</a></b> Protein sequences and orthologous group annotations for major clades...<br> -->
+
+
 <b><a target="_blank" href="http://www.orthodb.org/orthodb_software">OrthoDB software</a></b> Can be used to compute orthologs on custom data.<br>
-<b><a target="_blank" href="http://www.orthodb.org/buscos/">BUSCO</a></b> Assessing completeness of genome assembly and annotation with single-copy genes.<br>
+<b><a target="_blank" href="http://buscos.ezlab.org">BUSCO</a></b> Assessing completeness of genome assembly and annotation with single-copy genes.<br>
 <br>
-<b><a target="_blank" href="https://list.unige.ch/mailman/listinfo/orthodb-news">OrthoDB-News</a></b> Join the mailing list to keep abreast of the latest developments.<br>
+<b><a target="_blank" href="https://listes.unige.ch/sympa/subscribe/orthodb-news">OrthoDB-News</a></b> Join the mailing list to keep abreast of the latest developments.<br>
 <!-- <b><a id="link_species_list" class="header_links" onclick="expandOverlay('simple_text_loaded');loadElement('get_info_species_list');" href="#">Species Link</a> View all species in the current OrthoDB release.<br>
 <b><a id="link_citation_list" class="header_links" onclick="expandOverlay('simple_text_loaded');loadElement('get_info_citation_list');" href="#">Citation List</a> View articles that cite OrthoDB.<br> -->
 
 <p></p>
 <p><br><br>
-<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"></a> &nbsp; This work by <a href="/" property="cc:attributionName" rel="cc:attributionURL">E Zdobnov lab</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" onClick=ga(send, event, license, download-license, license.txt, 10);><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"></a> &nbsp; This work by <a href="/" property="cc:attributionName" rel="cc:attributionURL">E Zdobnov lab</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
      </p>
 </div>

@@ -21,7 +21,7 @@
 
 		if (location.search.length < 2){
 			document.title = 'OrthoDB';
-			ga('send', 'pageview', '/'); // Google analytics
+			ga('send', 'pageview', location.pathname + location.search); // Google analytics
 			return app.loadPage('static/pages/intro.html');
 		}
 
@@ -56,7 +56,7 @@
 		}
 
 		document.title = app.templates.title(params);
-		ga('send', 'pageview', '/' + location.search); // Google analytics
+		ga('send', 'pageview', location.pathname + location.search); // Google analytics
 	};
 
 	app.loadPage = function(url){
