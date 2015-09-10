@@ -21,21 +21,34 @@ function redirect(res, url){
 }
 
 
+function idSiteUrlOptions(req){
+	return {
+		callbackUri: req.protocol + '://' + req.hostname + '/stormpath',
+		state: encodeURIComponent(req.query.next || '/')
+	};
+}
+
+
 auth.login = function(req, res){
 
-	var callbackUri = req.protocol + '://' + req.hostname + '/stormpath',
-		url = application.createIdSiteUrl({callbackUri: callbackUri, state: req.query.next});
-
-	redirect(res, url);
+	var options = idSiteUrlOptions(req);
+	redirect(res, application.createIdSiteUrl(options));
 };
 
 
 auth.logout = function(req, res){
 
-	var callbackUri = req.protocol + '://' + req.hostname + '/stormpath',
-		url = application.createIdSiteUrl({callbackUri: callbackUri, logout: true, state: req.query.next});
+	var options = idSiteUrlOptions(req);
+	options.logout = true;
+	redirect(res, application.createIdSiteUrl(options));
+};
 
-	redirect(res, url);
+
+auth.register = function(req, res){
+
+	var options = idSiteUrlOptions(req);
+	options.path = '/#/register';
+	redirect(res, application.createIdSiteUrl(options));
 };
 
 
@@ -45,7 +58,7 @@ auth.callback = function(req, res){
 
 		var account = result.account,
 			status = result.status,
-			next = result.state || '/',
+			next = decodeURIComponent(result.state) || '/',
 			cookies = new Cookies(req, res);
 
 		if (err){
@@ -67,23 +80,33 @@ auth.callback = function(req, res){
 };
 
 
-auth.user = function(req, res, next){
+auth.cookies = function(req, res, next){
 
-	function processAccount(err, account){
+	var cookies = new Cookies(req, res),
+		href = cookies.get('account');
 
-		if (!err && account.status == 'ENABLED'){
-	        req.user = account;
+	if (!href) {
+		return next();
+	}
+
+	client.getAccount(href, function(err, user){
+
+		if (!err && user.status == 'ENABLED'){
+	        req.user = user;
 		}
 
-        next();
+        next(err);
+	});
+};
+
+
+auth.loginRequired = function(req, res, next){
+
+	if (req.user){
+		return next();
 	}
 
-	if(req.cookies && req.cookies.account){
-		client.getAccount(req.cookies.account, processAccount);
-	}
-	else {
-		next();
-	}
+	res.redirect('login?next=' + encodeURIComponent(req.url));
 };
 
 

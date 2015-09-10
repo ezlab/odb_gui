@@ -1,23 +1,22 @@
 
 var express = require('express'),
-	cookieParser = require('cookie-parser'),
 	auth = require('./auth'),
 	cfg = require('./config'),
 	app = express();
 
 
-app.use('', express.static('static'));
-app.use(cookieParser());
-app.use(auth.user);
+app.use(express.static('static'));
+app.use(auth.cookies);
 
 
 app.get('/login', auth.login);
 app.get('/logout', auth.logout);
+app.get('/register', auth.register);
 app.get('/stormpath', auth.callback);
 
 
-app.get('/user', function(req, res){
-	req.user ? res.send(req.user.fullName) : res.redirect('/login?next=%2Fuser');
+app.get('/user', auth.loginRequired, function(req, res){
+	res.send(req.user.fullName);
 });
 
 
