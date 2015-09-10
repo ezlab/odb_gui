@@ -1,42 +1,42 @@
 
 var express = require('express'),
 	proxy = require('express-http-proxy'),
-	app = express();
+	auth = require('./auth'),
+	util = require('./util'),
+	server = express();
 
-var api = function(path){
-	return proxy('orthodb.org', {
-		forwardPath: function(req, res){
-			return path + String(req.url).replace(/^\//, '');
-		}
-	});
+
+var cfg = {
+	root: '/v8',
+	port: process.env.PORT || 80,
+	auth: {
+		apiKeyId: process.env.STORMPATH_APIKEY_ID,
+		apiKeySecret: process.env.STORMPATH_APIKEY_SECRET,
+		application: process.env.STORMPATH_APPLICATION_HREF
+	}
 };
 
-var file = function(path, type){
-	return function(req, res){
-		res.sendFile(__dirname + path, type ? {headers: {'Content-Type': type}} : {});
-	};
-}
 
-var v8 = express.Router();
-
-v8.use('/static', express.static('static'));
-
-v8.use('/group', api('/group'));
-v8.use('/search', api('/search'));
-v8.use('/blast', api('/search'));
-v8.use('/orthologs', api('/orthologs'));
-v8.use('/siblings', api('/siblings'));
-v8.use('/fasta', api('/fasta'));
-v8.use('/tab', api('/tab'));
-v8.use('/tree', api('/tree'));
-
-v8.get('/', file('/index.html'));
+var	routes = ['/group', '/search', '/blast', '/orthologs', '/siblings', '/fasta', '/tab', '/tree'];
 
 
-app.use('/v8', v8);
+var app = express.Router();
 
-app.get('/', function(req, res){
-	res.redirect('/v8' + req.url);
+app.use('/static', express.static('static'));
+app.use(auth.cookies);
+
+app.get(routes, proxy('orthodb.org'));
+app.get('/', util.file('/index.html'));
+
+app.get('/login', auth.login);
+app.get('/logout', auth.logout);
+app.get('/register', auth.register);
+app.get('/stormpath', auth.callback);
+
+
+server.use(cfg.root, app);
+server.get('/', util.redirect(cfg.root));
+
+auth.init(cfg.auth, function(){
+	server.listen(cfg.port);
 });
-
-app.listen(process.env.PORT || 80);
