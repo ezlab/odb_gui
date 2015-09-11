@@ -39,17 +39,21 @@
 				<a href="http://www.isb-sib.ch/" target="_new" class="s-header-logo-2"></a>
 				<div class="s-header-menu-1">
 					<a href="http://cegg.unige.ch" title="Home" class="header_links">Home</a>
-<!--
-					<a href="http://orthodb.org/data" title="Supplementary Data" class="header_links">Data</a>
-					<a href="http://orthodb.org/toolsandservices" title="Tools and Services" class="header_links">Services</a>
-					<a href="http://orthodb.org/useful_links" title="Links &amp; Collaborators" class="header_links">Links</a>
-//-->
+					<div class="s-user-menu">
+						<a href="?page=upload" onclick="app.href(event, this)">Upload</a>
+					</div>
 				</div>
 				<div class="s-header-menu-2">
-					<a href="javascript:app.login()">Login</a> |
-					<a href="javascript:app.register()">Register</a> &nbsp; &nbsp;
+					<div class="s-login-menu">
+						<a href="javascript:app.login()">Login</a> |
+						<a href="javascript:app.register()">Register</a>
+					</div>
+					<div class="s-logout-menu">
+						<a href="javascript:app.logout()">Logout</a>
+					</div>
 					<a href="?page=help" onclick="app.href(event, this)">Help</a>
 				</div>
+				<div class="s-username-box"></div>
 			</div>
 		</div>
 

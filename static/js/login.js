@@ -9,13 +9,25 @@
 		location.href = url('login');
 	};
 
-	app.logout = function(){
-		location.href = url('logout');
-	};
-
 	app.register = function(){
 		location.href = url('register');
 	};
 
+	app.logout = function(){
+		location.href = 'logout';
+	};
+
+	function renderUser(response){
+		if (response.data){
+			$('.s-user-menu').addClass('s-visible');
+			$('.s-logout-menu').addClass('s-visible');
+			$('.s-username-box').text(response.data.username);
+		}
+		else {
+			$('.s-login-menu').addClass('s-visible');
+		}
+	}
+
+	$.getJSON('user').then(app.verifyResponse).then(renderUser);
 })();
 

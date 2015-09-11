@@ -240,6 +240,25 @@ select+select {
 	text-decoration: underline;
 }
 
+.s-user-menu,
+.s-login-menu,
+.s-logout-menu {
+	display: none;
+}
+
+.s-user-menu.s-visible,
+.s-login-menu.s-visible,
+.s-logout-menu.s-visible {
+	display: inline;
+}
+
+.s-username-box {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	color: #fff;
+}
+
 
 /*  footer  --------------- */
 
