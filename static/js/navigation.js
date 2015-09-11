@@ -51,6 +51,9 @@
 		else if (params.page){
 			app.loadPage('static/pages/' + params.page + '.html');
 		}
+		else if (params.back){
+			return history.go(-1);
+		}
 		else {
 			throw new Error('Unknown URL parameters');
 		}

@@ -21,5 +21,6 @@
 	include('submit.js');
 	include('results.js');
 	include('overlay.js');
+	include('login.js');
 
 })();
