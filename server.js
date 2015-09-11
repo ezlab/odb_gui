@@ -25,6 +25,10 @@ var app = express.Router();
 app.use('/static', express.static('static'));
 app.use(auth.cookies);
 
+app.get('/search', function(req, res, next){
+	req.query.query == 'secret' && !req.user ? res.sendStatus(401) : next();
+});
+
 app.get(routes, proxy('orthodb.org'));
 app.get('/', util.file('/index.html'));
 
@@ -32,6 +36,7 @@ app.get('/login', auth.login);
 app.get('/logout', auth.logout);
 app.get('/register', auth.register);
 app.get('/stormpath', auth.callback);
+app.get('/user', auth.user);
 
 
 server.use(cfg.root, app);

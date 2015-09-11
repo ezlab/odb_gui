@@ -64,7 +64,7 @@ auth.callback = function(req, res){
 		if (err){
 			res.status(500).end(err.toString());
 		}
-		else if (status == 'AUTHENTICATED'){
+		else if (status == 'AUTHENTICATED' || status == 'REGISTERED'){
 			cookies.set('account', account.href, {httpOnly: true});
 			res.redirect(next);
 		}
@@ -107,6 +107,23 @@ auth.loginRequired = function(req, res, next){
 	}
 
 	res.redirect('login?next=' + encodeURIComponent(req.originalUrl));
+};
+
+
+auth.user = function(req, res, next){
+
+	var user = req.user,
+		obj = {status: 'ok'};
+
+	if (user){
+		obj.data = {
+			username: user.username,
+			fullName: user.fullName,
+			status: user.status
+		};
+	}
+
+	res.json(obj);
 };
 
 
