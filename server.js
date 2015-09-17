@@ -1,6 +1,7 @@
 
 var express = require('express'),
 	proxy = require('express-http-proxy'),
+	upload = require('./upload'),
 	auth = require('./auth'),
 	util = require('./util'),
 	server = express();
@@ -38,6 +39,7 @@ app.get('/register', auth.register);
 app.get('/stormpath', auth.callback);
 app.get('/user', auth.user);
 
+app.use('/upload', upload('tmp'));
 
 server.use(cfg.root, app);
 server.get('/', util.redirect(cfg.root));
