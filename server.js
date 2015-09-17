@@ -40,6 +40,7 @@ app.get('/stormpath', auth.callback);
 app.get('/user', auth.user);
 
 app.use('/upload', upload('tmp'));
+app.get('/files', auth.loginRequired, util.file('/files.json'));
 
 server.use(cfg.root, app);
 server.get('/', util.redirect(cfg.root));

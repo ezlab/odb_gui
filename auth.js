@@ -106,7 +106,11 @@ auth.loginRequired = function(req, res, next){
 		return next();
 	}
 
-	res.redirect('login?next=' + encodeURIComponent(req.originalUrl));
+	if (req.accepts('text/html') && !req.xhr){
+		return res.redirect('login?next=' + encodeURIComponent(req.originalUrl));
+	}
+
+	res.sendStatus(401);
 };
 
 
