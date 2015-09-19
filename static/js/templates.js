@@ -17,7 +17,9 @@
 		'orthologs',
 		'siblings',
 		'summary',
-		'title'
+		'title',
+		'files',
+		'upload'
 	];
 
 	var partials = [

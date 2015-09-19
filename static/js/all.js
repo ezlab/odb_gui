@@ -22,5 +22,6 @@
 	include('results.js');
 	include('overlay.js');
 	include('login.js');
+	include('files.js');
 
 })();
