@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "4.x.x",
     "express-http-proxy": "x.x.x",
+    "connect-multiparty": "x.x.x",
     "cookies": "x.x.x",
     "stormpath": "x.x.x"
   }
