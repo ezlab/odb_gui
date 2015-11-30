@@ -14,10 +14,6 @@ $(function(){
 		selectMode: 3
 	};
 
-	options.defaultKey = function(node){
-		return String(node.data.id);
-	};
-
 	options.renderTitle = function(event, data) {
 		if (!data.node.statusNodeType){
 			data.node.title = app.templates.tree(data.node);

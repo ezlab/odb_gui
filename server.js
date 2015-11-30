@@ -30,6 +30,8 @@ app.get('/search', function(req, res, next){
 	req.query.query == 'secret' && !req.user ? res.sendStatus(401) : next();
 });
 
+app.get('/tree', util.file('/newtree.json'));
+
 app.get(routes, proxy('orthodb.org'));
 app.get('/', util.file('/index.html'));
 

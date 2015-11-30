@@ -1,0 +1,311 @@
+{
+    "data": [
+        {
+            "children": [
+                {
+                    "alias": "eucaryotes",
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "alias": "metazoans",
+                                    "children": [
+                                        {
+                                            "children": [
+                                                {
+                                                    "alias": "cnidarians",
+                                                    "children": [
+                                                        {
+                                                            "alias": "hydrozoans",
+                                                            "children": [
+                                                                {
+                                                                    "children": [
+                                                                        {
+                                                                            "children": [
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "alias": "hydras",
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "key": "6087",
+                                                                                                            "name": "Hydra vulgaris",
+                                                                                                            "parent": 6083
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "count": 1,
+                                                                                                    "key": "6083",
+                                                                                                    "name": "Hydra",
+                                                                                                    "parent": 6080
+                                                                                                }
+                                                                                            ],
+                                                                                            "count": 1,
+                                                                                            "key": "6080",
+                                                                                            "name": "Hydridae",
+                                                                                            "parent": 1612408
+                                                                                        }
+                                                                                    ],
+                                                                                    "count": 1,
+                                                                                    "key": "1612408",
+                                                                                    "name": "Aplanulata",
+                                                                                    "parent": 406427
+                                                                                }
+                                                                            ],
+                                                                            "count": 1,
+                                                                            "key": "406427",
+                                                                            "name": "Anthoathecata",
+                                                                            "parent": 37516
+                                                                        }
+                                                                    ],
+                                                                    "count": 1,
+                                                                    "key": "37516",
+                                                                    "name": "Hydroidolina",
+                                                                    "parent": 6074
+                                                                }
+                                                            ],
+                                                            "count": 1,
+                                                            "key": "6074",
+                                                            "name": "Hydrozoa",
+                                                            "parent": 6073
+                                                        }
+                                                    ],
+                                                    "count": 1,
+                                                    "key": "6073",
+                                                    "name": "Cnidaria",
+                                                    "parent": 6072
+                                                },
+                                                {
+                                                    "children": [
+                                                        {
+                                                            "alias": "flatworms",
+                                                            "children": [
+                                                                {
+                                                                    "children": [
+                                                                        {
+                                                                            "alias": "flukes",
+                                                                            "children": [
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "alias": "blood flukes",
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "key": "6183",
+                                                                                                                    "name": "Schistosoma mansoni",
+                                                                                                                    "parent": 6181
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "count": 1,
+                                                                                                            "key": "6181",
+                                                                                                            "name": "Schistosoma",
+                                                                                                            "parent": 31245
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "count": 1,
+                                                                                                    "key": "31245",
+                                                                                                    "name": "Schistosomatidae",
+                                                                                                    "parent": 31244
+                                                                                                }
+                                                                                            ],
+                                                                                            "count": 1,
+                                                                                            "key": "31244",
+                                                                                            "name": "Schistosomatoidea",
+                                                                                            "parent": 6180
+                                                                                        }
+                                                                                    ],
+                                                                                    "count": 1,
+                                                                                    "key": "6180",
+                                                                                    "name": "Strigeidida",
+                                                                                    "parent": 6179
+                                                                                }
+                                                                            ],
+                                                                            "count": 1,
+                                                                            "key": "6179",
+                                                                            "name": "Digenea",
+                                                                            "parent": 6178
+                                                                        }
+                                                                    ],
+                                                                    "count": 1,
+                                                                    "key": "6178",
+                                                                    "name": "Trematoda",
+                                                                    "parent": 6157
+                                                                }
+                                                            ],
+                                                            "count": 1,
+                                                            "key": "6157",
+                                                            "name": "Platyhelminthes",
+                                                            "parent": 33213
+                                                        },
+                                                        {
+                                                            "children": [
+                                                                {
+                                                                    "children": [
+                                                                        {
+                                                                            "alias": "roundworms",
+                                                                            "children": [
+                                                                                {
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "key": "6282",
+                                                                                                                            "name": "Onchocerca volvulus",
+                                                                                                                            "parent": 6281
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "count": 1,
+                                                                                                                    "key": "6281",
+                                                                                                                    "name": "Onchocerca",
+                                                                                                                    "parent": 6296
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "key": "6279",
+                                                                                                                            "name": "Brugia malayi",
+                                                                                                                            "parent": 6278
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "count": 1,
+                                                                                                                    "key": "6278",
+                                                                                                                    "name": "Brugia",
+                                                                                                                    "parent": 6296
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "count": 2,
+                                                                                                            "key": "6296",
+                                                                                                            "name": "Onchocercidae",
+                                                                                                            "parent": 6295
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "count": 2,
+                                                                                                    "key": "6295",
+                                                                                                    "name": "Filarioidea",
+                                                                                                    "parent": 6274
+                                                                                                }
+                                                                                            ],
+                                                                                            "count": 2,
+                                                                                            "key": "6274",
+                                                                                            "name": "Spirurida",
+                                                                                            "parent": 119089
+                                                                                        },
+                                                                                        {
+                                                                                            "children": [
+                                                                                                {
+                                                                                                    "children": [
+                                                                                                        {
+                                                                                                            "children": [
+                                                                                                                {
+                                                                                                                    "children": [
+                                                                                                                        {
+                                                                                                                            "children": [
+                                                                                                                                {
+                                                                                                                                    "key": "6239",
+                                                                                                                                    "name": "Caenorhabditis elegans",
+                                                                                                                                    "parent": 6237
+                                                                                                                                }
+                                                                                                                            ],
+                                                                                                                            "count": 1,
+                                                                                                                            "key": "6237",
+                                                                                                                            "name": "Caenorhabditis",
+                                                                                                                            "parent": 55885
+                                                                                                                        }
+                                                                                                                    ],
+                                                                                                                    "count": 1,
+                                                                                                                    "key": "55885",
+                                                                                                                    "name": "Peloderinae",
+                                                                                                                    "parent": 6243
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "count": 1,
+                                                                                                            "key": "6243",
+                                                                                                            "name": "Rhabditidae",
+                                                                                                            "parent": 55879
+                                                                                                        }
+                                                                                                    ],
+                                                                                                    "count": 1,
+                                                                                                    "key": "55879",
+                                                                                                    "name": "Rhabditoidea",
+                                                                                                    "parent": 6236
+                                                                                                }
+                                                                                            ],
+                                                                                            "count": 1,
+                                                                                            "key": "6236",
+                                                                                            "name": "Rhabditida",
+                                                                                            "parent": 119089
+                                                                                        }
+                                                                                    ],
+                                                                                    "count": 3,
+                                                                                    "key": "119089",
+                                                                                    "name": "Chromadorea",
+                                                                                    "parent": 6231
+                                                                                }
+                                                                            ],
+                                                                            "count": 3,
+                                                                            "key": "6231",
+                                                                            "name": "Nematoda",
+                                                                            "parent": 1206794
+                                                                        }
+                                                                    ],
+                                                                    "count": 3,
+                                                                    "key": "1206794",
+                                                                    "name": "Ecdysozoa",
+                                                                    "parent": 33317
+                                                                }
+                                                            ],
+                                                            "count": 3,
+                                                            "key": "33317",
+                                                            "name": "Protostomia",
+                                                            "parent": 33213
+                                                        }
+                                                    ],
+                                                    "count": 4,
+                                                    "key": "33213",
+                                                    "name": "Bilateria",
+                                                    "parent": 6072
+                                                }
+                                            ],
+                                            "count": 5,
+                                            "key": "6072",
+                                            "name": "Eumetazoa",
+                                            "parent": 33208
+                                        }
+                                    ],
+                                    "count": 5,
+                                    "key": "33208",
+                                    "name": "Metazoa",
+                                    "parent": 33154
+                                }
+                            ],
+                            "count": 5,
+                            "key": "33154",
+                            "name": "Opisthokonta",
+                            "parent": 2759
+                        }
+                    ],
+                    "count": 5,
+                    "key": "2759",
+                    "name": "Eukaryota",
+                    "parent": 131567
+                }
+            ],
+            "count": 5,
+            "key": "131567",
+            "name": "cellular organisms",
+            "parent": 1
+        }
+    ],
+    "status": "ok"
+}
