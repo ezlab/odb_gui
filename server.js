@@ -44,6 +44,10 @@ app.get('/user', auth.user);
 app.use('/upload', upload('tmp'));
 app.get('/files', auth.loginRequired, util.file('/files.json'));
 
+app.post('/run', function(req, res){
+	res.send({status: 'ok'});
+});
+
 server.use(cfg.root, app);
 server.get('/', util.redirect(cfg.root));
 
