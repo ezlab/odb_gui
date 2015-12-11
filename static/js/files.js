@@ -60,6 +60,18 @@ $(function(){
 	});
 
 
+	function triggerRun(){
+
+		var file = $('input[name=selected-file]:checked').val();
+
+		if (!window.confirm('Do you really want to run analysis on ' + file + '?')){
+			return;
+		}
+
+		$.post('run', {file: file});
+	}
+
+
 	app.showFiles = function(){
 
 		$('#summary').html('');
@@ -69,6 +81,8 @@ $(function(){
 			$("#content").html(app.templates.files(response));
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
+
+			$('#run-button').on('click', triggerRun);
 		});
 	};
 
