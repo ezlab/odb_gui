@@ -44,6 +44,13 @@
 	width: 240px;
 }
 
+.s-file-name input {
+	margin-right: 5px;
+	vertical-align: -2px;
+}
+
+
+
 .s-upload-spacer {
 	height: 20px;
 }

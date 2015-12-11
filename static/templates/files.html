@@ -10,12 +10,15 @@
 	<table class="s-files">
 	{{#each data}}
 		<tr>
-			<td class="s-file-name">{{name}}</td>
+			<td class="s-file-name"><label><input type="radio" name="selected-file" value="{{name}}" {{#if @index}}{{else}}checked{{/if}}>{{name}}</label></td>
 			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
 			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
 		</tr>
 	{{/each}}
 	</table>
+
+	<span id="run-button" class="s-button">Run analysis</span>
+
 {{else}}
 	No files are uploaded yet.
 {{/if}}
