@@ -60,15 +60,23 @@ $(function(){
 	});
 
 
+	var level;
+
+	app.method('level', {}, function(value){
+		level = value;
+	});
+
 	function triggerRun(){
 
-		var file = $('input[name=selected-file]:checked').val();
+		var file = $('input[name=selected-file]:checked').val(),
+			node = app.getNode(level),
+			levelName = node ? ' at ' + node.data.name + ' level' : '';
 
-		if (!window.confirm('Do you really want to run analysis on ' + file + '?')){
+		if (!window.confirm('Do you really want to run analysis on ' + file + levelName + '?')){
 			return;
 		}
 
-		$.post('run', {file: file});
+		$.post('run', {file: file, level: level});
 	}
 
 
