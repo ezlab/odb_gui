@@ -28,10 +28,22 @@ $(function(){
 		$('#upload-box').html(app.templates.upload(flow));
 	}
 
+	function extractMessage(response){
+		try {
+			return JSON.parse(response).message || 'Server error';
+		}
+		catch(err){
+			return response || 'Server error';
+		}
+	}
+
 	flow.on('filesSubmitted', function(file) {
 		flow.upload();
 	});
 
+	flow.on('fileError', function(file, message) {
+		file.message = extractMessage(message);
+	});
 
 	flow.on('catchAll', renderUpload);
 

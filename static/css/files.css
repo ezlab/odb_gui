@@ -87,3 +87,8 @@
 #upload-box .s-files {
 	margin-bottom: 50px;
 }
+
+.s-file-error:before {
+    content: "\f06a"; /* exclamation circle */
+    color: #c00;
+}
