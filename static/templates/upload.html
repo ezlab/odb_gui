@@ -33,9 +33,14 @@
 	{{#each files}}
 		<tr>
 			<td class="s-file-name">{{name}}</td>
-			<td class="s-file-status">
+			<td class="s-file-msg">
 				{{#if error}}
-					Error: {{error}}
+					<span class="s-icon s-file-error"></span>
+					{{#if message}}
+						Error: {{message}}
+					{{else}}
+						Unknown error.
+					{{/if}}
 				{{else}}
 					{{#if isUploading}}
 						Uploading {{numeral sizeUploaded "0.0b"}} of {{numeral size "0.0b"}}

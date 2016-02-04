@@ -13,6 +13,8 @@
 			<td class="s-file-name"><label><input type="radio" name="selected-file" value="{{name}}" {{#if @index}}{{else}}checked{{/if}}>{{name}}</label></td>
 			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
 			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
+			<td class="s-file-fmt">{{filefmt}}</td>
+			<td class="s-file-status">{{status}}</td>
 		</tr>
 	{{/each}}
 	</table>
