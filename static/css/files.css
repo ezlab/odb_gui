@@ -40,7 +40,16 @@
 	text-align: right;
 }
 
+.s-file-fmt {
+	width: 120px;
+	text-align: center;
+}
+
 .s-file-status {
+	width: 120px;
+}
+
+.s-file-msg {
 	width: 240px;
 }
 
