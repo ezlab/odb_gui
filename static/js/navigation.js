@@ -9,7 +9,6 @@
 
 		window.setTimeout(function(){
 			app.parseURL();
-			app.readCookies();
 		}, 0);
 	};
 
