@@ -72,26 +72,6 @@ $(function(){
 	});
 
 
-	var level;
-
-	app.method('level', {}, function(value){
-		level = value;
-	});
-
-	function triggerRun(){
-
-		var file = $('input[name=selected-file]:checked').val(),
-			node = app.getNode(level),
-			levelName = node ? ' at ' + node.data.name + ' level' : '';
-
-		if (!window.confirm('Do you really want to run analysis on ' + file + levelName + '?')){
-			return;
-		}
-
-		$.post('run', {file: file, level: level});
-	}
-
-
 	app.showFiles = function(){
 
 		$('#summary').html('');
@@ -101,8 +81,6 @@ $(function(){
 			$("#content").html(app.templates.files(response));
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
-
-			$('#run-button').on('click', triggerRun);
 		});
 	};
 
