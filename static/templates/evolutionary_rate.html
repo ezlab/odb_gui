@@ -1,0 +1,9 @@
+
+{{#if evolutionary_rate}}
+	<div class="s-group-box s-line">
+		<a href="?page=help#evolutionary-rate" class="s-help s-help-right-float" title="help" onclick="app.href(event, this)"></a>
+		<h3>Evolutionary Rate</h3>
+		<span class="s-group-evolutionary-rate">{{round evolutionary_rate 2}}</span>
+		<span class="s-group-evolutionary-rate-chart">{{rainbow evolutionary_rate}}</span>
+	</div>
+{{/if}}

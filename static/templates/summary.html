@@ -1,0 +1,26 @@
+
+<div class="s-summary-text">
+Your search
+	{{#if params.query}}for <b>{{params.query}}</b>{{/if}}
+	{{#if response.level}}at {{clade response.level}} level{{/if}}
+returned
+	{{#if response.data}}{{plural response.count "group" "groups"}}{{else}}no results{{/if}}<br>
+	{{#if params.universal}}that span {{phyloprofile params.universal}} species{{/if}}
+	{{#if params.singlecopy}}{{#if params.universal}}and {{/if}}single-copy in {{phyloprofile params.singlecopy}} species{{/if}}
+</div>
+<div class="s-summary-links">
+	{{#if response.data}}
+
+		Bookmark <a href="javascript:var q=(window.getSelection && String(window.getSelection())) || prompt('Search OrthoDB{{#if response.level}} at {{clade response.level}} level{{/if}}'); if (q) {location='{{url}}?level={{params.level}}&species={{params.species}}{{#if params.universal}}&universal={{params.universal}}{{/if}}{{#if params.singlecopy}}&singlecopy={{params.singlecopy}}{{/if}}&query='+ q}" title="Drag &amp; drop this link (bookmarklet) to the browser toolbar for easy OrthoDB search" onclick="app.help(event, 'bookmarklet')">OrthoDB{{#if response.level}}@{{clade response.level}}{{/if}}</a> |
+
+		{{#if params.seq}}
+			<a id="all-fasta" href="fasta?level={{params.level}}&species={{params.species}}&seq={{params.seq}}" target="fasta" title="Download all groups in FASTA format">Get All Fasta</a> |
+			<a id="all-tab" href="tab?level={{params.level}}&species={{params.species}}&seq={{params.seq}}" target="tab" title="Download all groups as tab-delimited text file">Get All as Tab delimited</a>
+		{{else}}
+			<a id="all-fasta" href="fasta?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="fasta" title="Download all groups in FASTA format">Get All Fasta</a> |
+			<a id="all-tab" href="tab?query={{params.query}}&level={{params.level}}&species={{params.species}}&universal={{params.universal}}&singlecopy={{params.singlecopy}}" target="tab" title="Download all groups as tab-delimited text file">Get All as Tab delimited</a>
+		{{/if}}
+
+		<a href="?page=help#summary-links" class="s-help s-help-inline" title="help" onclick="app.href(event, this)"></a>
+	{{/if}}
+</div>

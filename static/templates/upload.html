@@ -1,0 +1,58 @@
+
+{{#if files}}
+
+	<div class="s-upload-spacer"></div>
+
+	<div class="s-upload-control"><a href="javascript:flow.cancel()">Cancel</a></div>
+
+	{{#if isUploading}}
+		<div class="s-upload-control"><a href="javascript:flow.pause()">Pause</a></div>
+	{{else}}
+		<div class="s-upload-control"><a href="javascript:flow.resume()">Resume</a></div>
+	{{/if}}
+
+
+	<div class="s-upload-status">
+		{{#if isUploading}}
+			Uploading {{numeral sizeUploaded "0.0b"}} of {{numeral getSize "0.0b"}}, {{duration timeRemaining "seconds"}} remaining.
+		{{else}}
+			{{#if done}}
+				Uploaded {{numeral getSize "0.0b"}}
+			{{else}}
+				Paused at {{numeral sizeUploaded "0.0b"}} of {{numeral getSize "0.0b"}}
+			{{/if}}
+		{{/if}}
+	</div>
+
+	<div class="s-upload-progress">
+		<div class="s-upload-progress-bar" style="width:{{numeral progress '0.00%'}}"></div>
+		<div class="s-upload-progress-text">{{numeral progress '0.0%'}}</div>
+	</div>
+
+	<table class="s-files">
+	{{#each files}}
+		<tr>
+			<td class="s-file-name">{{name}}</td>
+			<td class="s-file-msg">
+				{{#if error}}
+					<span class="s-icon s-file-error"></span>
+					{{#if message}}
+						Error: {{message}}
+					{{else}}
+						Unknown error.
+					{{/if}}
+				{{else}}
+					{{#if isUploading}}
+						Uploading {{numeral sizeUploaded "0.0b"}} of {{numeral size "0.0b"}}
+					{{else}}
+						{{numeral size "0.0b"}}	{{#if isComplete}} - done.{{/if}}
+					{{/if}}
+				{{/if}}
+			</td>
+		</tr>
+	{{/each}}
+	</table>
+
+	</div>
+
+{{/if}}

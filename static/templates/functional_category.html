@@ -1,0 +1,12 @@
+
+{{#if functional_category}}
+    <div class="s-group-box s-line">
+		<a href="?page=help#functional-category" class="s-help s-help-right-float" title="help" onclick="app.href(event, this)"></a>
+		<h3>Functional Category</h3>
+		<ul>
+		{{#each functional_category}}
+			<li>{{description}}</li>
+		{{/each}}
+		</ul>
+	</div>
+{{/if}}

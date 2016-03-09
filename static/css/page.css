@@ -1,0 +1,428 @@
+
+.s-body {
+	position: relative;
+	height: 100%;
+}
+
+.s-topbox {
+	position: absolute;
+	overflow: hidden;
+	left: 0;
+	top: 80px;
+	height: 80px;
+	width: 65%;
+	border-bottom: 1px solid #ddc;
+}
+
+.s-topbox img {
+	border: none;
+}
+
+.s-content {
+	position: absolute;
+	overflow: auto;
+	left: 0;
+	width: 65%;
+	top: 160px;
+	bottom: 25px;
+	padding: 0 15px;
+}
+
+/*  summary ---------- */
+
+.s-summary {
+	position: absolute;
+	overflow: hidden;
+	left: 200px;
+	right: 0px;
+	bottom: 0px;
+	padding: 10px 35px;
+	height: auto;
+	text-align: right;
+}
+
+.s-summary-text {
+	min-height: 25px;
+	margin-bottom: 5px;
+}
+
+.s-summary-links>input {
+	vertical-align: middle;
+}
+
+/*  sidebar --------------- */
+
+.s-sidebar {
+	position: absolute;
+	overflow: auto;
+	left: 65%;
+	right: 0!important;
+	width: auto!important;
+	top: 80px;
+	bottom: 25px;
+	background: #f8f8f2;
+}
+
+.s-sidebar-tabs {
+	background: #ccb;
+	height: 40px;
+	padding: 0 5px;
+	white-space: nowrap;
+}
+
+.s-sidebar-tab {
+	display: inline-block;
+	height: 35px;
+	padding: 0 15px;
+	margin: 5px 0px;
+	line-height: 35px;
+	border-radius: 3px 3px 0 0;
+	color: #665;
+	background: #ddc;
+	text-decoration: none;
+}
+
+.s-sidebar-tab-selected {
+	background: #f8f8f2;
+}
+
+.s-hidden {
+	display: none;
+}
+
+.s-sidebar-wrap {
+	width: 380px;
+	padding: 5px 15px 0;
+	background: inherit;
+}
+
+.s-sidebar-wrap-2 {
+	width: auto;
+	padding: 0 15px 15px;
+}
+
+.s-sidebar-sequence {
+	width: 320px;
+	height: 128px;
+	border: 1px solid #999;
+	border-radius: 3px;
+}
+
+.s-sidebar-wrap input,
+.s-sidebar-wrap select {
+	font: inherit;
+	width: 250px;
+	height: 25px;
+	padding: 0 0 0 5px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	line-height: 23px;
+}
+
+.s-sidebar-label {
+	margin-top: 15px;
+	color: #654;
+	line-height: 1.4em;
+}
+
+.s-sidebar-section {
+	position: relative;
+	padding: 12px 15px;
+	margin-top: 20px;
+	border: 1px solid #ccb;
+	border-radius: 4px;
+	background: inherit;
+}
+
+.s-sidebar-section-top {
+	padding: 5px 15px;
+	border-width: 1px 0 0 0;
+	border-radius: 0;
+}
+
+.s-sidebar-section>.s-sidebar-label:first-child {
+	position: absolute;
+	left: 10px;
+	top: -12px;
+	margin: 0;
+	padding: 1px 5px;
+	background: inherit;
+}
+
+select+select {
+	margin-top: 10px;
+}
+
+.s-sidebar-clear-all {
+	float: right;
+	width: 150px;
+	margin-top: 15px;
+	color: #654;
+	line-height: 1.4em;
+	text-align: right;
+}
+
+.s-sidebar-clear-all>a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.s-sidebar-clear-all>a:hover{
+	text-decoration: underline;
+}
+
+.s-sidebar button {
+	padding: 10px 30px;
+	margin: 20px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	background: #dadace;
+	background: linear-gradient(#eed, #ccb);
+	font: inherit;
+}
+
+
+/*  header  --------------- */
+
+.s-header {
+	height: 69px;
+	background: #9C0063;
+}
+
+.s-header-right-fill {
+	position: absolute;
+	top: 0;
+	height: 80px;
+	left: 300px;
+	right: 0;
+	background: url(../images/header-right-fill.gif) repeat-x;
+}
+
+.s-header-wrap {
+	position: relative;
+	height: 80px;
+	background: url(../images/cegg-logo.jpg) 15px 0 no-repeat;
+}
+
+.s-header-logo-2 {
+	position: absolute;
+	top: 1px;
+	height: 65px;
+	left: 798px;
+	width: 86px;
+	margin: 0!important;
+	background: url(../images/sib-logo.png) no-repeat;
+}
+
+.s-header-menu-1 {
+	position: absolute;
+	left: 350px;
+	bottom: 0px;
+	line-height: 25px;
+	font-size: 11px;
+}
+
+.s-header-menu-2 {
+	position: absolute;
+	right: 15px;
+	bottom: 0px;
+	line-height: 25px;
+	font-size: 11px;
+}
+
+.s-header a {
+	margin: 0 7px;
+	text-decoration: none;
+}
+
+.s-header a:hover {
+	color: #f09;
+	text-decoration: underline;
+}
+
+.s-user-menu,
+.s-login-menu,
+.s-logout-menu {
+	display: none;
+}
+
+.s-user-menu.s-visible,
+.s-login-menu.s-visible,
+.s-logout-menu.s-visible {
+	display: inline;
+}
+
+.s-username-box {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	color: #fff;
+}
+
+
+/*  footer  --------------- */
+
+.s-footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #eeeee6;
+}
+
+.s-footer-wrap {
+	height: 25px;
+	line-height: 24px;
+	font-size: 11px;
+}
+
+.s-footer-left {
+	float: left;
+	margin-left: 15px;
+}
+
+.s-footer-right {
+	float: right;
+	width: 380px;
+	text-align: center;
+}
+
+.s-footer a {
+	text-decoration: none;
+}
+
+.s-footer a:hover {
+	color: #f09;
+	text-decoration: underline;
+}
+
+
+/*  errors  --------------- */
+
+.s-error {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #999;
+	background: rgba(99, 99, 96, 0.8);
+	z-index: 1000;
+}
+
+.s-error-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 800px;
+	height: 500px;
+	margin-left: -400px;
+	margin-top: -250px;
+	border: 1px solid #666;
+	border-radius: 4px;
+	box-shadow: 0 2px 15px 5px rgba(0,0,0,0.3);
+	background: #fff;
+}
+
+.s-error-wrap>* {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.s-error-title {
+	top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 4em;
+    color: #903;
+    background: #fed;
+}
+
+.s-error-message {
+    overflow: auto!important;
+    top: 130px;
+    bottom: 150px;
+    font-size: 13px;
+}
+
+.s-error-details {
+    bottom: 100px;
+    font-size: 11px;
+}
+
+.s-error-actions {
+	bottom: 0px;
+	line-height: 80px;
+}
+
+/*  help  --------------- */
+
+.s-help {
+	width: 16px;
+	height: 16px;
+	color: #998;
+	background: #eeeee6;
+	background: linear-gradient(#fff, #eed);
+	border: 1px solid #ddc;
+	border-radius: 7px;
+	font-size: 11px;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 1.2em;
+	cursor: pointer;
+}
+
+.s-help:visited {
+    color: #998;
+}
+
+.s-help:hover {
+    color: #a36;
+    border-color: #a36;
+}
+
+.s-help:before {
+	content: "?";
+}
+
+.s-help-top-right {
+	position: absolute;
+	right: 15px;
+	top: -9px;
+}
+
+.s-sidebar-section-top>.s-help-top-right {
+	left: 320px;
+	right: auto;
+}
+
+.s-help-right-float {
+	float: right;
+	margin: 0 15px;
+}
+
+.s-help-inline {
+	display: inline-block;
+}
+
+/*  overlay ------------- */
+
+.s-overlay {
+	position: absolute;
+	left: 65%;
+	right: 0;
+	top: 75px;
+	bottom: 0;
+	margin-left: -410px;
+	background: url(../images/overlay.png) no-repeat;
+}
+
+/* jq ui */
+
+.ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.ui-resizable-w { cursor: w-resize; width: 10px; left: 0; top: 0; height: 100%; }

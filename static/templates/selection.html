@@ -1,0 +1,6 @@
+{{#with data}}
+	<a class="s-icon selection-remove" href="javascript:app.removeSelection('{{../key}}')" title="Remove"></a>
+	<span class="selection-name{{#if clade}} selection-folder{{/if}}">{{name}}</span>
+	{{#if alias}}<span class="selection-alias">{{alias}}</span>{{/if}}
+	{{#if allSelected}}(<a class="selection-examples-cmd" href="javascript:app.useExamples('{{../../key}}')">reference species only</a>){{/if}}
+{{/with}}

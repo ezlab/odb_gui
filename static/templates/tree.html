@@ -1,0 +1,7 @@
+{{#with data}}
+	<span class="tree-name{{#if ../children}} tree-folder{{/if}}{{#unless ../parent.parent}} tree-top{{/unless}}">
+		{{name}}{{#if count}}<span class="tree-count">{{count}}</span>{{/if}}
+	</span>
+	{{#if alias}}<span class="tree-alias">{{alias}}</span>{{/if}}
+	{{#if ../children}}{{#if examples}}<span class="tree-examples">{{examples}}</span>{{/if}}{{/if}}
+{{/with}}

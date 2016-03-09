@@ -1,0 +1,28 @@
+
+<h1>Your files</h1>
+
+<span id="upload-button" class="s-button">Upload</span>
+
+<div id="upload-box" onmousedown="app.uploadUpdates(false)" onmouseup="app.uploadUpdates(true)"></div>
+
+{{#if data}}
+
+	<table class="s-files">
+	{{#each data}}
+		<tr>
+			<td class="s-file-name"><label><input type="radio" name="selected-file" value="{{name}}" {{#if @index}}{{else}}checked{{/if}}>{{name}}</label></td>
+			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
+			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
+			<td class="s-file-fmt">{{filefmt}}</td>
+			<td class="s-file-status">{{status}}</td>
+		</tr>
+	{{/each}}
+	</table>
+
+	<span id="run-button" class="s-button">Run analysis</span>
+
+{{else}}
+	No files are uploaded yet.
+{{/if}}
+
+

@@ -1,0 +1,284 @@
+<!--
+HELP PAGE
+version 2015-03-10 v3g
+Evgenia V Kriventseva. Petty, et al.
+//-->
+<html><head>
+<style>
+  body {background-color:white}
+  h1   {color:#7D3364}
+  h2   {color:black}
+  h3   {color:#990066}
+</style>
+
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body>
+
+<h1>Search Parameters</h1>
+<!-- <h2><a style="color:#000000" name="Text Search">Text Search</a></h2> -->
+<h2 id="keyword-search">Text Search</h2>
+<h3>Enter a gene name, annotation keyword, phenotype, etc.</h3>
+<ul>
+  <li>The database is can be queried using relevant <b>identifiers</b> of proteins, genes, orthologous groups, InterPro domains, or Gene Ontology terms, as well as with <b>keywords</b> associated with protein annotations.
+    <ul type="disc">
+      <li><b>Identifiers</b>: UniProtKB, Ensembl, AphidBase, BeetleBase,
+ FlyBase, Hymenoptera Genome Database, SilkDB, VectorBase, wFleaBase,
+Mouse Genome Informatics, Saccharomyces Genome Database, GenBank,
+RefSeq, InterPro, Gene Ontology, etc. E.g.
+      '<a target="_blank" href="http://orthodb.org/?query=P38903&level=4751&species=4751">P38903</a>',
+      '<a target="_blank" href="http://orthodb.org/?query=CG10753&level=33208&species=33208">CG10753</a>',
+      '<a target="_blank" href="http://orthodb.org/?query=IPR001163&level=33208&species=33208">IPR001163</a>'</li>
+
+    <li><b>Keyword annotations</b> in UniProtKB and Ensembl: Protein names, gene names, etc. E.g.
+    <a target="_blank" href="http://orthodb.org/?query=%22Probable%20small%20nuclear%20ribonucleoprotein%20Sm%20D1%22&level=33208&species=33208">"Probable small nuclear ribonucleoprotein Sm D1"</a></li>
+    <li><b>Keyword phenotypes</b>: For <i>Homo sapiens</i>, <i>Mus musculus</i>, <i>Danio rerio</i>, <i>Caenorhabditis elegans</i>, <i>Drosophila melanogaster</i>, <i>Saccharomyces cerevisiae</i> and <i>Escherichia coli</i>, you can search the database using phenotype keywords.
+            <ul type="disc">
+        <li><i>Homo sapiens</i>: Human disease data from <a href="http://www.omim.org/" target="_blank">OMIM</a> (Online Mendelian Inheritance in Man) e.g. <a target="_blank" href="http://orthodb.org/?query=%22Diabetes%20mellitus%22&level=33208&species=33208">"Diabetes mellitus"</a></li>
+        <li><i>Mus musculus</i>: High-level Mammalian Phenotype Terms from <a href="http://www.informatics.jax.org/" target="_blank">MGI</a> (Mouse Genome Informatics) e.g. phenotype: <a href="http://orthodb.org/?query=%22immune%20system%22&level=33208&species=33208">"immune system"</a></li>
+        <li><i>Danio rerio</i>: Zebrafish phenotype data from <a href="http://zfin.org/" target="_blank">ZFIN</a> (The Zebrafish Model Organism Database) e.g. <a target="_blank" href="http://orthodb.org/?query=dead&level=33208&species=33208">"dead"</a></li>
+        <li><i>Caenorhabditis elegans</i>: Phenotypic data from <a href="http://www.wormbase.org/" target="_blank">WormBase</a> e.g. <a target="_blank" href="http://orthodb.org/?query=%22life%20span%20variant%22&level=6231&species=6231">"life span variant"</a></li>
+        <li><i>Drosophila melanogaster</i>: Data from <a href="http://www.flybase.org/" target="_blank">FlyBase</a> for phenotypic classes containing keywords "lethal", "sterile", and "defective", e.g. <a target="_blank" href="http://orthodb.org/?query=%22neurophysiology%20defective%22&level=32281&species=32281">"neurophysiology defective"</a></li>
+        <li><i>Saccharomyces cerevisiae</i>: Phenotypic data from <a href="http://www.yeastgenome.org/" target="_blank">SGD</a> (Saccharomyces Genome Database) e.g. '<a target="_blank" href="http://orthodb.org/?query=inviable&level=4893&species=4893">inviable</a>'</li>
+        <li><i>Escherichia coli</i>: Phenotypic data from <a href="http://www.ecogene.org/3.0/" target="_blank">EcoGene</a> and essentiality data from <a href="http://tubic.tju.edu.cn/deg/" target="_blank">DEG</a> (Database of Essential Genes)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Logical operator <b>NOT</b> use <b>'-'</b> or <b>'!'</b>, e.g. '<a target="_blank" href="http://orthodb.org/?query=kinase%20-serine&level=33208&species=33208">kinase -serine</a>' or '<a target="_blank" href="http://orthodb.org/?query=kinase%20!tyrosine&level=33208&species=33208">kinase !tyrosine</a>'</li>
+  <li>Logical operator <b>OR</b> use <b>'|'</b>, e.g. '<a target="_blank" href="http://orthodb.org/?query=protease%20|%20peptidase&level=33208&species=33208">protease | peptidase</a>'.</li>
+  <li>Logical operator <b>AND</b> is implicit, i.e. '<a target="_blank" href="http://orthodb.org/?query=sodium%20transporter&level=33208&species=33208">sodium transporter</a>' actually means 'sodium AND transporter' (not quoted phrases).</li>
+  <li>Use <b>quotes</b> to match a phrase literally (e.g. <a target="_blank" href="http://orthodb.org/?query=%22Cytochrome%20P450%22&level=33208&species=33208">"Cytochrome P450"</a>). </li>
+  <li>Click the <b>'Text Search'</b> button to execute the query.</li>
+  <li>The OrthoDB Search Engine is powered by <b><a href="http://www.sphinxsearch.com/" target="_blank">Sphinx</a></b>.</li>
+</ul>
+
+
+<!-- <h2><a style="color:#000000" name="Sequence Search">Sequence Search</a></h2> -->
+<h2 id="sequence-search">Sequence Search</h2>
+<h3>Retrieve orthologous groups by homology to your query sequence.</h3>
+<ul>
+  <li>Paste your sequence in any format, only one sequence is considered. The top hits from different species are returned.The Orthologous Group of the top hit will be displayed (which may also contain some or all of the other top hits).</li>
+  <li>If the top hit is not classified into an Orthologous Group, the other top hits may be used to query OrthoDB simply by clicking the linked protein identifier.</li>
+<!--  <li>Sequence searches are powered by <a href="http://rapsearch2.sourceforge.net/" target="_blank">Rapsearch2</a></li> -->
+</ul>
+
+
+<!-- <h2><a style="color:#000000" name="Phyloprofile">Phyloprofile</a></h2> -->
+<h2 id="phyloprofile-filters">Phyloprofile Filters</h2>
+<h3>Filtering by phylogenetic presence and/or copy-number variations.</h3>
+<ul>
+  <li>You can require the orthologous groups to have members in all species of the selected taxonomic node, or a fraction of them (e.g. present in all, in 90% or 80% of the selected species).</li>
+<li>Retrieve orthologous groups matching specific copy-number profiles (e.g. all single-copy or all multiple-copy).
+  </li>
+</ul>
+
+<!-- <h3 id="search-level">Search Level</h3> -->
+
+<!-- <h2><a style="color:#000000" name="Species selection">Species selection</a></h2> -->
+<h2 id="species-tree">Species Tree</h2>
+<h3>Choose the radiation point or a particular set of species by clicking the buttons on the tree.</h3>
+<ul>
+  <li>The phylogeny-defined <b>hierarchy of orthologous groups</b> allows you to select your required radiation point by clicking on the nodes of the species tree.</li>
+  <li>Your query will be restricted to searching all descendants of the currently selected <b>root node</b> marked in red.</li>
+  <li>Considering many distantly related species delineates fewer, more <b>general</b>
+ (inclusive) orthologous groups containing all the descendants of the
+ancestral gene, while examining more closely related species produces
+many <b>fine-grained</b> orthologous groups of mostly one-to-one relations.</li>
+  <li><b>Metazoan</b> Orthologous Groups are computed at the root node only, select the Vertebrate or Arthropod icons to browse these trees.</li>
+  <li><b>Bacteria</b> Orthologous Groups are computed at the root node and the nodes of 11 major bacteria clades.</li>
+</ul>
+
+<hr>
+<h1>Results Display</h1>
+
+<h2 id="search-level"><a style="color:#000000" name="Species display">Species to display</a></h2>
+<h3>Filter the displayed species</h3>
+<ul>
+  <li>Refine the display results by deselecting any species that you do not want to see in the diplayed results</li>
+</ul>
+
+<!-- <h2><a style="color:#000000" name="Gene Ontology, InterPro, Phenotype, and Synonym Attributes">Gene Ontology, InterPro, Phenotype, and Synonym Attributes</a></h2> -->
+<h2 id="functional-category">Functional Category</h2>
+<ul>
+  <li><b>Gene Ontology</b> and <b>InterPro</b> attributes associated with individual member proteins provide a <b>general description</b> for the Orthologous Group as a whole.</li>
+  <li>These are summed over all member proteins to indicate the most frequently occurring attributes associated with the Orthologous Group.</li>
+  <li><b>Gene Ontology</b> and <b>InterPro</b> identifiers are linked to their respective sources to access further detailed information describing the Terms and Domains.</li>
+  <li>Available InterPro attributes are displayed for each protein member <b>ordered from the N to C terminus</b>.</li>
+  <li>To reduce redundancy, where a protein exhibits two or more domains
+ related as child=&gt;parent, only the child attribute is displayed,
+while all are searchable.</li>
+  <li>Click on the grey play button to <b>query OrthoDB for groups containing proteins with the same domains</b>.</li>
+  <li>To search for <b>specific domain architectures</b>, enter an ordered list of InterPro identifiers separated with only commas into the 'Text Search' box, e.g. '<a target="_blank" href="http://orthodb.org/?query=IPR000253%2C%20IPR000719&level=33208&species=33208">IPR000253,IPR000719</a>' Forkhead-domain, Kinase-domain</li>
+  <li>Gene <b>synonyms</b> and recorded <b>phenotypes</b> are integrated in OrthoDB for <b>Human</b> (from <a href="http://www.omim.org/" target="_blank">OMIM</a>: Online Mendelian Inheritance in Man) and selected model organisms (<i>C. elegans</i>: <a href="http://www.wormbase.org/" target="_blank">WormBase</a>, <i>D. melanogaster</i>: <a href="http://www.flybase.org/" target="_blank">FlyBase</a>, <i>D. rerio</i>: <a href="http://zfin.org/" target="_blank">ZFIN</a> The Zebrafish Model Organism Database, <i>E. coli</i>: <a href="http://www.ecogene.org/3.0/" target="_blank">EcoGene</a>, <i>M. musculus</i>: <a href="http://www.informatics.jax.org/" target="_blank">MGI</a> Mouse Genome Informatics, and <i>S. cerevisiae</i>: <a href="http://www.yeastgenome.org/" target="_blank">SGD</a> Saccharomyces Genome Database). </li>
+  <li>Genes with <b>synonyms</b> <img src="static/images/synonym-icon.png" alt="S" height="14"> or <b>phenotypes</b> <img src="static/images/phenotype-icon.png" alt="S" height="14"> are linked to their respective source databases.</li>
+</ul>
+
+<!-- <h2><a style="color:#000000" name="Evolutionary Rates">Evolutionary Rates</a></h2> -->
+<h2 id="evolutionary-rate">Evolutionary Rate</h2>
+<ul>
+  <li>Orthologous groups that exhibit appreciably higher or lower levels
+ of sequence divergence are highlighted through quantification of the
+relative divergence among their member genes. These are computed for
+each orthologous group as the average of inter-species identities
+normalized to the average identity of all inter-species best reciprocal
+hits, computed from pairwise Smith-Waterman alignments of protein
+sequences.</li>
+  <li>The relative rate is indicated by the position of the black cell
+along the scale of slow-blue to fast-red rates, the slowest are less
+than ~half and the fastest are more than ~double the average rate: <table border="0" width="500"><tbody><tr><td bgcolor="#FFFFFF"><b>Evolutionary Rate</b> 1.00</td>
+<td bgcolor="#FFFFFF" width="15px">&nbsp;</td>
+<td bgcolor="#2857FF" width="15px">&nbsp;</td>
+<td bgcolor="#3D87FF" width="15px">&nbsp;</td>
+<td bgcolor="#56B0FF" width="15px">&nbsp;</td>
+<td bgcolor="#75D3FF" width="15px">&nbsp;</td>
+<td bgcolor="#99EAFF" width="15px">&nbsp;</td>
+<td bgcolor="#BCF9FF" width="15px">&nbsp;</td>
+<td align="center" bgcolor="#FFFFFF" width="15px">
+  <b>
+  <font face="arial" color="black" size="2">x</font>
+  </b>
+</td>
+<td bgcolor="#FFF1BC" width="15px">&nbsp;</td>
+<td bgcolor="#FFD699" width="15px">&nbsp;</td>
+<td bgcolor="#FFAC75" width="15px">&nbsp;</td>
+<td bgcolor="#FF7856" width="15px">&nbsp;</td>
+<td bgcolor="#FF3D3D" width="15px">&nbsp;</td>
+<td bgcolor="#F72735" width="15px">&nbsp;</td>
+<td bgcolor="#FFFFFF">&nbsp;</td></tr></tbody></table>
+  </li>
+</ul>
+
+<!-- <h2><a style="color:#000000" name="Sibling Groups">Sibling Groups</a></h2> -->
+<h2 id="sibling-groups">Sibling Groups</h2>
+<ul>
+  <li>This is a metric to measure similarity between groups, e.g. the sequence uniqueness of the orthologs. Orthologous groups presumably represent the gene content of a particular ancestral lineage, some of which may have originated by earlier gene duplications (i.e. paralogous genes) or they can share only a duplicated fragment, e.g. evolutionary mobile domain.</li>
+  <li>Relations among Orthologous Groups are defined according to the average minimum distances from all-against-all Smith-Waterman e-values between all members of an orthologous group to all members in other groups.</li>
+  <li>These Sibling Groups are defined at each level of the phylogeny-defined hierarchy, i.e. they are considered as sibling groups (rather than parent or child groups which would correspond to moving up or down a level in the hierarchy).</li>
+  <li>The top 5 groups are listed with their average and minimum e-values, and the complete list of related groups may be retrieved by clicking the 'view all' link.</li>
+</ul>
+
+
+
+<!-- <h2><a style="color:#000000" name="Protein Lengths and Exon Counts">Protein Lengths and Exon Counts</a></h2> -->
+<h2 id="gene-architecture">Gene Architecture</h2>
+<ul>
+  <li>The table <b>Gene Architecture</b> shows mean, median, and
+standard deviation values of protein lengths and exon counts for each
+orthologous group, effectively describing a 'consensus' gene
+architecture.</li>
+  <li>Length (<b>AAs</b>) and exon counts (<b>Exons</b>) are listed for each gene.</li>
+  <li><b>!</b> indicates difference from consensus (left: shorter, right: longer, !: 1 stdev, !!: 2 stdev).</li>
+</ul>
+
+
+<!-- <h2><a style="color:#000000" name="Ortholog Mapping">Ortholog Mapping</a></h2> -->
+<h2 id="evolutionary-descriptions">Evolutionary Descriptions</h2>
+<ul>
+  <li>We provide orthology classifications for genes from species with newly sequenced genomes mapped to existing orthologous groups.</li>
+  <li>You can browse the mapped orthologs for new species with publically available gene sets.</li>
+  <li>Web interfaces with restricted access provide the same
+functionality for private gene sets from organisms with
+recently-sequenced genomes.</li>
+</ul>
+
+<hr>
+<h1 id="summary-links">Summary Panel</h1>
+
+<h2><a style="color:#000000" name="Get Fasta">Get All Fasta</a></h2>
+<h3>Displays text view of all search result sequences in Fasta format.</h3>
+Group ID, gene, organism, and other useful details are contained in the header of each sequence. This information can be saved as a file by right-clicking on the link followed by "save link as...".
+
+<h2><a style="color:#000000" name="Get Tab">Get All as Tab Delimited</a></h2>
+<h3>Displays tab-delimited text view of all sequences in results.</h3>
+Group ID, taxonomic level, and protein IDs are listed for each sequence. This information can be saved as a file by right-clicking on the link followed by "save link as...".
+
+<hr>
+<h1 id="bookmarklet">Bookmarks &amp; Navigation</h1>
+
+<h2>Bookmarking</h2>
+Search results can be saved by simply bookmarking the result page or saving the URL text.
+
+<hr>
+<h1 id="data">Data &amp; Citations</h1>
+<!-- status: TO BE VERIFIED -->
+<h2><a style="color:#000000" name="Data Sources">Data Sources: 400 Eukaryotes and 2627 Bacteria</a></h2>
+<ul>
+<!--   <li><b><a target="_blank" title="View Species List" href="">227 Fungi Proteomes</a></b>:-->
+  <li><b>227 Fungi Proteomes: </b><br> Encephalitozoon, Basidiomycota, Schizosaccharomycetes, Saccharomycotina &amp; Pezizomycotina retrieved from <a target="_blank" href="http://www.uniprot.org/help/uniprotkb">Uniprot</a>.</li><br>
+
+<!--     <li><b><a target="_blank" title="View Species List" href="">87 Arthropod Proteomes</a></b>:-->
+  <li><b>87 Arthropod Proteomes: </b>
+  <br>Arachnida, Myriapoda, Crustacea, Hemimetabola, Hymenoptera, Coleoptera, Lepidoptera &amp; Diptera retrieved from <a target="_blank" href="http://www.aphidbase.com/">AphidBase</a>, <a target="_blank" href="http://beetlebase.org/">BeetleBase</a>, <a target="_blank" href="http://flybase.org/">FlyBase</a>, <a target="_blank" href="http://hymenopteragenome.org/">Hymenoptera Genome Database</a>, <a target="_blank" href="http://silkworm.genomics.org.cn/silkdb/">SilkDB</a>, <a target="_blank" href="http://www.vectorbase.org/index.php">VectorBase</a>, <a target="_blank" href="http://wfleabase.org/">wFleaBase</a>, <a target="_blank" href="http://www.ncbi.nlm.nih.gov/">NCBI</a> and various consortia.</li><br>
+
+<!--  <li><b><a target="_blank" title="View Species List" href="">61 Vertebrate Proteomes</a></b>: -->
+  <li><b>61 Vertebrate Proteomes: </b>
+  <br>Fishes, Amphibians, Reptiles &amp; Birds, Monotremes, Marsupials, Afrotheria, Xenarthra, Laurasiatheria, Lagomorphs, Rodents, Scandentia, Dermoptera, &amp; Primates retrieved from <a target="_blank" href="http://www.ensembl.org/index.html">Ensembl</a> release 71 and <a target="_blank" href="http://www.ncbi.nlm.nih.gov/">NCBI</a>.</li><br>
+
+<!--  <li><b><a target="_blank" title="View Species List" href="">25 Basal Metazoan Proteomes</a></b>: -->
+  <li><b>25 Basal Metazoan Proteomes: </b>
+  <br>Placazoan, Starlet sea anemone, Fresh water polyp, Owl limpet mollusc, Polychaete annelid worm, Annelid leech, Nematode worm, Tunicate sea squirts, Sea urchin, Lancelet, and Lamprey retrieved from <a target="_blank" href="http://www.ensembl.org/index.html">Ensembl</a> release 71, <a target="_blank" href="http://metazoa.ensembl.org/index.html">Ensembl Metazoa</a> release 18, <a target="_blank" href="http://www.ncbi.nlm.nih.gov/">NCBI</a> and the Joint Genome Institute <a target="_blank" href="http://www.jgi.doe.gov/">JGI</a>.</li><br>
+
+<!--  <li><b><a target="_blank" title="View Species List" href="">2627 Bacteria Proteomes</a></b>: -->
+  <li><b>2627 Bacteria Proteomes: </b>
+ Actinobacteria, Chroococcales, Prochlorales, Bacilli, Clostridia,
+Alphaproteobacteria, Betaproteobacteria, Gammaproteobacteria,
+Spirochaetia, Mollicutes, and Thermotogae retrieved from <a target="_blank" href="http://www.ncbi.nlm.nih.gov/">NCBI</a>.</li><br>
+  <li><b>Gene Ontology</b>: sourced from <a target="_blank" href="http://www.uniprot.org/help/uniprotkb">Uniprot</a>.</li>
+  <li><b>InterPro Domains</b>: proteins were analysed with InterProScan.</li>
+  <li><b>Gene Descriptors</b>: sourced from <a target="_blank" href="http://www.uniprot.org/help/uniprotkb">Uniprot</a>.</li>
+</ul>
+
+
+<h2><a style="color:#000000" name="Data Downloads">Data Downloads</a></h2>
+Download all protein sequences and orthologous group annotations for major clades <a target="_blank" href="ftp://cegg.unige.ch/OrthoDB8/">here</a>
+
+
+<h2><a style="color:#000000" name="Citing OrthoDB">Citing OrthoDB</a></h2>
+<h3>If you've used OrthoDB in your work, please use the corresponding citation below.</h3>
+<p>
+<ul>
+  <li><b>OrthoDB v8: update of the hierarchical catalog of orthologs and the underlying free software.</b><br>
+  Kriventseva <i>et al</i>, Nucleic Acids Research, January 2015, PMID:<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/25428351">23180791</a><br>
+  <br></li>
+  <li><b>OrthoDB: a hierarchical catalog of animal, fungal and bacterial orthologs.</b><br>
+  Waterhouse <i>et al</i>, Nucleic Acids Research, January 2013, PMID:<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23180791">23180791</a><br>
+  <br></li>
+  <li><b>OrthoDB: the hierarchical catalog of eukaryotic orthologs in 2011.</b><br>
+  Waterhouse <i>et al</i>, Nucleic Acids Research, January 2011, PMID:<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/20972218">20972218</a><br>
+  <br></li>
+  <li><b>OrthoDB: the hierarchical catalog of eukaryotic orthologs.</b><br>
+  Kriventseva <i>et al</i>, Nucleic Acids Research, January 2008, PMID:<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/17947323">17947323</a><br></li>
+  <br>
+</ul>
+</p>
+
+
+
+<h2><a style="color:#000000" name="OrthoDB Citations">OrthoDB Citations</a></h2>
+<h3>Click the titles below for a list of work citing each OrthoDB publication</h3>
+<ul>
+  <li><a target="_blank" href="http://scholar.google.ch/scholar?cites=6522594302406737801&as_sdt=2005&sciodt=0,5&hl=en">2015: OrthoDB v8: update of the hierarchical catalog of orthologs and the underlying free software.</a><br></li>
+  <li><a target="_blank" href="http://scholar.google.ch/scholar?cites=1980651359411099267&as_sdt=2005&sciodt=0,5&hl=en">2013: OrthoDB: a hierarchical catalog of animal,fungal and bacterial orthologs.</a><br></li>
+  <li><a target="_blank" href="http://scholar.google.ch/scholar?cites=7988060515234758019&as_sdt=2005&sciodt=0,5&hl=en">2011: OrthoDB: the hierarchical catalog of eukaryotic orthologs in 2011.</a><br></li>
+  <li><a target="_blank" href="http://scholar.google.ch/scholar?cites=16780328197132691044&as_sdt=2005&sciodt=0,5&hl=en">2008: OrthoDB: the hierarchical catalog of eukaryotic orthologs.</a><br></li>
+</ul>
+
+
+<h2><a style="color:#000000" name="Previous OrthoDB Releases">Previous OrthoDB Releases</a></h2>
+<p>
+<ul>
+  <li><b>OrthoDB5 2011</b>: 48 vertebrates, 33 arthropods, 73 fungi, and 12 basal metazoans<br></li>
+  <li><b>OrthoDB4 2010</b>: 44 vertebrates, 25 arthropods, 46 fungi, and 5 basal metazoans<br></li>
+  <li><b>OrthoDB3 2009</b>: 40 vertebrates, 23 arthropods, and 32 fungi<br></li>
+  <li><b>OrthoDB3 2009</b>: 15 vertebrates, 20 arthropods, and 23 fungi<br></li>
+</ul>
+</p>
+
+
+<h2><a style="color:#000000" name="Contact">Contact</a></h2>
+Please email support[at]orthodb.org
+
+
+
+
+
+</body></html>

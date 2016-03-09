@@ -1,0 +1,12 @@
+
+{{#with phyletic_profile}}
+    <div class="s-group-box">
+		<a href="?page=help#evolutionary-descriptions" class="s-help s-help-right-float" title="help" onclick="app.href(event, this)"></a>
+		<h3>Phyletic Profile</h3>
+		<ul>
+			<li>{{plural gene_count "gene" "genes"}} in {{present_in}} species (out of {{species_count}})</li>
+			<li>single copy in {{single_copy}} species, multi-copy in {{multi_copy}} species</li>
+		</ul>
+	</div>
+{{/with}}
+
