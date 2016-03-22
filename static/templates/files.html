@@ -1,6 +1,32 @@
 
 <h1>Your files</h1>
 
+<div class="s-form-wrap">
+	<span class="s-form-label">Sample name:</span>
+	<input id="sampleName" type="text" />
+</div>
+
+<div class="s-form-wrap">
+	<span class="s-form-label">Sample type:</span>
+	<input id="sampleType" type="text" />
+</div>
+
+<div class="s-form-wrap">
+	<span class="s-form-label">Technology:</span>
+	<select id="technology">
+		<option></option>
+		<option>Illumina - Single-End</option>
+		<option>Illumina - Paired-End</option>
+		<option>PacBio</option>
+		<option>Oxford Nanopore</option>
+	</select>
+</div>
+
+<div class="s-form-wrap">
+	<span class="s-form-label">Adapters:</span>
+	<input id="adapters" type="text" />
+</div>
+
 <span id="upload-button" class="s-button">Upload</span>
 
 <div id="upload-box" onmousedown="app.uploadUpdates(false)" onmouseup="app.uploadUpdates(true)"></div>

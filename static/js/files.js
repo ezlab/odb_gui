@@ -38,6 +38,15 @@ $(function(){
 	}
 
 	flow.on('filesSubmitted', function(file) {
+
+		var q = {};
+
+		q.sampleName = $('#sampleName').val();
+		q.sampleType = $('#sampleType').val();
+		q.technology = $('#technology').val();
+		q.adapters = $('#adapters').val();
+
+		flow.opts.query = q;
 		flow.upload();
 	});
 

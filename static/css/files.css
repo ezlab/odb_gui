@@ -101,3 +101,13 @@
     content: "\f06a"; /* exclamation circle */
     color: #c00;
 }
+
+
+.s-form-label {
+	display: inline-block;
+	width: 120px;
+}
+
+.s-form-wrap {
+	margin-bottom: 10px;
+}
