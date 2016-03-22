@@ -68,12 +68,15 @@
 		$('#summary').html('');
 		$("#content").html('Loading..');
 		$("#content").load(url, function(){
+
 			if (location.hash) {
 				var el = $(location.hash)[0];
 				if (el) {
 					el.scrollIntoView();
 				}
 			}
+
+			app.renderUser();
 		});
 	};
 

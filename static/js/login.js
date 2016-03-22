@@ -1,6 +1,8 @@
 
 (function(){
 
+	var authenticated, username;
+
 	function url(path){
 		return path + '?next=' + encodeURIComponent(location.pathname + location.search);
 	}
@@ -17,17 +19,29 @@
 		location.href = 'logout';
 	};
 
-	function renderUser(response){
-		if (response.data){
+
+	app.renderUser = function(){
+		if (authenticated){
 			$('.s-user-menu').addClass('s-visible');
 			$('.s-logout-menu').addClass('s-visible');
-			$('.s-username-box').text(response.data.username);
+			$('.s-username-box').text(username);
 		}
 		else {
 			$('.s-login-menu').addClass('s-visible');
 		}
+	};
+
+	function extractData(response){
+		if (response.data){
+			authenticated = true;
+			username = response.data.username;
+		}
+		else {
+			authenticated = false;
+			username = '';
+		}
 	}
 
-	$.getJSON('user').then(app.verifyResponse).then(renderUser);
+	$.getJSON('user').then(app.verifyResponse).then(extractData).then(app.renderUser);
 })();
 
