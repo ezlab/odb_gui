@@ -51,7 +51,7 @@
 			app.loadPage('static/pages/' + params.page + '.html');
 		}
 		else if (params.files){
-			app.showFiles();
+			app.showFiles(params.files);
 		}
 		else if (params.back){
 			return history.go(-1);

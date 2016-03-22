@@ -81,12 +81,17 @@ $(function(){
 	});
 
 
-	app.showFiles = function(){
+	app.showFiles = function(files){
 
 		$('#summary').html('');
 		$("#content").html('Loading..');
 
 		$.getJSON('files').then(app.verifyResponse).then(function(response){
+
+			if (response && files !== 'show'){
+				response.showUpload = true;
+			}
+
 			$("#content").html(app.templates.files(response));
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();

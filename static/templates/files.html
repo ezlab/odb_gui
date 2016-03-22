@@ -1,6 +1,8 @@
 
 <h1>Your files</h1>
 
+{{#if showUpload}}
+
 <div class="s-form-wrap">
 	<span class="s-form-label">Sample name:</span>
 	<input id="sampleName" type="text" />
@@ -30,6 +32,8 @@
 <span id="upload-button" class="s-button">Upload</span>
 
 <div id="upload-box" onmousedown="app.uploadUpdates(false)" onmouseup="app.uploadUpdates(true)"></div>
+
+{{/if}}
 
 {{#if data}}
 
