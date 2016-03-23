@@ -37,6 +37,29 @@ $(function(){
 		}
 	}
 
+
+	function validateInput(event){
+
+		if (!$('#sampleName').val()){
+			alert('Please, fill the sample name');
+			event.preventDefault();
+			return;
+		}
+
+		if (!$('#sampleType').val()){
+			alert('Please, fill the sample type');
+			event.preventDefault();
+			return;
+		}
+
+		if (!$('#technology').val()){
+			alert('Please, select the sample technology');
+			event.preventDefault();
+			return;
+		}
+	}
+
+
 	flow.on('filesSubmitted', function(file) {
 
 		var q = {};
@@ -93,6 +116,7 @@ $(function(){
 			}
 
 			$("#content").html(app.templates.files(response));
+			$('#upload-button').on('mousedown', validateInput);
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
 		});

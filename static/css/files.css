@@ -111,3 +111,9 @@
 .s-form-wrap {
 	margin-bottom: 10px;
 }
+
+.s-form-wrap input,
+.s-form-wrap select {
+	width: 400px;
+	height: 25px;
+}

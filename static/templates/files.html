@@ -5,12 +5,14 @@
 
 <div class="s-form-wrap">
 	<span class="s-form-label">Sample name:</span>
-	<input id="sampleName" type="text" />
+	<input id="sampleName" type="text" maxlength="50" />
+	*
 </div>
 
 <div class="s-form-wrap">
 	<span class="s-form-label">Sample type:</span>
-	<input id="sampleType" type="text" />
+	<input id="sampleType" type="text" maxlength="200" />
+	*
 </div>
 
 <div class="s-form-wrap">
@@ -22,13 +24,20 @@
 		<option>PacBio</option>
 		<option>Oxford Nanopore</option>
 	</select>
+	*
 </div>
 
 <div class="s-form-wrap">
 	<span class="s-form-label">Adapters:</span>
-	<input id="adapters" type="text" />
+	<input id="adapters" type="text" maxlength="30" />
 </div>
 
+<div class="s-form-wrap">
+	<span class="s-form-label"></span>
+	* - required field
+</div>
+
+<span class="s-form-label"></span>
 <span id="upload-button" class="s-button">Upload</span>
 
 <div id="upload-box" onmousedown="app.uploadUpdates(false)" onmouseup="app.uploadUpdates(true)"></div>
