@@ -17,6 +17,11 @@ var cfg = {
 	}
 };
 
+cfg.proxy = {
+	forwardPath: function(req, res){
+		return '/odb/dev' + req.url;
+	}
+};
 
 var	routes = ['/group', '/search', '/blast', '/orthologs', '/siblings', '/fasta', '/tab', '/tree'];
 
@@ -32,7 +37,7 @@ app.get('/search', function(req, res, next){
 
 app.get('/tree', util.file('/newtree.json'));
 
-app.get(routes, proxy('orthodb.org'));
+app.get(routes, proxy('ezmeta.unige.ch', cfg.proxy));
 app.get('/', util.file('/index.html'));
 
 app.get('/login', auth.login);
