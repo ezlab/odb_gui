@@ -57,7 +57,7 @@ $(function(){
 				unselectable: true,
 				extraClasses: 's-unselectable',
 				name: 'all ' + src.data.count + ' selected',
-				allSelected: !!src.data.examples,
+				allSelected: !!(src.data.examples && src.data.examples.length),
 				clade: false
 			}
 
