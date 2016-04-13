@@ -8,7 +8,7 @@ var express = require('express'),
 
 
 var cfg = {
-	root: '/v8',
+	root: '/dev',
 	port: process.env.PORT || 80,
 	auth: {
 		apiKeyId: process.env.STORMPATH_APIKEY_ID,
