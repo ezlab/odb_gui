@@ -222,7 +222,45 @@
 .s-group-ortho-ids {
 	overflow: hidden;
 	width: 563px;
+}
+
+.s-group-ortho-ids-short {
+	display: inline-block;
+	overflow: hidden;
+	max-width: 540px;
 	text-overflow: ellipsis;
+	vertical-align: top;
+}
+
+.s-group-ortho-ids-long {
+	display: none;
+	overflow: auto;
+	width: 100%;
+	white-space: normal;
+}
+
+.s-group-ortho-ids-expanded>.s-group-ortho-ids-long {
+	display: block;
+	min-height: 20px;
+	background: url(../images/loading.gif) no-repeat;
+}
+
+.s-group-ortho-ids-toggle {
+	display: inline-block;
+	color: #ccc;
+	font-size: 13px;
+}
+
+.s-group-ortho-ids:hover .s-group-ortho-ids-toggle {
+	color: #c06;
+}
+
+.s-group-ortho-ids-toggle:before {
+	content: "\f0fe";
+}
+
+.s-group-ortho-ids-expanded>.s-group-ortho-ids-toggle:before {
+	content: "\f146";
 }
 
 .s-group-ortho-aas {

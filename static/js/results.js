@@ -243,5 +243,63 @@ $(function(){
 		renderGroup(i, expand);
 	};
 
+
+
+	function renderAnnotations(data){
+
+		var exclude = {
+			xgene_id: true,
+			aas: true,
+			exons: true
+		};
+
+		var i, j, v, s = '', tpl = Handlebars.compile('{{link}}');
+
+		if (data[0]){
+			data = data[0];
+		}
+
+		for (i in data){
+			if (!exclude[i]){
+
+				v = data[i];
+
+				if (v && v.splice){
+					for(j=0; j<v.length; j++){
+						s += tpl(v[j]) + ' ';
+					}
+				}
+				else {
+					s += tpl(v) + ' ';
+				}
+			}
+		}
+
+		return s;
+	}
+
+
+	app.showAnnotations = function(id, event, element){
+
+		var src = event.target || event.srcElement;
+
+		if (src && src.href) {
+			return;
+		}
+
+		var cls = 's-group-ortho-ids-expanded';
+
+		if ($(element).hasClass(cls)){
+			$(element).removeClass(cls);
+			return;
+		}
+
+		$(element).addClass(cls);
+
+		load('ogdetails', {id:id}).then(function(response){
+			$(element).find('.s-group-ortho-ids-long').css('background', 'none').html(renderAnnotations(response.data));
+		});
+	};
+
 });
 
