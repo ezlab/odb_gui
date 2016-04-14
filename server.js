@@ -23,7 +23,7 @@ cfg.proxy = {
 	}
 };
 
-var	routes = ['/group', '/search', '/blast', '/orthologs', '/siblings', '/fasta', '/tab', '/tree'];
+var	routes = ['/group', '/search', '/blast', '/orthologs', '/ogdetails', '/siblings', '/fasta', '/tab', '/tree'];
 
 
 var app = express.Router();
