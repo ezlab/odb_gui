@@ -156,6 +156,27 @@
 	font-weight: bold;
 }
 
+.s-mapping-type {
+    display: inline-block;
+    overflow: hidden;
+    width: 11px;
+    height: 11px;
+    line-height: 11px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-family: monospace;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    cursor: default;
+    margin-left: 2px;
+}
+
+.s-mapping-c {background: #ccc;}
+.s-mapping-m {background: #04c;}
+.s-mapping-u {background: #c06;}
+
 .s-group-ortho-gene {
 	white-space: nowrap;
 }

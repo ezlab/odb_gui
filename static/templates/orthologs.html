@@ -22,6 +22,9 @@
 	<div class="s-group-ortho">
 		<div class="s-group-ortho-organism">
 			{{#with organism}}{{link}}{{/with}}
+			{{#is species_statistics.mapping_type "C"}}<span class="s-mapping-type s-mapping-c" title="Clustered">C</span>{{/is}}
+			{{#is species_statistics.mapping_type "M"}}<span class="s-mapping-type s-mapping-m" title="Mapped">M</span>{{/is}}
+			{{#is species_statistics.mapping_type "U"}}<span class="s-mapping-type s-mapping-u" title="User">U</span>{{/is}}
 		</div>
 
 		{{#each genes}}
