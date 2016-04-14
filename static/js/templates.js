@@ -114,7 +114,7 @@
 	}
 
 	var ready = load(path('link')).then(function(src){
-		src.replace(/^\s*(\w+)\s*:\s*(.+)\s*$/gm, registerLink);
+		src.replace(/^\s*(.+?)\s*:\s*(.+)\s*$/gm, registerLink);
 	});
 
 	app.templates = {};
