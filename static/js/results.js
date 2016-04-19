@@ -248,7 +248,8 @@ $(function(){
 	function renderAnnotations(data){
 
 		var exclude = {
-			xgene_id: true,
+			gene_id: true,
+			interpro: true,
 			aas: true,
 			exons: true
 		};
