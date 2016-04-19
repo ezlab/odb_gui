@@ -263,6 +263,8 @@ $(function(){
 		for (i in data){
 			if (!exclude[i]){
 
+				s += '<div>';
+
 				v = data[i];
 
 				if (v && v.splice){
@@ -273,6 +275,8 @@ $(function(){
 				else {
 					s += tpl(v) + ' ';
 				}
+
+				s += '</div>';
 			}
 		}
 
