@@ -284,7 +284,7 @@ $(function(){
 	}
 
 
-	app.showAnnotations = function(id, event, element){
+	app.showAnnotations = function(id, event){
 
 		var src = event.target || event.srcElement;
 
@@ -292,17 +292,18 @@ $(function(){
 			return;
 		}
 
-		var cls = 's-group-ortho-ids-expanded';
+		var $element = $(src).closest('.s-group-ortho-gene'),
+			cls = 's-group-ortho-expanded';
 
-		if ($(element).hasClass(cls)){
-			$(element).removeClass(cls);
+		if ($element.hasClass(cls)){
+			$element.removeClass(cls);
 			return;
 		}
 
-		$(element).addClass(cls);
+		$element.addClass(cls);
 
 		load('ogdetails', {id:id}).then(function(response){
-			$(element).find('.s-group-ortho-ids-long').css('background', 'none').html(renderAnnotations(response.data));
+			$element.find('.s-group-ortho-annotations').css('background', 'none').html(renderAnnotations(response.data));
 		});
 	};
 
