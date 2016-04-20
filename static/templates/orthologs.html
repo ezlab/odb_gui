@@ -29,7 +29,7 @@
 		{{#each genes}}
 		<div class="s-group-ortho-gene">
 			<div class="s-group-ortho-index">{{#gt ../genes.length 1}}{{add @index 1}}{{/gt}}</div>
-			<div class="s-group-ortho-ids" onclick="app.showAnnotations('{{gene_id.param}}', event, this)">
+			<div class="s-group-ortho-ids" {{#if more_info}} onclick="app.showAnnotations('{{gene_id.param}}', event, this)" {{/if}}>
 				<div class="s-group-ortho-ids-short">
 					{{#with gene_id}}{{link}}{{/with}}
 					{{#with uniprot}}({{link}}){{/with}}
@@ -37,10 +37,12 @@
 					{{#with phenotypes}}<span class="s-link-phenotypes">{{link}}</span>{{/with}}
 					{{description}}
 				</div>
-				<div class="s-group-ortho-ids-toggle s-icon" title="Expand/collapse">
-				</div>
-				<div class="s-group-ortho-ids-long">
-				</div>
+				{{#if more_info}}
+					<div class="s-group-ortho-ids-toggle s-icon" title="Expand/collapse">
+					</div>
+					<div class="s-group-ortho-ids-long">
+					</div>
+				{{/if}}
 			</div>
 			<div class="s-group-ortho-aas">
 				{{#with ../../group.gene_architecture}}{{deviation ../aas protein_median_length protein_stdev_length}}{{/with}}
