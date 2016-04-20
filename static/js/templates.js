@@ -15,6 +15,7 @@
 		'placeholder',
 		'group',
 		'orthologs',
+		'annotations',
 		'siblings',
 		'summary',
 		'title',
