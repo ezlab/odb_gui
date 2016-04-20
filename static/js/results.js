@@ -245,7 +245,7 @@ $(function(){
 
 
 
-	function renderAnnotations(data){
+	function renderAnnotations(tpl, data){
 
 		var exclude = {
 			gene_id: true,
@@ -254,37 +254,23 @@ $(function(){
 			exons: true
 		};
 
-		var i, j, v, s = '', tpl = Handlebars.compile('{{link}}');
+		var i, s = '';
 
 		if (data[0]){
 			data = data[0];
 		}
 
 		for (i in data){
-			if (!exclude[i]){
-
-				s += '<div>';
-
-				v = data[i];
-
-				if (v && v.splice){
-					for(j=0; j<v.length; j++){
-						s += tpl(v[j]) + ' ';
-					}
-				}
-				else {
-					s += tpl(v) + ' ';
-				}
-
-				s += '</div>';
+			if (exclude[i]){
+				delete data[i];
 			}
 		}
 
-		return s;
+		return tpl(data);
 	}
 
 
-	app.showAnnotations = function(id, event, element){
+	app.showAnnotations = function(id, event){
 
 		var src = event.target || event.srcElement;
 
@@ -292,17 +278,21 @@ $(function(){
 			return;
 		}
 
-		var cls = 's-group-ortho-ids-expanded';
+		var $element = $(src).closest('.s-group-ortho-gene'),
+			cls = 's-group-ortho-expanded';
 
-		if ($(element).hasClass(cls)){
-			$(element).removeClass(cls);
+		if ($element.hasClass(cls)){
+			$element.removeClass(cls);
 			return;
 		}
 
-		$(element).addClass(cls);
+		$element.addClass(cls);
 
-		load('ogdetails', {id:id}).then(function(response){
-			$(element).find('.s-group-ortho-ids-long').css('background', 'none').html(renderAnnotations(response.data));
+		var template = app.templates.annotations,
+			data = load('ogdetails', {id:id});
+
+		$.when(template, data).then(function(tpl, response){
+			$element.find('.s-group-ortho-annotations').css('background', 'none').html(renderAnnotations(tpl, response.data));
 		});
 	};
 

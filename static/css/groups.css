@@ -224,7 +224,7 @@
 	width: 563px;
 }
 
-.s-group-ortho-ids-short {
+.s-group-ortho-ids-wrap {
 	display: inline-block;
 	overflow: hidden;
 	max-width: 540px;
@@ -232,34 +232,34 @@
 	vertical-align: top;
 }
 
-.s-group-ortho-ids-long {
+.s-group-ortho-gene>.s-group-ortho-annotations {
 	display: none;
 	overflow: auto;
-	width: 100%;
+	padding-left: 30px;
 	white-space: normal;
 }
 
-.s-group-ortho-ids-expanded>.s-group-ortho-ids-long {
+.s-group-ortho-expanded>.s-group-ortho-annotations {
 	display: block;
 	min-height: 20px;
 	background: url(../images/loading.gif) no-repeat;
 }
 
-.s-group-ortho-ids-toggle {
+.s-group-ortho-toggle {
 	display: inline-block;
 	color: #ccc;
 	font-size: 13px;
 }
 
-.s-group-ortho-ids:hover .s-group-ortho-ids-toggle {
+.s-group-ortho-ids:hover .s-group-ortho-toggle {
 	color: #c06;
 }
 
-.s-group-ortho-ids-toggle:before {
+.s-group-ortho-toggle:before {
 	content: "\f0fe";
 }
 
-.s-group-ortho-ids-expanded>.s-group-ortho-ids-toggle:before {
+.s-group-ortho-expanded .s-group-ortho-toggle:before {
 	content: "\f146";
 }
 
