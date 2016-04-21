@@ -244,6 +244,29 @@ $(function(){
 	};
 
 
+	function splitXRefs(data){
+
+		var i, link, type, section, xrefs = data.xrefs;
+
+		if (xrefs){
+
+			for(i=0; i<xrefs.length; i++){
+
+				link = xrefs[i];
+				type = link.type;
+				section = data[type];
+
+				if (!section || !section.splice){
+					section = [];
+					data[type] = section;
+				}
+
+				section.push(link);
+			}
+
+			delete data.xrefs;
+		}
+	}
 
 	function renderAnnotations(tpl, data){
 
@@ -265,6 +288,8 @@ $(function(){
 				delete data[i];
 			}
 		}
+
+		splitXRefs(data);
 
 		return tpl(data);
 	}

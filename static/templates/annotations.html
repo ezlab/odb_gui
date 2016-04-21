@@ -1,8 +1,6 @@
 {{#each .}}
 	<div>
-		{{#is @key "ensembl"}}Ensembl:{{/is}}
-		{{#is @key "uniprot"}}UniProt:{{/is}}
-		{{#is @key "xrefs"}}XRefs:{{/is}}
+		{{@key}}:
 
 		{{#if length}}
 			{{#each .}}{{#if @index}}; {{/if}}{{link}}{{/each}}
