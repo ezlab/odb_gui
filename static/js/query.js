@@ -18,5 +18,19 @@ $(function(){
 			app.call('query', lock, textbox.val());
 		}
 	});
+
+
+	function autocomplete(query, callback){
+		$.getJSON("complete", {query: query.term}).then(app.verifyResponse).then(function(response){
+			callback(response.data);
+		});
+	}
+
+	textbox.autocomplete({
+		minLength: 3,
+		appendTo: '.s-sidebar-section-top',
+		source: autocomplete
+	});
+
 });
 
