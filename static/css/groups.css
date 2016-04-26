@@ -132,9 +132,14 @@
 	color: #665;
 }
 
-.s-group-siblings>li>span:first-child {
+.s-group-siblings-c1 {
 	display: inline-block;
 	width: 150px;
+}
+
+.s-group-siblings-c2 {
+	display: inline-block;
+	width: 70px;
 }
 
 .orthologs {
@@ -227,7 +232,7 @@
 .s-group-ortho-ids-wrap {
 	display: inline-block;
 	overflow: hidden;
-	max-width: 540px;
+	max-width: 532px;
 	text-overflow: ellipsis;
 	vertical-align: top;
 }
@@ -245,22 +250,66 @@
 	background: url(../images/loading.gif) no-repeat;
 }
 
+.s-group-ortho-annotations>div {
+	padding: 1px 0;
+	line-height: 1.4em;
+}
+
 .s-group-ortho-toggle {
 	display: inline-block;
-	color: #ccc;
-	font-size: 13px;
+	width: auto;
+	padding: 0 2px;
+	margin: 0 -2px;
+	border-radius: 3px;
+	color: #999;
+}
+
+.s-annotations-label {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #444;
+}
+
+.s-annotations-label img {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin: 0 5px 0 -21px;
+	vertical-align: -3px;
 }
 
 .s-group-ortho-ids:hover .s-group-ortho-toggle {
-	color: #c06;
+	color: #fff;
+	background: #c06!important;
+	font-size: 12px;
 }
 
 .s-group-ortho-toggle:before {
-	content: "\f0fe";
+	content: "\f105";
+}
+
+.s-group-ortho-toggle-1:before {
+	content: "\f105";
+}
+
+.s-group-ortho-toggle-2:before {
+	content: "\f105\f105";
+}
+
+.s-group-ortho-toggle-3:before {
+	content: "\f105\f105\f105";
+}
+
+.s-group-ortho-toggle-4:before {
+	content: "\f105\f105\f105\f105";
+}
+
+.s-group-ortho-toggle-5:before {
+	content: "\f105\f105\f105\f105\f105";
 }
 
 .s-group-ortho-expanded .s-group-ortho-toggle:before {
-	content: "\f146";
+	content: "\f107";
 }
 
 .s-group-ortho-aas {

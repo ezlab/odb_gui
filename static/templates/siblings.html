@@ -8,14 +8,15 @@
 		<h2>Sibling Groups</h2>
 
 		<ul class="s-group-siblings">
-			<li><span>Group</span><span>InterPro domains</span></li>
+			<li>
+				<span class="s-group-siblings-c1">Group</span><span class="s-group-siblings-c2">Overlap</span><span>InterPro domains</span></li>
 
 		{{#each data}}
-			<li><span><a href="?level={{../params.level}}&species={{../params.species}}&query={{id}}" title="{{id}}" onclick="app.href(event, this)">{{id}}</a></span><span>{{description}}</span></li>
+			<li><span class="s-group-siblings-c1"><a href="?level={{../params.level}}&species={{../params.species}}&query={{id}}" title="{{description}}" onclick="app.href(event, this)">{{id}}</a></span><span class="s-group-siblings-c2">{{param}}</span><span>{{#each interpro}}{{link}} {{/each}}</span></li>
 		{{/each}}
 
 		{{#if show_switch}}
-			<li><span>{{#if show_all}}...{{/if}}</span><span><a href="javascript:app.showSiblings({{index}}, {{show_all}})">Show {{#if show_all}}all siblings{{else}}top 5 only{{/if}}</a></span></li>
+			<li><span class="s-group-siblings-c1">{{#if show_all}}...{{/if}}</span><span class="s-group-siblings-c2"></span><span><a href="javascript:app.showSiblings({{index}}, {{show_all}})">Show {{#if show_all}}all siblings{{else}}top 5 only{{/if}}</a></span></li>
 		{{/if}}
 		</ul>
 	</div>
