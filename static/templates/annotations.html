@@ -1,6 +1,6 @@
 {{#each .}}
 	<div>
-		{{@key}}:
+		<span class="s-annotations-label">{{@key}}</span>:
 
 		{{#if length}}
 			{{#each .}}{{#if @index}}; {{/if}}{{link}}{{/each}}

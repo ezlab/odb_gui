@@ -256,6 +256,12 @@
 	font-size: 13px;
 }
 
+.s-annotations-label {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #444;
+}
+
 .s-group-ortho-ids:hover .s-group-ortho-toggle {
 	color: #c06;
 }
