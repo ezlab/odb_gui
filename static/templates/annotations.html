@@ -1,6 +1,13 @@
 {{#each .}}
 	<div>
-		<span class="s-annotations-label">{{@key}}</span>:
+		<span class="s-annotations-label">
+			{{#is @key "uniprot"}}UniProt:
+			{{else is @key "ensembl"}}Ensembl:
+			{{else is @key "GO_BiologicalProcess"}}GO Biological Process:
+			{{else is @key "GO_MolecularFunction"}}GO Molecular Function:
+			{{else is @key "GO_CellularComponent"}}GO Cellular Component:
+			{{else}}{{@key}}:{{/is}}
+		</span>
 
 		{{#if length}}
 			{{#each .}}{{#if @index}}; {{/if}}{{link}}{{/each}}
