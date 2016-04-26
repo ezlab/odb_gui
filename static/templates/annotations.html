@@ -1,11 +1,13 @@
 {{#each .}}
 	<div>
 		<span class="s-annotations-label">
-			{{#is @key "uniprot"}}UniProt:
-			{{else is @key "ensembl"}}Ensembl:
-			{{else is @key "GO_BiologicalProcess"}}GO Biological Process:
-			{{else is @key "GO_MolecularFunction"}}GO Molecular Function:
-			{{else is @key "GO_CellularComponent"}}GO Cellular Component:
+			{{#is @key "uniprot"}}<img src="static/images/uniprot.png">UniProt:
+			{{else is @key "ensembl"}}<img src="static/images/ensembl.png">Ensembl:
+			{{else is @key "entrez"}}<img src="static/images/entrez.png">Entrez:
+			{{else is @key "EntrezGene"}}<img src="static/images/entrez.png">Entrez:
+			{{else is @key "GO_BiologicalProcess"}}<img src="static/images/go.png">Biological Process:
+			{{else is @key "GO_MolecularFunction"}}<img src="static/images/go.png">Molecular Function:
+			{{else is @key "GO_CellularComponent"}}<img src="static/images/go.png">Cellular Component:
 			{{else}}{{@key}}:{{/is}}
 		</span>
 

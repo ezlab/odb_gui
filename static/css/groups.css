@@ -262,6 +262,14 @@
 	color: #444;
 }
 
+.s-annotations-label img {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin: 0 5px 0 -21px;
+	vertical-align: -3px;
+}
+
 .s-group-ortho-ids:hover .s-group-ortho-toggle {
 	color: #c06;
 }
