@@ -1,84 +1,100 @@
-
 generic:	<a title="{{#if description}}{{description}}{{else}}{{id}}{{/if}}">{{id}}</a>
+text:	{{#if description}}{{description}}{{else}}{{name}}{{/if}}
 
-interpro:	<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
-uniprot:	<a href="http://www.uniprot.org/uniprot/?query={{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
 taxonomy:	<a href="http://www.uniprot.org/taxonomy/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-ncbi:		<a href="http://www.ncbi.nlm.nih.gov/protein/{{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
-ensembl:	<a href="http://www.ensembl.org/{{param}}/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
-omim:		<a href="http://omim.org/entry/{{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
+interpro:	<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
+uniprot:	<a href="http://www.uniprot.org/uniprot/?query={{id}}" target="{{type}}">{{id}}</a> {{description}}
+entrez:		<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{id}}" target="{{type}}">{{#if name}}{{name}}{{else}}{{id}}{{/if}}</a> {{description}}
+ensembl:	<a href="http://ensemblgenomes.org/id/{{id}}" target="{{type}}">{{id}}</a> {{description}}
 
-ZFIN:	<a href="http://zfin.org/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-ENA:	<a href="http://www.ebi.ac.uk/ena/data/view/{{id}}&range={{param}}-{{param}}"  target="{{type}}">{{name}}</a>
-GOA:	<a href="http://www.ebi.ac.uk/QuickGO/GProtein?ac={{id}}"  target="{{type}}">{{name}}</a>
-BioCyc:	<a href="http://biocyc.org/gene?orgid={{param}}&id={{id}}"  target="{{type}}">{{name}}</a>
-EntrezGene:	<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-ExpressionAtlas:	<a href="https://www.ebi.ac.uk/gxa/query?geneQuery={{id}}"  target="{{type}}">{{name}}</a>
-HGNCSymbol:	<a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-UniGene:	<a href="http://www.ncbi.nlm.nih.gov/unigene/?term={{id}}&SITE=UniGene_clust&orig_db=unigene&subm" title="{{description}}" target="{{type}}">{{name}}</a>
+flybase:	<a href="http://flybase.org/reports/{{id}}"  target="{{type}}">{{name}}</a> {{description}}
+mim:	<a href="http://www.omim.org/entry/{{id}}"  target="{{type}}">{{name}}</a> {{description}}
+mgi:	<a href="http://www.informatics.jax.org/marker/{{id}}" target="{{type}}">{{name}}</a> {{description}}
+wormbase:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
+zfdb:	<a href="http://zfin.org/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+
+AegilopstauschiiGigaDBidentifier:	<a href="http://plants.ensembl.org/Multi/Search/Results?species=all;idx=;q={{id}}"  target="{{type}}">{{name}}</a>
+AnoXcel:	<a href="https://www.vectorbase.org/Anopheles_gambiae/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+AntGenomesPortal:	<a href="http://metazoa.ensembl.org/Multi/Search/Results?species=all;idx=;q={{id}}"  target="{{type}}">{{name}}</a>
+Araport:	<a href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{id}}"  target="{{type}}">{{name}}</a>
+BioCyc:	<a href="http://biocyc.org/gene?orgid={{biocyc_tx_id}}&id={{biocyc_cmpd_id}}"  target="{{type}}">{{name}}</a>
+BioGRIDInteractiondataTheGeneralRepositoryforInteractionDatasets:	<a href="http://thebiogrid.org/{{id}}"  target="{{type}}">{{name}}</a>
+BrassEnsembl:	<a href="http://plants.ensembl.org/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
+BRENDA:	<a href="http://www.brenda-enzymes.org/enzyme.php?ecno={{id}}"  target="{{type}}">{{name}}</a>
+CGD:	<a href="http://www.candidagenome.org/cgi-bin/locus.pl?locus={{id}}"  target="{{type}}">{{name}}</a>
+ClonebasedEnsembl:	<a href="http://www.ensembl.org/Multi/Search/Results?q={{id}}"  target="{{type}}">{{name}}</a>
+ClonebasedVega:	<a href="http://vega.sanger.ac.uk/Human/Search/Results?q={{id}}"  target="{{type}}">{{name}}</a>
+CTD:	<a href="http://ctdbase.org/detail.go?type=gene&acc={{id}}"  target="{{type}}">{{name}}</a>
+ENA:	<a href="http://www.ebi.ac.uk/ena/data/view/{{ena_id}}&range={{ena_start}}-{{ena_stop}}"  target="{{type}}">{{name}}</a>
 EnsemblHumanGene:	<a href="http://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g={{id}}"  target="{{type}}">{{name}}</a>
-WormBaseGene:	<a href="http://www.wormbase.org/species/c_japonica/gene/{{id}}"  target="{{type}}">{{name}}</a>
+EnsemblSticklebackGene:	<a href="http://www.ensembl.org/Gasterosteus_aculeatus/Gene/Summary?db=core;g={{id}}"  target="{{type}}">{{name}}</a>
+EntrezGene:	<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+EukaryoticPromoterDatabaseBucher:	<a href="http://epd.vital-it.ch/master_search.php?query_str={{id}}"  target="{{type}}">{{name}}</a>
+EuPathDB:	<a href="http://www.eupathdb.org/gene/{{id}}"  target="{{type}}">{{name}}</a>
+EuropeanNucleotideArchive:	<a href="http://www.ebi.ac.uk/ena/data/search?query={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+ExpressionAtlas:	<a href="https://www.ebi.ac.uk/gxa/query?geneQuery={{id}}"  target="{{type}}">{{name}}</a>
 FlyBase:	<a href="http://flybase.org/reports/{{id}}"  target="{{type}}">{{name}}</a>
-WormBaseLocus:	<a href="http://www.wormbase.org/species/c_japonica/gene/{{id}}"  target="{{type}}">{{name}}</a>
-FlyBasegenename:	<a href="http://flybase.org/reports/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+FlybaseAnnotationID:	<a href="http://flybase.org/search/simple/{{id}}"  target="{{type}}">{{name}}</a>
 FlybaseGene:	<a href="http://flybase.org/reports/{{id}}"  target="{{type}}">{{name}}</a>
 FlyBasegeneCGID:	<a href="http://flybase.org/search/simple/FBcl/{{id}}"  target="{{type}}">{{name}}</a>
-Vegagene:	<a href="http://vega.sanger.ac.uk/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
-CTD:	<a href="http://ctdbase.org/detail.go?type=gene&acc={{id}}"  target="{{type}}">{{name}}</a>
-UniProtKBGeneName:	<a href="http://www.uniprot.org/uniprot/?query={{id}}&sort=score"  target="{{type}}">{{name}}</a>
-TAIR:	<a href="https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name={{id}}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1" title="{{description}}" target="{{type}}">{{name}}</a>
-Havanagene:	<a href="http://www.ensembl.org/Multi/Search/Results?q={{id}}"  target="{{type}}">{{name}}</a>
-SpBase:	<a href="http://www.echinobase.org/Echinobase/Search/SpSearch/viewAnnoGeneInfo.php?spu_id={{id}}"  target="{{type}}">{{name}}</a>
-VBExternalDescription:	<a href="https://www.vectorbase.org/{{param}}/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-BrassEnsembl:	<a href="http://plants.ensembl.org/{{param}}/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
-Gramene:	<a href="http://tools.gramene.org/search?query={{id}}"  target="{{type}}">{{name}}</a>
-MSUTIGRLocus:	<a href="http://rice.plantbiology.msu.edu/cgi-bin/ORF_infopage.cgi?orf={{id}}"  target="{{type}}">{{name}}</a>
-PGSC:	<a href="http://solanaceae.plantbiology.msu.edu/cgi-bin/annotation_report.cgi?gene_id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-MGISymbol:	<a href="http://www.informatics.jax.org/marker/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-IRGSPv1Gene:	<a href="http://plants.ensembl.org/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-AegilopstauschiiGigaDBidentifier:	<a href="http://plants.ensembl.org/Multi/Search/Results?species=all;idx=;q={{id}}"  target="{{type}}">{{name}}</a>
-WormBaseGeneSequencename:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
-IGDBCASv14Gene:	<a href="http://plants.ensembl.org/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
-TAIRGeneName:	<a href="https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name={{id}}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1"  target="{{type}}">{{name}}</a>
-EuropeanNucleotideArchive:	<a href="http://www.ebi.ac.uk/ena/data/search?query={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-NASCGeneID:	<a href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-Araport:	<a href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{id}}"  target="{{type}}">{{name}}</a>
-MTGD:	<a href="http://www.plantgdb.org/MtGDB/cgi-bin/getRegion.pl?searchSTR={{id}}"  target="{{type}}">{{name}}</a>
-WormBase:	<a href="http://www.wormbase.org/species/c_japonica/gene/{{id}}"  target="{{type}}">{{name}}</a>
-RGDSymbol:	<a href="http://rgd.mcw.edu/rgdweb/report/gene/main.html?id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-AntGenomesPortal:	<a href="http://metazoa.ensembl.org/Multi/Search/Results?species=all;idx=;q={{id}}"  target="{{type}}">{{name}}</a>
-EnsemblSticklebackGene:	<a href="http://www.ensembl.org/Gasterosteus_aculeatus/Gene/Summary?db=core;g={{id}}"  target="{{type}}">{{name}}</a>
-MIMgene:	<a href="http://www.omim.org/entry/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-GenomeRNAiadatabaseforcellbasedRNAiphenotypes:	<a href="http://www.genomernai.org/v15/geneSearch/[%22{{id}}%22]"  target="{{type}}">{{name}}</a>
-InternationalKnockoutMouseConsortiumKnockoutsEScellsavailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
-FlybaseAnnotationID:	<a href="http://flybase.org/search/simple/{{id}}"  target="{{type}}">{{name}}</a>
-AnoXcel:	<a href="https://www.vectorbase.org/Anopheles_gambiae/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-Xenbase:	<a href="http://www.xenbase.org/gene/showgene.do?method=display&geneId={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-KEGG:	<a href="http://www.genome.jp/kegg-bin/show_pathway?{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-ClonebasedEnsembl:	<a href="http://www.ensembl.org/Multi/Search/Results?q={{id}}"  target="{{type}}">{{name}}</a>
-JGIIDJGITriad10:	<a href="http://genome.jgi.doe.gov/?core=genome&query={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-SchistoDB:	<a href="http://parasite.wormbase.org/Schistosoma_mansoni_prjea36577/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+FlyBasegenename:	<a href="http://flybase.org/reports/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+GeneCards:	<a href="http://www.genecards.org/cgi-bin/carddisp.pl?gene={{id}}"  target="{{type}}">{{name}}</a>
 GeneDB:	<a href="http://www.genedb.org/gene/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-CGD:	<a href="http://www.candidagenome.org/cgi-bin/locus.pl?locus={{id}}"  target="{{type}}">{{name}}</a>
-BioGRIDInteractiondataTheGeneralRepositoryforInteractionDatasets:	<a href="http://thebiogrid.org/{{id}}"  target="{{type}}">{{name}}</a>
-SGD:	<a href="http://www.yeastgenome.org/locus/{{id}}/overview"  target="{{type}}">{{name}}</a>
-GramenePathway:	<a href="http://tools.gramene.org/search?query={{id}}"  target="{{type}}">{{name}}</a>
-PomBase:	<a href="http://www.pombase.org/spombe/result/{{id}}"  target="{{type}}">{{name}}</a>
-MIMdisease:	<a href="http://www.omim.org/entry/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-InternationalKnockoutMouseConsortiumKnockoutsNoproductsavailableyet:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
-VBCommunityAnnotation:	<a href="https://www.vectorbase.org/{{param}}/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-InternationalKnockoutMouseConsortiumKnockoutsMiceavailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
-BRENDA:	<a href="http://www.brenda-enzymes.org/enzyme.php?ecno={{id}}"  target="{{type}}">{{name}}</a>
-Reactome:	<a href="http://www.reactome.org/content/query?q={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-ClonebasedVega:	<a href="http://vega.sanger.ac.uk/Human/Search/Results?q={{id}}"  target="{{type}}">{{name}}</a>
-TheInteractiveFly:	<a href="http://www.sdbonline.org/sites/fly/{{id}}"  target="{{type}}">{{name}}</a>
-InternationalKnockoutMouseConsortiumKnockoutsVectoravailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
-StrigamiamaritimaCommunityAnnotation:	<a href="http://metazoa.ensembl.org/Strigamia_maritima/Search/Results?species=Strigamia%20maritima;idx=;q={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+GeneOntology:	<a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{id}}"  target="{{type}}">{{name}}</a>
+GenomeRNAiadatabaseforcellbasedRNAiphenotypes:	<a href="http://www.genomernai.org/v15/geneSearch/[%22{{id}}%22]"  target="{{type}}">{{name}}</a>
 Genoscopepredgene:	<a href="http://www.genoscope.cns.fr/cgi-bin/ggb/tetraodon/ggb/tetraodon/?name={{id}}"  target="{{type}}">{{name}}</a>
-LRGdisplayinEnsembl:	<a href="http://www.ensembl.org/Homo_sapiens/LRG/Summary?lrg={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
 GlanvilleFritillaryButterflyGenomeProject:	<a href="http://metazoa.ensembl.org/Melitaea_cinxia/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-EukaryoticPromoterDatabaseBucher:	<a href="http://epd.vital-it.ch/master_search.php?query_str={{id}}"  target="{{type}}">{{name}}</a>
+GOA:	<a href="http://www.ebi.ac.uk/QuickGO/GProtein?ac={{id}}"  target="{{type}}">{{name}}</a>
+GO_BiologicalProcess:	<a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{id}}"  target="{{type}}">{{name}}</a>
+GO_CellularComponent:	<a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{id}}"  target="{{type}}">{{name}}</a>
+GO_MolecularFunction:	<a href="http://www.ebi.ac.uk/QuickGO/GTerm?id={{id}}"  target="{{type}}">{{name}}</a>
+Gramene:	<a href="http://tools.gramene.org/search?query={{id}}"  target="{{type}}">{{name}}</a>
+GramenePathway:	<a href="http://tools.gramene.org/search?query={{id}}"  target="{{type}}">{{name}}</a>
+Havanagene:	<a href="http://vega.sanger.ac.uk/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
+HGNC:	<a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id={{id}}"  target="{{type}}">{{name}}</a>
+HGNCSymbol:	<a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+IGDBCASv14Gene:	<a href="http://plants.ensembl.org/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
+InternationalKnockoutMouseConsortiumKnockoutsEScellsavailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
+InternationalKnockoutMouseConsortiumKnockoutsMiceavailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
+InternationalKnockoutMouseConsortiumKnockoutsNoproductsavailableyet:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
+InternationalKnockoutMouseConsortiumKnockoutsVectoravailable:	<a href="http://www.mousephenotype.org/data/genes/{{id}}"  target="{{type}}">{{name}}</a>
+IRGSPv1Gene:	<a href="http://plants.ensembl.org/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+JGIIDJGITriad10:	<a href="http://genome.jgi.doe.gov/?core=genome&query={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+KEGG:	<a href="http://www.genome.jp/kegg-bin/show_pathway?{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+LRGdisplayinEnsembl:	<a href="http://www.ensembl.org/Homo_sapiens/LRG/Summary?lrg={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+MGI:	<a href="http://www.informatics.jax.org/marker/{{id}}"  target="{{type}}">{{name}}</a>
+MGISymbol:	<a href="http://www.informatics.jax.org/marker/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+MIM:	<a href="http://www.omim.org/entry/{{id}}"  target="{{type}}">{{name}}</a>
+MIMdisease:	<a href="http://www.omim.org/entry/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+MIMgene:	<a href="http://www.omim.org/entry/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
 miRBase:	<a href="http://www.mirbase.org/cgi-bin/mirna_entry.pl?acc={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-VBCommunitySymbol:	<a href="https://www.vectorbase.org/search/site/{{id}}"  target="{{type}}">{{name}}</a>
+MSUTIGRLocus:	<a href="http://rice.plantbiology.msu.edu/cgi-bin/ORF_infopage.cgi?orf={{id}}"  target="{{type}}">{{name}}</a>
+MTGD:	<a href="http://www.plantgdb.org/MtGDB/cgi-bin/getRegion.pl?searchSTR={{id}}"  target="{{type}}">{{name}}</a>
+NASCGeneID:	<a href="https://www.arabidopsis.org/servlets/TairObject?type=locus&name={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+neXtProt:	<a href="http://www.nextprot.org/db/entry/{{id}}"  target="{{type}}">{{name}}</a>
+PGSC:	<a href="http://solanaceae.plantbiology.msu.edu/cgi-bin/annotation_report.cgi?gene_id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+PomBase:	<a href="http://www.pombase.org/spombe/result/{{id}}"  target="{{type}}">{{name}}</a>
+Reactome:	<a href="http://www.reactome.org/content/query?q={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
 RFAM:	<a href="http://rfam.xfam.org/family/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-GeneOntology:	<a href="http://amigo.geneontology.org/amigo/search/ontology?q={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+RGDSymbol:	<a href="http://rgd.mcw.edu/rgdweb/report/gene/main.html?id={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+SchistoDB:	<a href="http://parasite.wormbase.org/Schistosoma_mansoni_prjea36577/Gene/Summary?g={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+SequencePublications:	<a href="http://www.ncbi.nlm.nih.gov/pubmed/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+SGD:	<a href="http://www.yeastgenome.org/locus/{{id}}/overview"  target="{{type}}">{{name}}</a>
+SpBase:	<a href="http://www.echinobase.org/Echinobase/Search/SpSearch/viewAnnoGeneInfo.php?spu_id={{id}}"  target="{{type}}">{{name}}</a>
+StrigamiamaritimaCommunityAnnotation:	<a href="http://metazoa.ensembl.org/Strigamia_maritima/Search/Results?species=Strigamia%20maritima;idx=;q={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+TAIR:	<a href="https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name={{id}}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1" title="{{description}}" target="{{type}}">{{name}}</a>
+TAIRGeneName:	<a href="https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name={{id}}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1"  target="{{type}}">{{name}}</a>
+TheInteractiveFly:	<a href="http://www.sdbonline.org/sites/fly/{{id}}"  target="{{type}}">{{name}}</a>
+UniGene:	<a href="http://www.ncbi.nlm.nih.gov/unigene/?term={{id}}&SITE=UniGene_clust&orig_db=unigene&subm" title="{{description}}" target="{{type}}">{{name}}</a>
+UniProtKBGeneName:	<a href="http://www.uniprot.org/uniprot/?query={{id}}&sort=score"  target="{{type}}">{{name}}</a>
+VBCommunityAnnotation:	<a href="http://www.vectorbase.org/Genome/BRCGene/?gene={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+VBCommunitySymbol:	<a href="https://www.vectorbase.org/search/site/{{id}}"  target="{{type}}">{{name}}</a>
+VBExternalDescription:	<a href="http://www.vectorbase.org/Genome/BRCGene/?gene={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+Vegagene:	<a href="http://vega.sanger.ac.uk/Gene/Summary?g={{id}}"  target="{{type}}">{{name}}</a>
+WikiGene:	<a href="http://www.wikigenes.org/e/gene/e/{{id}}.html" title="{{description}}" target="{{type}}">{{name}}</a>
+WormBase:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
+WormBaseGene:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
+WormBaseGeneSequencename:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
+WormBaseLocus:	<a href="http://www.wormbase.org/species/c_elegans/gene/{{id}}"  target="{{type}}">{{name}}</a>
+Xenbase:	<a href="http://www.xenbase.org/gene/showgene.do?method=display&geneId={{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
+ZFIN:	<a href="http://zfin.org/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
