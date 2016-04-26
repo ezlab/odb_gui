@@ -250,6 +250,11 @@
 	background: url(../images/loading.gif) no-repeat;
 }
 
+.s-group-ortho-annotations>div {
+	padding: 1px 0;
+	line-height: 1.4em;
+}
+
 .s-group-ortho-toggle {
 	display: inline-block;
 	color: #ccc;
