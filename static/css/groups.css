@@ -132,9 +132,14 @@
 	color: #665;
 }
 
-.s-group-siblings>li>span:first-child {
+.s-group-siblings-c1 {
 	display: inline-block;
 	width: 150px;
+}
+
+.s-group-siblings-c2 {
+	display: inline-block;
+	width: 70px;
 }
 
 .orthologs {
