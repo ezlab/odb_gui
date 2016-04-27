@@ -4,7 +4,7 @@
 		<h3>InterPro Domains</h3>
 		<ul>
 		{{#each interpro_domains}}
-			<li>{{plural count "gene" "genes"}} with {{link}}: {{description}}</li>
+			<li>{{plural count "gene" "genes"}} with <a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" target="{{type}}">{{id}}</a>: {{description}}</li>
 		{{/each}}
 		</ul>
 	</div>

@@ -2,7 +2,7 @@ generic:	<a title="{{#if description}}{{description}}{{else}}{{id}}{{/if}}">{{id
 text:	{{#if description}}{{description}}{{else}}{{name}}{{/if}}
 
 taxonomy:	<a href="http://www.uniprot.org/taxonomy/{{id}}" title="{{description}}" target="{{type}}">{{name}}</a>
-interpro:	<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" title="{{description}}" target="{{type}}">{{id}}</a>
+interpro:	<a href="http://www.ebi.ac.uk/interpro/entry/{{id}}" title="{{description}}" target="{{type}}">{{#if @first}}{{id}}{{else}}{{substring id 4 9}}{{/if}}</a>
 uniprot:	<a href="http://www.uniprot.org/uniprot/?query={{id}}" target="{{type}}">{{id}}</a> {{description}}
 entrez:		<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{id}}" target="{{type}}">{{#if name}}{{name}}{{else}}{{id}}{{/if}}</a> {{description}}
 ensembl:	<a href="http://ensemblgenomes.org/id/{{id}}" target="{{type}}">{{id}}</a> {{description}}
