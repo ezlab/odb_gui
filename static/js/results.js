@@ -279,10 +279,6 @@ $(function(){
 
 		var i, s = '';
 
-		if (data[0]){
-			data = data[0];
-		}
-
 		for (i in data){
 			if (exclude[i]){
 				delete data[i];

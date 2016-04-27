@@ -36,3 +36,17 @@ a {
 a:visited {
 	color: #609;
 }
+
+a.text-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a.text-link:visited {
+	color: #444;
+}
+
+a.text-link:hover {
+	color: #04c;
+	text-decoration: underline;
+}
