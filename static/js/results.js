@@ -229,9 +229,18 @@ $(function(){
 	});
 
 
-	$('#content').on('click', '.s-group-collapsed', function(){
-		var i = parseInt(this.parentNode.id.replace(/\D+/, ''));
-		renderGroup(i, true);
+	$('#content').on('click', '.s-group-header', function(event){
+
+		var src = event.target || event.srcElement;
+
+		if (src && src.href) {
+			return;
+		}
+
+		var i = parseInt(this.parentNode.id.replace(/\D+/, '')),
+			expand = $(this).hasClass('s-group-collapsed');
+
+		renderGroup(i, expand);
 	});
 
 
@@ -239,12 +248,8 @@ $(function(){
 		renderSiblings(i, showAll);
 	};
 
-	app.showGroup = function(i, expand){
-		renderGroup(i, expand);
-	};
 
-
-	function splitXRefs(data){
+	function prepareAnnotations(data){
 
 		var i, link, type, section, xrefs = data.xrefs;
 
@@ -266,9 +271,6 @@ $(function(){
 
 			delete data.xrefs;
 		}
-	}
-
-	function renderAnnotations(tpl, data){
 
 		var exclude = {
 			gene_id: true,
@@ -277,17 +279,13 @@ $(function(){
 			exons: true
 		};
 
-		var i, s = '';
-
 		for (i in data){
 			if (exclude[i]){
 				delete data[i];
 			}
 		}
 
-		splitXRefs(data);
-
-		return tpl(data);
+		return data;
 	}
 
 
@@ -313,7 +311,7 @@ $(function(){
 			data = load('ogdetails', {id:id});
 
 		$.when(template, data).then(function(tpl, response){
-			$element.find('.s-group-ortho-annotations').css('background', 'none').html(renderAnnotations(tpl, response.data));
+			render($element.find('.s-group-ortho-annotations').css('background', 'none'), tpl, prepareAnnotations(response.data));
 		});
 	};
 

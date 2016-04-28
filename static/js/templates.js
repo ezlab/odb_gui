@@ -45,8 +45,12 @@
 			return String(value) + ' ' + (value == 1 ? singular : plural);
 		},
 
-		link: function (){
-			return new Handlebars.SafeString((links[this.type] || links.generic)(this));
+		link: function (options){
+			return new Handlebars.SafeString((links[this.type] || links.generic)(this, options));
+		},
+
+		substring: function(value, start, end){
+			return String(value).substring(start, end);
 		},
 
 		add: function (value1, value2){
