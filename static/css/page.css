@@ -181,6 +181,18 @@ select+select {
 	font: inherit;
 }
 
+.s-sidebar button:hover {
+	background: linear-gradient(#f4f4e6, #d4d4c6);
+}
+
+.s-sidebar button:active {
+	background: #ccb;
+}
+
+.s-sidebar button:focus {
+	outline: none;
+}
+
 
 /*  header  --------------- */
 
