@@ -3,5 +3,5 @@
 		{{name}}{{#if count}}<span class="tree-count">{{count}}</span>{{/if}}
 	</span>
 	{{#if alias}}<span class="tree-alias">{{alias}}</span>{{/if}}
-	{{#if ../children}}{{#if examples}}<span class="tree-examples">{{examples}}</span>{{/if}}{{/if}}
+	{{#if ../children}}{{#if examples}}<span class="tree-examples">{{#each examples}}{{#unless @first}}, {{/unless}}{{.}}{{/each}}</span>{{/if}}{{/if}}
 {{/with}}
