@@ -244,7 +244,7 @@ $(function(){
 	};
 
 
-	function splitXRefs(data){
+	function prepareAnnotations(data){
 
 		var i, link, type, section, xrefs = data.xrefs;
 
@@ -266,9 +266,6 @@ $(function(){
 
 			delete data.xrefs;
 		}
-	}
-
-	function renderAnnotations(tpl, data){
 
 		var exclude = {
 			gene_id: true,
@@ -277,17 +274,13 @@ $(function(){
 			exons: true
 		};
 
-		var i, s = '';
-
 		for (i in data){
 			if (exclude[i]){
 				delete data[i];
 			}
 		}
 
-		splitXRefs(data);
-
-		return tpl(data);
+		return data;
 	}
 
 
@@ -313,7 +306,7 @@ $(function(){
 			data = load('ogdetails', {id:id});
 
 		$.when(template, data).then(function(tpl, response){
-			$element.find('.s-group-ortho-annotations').css('background', 'none').html(renderAnnotations(tpl, response.data));
+			render($element.find('.s-group-ortho-annotations').css('background', 'none'), tpl, prepareAnnotations(response.data));
 		});
 	};
 
