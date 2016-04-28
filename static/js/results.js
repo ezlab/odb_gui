@@ -229,18 +229,23 @@ $(function(){
 	});
 
 
-	$('#content').on('click', '.s-group-collapsed', function(){
-		var i = parseInt(this.parentNode.id.replace(/\D+/, ''));
-		renderGroup(i, true);
+	$('#content').on('click', '.s-group-header', function(event){
+
+		var src = event.target || event.srcElement;
+
+		if (src && src.href) {
+			return;
+		}
+
+		var i = parseInt(this.parentNode.id.replace(/\D+/, '')),
+			expand = $(this).hasClass('s-group-collapsed');
+
+		renderGroup(i, expand);
 	});
 
 
 	app.showSiblings = function(i, showAll){
 		renderSiblings(i, showAll);
-	};
-
-	app.showGroup = function(i, expand){
-		renderGroup(i, expand);
 	};
 
 

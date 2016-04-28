@@ -3,7 +3,7 @@
 	{{#if expanded}}
 
 		<div class="s-group-header">
-			<div class="s-group-header-arrow s-group-header-arrow-down"><a href="javascript:app.showGroup({{index}}, false)" title="Collapse"></a></div>
+			<div class="s-group-header-arrow s-group-header-arrow-down"><a title="Collapse"></a></div>
 			<div class="s-group-header-menu"><a href="fasta?id={{id}}&species={{params.species}}" target="fasta">View Fasta</a> | <a href="tab?id={{id}}&species={{params.species}}" target="tab">View Tab Delimited</a></div>
 			<div class="s-group-header-label">Group <a href="?level={{params.level}}&species={{params.species}}&query={{public_id}}" title="{{public_id}}" onclick="app.href(event, this)">{{public_id}}</a> at {{level_name}} level</div>
 			<div class="s-group-header-title">{{name}} &nbsp;</div>
@@ -29,9 +29,9 @@
 	{{else}}
 
 		<div class="s-group-header s-group-collapsed">
-			<div class="s-group-header-arrow s-group-header-arrow-right"><a href="javascript:app.showGroup({{index}}, true)" title="Expand"></a></div>
+			<div class="s-group-header-arrow s-group-header-arrow-right"><a title="Expand"></a></div>
 			<div class="s-group-header-menu">{{#with phyletic_profile}}{{plural gene_count "gene" "genes"}} in {{present_in}} species {{/with}}</div>
-			<div class="s-group-header-label">Group <a>{{public_id}}</a> at {{level_name}} level</div>
+			<div class="s-group-header-label">Group <a href="?level={{params.level}}&species={{params.species}}&query={{public_id}}" title="{{public_id}}" onclick="app.href(event, this)">{{public_id}}</a> at {{level_name}} level</div>
 			<div class="s-group-header-title">{{name}} &nbsp;</div>
 		</div>
 

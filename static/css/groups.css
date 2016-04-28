@@ -4,10 +4,6 @@
 	min-height: 65px;
 }
 
-.s-group-collapsed {
-	cursor: pointer;
-}
-
 .s-group-header {
 	position: relative;
 	padding: 10px 60px 10px 30px;
@@ -35,6 +31,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-decoration: none;
     color: #998;
+	cursor: pointer;
 }
 
 .s-group-header-arrow>a:hover{
