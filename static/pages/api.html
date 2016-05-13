@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <style>
+      body {background-color:white}
+      h1   {color:#7D3364}
+      h2   {color:black}
+      h3   {color:#990066}
+      .boxed {
+      margin: 4px;
+      border: 1px solid purple;
+      background: lightgrey;
+      color:black ;
+      font:arial;
+      }
+    </style>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--    <meta http-equiv="content-type" content="text/html; charset=windows-1252">//-->
+  </head>
+
+  <body>
+
+    <h1><b>OrthoDB API</b></h1>
+
+    The OrthoDB backend can be programatically accessed using RESTful programming.
+    In our implementation this means that, through different URL's, data can be retrieved using the format:
+    <div class="boxed">
+      <pre>
+        <i>http://www.orthodb.org/CMD?ARG1="value"&ARG2="value&..."</i>
+      </pre>
+    </div>
+    
+    where <i>CMD</i> is a command and all <i>ARGx</i> are arguments to that specific command.
+    Below follows a description of the available commands with arguments.
+    All data is returned in JSON format, except for <b>/fasta</b> and <b>tab</b>.
+    <p>
+      The JSON returned is of the generic format:
+      <div class="boxed">
+        <pre>
+          {
+             "url"    : full url of request
+             "message": message string if status is error
+             "status" : "ok" or "error"
+             "data"   : array of data
+          }
+        </pre>
+      </div>
+    </p>
+
+    <p>
+      The clusters and genes have OrthoDB specific ids.
+      <dl><b>Cluster id</b>
+        <dt>Generic form <i>FFFVVCCCCII</i></dt>
+        <dd><i>FFF</i> either EOG (eukaryota) or POG (prokaryota)</dd>
+        <dd><i>VV</i> OrthoDB version (current '09')</dd>
+        <dd><i>CCCC</i> unique identifier for each clade</dd>
+        <dd><i>II</i> unique cluster identifier within the clade clade</dd>
+      </dl>
+      Example: <i>EOG091G06KN</i>
+
+      <dl><b>Gene id</b>
+        <dt>Generic form <i>taxid:geneid</i></dt>
+        <dd><i>taxid</i>  is the NCBI taxonomy id</dd>
+        <dd><i>geneid</i> is a unique zero-padded hexadecimal identifier</dd>
+      </dl>
+      Example: <i>10090:000d08</i>
+      
+    </p>
+    <h2>/tree</h2>
+    <dl><b>Arguments</b>
+      <dd>NONE</dd>
+      <dt><b>Returns</b></dt>
+      <dd>full tree used in OrthoDB</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>This retrieves the full tree.</dd>
+    </dl>
+    <p><a href="tree">Example</a></p>
+      
+    <h2>/search</h2>
+    <dl><b>Arguments</b>
+      <dt>query</dt>
+      <dd>full query string</dd>
+      <dt>level</dt>
+      <dd>NCBI taxon id of the clade</dd>
+      <dt>skip</dt>
+      <dd>number of hits to skip</dd>
+      <dt>limit</dt>
+      <dd>maximum nr of hits (cluster ids) to return</dd>
+      <dt>universal</dt>
+      <dd>phyloprofile filter, present in 1.0, 0.9, 0.8 of all species in the clade</dd>
+      <dt>singlecopy</dt>
+      <dd>phyloprofile filter, singlecopy in 1.0, 0.9, 0.8 of all species in the clade</dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>a list of clusters</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>This finds all cluster id's matching a given query.</dd>
+    </dl>
+    <p><a href="search?query=p450&limit=2&level=33208&singlecopy=0.8">Example</a></p>
+    
+    <h2>/blast</h2>
+    <dl><b>Arguments</b>
+      <dt><i>all arguments for <b>/search</b> except 'query'</i> ---</dt>
+      <dt>seq</dt>
+      <dd>sequence string, <b><i>without fasta-header</i></b></dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>list of OrthoDB clusters</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>TThis finds all cluster id's with genes matching the given sequence. The list is sorted with the best matching cluster first.</dd>
+    </dl>
+    <p><a href="blast?level=33208&seq=MGDSHEDTSATVPEAVAEEVSLFSTTDIVLF">Example</a></p>
+    
+    <h2>/group</h2>
+    <dl><b>Arguments</b>
+      <dt>id</dt>
+      <dd>OrthoDB cluster id </dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>annotation details on the given cluster id</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>Retrieve detailed annotation information on the given cluster.</dd>
+    </dl>
+    <p><a href="group?id=EOG091G02VT">Example</a></p>
+    
+    <h2>/orthologs</h2>
+    <dl><b>Arguments</b>
+      <dt>id</dt>
+      <dd>OrthoDB cluster id</dd>
+      <dt>species</dt>
+      <dd>optional comma-separated list of species taxid's</dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>a dictionary of tax id's, each contain a list of OrthoDB gene id's</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>Retrieve all genes in a given cluster, possibly filtered wrt species.</dd>
+    </dl>
+    <p><a href="orthologs?id=EOG091G02VT">Example</a></p>
+    
+    <h2>/ogdetails</h2>
+    <dl><b>Arguments</b>
+      <dt>id</dt>
+      <dd>OrthoDB gene id</dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>detailed information on the given gene id</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>Retrieve further details on a given gene id.</dd>
+    </dl>
+    <p><a href="ogdetails?id=6087:00306f">Example</a></p>
+    
+    <h2>/siblings</h2>
+    <dl><b>Arguments</b>
+      <dt>id</dt>
+      <dd>OrthodDB cluster id</dd>
+      <dt>limit</dt>
+      <dd>max nr of returned siblings</dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>a list of OrthoDB cluster id's</dd>
+    </dl>
+    <dl><b>Description</b>
+      <dd>Retrieve all siblings to the given cluster.</dd>
+    </dl>
+    <p><a href="siblings?id=EOG091G02VT">Example</a></p>
+    
+    <h2>/fasta</h2>
+    <dl><b>Arguments 1</b>
+      <dt>id</dt>
+      <dd>OrthoDB cluster id</dd>
+      <dt>species</dt>
+      <dd>list of NCBI species taxonomy id's</dd>
+    </dl>
+    <dl><b>Arguments 2</b>
+      <dt><i>all arguments for <b>/search</b></i></dt>
+      <dt>species</dt>
+      <dd>list of NCBI species taxonomy id's</dd>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>sequences in fasta format</dd>
+    </dl>
+    <p><a href="fasta?id=EOG091G02VT">Example</a></p>
+    
+    <h2>/tab</h2>
+    <dl><b>Arguments</b>
+    <dt><i>same arguments as for <b>/fasta</b></dt>
+    </dl>
+    <dl>
+      <dt><b>Returns</b></dt>
+      <dd>tab-separated table of gene annotations</dd>
+    </dl>
+    <p><a href="tab?id=EOG091G02VT">Example</a></p>
+
+    
+  </body>
+</html>
