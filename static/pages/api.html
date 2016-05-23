@@ -22,7 +22,7 @@
 
     <h1><b>OrthoDB API</b></h1>
 
-    The OrthoDB backend can be programatically accessed using RESTful programming.
+    The OrthoDB data can be programatically accessed using RESTful programming.
     In our implementation this means that, through different URL's, data can be retrieved using the format:
     <div class="boxed">
       <pre>
@@ -32,7 +32,10 @@
     
     where <i>CMD</i> is a command and all <i>ARGx</i> are arguments to that specific command.
     Below follows a description of the available commands with arguments.
-    All data is returned in JSON format, except for <b>/fasta</b> and <b>tab</b>.
+    All data is returned in <a href="https://en.wikipedia.org/wiki/JSON" >JSON</a> format, except for <b>/fasta</b> and <b>tab</b>.
+    <p>
+      JSON data is widely supported by many languages. An overview with many examples can be found <a href="http://www.tutorialspoint.com/json"><b>here</b></a>.
+    </p>
     <p>
       The JSON returned is of the generic format:
       <div class="boxed">
