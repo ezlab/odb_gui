@@ -22,20 +22,17 @@
     <p>
       <font size=5><b>OrthoDB Pipeline Software</b></font><br>
       Download latest full pipeline from
-      <a href="OrthoDB_soft_1.6.tgz" onClick="ga('send', 'event', 'Download', 'orthodb_soft');"><b>here</b></a> (MD5: 1c7a1e4caf1becf318fd34b47f145864).<br><br>
+      <a href="http://www.orthodb.org/orthodb_software/OrthoDB_soft_2.1.tgz" onClick="ga('send', 'event', 'Download', 'orthodb_soft');"><b>here</b></a> (MD5: a1865c5ff8005a5c01242aacac75249d).<br><br>
       1. Untar the file (tar -xz OrthoDB_soft_X.tgz). This will create a directory OrthoDB_soft_X with all files.<br>
       2. Then follow the instructions in OrthoDB_soft_X/README.<br><br>
       <b>Notes</b><br>
       <ul>
-        <li>29/07/2015 v1.x : fixed a bug in 'ORTHOPIPE-X/fasta_tools.py' script - it manifests itself as a crash under certain circumstances - fixed file is <a href="fasta_tools.py"><b>here</b></a></li>
-        <li>17/06/2015 v1.x : fixed bugs in the 'ORTHOPIPE-X/check_python.sh' script - it fails when the default 'python' is python 2.x - fixed file is <a href="check_python.sh"><b>here</b></a></li>
-        <li>16/06/2015 v1.6 : fixed some non fatal bugs. Also renamed user variable OPTS_EFFDBSZ to ALIGNER_EFFDBSZ (same for OPTS_NUMALIGNMENTS).</li>
-        <li>11/06/2015 v1.5 : fixed a fatal bug in SETINPARSEL step. In 1.4 that step would fail with an error.</li>
+        <li>17/05/2016 v2.1 : cleanup/fixes, added more help with ./pipeline.sh</li>
       </ul>
     </p>
     <p>
       <font size=5><b>Benchmarking Scripts</b></font><br>
-      Scripts used for benchmarking various pipelines are <a href="comparison_scripts.tgz" onClick="ga('send', 'event', 'Download', 'orthodb_compare');"><b>here</b></a> (MD5: 9d5e675656394174563e644a7b78e468)
+      Scripts used for benchmarking various pipelines are <a href="http://www.orthodb.org/orthodb_software/comparison_scripts.tgz" onClick="ga('send', 'event', 'Download', 'orthodb_compare');"><b>here</b></a> (MD5: 9d5e675656394174563e644a7b78e468)
       <br>
       They require that the user provides a set of clusters, all in the same format, as well as a
       reference cluster with which all are compared. Look in run_comparisons.sh for details.
@@ -47,7 +44,7 @@
       University of Geneva, Switzerland
     </p>
 
-    <!--  Google Analytics
+    <!--  Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -55,6 +52,6 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');      
       ga('create', 'UA-16460000-3', 'auto');
     </script>
-    -->
+
   </body>
 </html>
