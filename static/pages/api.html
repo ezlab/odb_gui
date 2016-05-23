@@ -22,8 +22,8 @@
 
     <h1><b>OrthoDB API</b></h1>
 
-    The OrthoDB data can be programatically accessed using RESTful programming.
-    In our implementation this means that, through different URL's, data can be retrieved using the format:
+    The OrthoDB data can be programatically accessed using a URL based interface.
+    In our implementation this means that the data can be retrieved using the following URL:
     <div class="boxed">
       <pre>
         <i>http://www.orthodb.org/CMD?ARG1="value"&ARG2="value&..."</i>
@@ -32,8 +32,8 @@
     
     where <i>CMD</i> is a command and all <i>ARGx</i> are arguments to that specific command.
     Below follows a description of the available commands with arguments.
-    All data is returned in <a href="https://en.wikipedia.org/wiki/JSON" >JSON</a> format, except for <b>/fasta</b> and <b>tab</b>.
     <p>
+      All data is returned in <a href="https://en.wikipedia.org/wiki/JSON" >JSON</a> format, except for <b>/fasta</b> and <b>tab</b>.
       JSON data is widely supported by many languages. An overview with many examples can be found <a href="http://www.tutorialspoint.com/json"><b>here</b></a>.
     </p>
     <p>
@@ -84,6 +84,8 @@
     <dl><b>Arguments</b>
       <dt>query</dt>
       <dd>full query string</dd>
+      <dt>ncbi</dt>
+      <dd>flag - if 0, then generic search, if 1 the query is assumed to be a NCBI gene id</dd>
       <dt>level</dt>
       <dd>NCBI taxon id of the clade</dd>
       <dt>skip</dt>
@@ -106,7 +108,7 @@
     
     <h2>/blast</h2>
     <dl><b>Arguments</b>
-      <dt><i>all arguments for <b>/search</b> except 'query'</i> ---</dt>
+      <dt><i>all arguments for <b>/search</b> except 'query' and 'ncbi'</i> ---</dt>
       <dt>seq</dt>
       <dd>sequence string, <b><i>without fasta-header</i></b></dd>
     </dl>
