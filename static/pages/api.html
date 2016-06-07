@@ -32,6 +32,8 @@
     
     where <i>CMD</i> is a command and all <i>ARGx</i> are arguments to that specific command.
     Below follows a description of the available commands with arguments.
+
+    <h2>Data Formats</h2>
     <p>
       All data is returned in <a href="https://en.wikipedia.org/wiki/JSON" >JSON</a> format, except for <b>/fasta</b> and <b>tab</b>.
       JSON data is widely supported by many languages. An overview with many examples can be found <a href="http://www.tutorialspoint.com/json"><b>here</b></a>.
@@ -69,6 +71,29 @@
       Example: <i>10090:000d08</i>
       
     </p>
+
+    <h2>Using the API</h2>
+    <p>
+      Interacting with the API can be done using either any web browser or a command line tool like 'wget' or 'curl'.
+      <ul>
+	<li>Linux: normally both are installed by default</li>
+	<li>Windows: <a href=http://gnuwin32.sourceforge.net/packages/wget.htm>wget</a> and <a href=https://curl.haxx.se/download.html>curl</a></li>
+	<li>Mac: 'curl' is usually installed natively, otherwise look <a href=https://curl.haxx.se/download.html>here</a></li>
+      </ul>
+    </p>
+    <p>
+      Example download fasta for a certain query and save in file 'data.fs' :
+      <div class="boxed">
+	<pre>
+          <i>wget 'http://www.orthodb.org/fasta?query=Cytochrome%20P450&level=33208&species=33208' -O data.fs</i>
+          <i>curl 'http://www.orthodb.org/fasta?query=Cytochrome%20P450&level=33208&species=33208' -o data.fs</i>
+	</pre>
+      </div>
+      Note the difference in options for specifying output file.
+    </p>
+
+    <h2>API Commands</h2>
+
     <h2>/tree</h2>
     <dl><b>Arguments</b>
       <dd>NONE</dd>
