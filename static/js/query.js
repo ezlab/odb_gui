@@ -19,9 +19,14 @@ $(function(){
 		}
 	});
 
+	var level = '';
+
+	app.method('level', lock, function(value){
+		level = value;
+	});
 
 	function autocomplete(query, callback){
-		$.getJSON("complete", {query: query.term}).then(app.verifyResponse).then(function(response){
+		$.getJSON("complete", {query: query.term, level: level}).then(app.verifyResponse).then(function(response){
 			callback(response.data);
 		});
 	}
