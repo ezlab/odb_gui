@@ -31,7 +31,16 @@
     </div>
     
     where <i>CMD</i> is a command and all <i>ARGx</i> are arguments to that specific command.
-    Below follows a description of the available commands with arguments.
+    Below follows a description of the available commands with arguments.<br>
+
+    <b>NOTE</b> the request rate is limited to 1 request/second for the following URL's:
+    <ul>
+      <li>/blast</li>
+      <li>/tab</li>
+      <li>/fasta</li>
+    </ul>
+    If the rate is too high, some of the requests will fail with a 503 error.
+    
 
     <h2>Data Formats</h2>
     <p>
@@ -76,9 +85,9 @@
     <p>
       Interacting with the API can be done using either any web browser or a command line tool like 'wget' or 'curl'.
       <ul>
-	<li>Linux: normally both are installed by default</li>
-	<li>Windows: <a href=http://gnuwin32.sourceforge.net/packages/wget.htm>wget</a> and <a href=https://curl.haxx.se/download.html>curl</a></li>
-	<li>Mac: 'curl' is usually installed natively, otherwise look <a href=https://curl.haxx.se/download.html>here</a></li>
+	    <li>Linux: normally both are installed by default</li>
+	    <li>Windows: <a href=http://gnuwin32.sourceforge.net/packages/wget.htm>wget</a> and <a href=https://curl.haxx.se/download.html>curl</a></li>
+	    <li>Mac: 'curl' is usually installed natively, otherwise look <a href=https://curl.haxx.se/download.html>here</a></li>
       </ul>
     </p>
     <p>
