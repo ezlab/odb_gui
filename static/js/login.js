@@ -2,15 +2,17 @@
 (function(){
 
 	function url(path){
-		return path + '?next=' + encodeURIComponent(location.pathname + location.search);
+		return path + '?next=' + encodeURIComponent(location.pathname + 'static/pages/reload.html');
 	}
 
 	app.login = function(){
-		location.href = url('login');
+		$('.s-login').show();
+		$('.s-login iframe').attr('src', url('login'));
 	};
 
 	app.register = function(){
-		location.href = url('register');
+		$('.s-login').show();
+		$('.s-login iframe').attr('src', url('register'));
 	};
 
 	app.logout = function(){
