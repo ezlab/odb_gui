@@ -8,11 +8,22 @@
 {{#if data}}
 
 	<table class="s-files">
+		<tr>
+			<th class="s-file-name">File name</th>
+			<th class="s-file-size">Size</th>
+			<th class="s-file-date">Date</th>
+			<th class="s-file-analysis">Analysis</th>
+			<th class="s-file-countdown">Countdown</th>
+			<th class="s-file-fmt">Format</th>
+			<th class="s-file-status">Status</th>
+		</tr>
 	{{#each data}}
 		<tr>
 			<td class="s-file-name"><label><input type="radio" name="selected-file" value="{{name}}" {{#if @index}}{{else}}checked{{/if}}>{{name}}</label></td>
 			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
 			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
+			<td class="s-file-analysis">{{analysis}}</td>
+			<td class="s-file-countdown">{{coundown}}</td>
 			<td class="s-file-fmt">{{filefmt}}</td>
 			<td class="s-file-status">{{status}}</td>
 		</tr>
