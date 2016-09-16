@@ -27,9 +27,7 @@
 	<script src="static/vendors/jquery/jquery.cookie.js" type="text/javascript"></script>
 	<script src="static/vendors/handlebars/handlebars-v4.0.5.js" type="text/javascript"></script>
 	<script src="static/vendors/fancytree/jquery.fancytree.js" type="text/javascript"></script>
-	<script src="static/vendors/numeral/numeral.min.js" type="text/javascript"></script>
-	<script src="static/vendors/moment/moment.min.js" type="text/javascript"></script>
-	<script src="static/vendors/flow/flow.js" type="text/javascript"></script>
+	<script src="static/vendors/d3/d3.min.js" type="text/javascript"></script>
 	<script src="static/js/all.js" type="text/javascript"></script>
 
 </head>
@@ -42,19 +40,8 @@
 				<a href="http://www.isb-sib.ch/" target="_new" class="s-header-logo-2"></a>
 				<div class="s-header-menu-1">
 					<a href="http://cegg.unige.ch" title="CEGG Home" class="header_links">CEGG Home</a>
-					<a href="charts.html" class="header_links">Comparative Analysis</a>
-					<div class="s-user-menu">
-						<a href="?files=all" onclick="app.href(event, this)">Files/Upload</a>
-					</div>
 				</div>
 				<div class="s-header-menu-2">
-					<div class="s-login-menu">
-						<a href="javascript:app.login()">Login</a> |
-						<a href="javascript:app.register()">Register</a>
-					</div>
-					<div class="s-logout-menu">
-						<a href="javascript:app.logout()">Logout</a>
-					</div>
 					<a href="?page=help" onclick="app.href(event, this)">Help</a>
 				</div>
 				<div class="s-username-box"></div>
@@ -63,36 +50,13 @@
 
 		<div class="s-sidebar">
 			<div class="s-sidebar-tabs">
-				<a id="tab-0" class="s-sidebar-tab s-sidebar-tab-selected" href="javascript:app.selectTab(0)">Build your query</a>
-				<a id="tab-1" class="s-sidebar-tab" href="javascript:app.selectTab(1)">Search by sequence</a>
-			</div>
-
-			<div id="wrap-0" class="s-sidebar-wrap">
-				<div class="s-sidebar-section">
-					<div class="s-sidebar-label">Text search:</div>
-					<input id="input-search-text" type="text" />
-					<a href="?page=help#keyword-search" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
-				</div>
-
-				<div class="s-sidebar-section">
-					<div class="s-sidebar-label">Phyloprofile:</div>
-					<select id="input-universal"></select>
-					<select id="input-single-copy"></select>
-					<a href="?page=help#phyloprofile-filters" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
-				</div>
-			</div>
-
-			<div id="wrap-1" class="s-sidebar-wrap s-hidden">
-				<div class="s-sidebar-section">
-					<div class="s-sidebar-label">Copy a protein sequence (<1000 a.a.):</div>
-					<textarea id="input-sequence" class="s-sidebar-sequence"></textarea>
-					<a href="?page=help#sequence-search" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
-				</div>
+				<a id="tab-0" class="s-sidebar-tab s-sidebar-tab-selected" href="javascript:app.selectTab(0)">Select species</a>
+				<a id="tab-1" class="s-sidebar-tab" href="javascript:app.selectTab(1)">Configure chart</a>
 			</div>
 
 			<div class="s-sidebar-wrap">
 				<div class="s-sidebar-section">
-					<div class="s-sidebar-label">Search at:</div>
+					<div class="s-sidebar-label">Top level:</div>
 					<select id="input-search-level"></select>
 					<a href="?page=help#search-level" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
 
@@ -117,7 +81,7 @@
 		</div>
 
 		<div id="topbox" class="s-topbox">
-			<a href="?" onclick="app.href(event, this)"><img src="static/images/orthodb-logo.png" height="77" width="214"></a>
+			<a href="."><img src="static/images/orthodb-logo.png" height="77" width="214"></a>
 			<div id="summary" class="s-summary"></div>
 		</div>
 

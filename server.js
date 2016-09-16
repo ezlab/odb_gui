@@ -23,7 +23,7 @@ cfg.proxy = {
 	}
 };
 
-var	routes = ['/group', '/search', '/blast', '/orthologs', '/ogdetails', '/siblings', '/fasta', '/tab', '/tree', '/complete'];
+var	routes = ['/group', '/search', '/blast', '/orthologs', '/ogdetails', '/siblings', '/fasta', '/tab', '/tree', '/complete', '/compare'];
 
 
 var app = express.Router();
@@ -37,6 +37,7 @@ app.get('/search', function(req, res, next){
 
 app.get(routes, proxy('ezmeta.unige.ch', cfg.proxy));
 app.get('/', util.file('/index.html'));
+app.get('/charts.html', util.file('/charts.html'));
 
 app.get('/login', auth.login);
 app.get('/logout', auth.logout);

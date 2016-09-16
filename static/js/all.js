@@ -23,5 +23,6 @@
 	include('overlay.js');
 	include('login.js');
 	include('files.js');
+	include('charts.js');
 
 })();

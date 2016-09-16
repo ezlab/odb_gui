@@ -1,6 +1,10 @@
 
 $(function(){
 
+	if (!window.Flow){
+		return;
+	}
+
 	var flow = new Flow({
 		target: 'upload',
 		chunkSize: 1024*1024,
