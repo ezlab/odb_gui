@@ -20,7 +20,8 @@
 		'summary',
 		'title',
 		'files',
-		'upload'
+		'upload',
+		'charts'
 	];
 
 	var partials = [
