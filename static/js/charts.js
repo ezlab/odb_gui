@@ -41,7 +41,7 @@
 			app.level(params.level || '');
 
 			app.loadChart({
-				levels: params.level,
+				level: params.level,
 				species: params.species
 			});
 		}
@@ -64,7 +64,8 @@
 
 		$('.chart').removeClass('s-chart-loading');
 
-		var data = response.data;
+		var data = response.data,
+			legend = response.legend;
 
 		function translate(x, y){
 			return 'translate(' + x + ',' + y + ')';
@@ -79,10 +80,10 @@
 
 		var defs = svg.append('defs');
 
-		cfg.colors.reverse().forEach(function(color, i){
+		cfg.colors.slice(0, legend.length).reverse().forEach(function(color, i){
 
 			var size = 5,
-				type = cfg.patterns[i];
+				type = cfg.patterns[legend.length-i-1];
 
 			var pattern = defs.append('pattern')
 				.attr('id', 'p' + i)
@@ -178,7 +179,7 @@
 			"paddingBottom": 100,
 
 			"colors": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
-			"patterns": [0,0,0,0,0,1],
+			"patterns": [1,0,0,0,0,0],
 
 			"end" : true
 		};
