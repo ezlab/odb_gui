@@ -1,5 +1,5 @@
 
-(function(){
+$(function(){
 
 	function url(path){
 		return path + '?next=' + encodeURIComponent(location.pathname + 'static/pages/reload.html');
@@ -31,5 +31,5 @@
 	}
 
 	$.getJSON('user').then(app.verifyResponse).then(renderUser);
-})();
+});
 
