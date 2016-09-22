@@ -76,24 +76,104 @@ $(function(){
 	});
 
 
-	var level;
+	function selectedFile(){
+		return $('input[name=selected-file]:checked').val();
+	}
 
-	app.method('level', {}, function(value){
-		level = value;
+	function selectedAnalysis(){
+		return $('input[name=selected-analysis]:checked').val();
+	}
+
+	function reload(){
+		top.location.reload();
+	}
+
+
+	$('#content').on('change', 'input[name=selected-file]:checked', function(){
+		$('.s-run-file').val(selectedFile());
 	});
 
-	function triggerRun(){
+	$('#content').on('change', 'input[name=selected-analysis]:checked', function(){
+		$('.s-link-analysis').attr('href', 'analysis?id=' + selectedAnalysis());
+	});
 
-		var file = $('input[name=selected-file]:checked').val(),
-			node = app.getNode(level),
-			levelName = node ? ' at ' + node.data.name + ' level' : '';
 
-		if (!window.confirm('Do you really want to run analysis on ' + file + levelName + '?')){
+	$('#content').on('click', '#run-button', function(){
+
+		var file = $('.s-run-file').val(),
+			species = $('.s-run-species').val(),
+			placeAt = $('.s-run-place-at').val(),
+			mapTo = $('.s-run-map-to').val();
+
+		if (!species){
+			alert('Please fill species name (required).');
 			return;
 		}
 
-		$.post('run', {file: file, level: level});
-	}
+		if (!window.confirm('Do you really want to run analysis on ' + file + '?')){
+			return;
+		}
+
+		var params = {
+			file: file,
+			species: species,
+			placeAt: placeAt,
+			mapTo: mapTo
+		};
+
+		$.post('run', params).then(reload);
+	});
+
+
+	app.fileMakePublic = function(){
+
+		var file = selectedFile();
+
+		if (!window.confirm('Do you really want to make public the data in ' + file + '?')){
+			return;
+		}
+
+		var params = {
+			file: file,
+			action: 'publish'
+		};
+
+		$.post('file', params).then(reload);
+	};
+
+
+	app.fileDelete = function(){
+
+		var file = selectedFile();
+
+		if (!window.confirm('Do you really want to delete ' + file + '?')){
+			return;
+		}
+
+		var params = {
+			file: file,
+			action: 'delete'
+		};
+
+		$.post('file', params).then(reload);
+	};
+
+
+	app.analysisDelete = function(){
+
+		var id = selectedAnalysis();
+
+		if (!window.confirm('Do you really want to delete the selected analysis (' + id + ')?')){
+			return;
+		}
+
+		var params = {
+			id: id,
+			action: 'delete'
+		};
+
+		$.post('analysis', params).then(reload);
+	};
 
 
 	function load(path){
@@ -115,8 +195,6 @@ $(function(){
 
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
-
-			$('#run-button').on('click', triggerRun);
 		});
 	};
 

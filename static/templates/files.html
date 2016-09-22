@@ -27,8 +27,8 @@
 	</table>
 
 	<div class="s-file-cmd">
-		<a href="#">Make public</a>
-		<a href="#">Delete</a>
+		<a href="javascript:app.fileMakePublic()">Make public</a>
+		<a href="javascript:app.fileDelete()">Delete</a>
 	</div>
 
 	<div class="s-run-analysis">
@@ -45,7 +45,7 @@
 
 		<div class="s-input-wrap">
 			<label>Place at:</label>
-			<select>
+			<select class="s-run-place-at">
 				<option selected>Arthropoda</option>
 				<option>Vertebrata</option>
 			</select>
@@ -53,7 +53,7 @@
 
 		<div class="s-input-wrap">
 			<label>Map to:</label>
-			<select>
+			<select class="s-run-map-to">
 				<option selected>Arthropoda</option>
 			</select>
 		</div>
@@ -85,8 +85,8 @@
 		</table>
 
 		<div class="s-file-cmd">
-			<a href="#">Download</a>
-			<a href="#">Delete</a>
+			<a href="analysis?id={{analyses.0.id}}" target="fasta" class="s-link-analysis">Download</a>
+			<a href="javascript:app.analysisDelete()">Delete</a>
 		</div>
 
 	{{/if}}
