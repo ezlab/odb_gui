@@ -1,0 +1,4 @@
+{"status": "ok", "message": null, "data": [
+	{"date": "2016-09-18T18:09:38", "file": "sample.fasta", "placeAt": "proteobacteria", "mapTo": "bacteria", "species": "Desconhecidus placeholderium", "id": "Analysis_00001", "status": "ok"},
+	{"date": "2016-09-18T18:09:38", "file": "sample2.fasta", "placeAt": "proteobacteria", "mapTo": "bacteria", "species": "Desconhecidus placeholderium", "id": "Analysis_00002", "status": "ok"}
+]}

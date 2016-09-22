@@ -47,6 +47,7 @@ app.get('/user', auth.user);
 
 app.use('/upload', upload('tmp'));
 app.get('/files', auth.loginRequired, util.file('/files.json'));
+app.get('/analyses', auth.loginRequired, util.file('/analyses.json'));
 
 app.post('/run', function(req, res){
 	res.send({status: 'ok'});
