@@ -39,15 +39,13 @@ td.s-file-name {
 	width: 250px;
 }
 
-td.s-file-size {
+td.s-file-size,
+td.s-file-date,
+td.s-file-countdown {
 	text-align: right;
 }
 
-td.s-file-date {
-	text-align: right;
-}
-
-td.s-file-fmt {
+td.s-file-status {
 	text-align: center;
 }
 
@@ -102,4 +100,50 @@ td.s-file-fmt {
 .s-file-error:before {
     content: "\f06a"; /* exclamation circle */
     color: #c00;
+}
+
+.s-file-cmd>a {
+	margin-left: 15px;
+}
+
+.s-run-analysis {
+	position: relative;
+	margin: 30px 0;
+	padding: 20px 15px 10px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+
+.s-run-analysis>div {
+	margin-bottom: 15px;
+}
+
+.s-input-wrap {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.s-input-wrap>label {
+	display: block;
+	color: #654;
+	margin-bottom: 3px;
+}
+
+.s-input-wrap input,
+.s-input-wrap select {
+	font: inherit;
+	width: 150px;
+	height: 25px;
+	padding: 0 0 0 5px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	line-height: 23px;
+}
+
+input.s-run-file {
+	border-color: #eee;
+}
+
+input.s-run-species {
+	width: 250px;
 }

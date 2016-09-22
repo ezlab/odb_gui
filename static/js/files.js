@@ -96,13 +96,23 @@ $(function(){
 	}
 
 
+	function load(path){
+		return $.getJSON(path).then(app.verifyResponse);
+	}
+
+
 	app.showFiles = function(){
 
 		$('#summary').html('');
 		$("#content").html('Loading..');
 
-		$.getJSON('files').then(app.verifyResponse).then(function(response){
-			$("#content").html(app.templates.files(response));
+		$.when(load('files'), load('analyses')).then(function(files, analyses){
+
+			$("#content").html(app.templates.files({
+				files: files.data,
+				analyses: analyses.data
+			}));
+
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
 

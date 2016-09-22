@@ -5,32 +5,92 @@
 
 <div id="upload-box" onmousedown="app.uploadUpdates(false)" onmouseup="app.uploadUpdates(true)"></div>
 
-{{#if data}}
+{{#if files}}
 
 	<table class="s-files">
 		<tr>
 			<th class="s-file-name">File name</th>
 			<th class="s-file-size">Size</th>
 			<th class="s-file-date">Date</th>
-			<th class="s-file-analysis">Analysis</th>
 			<th class="s-file-countdown">Countdown</th>
-			<th class="s-file-fmt">Format</th>
 			<th class="s-file-status">Status</th>
 		</tr>
-	{{#each data}}
+	{{#each files}}
 		<tr>
 			<td class="s-file-name"><label><input type="radio" name="selected-file" value="{{name}}" {{#if @index}}{{else}}checked{{/if}}>{{name}}</label></td>
 			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
 			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
-			<td class="s-file-analysis">{{analysis}}</td>
-			<td class="s-file-countdown">{{coundown}}</td>
-			<td class="s-file-fmt">{{filefmt}}</td>
+			<td class="s-file-countdown">{{countdown}}</td>
 			<td class="s-file-status">{{status}}</td>
 		</tr>
 	{{/each}}
 	</table>
 
-	<span id="run-button" class="s-button">Run analysis</span>
+	<div class="s-file-cmd">
+		<a href="#">Make public</a>
+		<a href="#">Delete</a>
+	</div>
+
+	<div class="s-run-analysis">
+
+		<div class="s-input-wrap">
+			<label>File name:</label>
+			<input class="s-run-file" value="{{files.0.name}}" readonly></input>
+		</div>
+
+		<div class="s-input-wrap">
+			<label>Species name:</label>
+			<input class="s-run-species" size="40">
+		</div>
+
+		<div class="s-input-wrap">
+			<label>Place at:</label>
+			<select>
+				<option selected>Arthropoda</option>
+				<option>Vertebrata</option>
+			</select>
+		</div>
+
+		<div class="s-input-wrap">
+			<label>Map to:</label>
+			<select>
+				<option selected>Arthropoda</option>
+			</select>
+		</div>
+
+		<div>
+			<span id="run-button" class="s-button">Run analysis</span>
+		</div>
+
+		<a href="?page=help#run-analysis" class="s-help s-help-top-right" title="help" onclick="app.href(event, this)"></a>
+	</div>
+
+	{{#if analyses}}
+
+		<table class="s-files">
+			<tr>
+				<th class="s-file-name">File name</th>
+				<th class="s-file-size">Species name</th>
+				<th class="s-file-date">Placed at</th>
+				<th class="s-file-countdown">Mapped to</th>
+			</tr>
+		{{#each analyses}}
+			<tr>
+				<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
+				<td class="s-file-countdown">{{species}}</td>
+				<td class="s-file-fmt">{{placeAt}}</td>
+				<td class="s-file-status">{{mapTo}}</td>
+			</tr>
+		{{/each}}
+		</table>
+
+		<div class="s-file-cmd">
+			<a href="#">Download</a>
+			<a href="#">Delete</a>
+		</div>
+
+	{{/if}}
+
 
 {{else}}
 	No files are uploaded yet.
