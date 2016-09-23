@@ -3,18 +3,21 @@
 		"name": "file1.dat",
 		"size": 123456789,
 		"filefmt": "UNDECIDED",
+		"countdown": "30 days",
 		"status": "warn_fasta",
 		"date": "2015-09-17T00:00:00+00:00"
 	},{
 		"name": "file2.dat",
 		"size": 234567890,
 		"filefmt": "UNDECIDED",
+		"countdown": "30 days",
 		"status": "warn_fasta",
 		"date": "2015-09-17T00:00:00+00:00"
 	},{
 		"name": "file3.dat",
 		"size": 345678901,
 		"filefmt": "UNDECIDED",
+		"countdown": "30 days",
 		"status": "warn_fasta",
 		"date": "2015-09-17T00:00:00+00:00"
 	}],
