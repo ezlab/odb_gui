@@ -176,9 +176,38 @@ $(function(){
 	};
 
 
-	function load(path){
-		return $.getJSON(path).then(app.verifyResponse);
+	function load(path, params){
+		return $.getJSON(path, params).then(app.verifyResponse);
 	}
+
+
+	function fillList(selector, root, text){
+
+		var list = $(selector).empty();
+
+		if (text){
+			list.append($("<option></option>").attr("value", root).text(text));
+		}
+
+		return load('tree', {format: 1, root: root}).then(function(response){
+			$.each(response.data, function(index, item){
+				list.append($("<option></option>").attr("value", item[0]).text(item[1]));
+			});
+		});
+	}
+
+
+	function fillPlaceAtList(){
+		fillList('.s-run-place-at', 33208).then(fillMapToList);
+	}
+
+
+	function fillMapToList(){
+		fillList('.s-run-map-to', $('.s-run-place-at').val(), $('.s-run-place-at option:selected').text());
+	}
+
+
+	$('#content').on('change', '.s-run-place-at', fillMapToList);
 
 
 	app.showFiles = function(){
@@ -192,6 +221,8 @@ $(function(){
 				files: files.data,
 				analyses: analyses.data
 			}));
+
+			fillPlaceAtList();
 
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
