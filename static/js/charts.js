@@ -66,14 +66,37 @@
 	}
 
 
+	var chartData = {
+		data: [],
+		legend: []
+	};
+
 	app.loadChart = function(params){
 
 		$('#content').html(app.templates.charts());
 
-		data = load('compare', params);
-
-		$.when('.chart', data, app.compareConfig, app.ready).then(app.compareRender);
+		data = load('compare', params).then(function(response){
+			chartData = response;
+			app.compareRender('.chart', chartData, app.compareConfig);
+		});
 	};
+
+
+	$(function(){
+
+		$('input[data-cfg]').each(function(){
+
+			var field = $(this),
+				name = field.attr('data-cfg');
+
+			field.val(app.compareConfig[name]);
+
+			field.keypress(function(){setTimeout(function(){
+				app.compareConfig[name] = field.val();
+				app.compareRender('.chart', chartData, app.compareConfig);
+			}, 100)});
+		});
+	});
 
 })();
 

@@ -11,6 +11,9 @@
 		paddingTop: 100,
 		paddingBottom: 100,
 
+		legendTop: 50,
+		legendRight: 150,
+
 		fractions: [],
 	};
 
@@ -114,7 +117,7 @@
 
 
 		var fraction = bar.selectAll('.fraction')
-			.data(function(d){return d.fractions.reverse();})
+			.data(function(d){return d.fractions.concat().reverse();})
 			.enter().append('rect')
 			.attr('width', xScale)
 			.attr('height', yScale.bandwidth())
@@ -122,7 +125,7 @@
 
 
 		var legend = chart.append('g')
-			.attr('transform', translate(chartWidth - 150, 50));
+			.attr('transform', translate(chartWidth - cfg.legendRight, cfg.legendTop));
 
 		legend.append('rect')
 			.attr('x', -15.5)
