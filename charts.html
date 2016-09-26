@@ -28,6 +28,7 @@
 	<script src="static/vendors/handlebars/handlebars-v4.0.5.js" type="text/javascript"></script>
 	<script src="static/vendors/fancytree/jquery.fancytree.js" type="text/javascript"></script>
 	<script src="static/vendors/d3/d3.min.js" type="text/javascript"></script>
+	<script src="static/vendors/textures/textures.min.js" type="text/javascript"></script>
 	<script src="static/js/all.js" type="text/javascript"></script>
 
 </head>
@@ -54,7 +55,8 @@
 				<a id="tab-1" class="s-sidebar-tab" href="javascript:app.selectTab(1)">Configure chart</a>
 			</div>
 
-			<div class="s-sidebar-wrap">
+			<div id="wrap-0" class="s-sidebar-wrap">
+
 				<div class="s-sidebar-section">
 					<div class="s-sidebar-label">Top level:</div>
 					<select id="input-search-level"></select>
@@ -66,9 +68,7 @@
 				</div>
 
 				<button id="submit-button">Submit</button>
-			</div>
 
-			<div class="s-sidebar-wrap s-sidebar-wrap-2">
 				<div class="s-sidebar-section s-sidebar-section-top">
 					<div class="s-sidebar-label">Select species:</div>
 					<div class="s-sidebar-label">Search species by name:</div>
@@ -77,6 +77,10 @@
 				</div>
 
 				<div id="full-tree"></div>
+			</div>
+
+			<div id="wrap-1" class="s-sidebar-wrap s-hidden">
+
 			</div>
 		</div>
 
