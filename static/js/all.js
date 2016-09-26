@@ -24,5 +24,6 @@
 	include('login.js');
 	include('files.js');
 	include('charts.js');
+	include('compare.js');
 
 })();
