@@ -3,34 +3,40 @@
 
 	app.compareConfig = {
 
-		svgWidth: 900,
+		svgWidth: 950,
 		svgHeight: 600,
 
 		paddingLeft: 150,
-		paddingRight: 150,
+		paddingRight: 250,
 		paddingTop: 100,
 		paddingBottom: 100,
 
 		legendTop: 50,
-		legendRight: 150,
+		legendRight: 50,
 
-		series: [],
+		series: [
+			{color: '#6CA7DE', pattern: 'x', size: 7},
+			{color: '#6CA7DE', pattern: '\\', size: 7},
+			{color: '#B5A5D8', pattern: 'x', size: 7},
+			{color: '#B5A5D8', pattern: '/', size: 7},
+			{color: '#D7A5BD', pattern: '', size: 7},
+			{color: '#EFE8FD', pattern: '', size: 7},
+			{color: '#F2F2F2', pattern: '', size: 7},
+			{color: '#F4F4F4', pattern: '', size: 7},
+			{color: '#F8F8F8', pattern: '', size: 7},
+			{color: '#FFFFFF', pattern: '', size: 7}
+		],
+
+		version: 1
 	};
 
 
-	if (window.d3){
+	if (window.localStorage && localStorage.compareConfig){
 
-		if (window.localStorage && localStorage.compareConfig){
-			app.compareConfig = JSON.parse(localStorage.compareConfig);
-		}
-		else {
-			$.each(d3.schemeCategory10, function(index, color){
-				app.compareConfig.series.push({
-					color: color,
-					pattern: '',
-					size: 5
-				});
-			});
+		var prevCfg = JSON.parse(localStorage.compareConfig);
+
+		if (prevCfg.version == 1){
+			app.compareConfig = prevCfg;
 		}
 	}
 
@@ -121,6 +127,7 @@
 			.attr('font-size', 11);
 
 		var yAxis = d3.axisLeft(yScale)
+			.tickPadding(8)
 			.tickSize(0);
 
 		chart.append('g')
@@ -150,7 +157,7 @@
 		legend.append('rect')
 			.attr('x', -15.5)
 			.attr('y', -15.5)
-			.attr('width', 250)
+			.attr('width', 200)
 			.attr('height', patterns.length * 20 + 30)
 			.style('stroke', '#ccc')
 			.style('fill', '#fff');
@@ -158,6 +165,7 @@
 		var item = legend.selectAll('.legend')
 			.data(response.legend)
 			.enter().append('g')
+			.attr('font-size', 11)
 			.attr('transform', function(d, i){return translate(0, i*20)});
 
 		item.append('text')
