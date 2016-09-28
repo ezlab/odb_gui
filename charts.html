@@ -20,6 +20,7 @@
 	</script>
 
 	<link href="static/vendors/fancytree/skin-lion/ui.fancytree.css" rel="stylesheet">
+	<link href="static/vendors/spectrum/spectrum.css" rel="stylesheet">
 	<link href="static/css/all.css" rel="stylesheet">
 
 	<script src="static/vendors/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
@@ -27,6 +28,7 @@
 	<script src="static/vendors/jquery/jquery.cookie.js" type="text/javascript"></script>
 	<script src="static/vendors/handlebars/handlebars-v4.0.5.js" type="text/javascript"></script>
 	<script src="static/vendors/fancytree/jquery.fancytree.js" type="text/javascript"></script>
+	<script src="static/vendors/spectrum/spectrum.js" type="text/javascript"></script>
 	<script src="static/vendors/d3/d3.min.js" type="text/javascript"></script>
 	<script src="static/vendors/textures/textures.min.js" type="text/javascript"></script>
 	<script src="static/js/all.js" type="text/javascript"></script>
@@ -82,7 +84,46 @@
 			<div id="wrap-1" class="s-sidebar-wrap s-hidden">
 
 				<div class="s-sidebar-section s-sidebar-section-top">
-					<div class="s-sidebar-label">Dimensions:</div>
+					<div class="s-sidebar-label">Fractions:</div>
+
+					<div class="s-label-left">
+						<label>&nbsp;</label>
+						<select id="series-selector"></select>
+					</div>
+
+					<div class="s-label-left">
+						<label>Color:</label>
+						<input data-series="color" type="text" />
+					</div>
+
+					<div class="s-label-left">
+						<label>Pattern:</label>
+						<select data-series="pattern">
+							<option value="">None</option>
+							<option value="/">Diagonal lines /</option>
+							<option value="\">Diagonal lines \</option>
+							<option value="|">Vertical lines |</option>
+							<option value="-">Horizontal lines -</option>
+							<option value="x">Crossing lines x</option>
+							<option value="+">Crossing lines +</option>
+							<option value="squares">Squares</option>
+							<option value="nylon">Nylon</option>
+							<option value="waves">Waves</option>
+							<option value="woven">Woven</option>
+							<option value="crosses">Crosses</option>
+							<option value="caps">Caps</option>
+							<option value="hexagons">Hexagons</option>
+						</select>
+					</div>
+
+					<div class="s-label-left">
+						<label>Size:</label>
+						<input data-series="size" type="text" />
+					</div>
+				</div>
+
+				<div class="s-sidebar-section s-sidebar-section-top">
+					<div class="s-sidebar-label">Chart:</div>
 
 					<div class="s-label-left">
 						<label>Width:</label>
