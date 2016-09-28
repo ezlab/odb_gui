@@ -101,11 +101,15 @@ $(function(){
 	$('#content').on('click', '#run-button', function(){
 
 		var file = $('.s-run-file').val(),
-			species = $('.s-run-species').val(),
-			placeAt = $('.s-run-place-at').val(),
-			mapTo = $('.s-run-map-to').val();
+			name = $('.s-run-species').val(),
+			placeAt = $('.s-run-place-at').val();
 
-		if (!species){
+		if (!speciesNames()){
+			alert('Select 1 to 5 species from the right panel tree');
+			return;
+		}
+
+		if (!name){
 			alert('Please fill species name (required).');
 			return;
 		}
@@ -116,9 +120,10 @@ $(function(){
 
 		var params = {
 			file: file,
-			species: species,
+			name: name,
 			placeAt: placeAt,
-			mapTo: mapTo
+			mapTo: level,
+			species: (species || []).join(',')
 		};
 
 		$.post('run', params).then(reload);
@@ -198,16 +203,60 @@ $(function(){
 
 
 	function fillPlaceAtList(){
-		fillList('.s-run-place-at', 33208).then(fillMapToList);
+
+		var node = app.getNode(level);
+
+		if (node){
+			fillList('.s-run-place-at', level, node.data.name);
+			$('.s-run-map-to').val(node.data.name);
+		}
 	}
 
 
-	function fillMapToList(){
-		fillList('.s-run-map-to', $('.s-run-place-at').val(), $('.s-run-place-at option:selected').text());
+	var lock = {},
+		level,
+		species;
+
+	function speciesNames(){
+
+		var i, node, names = [];
+
+		if (!species || !Array.isArray(species)){
+			return;
+		}
+
+		for(i=0; i<species.length; i++){
+			node = app.getNode(species[i]);
+			if (node){
+			 	if (node.children){
+			 		return;
+			 	}
+				names.push(node.data.name);
+			}
+		}
+
+		if (names.length > 5){
+			return;
+		}
+
+		return names.join(', ');
 	}
 
 
-	$('#content').on('change', '.s-run-place-at', fillMapToList);
+	function setSpeciesMsg(){
+		$('.s-button-msg').text(speciesNames() || 'Select 1 to 5 species from the right panel tree');
+	}
+
+
+	app.method('level', lock, function(value){
+		level = value;
+		fillPlaceAtList();
+	});
+
+	app.method('species', lock, function(keys){
+		species = keys;
+		setSpeciesMsg();
+	});
 
 
 	app.showFiles = function(){
@@ -223,6 +272,7 @@ $(function(){
 			}));
 
 			fillPlaceAtList();
+			setSpeciesMsg();
 
 			flow.assignBrowse($('#upload-button'));
 			renderUpload();
