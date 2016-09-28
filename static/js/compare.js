@@ -11,19 +11,27 @@
 		paddingTop: 100,
 		paddingBottom: 100,
 
-		fractions: [],
+		legendTop: 50,
+		legendRight: 150,
+
+		series: [],
 	};
 
 
 	if (window.d3){
-		$.each(d3.schemeCategory10, function(index, color){
-			app.compareConfig.fractions.push({
-				color: color,
-				pattern: 0
-			});
-		});
 
-		app.compareConfig.fractions[0].pattern = 1;
+		if (window.localStorage && localStorage.compareConfig){
+			app.compareConfig = JSON.parse(localStorage.compareConfig);
+		}
+		else {
+			$.each(d3.schemeCategory10, function(index, color){
+				app.compareConfig.series.push({
+					color: color,
+					pattern: '',
+					size: 5
+				});
+			});
+		}
 	}
 
 	app.compareRender = function(selector, response, cfg){
@@ -45,24 +53,38 @@
 			.attr('height', cfg.svgHeight);
 
 
-		cfg.fractions.slice(0, response.legend.length).reverse().forEach(function(fraction, i){
+		cfg.series.slice(0, response.legend.length).reverse().forEach(function(fraction, i){
 
-			var size = 5,
-				type = fraction.pattern;
+			var t;
 
-			if (type){
+			switch(fraction.pattern){
 
-				var t = textures.lines()
-					.size(4)
-					.strokeWidth(1)
-					.background(fraction.color);
+				case '/':  t = textures.lines().orientation('2/8'); break;
+				case '\\': t = textures.lines().orientation('6/8'); break;
+				case '|':  t = textures.lines().orientation('vertical'); break;
+				case '-':  t = textures.lines().orientation('horizontal'); break;
+				case 'x':  t = textures.lines().orientation('2/8', '6/8'); break;
+				case '+':  t = textures.lines().orientation('vertical', 'horizontal'); break;
 
-				svg.call(t);
-				patterns[i] = t.url();
+				case 'squares':  t = textures.paths().d('squares'); break;
+				case 'nylon':    t = textures.paths().d('nylon'); break;
+				case 'waves':    t = textures.paths().d('waves'); break;
+				case 'woven':    t = textures.paths().d('woven'); break;
+				case 'crosses':  t = textures.paths().d('crosses'); break;
+				case 'caps':     t = textures.paths().d('caps'); break;
+				case 'hexagons': t = textures.paths().d('hexagons'); break;
+
+				default:
+					patterns[i] = fraction.color;
+					return;
 			}
-			else {
-				patterns[i] = fraction.color;
-			}
+
+			t.size(fraction.size);
+			t.strokeWidth(1);
+			t.background(fraction.color);
+
+			svg.call(t);
+			patterns[i] = t.url();
 		});
 
 
@@ -96,7 +118,7 @@
 			.attr('transform', translate(0, chartHeight))
 			.call(xAxis)
 			.attr('font-family', '')
-			.attr('font-size', 12);
+			.attr('font-size', 11);
 
 		var yAxis = d3.axisLeft(yScale)
 			.tickSize(0);
@@ -104,7 +126,8 @@
 		chart.append('g')
 			.call(yAxis)
 			.attr('font-family', '')
-			.attr('font-size', 12);
+			.attr('font-style', 'italic')
+			.attr('font-size', 11);
 
 
 		var bar = chart.selectAll('.bar')
@@ -114,7 +137,7 @@
 
 
 		var fraction = bar.selectAll('.fraction')
-			.data(function(d){return d.fractions.reverse();})
+			.data(function(d){return d.fractions.concat().reverse();})
 			.enter().append('rect')
 			.attr('width', xScale)
 			.attr('height', yScale.bandwidth())
@@ -122,7 +145,7 @@
 
 
 		var legend = chart.append('g')
-			.attr('transform', translate(chartWidth - 150, 50));
+			.attr('transform', translate(chartWidth - cfg.legendRight, cfg.legendTop));
 
 		legend.append('rect')
 			.attr('x', -15.5)
@@ -130,7 +153,6 @@
 			.attr('width', 250)
 			.attr('height', patterns.length * 20 + 30)
 			.style('stroke', '#ccc')
-			.style('stroke-width', 1)
 			.style('fill', '#fff');
 
 		var item = legend.selectAll('.legend')
