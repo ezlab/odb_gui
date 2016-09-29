@@ -153,6 +153,7 @@
 				field.spectrum({
 					showInput: true,
 					showPalette: true,
+					showAlpha: true,
  					palette: palette,
 					change: change
 				});
