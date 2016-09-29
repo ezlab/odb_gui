@@ -126,6 +126,13 @@
 			.attr('font-family', '')
 			.attr('font-size', 11);
 
+		chart.append("text")
+            .attr("transform", translate(chartWidth/2, chartHeight + 40))
+            .attr("text-anchor", "middle")
+			.attr('font-size', 11)
+            .text("Gene count");
+
+
 		var yAxis = d3.axisLeft(yScale)
 			.tickPadding(8)
 			.tickSize(0);
