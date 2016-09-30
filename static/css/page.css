@@ -468,6 +468,20 @@ select+select {
 	border: none;
 }
 
+.s-login-wrap a {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	color: #0072dd!important;
+	text-decoration: none;
+	z-index: 10;
+}
+
+.icon-close:before {
+	content: "\f00d";
+	margin-right: 5px;
+	vertical-align: 1px;
+}
 /* jq ui */
 
 .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }

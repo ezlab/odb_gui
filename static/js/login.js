@@ -2,7 +2,7 @@
 $(function(){
 
 	function url(path){
-		return path + '?next=' + encodeURIComponent(location.pathname + 'static/pages/reload.html');
+		return path + '?next=' + encodeURIComponent(location.pathname.replace(/[\w\.]*$/, '') + 'static/pages/reload.html');
 	}
 
 	app.login = function(){
@@ -18,6 +18,11 @@ $(function(){
 	app.logout = function(){
 		location.href = 'logout';
 	};
+
+	app.closeLoginPopup = function(){
+		$('.s-login').hide();
+		$('.s-login iframe').attr('src', '');
+	}
 
 	function renderUser(response){
 		if (response.data){
