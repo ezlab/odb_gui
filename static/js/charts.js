@@ -71,7 +71,11 @@
 		legend: []
 	};
 
+	var chartParams;
+
 	app.loadChart = function(params){
+
+		chartParams = params;
 
 		$('#content').html(app.templates.charts());
 		$('#series-selector').empty();
@@ -234,6 +238,19 @@
 			// ignore
 		}
 	}
+
+
+	app.showFractionData = function(d, i){
+
+		var name = chartData.legend.concat().reverse()[i];
+
+		var link = document.createElement("a");
+		link.href = './compare?level=' + chartParams.level + '&species=' + chartParams.species + '&get_ogs=' + encodeURIComponent(name);
+		link.target = '_blank';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
 
 
 })();

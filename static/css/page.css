@@ -530,3 +530,7 @@ select+select {
 	text-align: right;
 	font-size: 11px;
 }
+
+.fraction {
+	cursor: pointer;
+}

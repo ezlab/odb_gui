@@ -153,9 +153,11 @@
 		var fraction = bar.selectAll('.fraction')
 			.data(function(d){return d.fractions.concat().reverse();})
 			.enter().append('rect')
+			.attr('class', 'fraction')
 			.attr('width', xScale)
 			.attr('height', yScale.bandwidth())
-			.style('fill', function(d, i){return patterns[i]});
+			.style('fill', function(d, i){return patterns[i]})
+			.on('click', app.showFractionData);
 
 
 		var legend = chart.append('g')
