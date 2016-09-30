@@ -204,6 +204,8 @@
 		});
 
 		update();
+
+		$('#submit-button-chart').click(submitChart);
 	});
 
 
@@ -250,6 +252,39 @@
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
+	};
+
+
+	var	lock = {},
+		params = {};
+
+	app.method('level', lock, function(level){
+		params.level = level;
+	});
+
+	app.method('species', lock, function(keys){
+		params.species = keys;
+	});
+
+	function submitChart(){
+
+		var min = 2,
+			max = 20,
+			species = app.extractSpecies(params.species, max);
+
+		if (species.length < min){
+			alert('Select minimum ' + min + ' species to show on the chart');
+			return;
+		}
+
+		if (species.length > max){
+			alert('Too many species - reduce your selection to ' + max + ' species maximum');
+			return;
+		}
+
+		var url = '?level=' + params.level + '&species=' + species;
+
+		app.navigate(url);
 	};
 
 

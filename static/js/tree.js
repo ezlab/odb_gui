@@ -180,4 +180,46 @@ $(function(){
 		appendTo: '.s-sidebar-section-top',
 		source: autocomplete
 	});
+
+
+	app.extractSpecies = function(items, max){
+
+		var species = [];
+
+		function extract(items){
+
+			var i, item, node;
+
+			for(i=0; i<items.length; i++){
+
+				item = items[i];
+
+				if (item.key) {
+					item = item.key;
+				}
+
+				node = app.getNode(item);
+
+				if (!node){
+					break;
+				}
+
+				if (node.children){
+					extract(node.children);
+				}
+				else {
+					species.push(item);
+				}
+
+				if (species.length > max){
+					return;
+				}
+			}
+		}
+
+		extract(items);
+
+		return species;
+	};
+
 });
