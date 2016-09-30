@@ -254,7 +254,7 @@ $(function(){
 	});
 
 	app.method('species', lock, function(keys){
-		species = keys;
+		species = app.extractSpecies(keys, 5);
 		setSpeciesMsg();
 	});
 
