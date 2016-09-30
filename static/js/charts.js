@@ -79,6 +79,7 @@
 		data = load('compare', params).then(function(response){
 			chartData = response;
 			app.compareRender('.chart', chartData, app.compareConfig);
+			createExportLinks();
 
 			$.each(response.legend, function(index, item){
 				$('#series-selector').append($("<option></option>").attr("value", index).text(item));
@@ -107,6 +108,7 @@
 			try {
 				app.compareRender('.chart', chartData, cfg);
 				localStorage.compareConfig = JSON.stringify(cfg);
+				createExportLinks();
 			}
 			catch(err){
 				// ignore
@@ -199,6 +201,40 @@
 
 		update();
 	});
+
+
+	function createExportLinks(){
+
+		try {
+
+			var data = $('svg')[0].outerHTML,
+				blob = new Blob([data], {type:"image/svg+xml;charset=utf-8"}),
+				url = URL.createObjectURL(blob);
+
+			$('#save-as-svg').attr('href', url);
+
+			var image = new Image(),
+				canvas = document.createElement('canvas'),
+				context = canvas.getContext('2d');
+
+			image.onload = function(){
+
+				canvas.width = image.width;
+				canvas.height = image.height;
+
+				context.drawImage(image, 0, 0);
+
+				$('#save-as-png').attr('href', canvas.toDataURL('image/png'));
+			};
+
+
+			image.src = url;
+		}
+		catch(err){
+			// ignore
+		}
+	}
+
 
 })();
 

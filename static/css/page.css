@@ -524,3 +524,9 @@ select+select {
 .ui-spinner-down {
 	top: 6px;
 }
+
+.s-chart-actions {
+	margin: 10px 70px 0;
+	text-align: right;
+	font-size: 11px;
+}
