@@ -11,8 +11,8 @@
 		paddingTop: 100,
 		paddingBottom: 100,
 
-		legendTop: 50,
-		legendRight: 50,
+		legendTop: 30,
+		legendRight: 150,
 
 		series: [
 			{color: '#6CA7DE', pattern: 'x', size: 7},
