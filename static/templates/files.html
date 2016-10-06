@@ -73,8 +73,8 @@
 			<tr>
 				<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
 				<td>{{species}}</td>
-				<td>{{placeAt}}</td>
-				<td>{{mapTo}}</td>
+				<td>{{clade placeAt}}</td>
+				<td>{{clade mapTo}}</td>
 				<td>{{state}}</td>
 			</tr>
 		{{/each}}
