@@ -13,7 +13,6 @@
 			<th class="s-file-size">Size</th>
 			<th class="s-file-date">Date</th>
 			<th class="s-file-countdown">Countdown</th>
-			<th class="s-file-status">Status</th>
 		</tr>
 	{{#each files}}
 		<tr>
@@ -21,7 +20,6 @@
 			<td class="s-file-size">{{numeral size "0.0 b"}}</td>
 			<td class="s-file-date">{{moment date "DD-MMM-YYYY"}}</td>
 			<td class="s-file-countdown">{{countdown}}</td>
-			<td class="s-file-status">{{status}}</td>
 		</tr>
 	{{/each}}
 	</table>
@@ -66,16 +64,18 @@
 		<table class="s-files">
 			<tr>
 				<th class="s-file-name">File name</th>
-				<th class="s-file-size">Species name</th>
-				<th class="s-file-date">Placed at</th>
-				<th class="s-file-countdown">Mapped to</th>
+				<th>Species name</th>
+				<th>Placed at</th>
+				<th>Mapped to</th>
+				<th>State</th>
 			</tr>
 		{{#each analyses}}
 			<tr>
 				<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
-				<td class="s-file-countdown">{{species}}</td>
-				<td class="s-file-fmt">{{placeAt}}</td>
-				<td class="s-file-status">{{mapTo}}</td>
+				<td>{{species}}</td>
+				<td>{{placeAt}}</td>
+				<td>{{mapTo}}</td>
+				<td>{{state}}</td>
 			</tr>
 		{{/each}}
 		</table>
