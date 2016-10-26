@@ -22,6 +22,11 @@
 			return;
 		}
 
+		if (!app.user){
+			app.login();
+			return;
+		}
+
 		if (location.search.length < 2){
 			document.title = 'OrthoDB';
 			ga('send', 'pageview', location.pathname + location.search); // Google analytics
