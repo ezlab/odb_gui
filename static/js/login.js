@@ -1,5 +1,5 @@
 
-$(function(){
+(function(){
 
 	function url(path){
 		return path + '?next=' + encodeURIComponent(location.pathname.replace(/[\w\.]*$/, '') + 'static/pages/reload.html');
@@ -22,19 +22,34 @@ $(function(){
 	app.closeLoginPopup = function(){
 		$('.s-login').hide();
 		$('.s-login iframe').attr('src', '');
+
+		if (String(location.href).match(/charts.html/)){
+			location = './';
+		}
 	}
 
-	function renderUser(response){
-		if (response.data){
+	function renderUser(){
+		if (app.user){
 			$('.s-user-menu').addClass('s-visible');
 			$('.s-logout-menu').addClass('s-visible');
-			$('.s-username-box').text(response.data.username);
+			$('.s-username-box').text(app.user.username);
 		}
 		else {
 			$('.s-login-menu').addClass('s-visible');
 		}
 	}
 
-	$.getJSON('user').then(app.verifyResponse).then(renderUser);
-});
+	function saveUser(response){
+		app.user = response.data;
+	}
+
+	var userReq = $.getJSON('user').then(app.verifyResponse).then(saveUser);
+
+	app.ready = $.when(userReq, app.ready);
+
+	$(function(){
+		userReq.then(renderUser);
+	});
+
+})();
 
