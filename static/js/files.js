@@ -88,6 +88,11 @@ $(function(){
 		top.location.reload();
 	}
 
+	function overlay(msg){
+		$('#waiting').show();
+		$('#waiting-message').text(msg);
+	}
+
 
 	$('#content').on('change', 'input[name=selected-file]:checked', function(){
 		$('.s-run-file').val(selectedFile());
@@ -118,6 +123,8 @@ $(function(){
 			return;
 		}
 
+		overlay('Starting analysis on: ' + file);
+
 		var params = {
 			file: file,
 			name: name,
@@ -138,6 +145,8 @@ $(function(){
 			return;
 		}
 
+		overlay('Making public: ' + file);
+
 		var params = {
 			file: file,
 			action: 'publish'
@@ -155,6 +164,8 @@ $(function(){
 			return;
 		}
 
+		overlay('Deleting file: ' + file);
+
 		var params = {
 			file: file,
 			action: 'delete'
@@ -171,6 +182,8 @@ $(function(){
 		if (!window.confirm('Do you really want to delete the selected analysis (' + id + ')?')){
 			return;
 		}
+
+		overlay('Deleting analysis: ' + id);
 
 		var params = {
 			id: id,
