@@ -76,12 +76,19 @@ $(function(){
 	});
 
 
+	var anatype = 'map';
+
+
 	function selectedFile(){
 		return $('input[name=selected-file]:checked').val();
 	}
 
 	function selectedAnalysis(){
 		return $('input[name=selected-analysis]:checked').val();
+	}
+
+	function selectedType(){
+		return $('input[name=selected-type]:checked').val();
 	}
 
 	function reload(){
@@ -93,6 +100,68 @@ $(function(){
 		$('#waiting-message').text(msg);
 	}
 
+	function runMap(){
+
+			var file = $('.s-run-file').val(),
+				name = $('.s-run-species').val(),
+				placeAt = $('.s-run-place-at').val();
+
+			if (!speciesNames()){
+				alert('Select 1 to 5 species from the right panel tree');
+				return;
+			}
+
+			if (!name){
+				alert('Please fill species name (required).');
+				return;
+			}
+
+			if (!window.confirm('Do you really want to run mapping analysis on ' + file + '?')){
+				return;
+			}
+
+			overlay('Starting analysis on: ' + file);
+
+			var params = {
+				anatype: 'map',
+				file: file,
+				name: name,
+				placeAt: placeAt,
+				mapTo: level,
+				species: (species || []).join(',')
+			};
+
+			$.post('run', params).then(reload);
+	}
+
+
+	function runBUSCO(){
+
+			var file = $('.s-run-file').val(),
+				name = $('.s-run-run').val(),
+				clade = $('.s-run-clade').val();
+
+			if (!name){
+				alert('Please fill run name (required).');
+				return;
+			}
+
+			if (!window.confirm('Do you really want to run BUSCO analysis on ' + file + '?')){
+				return;
+			}
+
+			overlay('Starting analysis on: ' + file);
+
+			var params = {
+				anatype: 'busco',
+				file: file,
+				name: name,
+				clade: clade
+			};
+
+			$.post('run', params).then(reload);
+	}
+
 
 	$('#content').on('change', 'input[name=selected-file]:checked', function(){
 		$('.s-run-file').val(selectedFile());
@@ -102,38 +171,19 @@ $(function(){
 		$('.s-link-analysis').attr('href', 'analysis?id=' + selectedAnalysis());
 	});
 
+	$('#content').on('change', 'input[name=selected-type]:checked', function(){
+		app.navigate('?files=all&anatype=' + selectedType());
+	});
+
+
 
 	$('#content').on('click', '#run-button', function(){
-
-		var file = $('.s-run-file').val(),
-			name = $('.s-run-species').val(),
-			placeAt = $('.s-run-place-at').val();
-
-		if (!speciesNames()){
-			alert('Select 1 to 5 species from the right panel tree');
-			return;
+		if (anatype == 'map'){
+			runMap();
 		}
-
-		if (!name){
-			alert('Please fill species name (required).');
-			return;
+		else if (anatype == 'busco'){
+			runBUSCO();
 		}
-
-		if (!window.confirm('Do you really want to run analysis on ' + file + '?')){
-			return;
-		}
-
-		overlay('Starting analysis on: ' + file);
-
-		var params = {
-			file: file,
-			name: name,
-			placeAt: placeAt,
-			mapTo: level,
-			species: (species || []).join(',')
-		};
-
-		$.post('run', params).then(reload);
 	});
 
 
@@ -257,7 +307,7 @@ $(function(){
 
 
 	function setSpeciesMsg(){
-		$('.s-button-msg').text(speciesNames() || 'Select 1 to 5 species from the right panel tree');
+		$('.s-button-msg').text(anatype == 'map' ? speciesNames() || 'Select 1 to 5 species from the right panel tree' : '');
 	}
 
 
@@ -272,14 +322,19 @@ $(function(){
 	});
 
 
-	app.showFiles = function(){
+	app.showFiles = function(params){
+
+		if (params && params.anatype){
+			anatype = params.anatype;
+		}
 
 		$('#summary').html('');
 		$("#content").html('Loading..');
 
-		$.when(load('files'), load('analyses')).then(function(files, analyses){
+		$.when(load('files'), load('analyses', {anatype: anatype})).then(function(files, analyses){
 
 			$("#content").html(app.templates.files({
+				anatype: anatype,
 				files: files.data,
 				analyses: analyses.data
 			}));
