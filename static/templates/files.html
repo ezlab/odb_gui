@@ -31,10 +31,18 @@
 
 	<div class="s-run-analysis">
 
+		<div class="s-anatype">
+			<span>Select analysis type:</span>
+			<label><input type="radio" name="selected-type" value="map" {{#is anatype "map"}}checked{{/is}}> Mapping </label>
+			<label><input type="radio" name="selected-type" value="busco" {{#is anatype "busco"}}checked{{/is}}> BUSCO </label>
+		</div>
+
 		<div class="s-input-wrap">
 			<label>File name:</label>
 			<input class="s-run-file" value="{{files.0.name}}" readonly></input>
 		</div>
+
+{{#is anatype "map"}}
 
 		<div class="s-input-wrap">
 			<label>Species name:</label>
@@ -51,6 +59,66 @@
 			<input class="s-run-map-to" readonly></input>
 		</div>
 
+{{/is}}
+{{#is anatype "busco"}}
+
+		<div class="s-input-wrap">
+			<label>Run name:</label>
+			<input class="s-run-run" size="40">
+		</div>
+
+		<div class="s-input-wrap">
+			<label>BUSCO clade:</label>
+			<select class="s-run-clade">
+				<option>bacteria</option>
+				<option>proteobacteria</option>
+				<option>rhizobiales</option>
+				<option>betaproteobacteria</option>
+				<option>gammaproteobacteria</option>
+				<option>enterobacteriales</option>
+				<option>deltaepsilonsub</option>
+				<option>actinobacteria</option>
+				<option>cyanobacteria</option>
+				<option>firmicutes</option>
+				<option>clostridia</option>
+				<option>lactobacillales</option>
+				<option>bacillales</option>
+				<option>bacteroidetes</option>
+				<option>spirochaetes</option>
+				<option>tenericutes</option>
+				<option>eukaryota</option>
+				<option>fungi</option>
+				<option>microsporidia</option>
+				<option>dikarya</option>
+				<option>ascomycota</option>
+				<option>pezizomycotina</option>
+				<option>eurotiomycetes</option>
+				<option>sordariomyceta</option>
+				<option>saccharomyceta</option>
+				<option>saccharomycetales</option>
+				<option>basidiomycota</option>
+				<option>metazoa</option>
+				<option>nematoda</option>
+				<option>arthropoda</option>
+				<option>insecta</option>
+				<option>endopterygota</option>
+				<option>hymenoptera</option>
+				<option>diptera</option>
+				<option>vertebrata</option>
+				<option>actinopterygii</option>
+				<option>tetrapoda</option>
+				<option>aves</option>
+				<option>mammalia</option>
+				<option>euarchontoglires</option>
+				<option>laurasiatheria</option>
+				<option>embryophyta</option>
+				<option>protists_ensembl</option>
+				<option>alveolata_stramenophiles_ensembl</option>
+			</select>
+		</div>
+
+{{/is}}
+
 		<div class="s-button-wrap">
 			<span id="run-button" class="s-button">Run analysis</span>
 			<span class="s-button-msg"></span>
@@ -61,24 +129,56 @@
 
 	{{#if analyses}}
 
-		<table class="s-files">
-			<tr>
-				<th class="s-file-name">File name</th>
-				<th>Species name</th>
-				<th>Placed at</th>
-				<th>Mapped to</th>
-				<th>State</th>
-			</tr>
-		{{#each analyses}}
-			<tr>
-				<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
-				<td>{{species}}</td>
-				<td>{{clade placeAt}}</td>
-				<td>{{clade mapTo}}</td>
-				<td>{{state}}</td>
-			</tr>
-		{{/each}}
-		</table>
+		{{#is anatype "map"}}
+
+			<table class="s-files">
+				<tr>
+					<th class="s-file-name">File name</th>
+					<th>Species name</th>
+					<th>Placed at</th>
+					<th>Mapped to</th>
+					<th>State</th>
+				</tr>
+			{{#each analyses}}
+				<tr>
+					<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
+					<td>{{species}}</td>
+					<td>{{clade placeAt}}</td>
+					<td>{{clade mapTo}}</td>
+					<td>{{state}}</td>
+				</tr>
+			{{/each}}
+			</table>
+
+		{{/is}}
+
+		{{#is anatype "busco"}}
+
+			<table class="s-files">
+				<tr>
+					<th class="s-file-name">File name</th>
+					<th>Run name</th>
+					<th>BUSCO clade</th>
+					<th>Complete (single-copy)</th>
+					<th>Complete (multi-copy)</th>
+					<th>Fragmented</th>
+					<th>Missing</th>
+					<th>Total</th>
+				</tr>
+			{{#each analyses}}
+				<tr>
+					<td class="s-file-name"><label><input type="radio" name="selected-analysis" value="{{id}}" {{#if @index}}{{else}}checked{{/if}}>{{file}}</label></td>
+					<td>{{clade}}</td>
+					<td>{{singlecopy}}</td>
+					<td>{{multicopy}}</td>
+					<td>{{fragmented}}</td>
+					<td>{{missing}}</td>
+					<td>{{total}}</td>
+				</tr>
+			{{/each}}
+			</table>
+
+		{{/is}}
 
 		<div class="s-file-cmd">
 			<a href="analysis?id={{analyses.0.id}}" target="fasta" class="s-link-analysis">Download</a>
