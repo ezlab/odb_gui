@@ -78,9 +78,11 @@ $(function(){
 
 		$.each(keys, function(index, key){
 			var node = tree.getNodeByKey(String(key));
-			if (!node.selected){
-				node.setSelected();
-				node.setActive();
+            if (node){
+			    if (!node.selected){
+				    node.setSelected();
+				    node.setActive();
+                }
 			}
 		});
 	});

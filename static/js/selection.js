@@ -72,41 +72,43 @@ $(function(){
 
 				var src = app.getNode(key);
 
-				node = {
-					key: key,
-					selected: key == currentLevel,
-					expanded: true,
-					unselectable: !src.children,
-					extraClasses: src.children ? '' : 's-unselectable',
-					name: src.data.name,
-					alias: src.data.alias,
-					clade: !!src.children
-				};
+                if (src){
+				    node = {
+					    key: key,
+					    selected: key == currentLevel,
+					    expanded: true,
+					    unselectable: !src.children,
+					    extraClasses: src.children ? '' : 's-unselectable',
+					    name: src.data.name,
+					    alias: src.data.alias,
+					    clade: !!src.children
+				    };
 
-				if (src.children && !isParent){
-					addAllSelectedChild(node, src);
-				}
+				    if (src.children && !isParent){
+					    addAllSelectedChild(node, src);
+				    }
 
-				nodes[key] = node;
+				    nodes[key] = node;
 
-				if (src.parent.parent) {
+				    if (src.parent.parent) {
 
-					var parent = getNode(src.parent.key, true);
+					    var parent = getNode(src.parent.key, true);
 
-					if (parent.children){
-						parent.children.push(node);
-						makeChildrenUnselectable(parent);
-					}
-					else {
-						parent.children = [node];
-						if (parent.unselectable) {
-							makeChildrenUnselectable(parent);
-						}
-					}
-				}
-				else {
-					results.push(node);
-				}
+					    if (parent.children){
+						    parent.children.push(node);
+						    makeChildrenUnselectable(parent);
+					    }
+					    else {
+						    parent.children = [node];
+						    if (parent.unselectable) {
+							    makeChildrenUnselectable(parent);
+						    }
+					    }
+				    }
+				    else {
+					    results.push(node);
+				    }
+                }
 			}
 
 			return node;
