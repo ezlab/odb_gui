@@ -14,32 +14,34 @@ $(function(){
 			var list = [],
 				src = app.getNode(key);
 
-			if (!src.children){
-				src = src.parent;
-			}
+            if (src){
+			    if (!src.children){
+				    src = src.parent;
+			    }
 
-			while (src.parent){
+			    while (src.parent){
 
-				list.unshift({
-					key: src.key,
-					name: src.data.name
-				});
-
-				src = src.parent;
-			}
-
-			if (results){
-				for (var j=0; j<results.length; j++){
-					if (!list[j] || results[j].key != list[j].key){
-						results.splice(j);
-						break;
-					}
-				}
-			}
-			else {
-				results = list;
-			}
-		}
+				    list.unshift({
+					    key: src.key,
+					    name: src.data.name
+				    });
+                    
+				    src = src.parent;
+			    }
+                
+			    if (results){
+				    for (var j=0; j<results.length; j++){
+					    if (!list[j] || results[j].key != list[j].key){
+						    results.splice(j);
+						    break;
+					    }
+				    }
+			    }
+			    else {
+				    results = list;
+			    }
+		    }
+        }
 
 		for(i=0; i<keys.length; i++){
 			calcNode(keys[i]);
