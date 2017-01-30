@@ -25,8 +25,16 @@
       <a href="/software/OrthoDB_soft_2.4.2.tgz" onClick="ga('send', 'event', 'Download', 'orthodb_soft');"><b>here</b></a> (MD5: 501aff35e2f06d35217c5956e5a25571).<br><br>
       1. Untar the file (tar -xz OrthoDB_soft_X.tgz). This will create a directory OrthoDB_soft_X with all files.<br>
       2. Then follow the instructions in OrthoDB_soft_X/README.<br><br>
-      <b>Notes</b><br>
+      <b>Patches</b><br>
+      Note that the patches below are for package version 2.4.2 (BRHCLUS 2.2.1 and ORTHOPIPE 6.2.0). Dont apply any old patches to newer versions.
+      <li>05/01/2017 v2.4.2 : <a href="/software/orthopipe_6.2.0_20170105.patch">ORTHOPIPE 6.2.0 patch</a> (MD5: b7bda76133f27541f4e07df9dcf09ed9) fixes missing restore_ifs function and a bad string comparison in common_odb.sh</li>
+      <br>A patch is applied as follows
+      <li>go to the root directory of the concerned package (ORTHOPIPE or BRHCLUS)</li>
+      <li>enter on command line: <pre><code>patch -p0 < patchfile</code></pre></li>
+      <br>
+      <b>News</b><br>
       <ul>
+	<li>05/01/2017 v2.4 : patch to fix two issues
 	<li>07/12/2016 v2.4 : various speed improvements and bug fixes - known issue: unit test fails after a rewrite</li>
 	<li>28/06/2016 v2.3 : fixed setup.sh for cases without a fasta.txt file</li>
 	<li>25/05/2016 v2.2 : fixed issue with compiling brhclus in Ubuntu</li>
