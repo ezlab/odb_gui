@@ -65,7 +65,13 @@
 	$(document).ajaxError(function(event, xhr, settings, error){
 
 		if (xhr.status == 401){
-			app.login();
+
+			var login = 'login?next=' + encodeURIComponent(location.pathname + location.search);
+
+			if (history.replaceState){
+				history.replaceState({}, document.title, '?back=1');
+			}
+
 			return;
 		}
 

@@ -2,31 +2,20 @@
 (function(){
 
 	function url(path){
-		return path + '?next=' + encodeURIComponent(location.pathname.replace(/[\w\.]*$/, '') + 'static/pages/reload.html');
+		return path + '?next=' + encodeURIComponent(location.pathname + location.search);
 	}
 
 	app.login = function(){
-		$('.s-login').show();
-		$('.s-login iframe').attr('src', url('login'));
+		location.href = url('login');
 	};
 
 	app.register = function(){
-		$('.s-login').show();
-		$('.s-login iframe').attr('src', url('register'));
+		location.href = url('register');
 	};
 
 	app.logout = function(){
 		location.href = 'logout';
 	};
-
-	app.closeLoginPopup = function(){
-		$('.s-login').hide();
-		$('.s-login iframe').attr('src', '');
-
-		if (String(location.href).match(/charts.html/)){
-			location = './';
-		}
-	}
 
 	function renderUser(){
 		if (app.user){
