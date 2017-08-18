@@ -69,7 +69,7 @@
 		$('#summary').html('');
 		$("#content").html('Loading..');
 		$("#content").load(url, function(){
-			if (location.hash) {
+			if (location.hash && String(location.hash).match(/#[\w-]+$/)) {
 				var el = $(location.hash)[0];
 				if (el) {
 					el.scrollIntoView();
